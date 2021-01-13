@@ -1,0 +1,57 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="vscode-sqlite">vscode-sqlite</h1>
+<p>VSCode extension to explore and query SQLite databases.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/AlexCovizzi/vscode-sqlite/master/static/sqlite_workflow_1.gif" title="SQLite Workflow" alt="static/sqlite_workflow_1" /><figcaption>static/sqlite_workflow_1</figcaption>
+</figure>
+<h2 id="requirements">Requirements</h2>
+<p>No requirements</p>
+<p><strong>Note</strong>: The extension includes binaries for the sqlite cli (used to execute queries), in case the included binaries do not work you need to provide your own path/command for the sqlite cli in the setting <code>sqlite.sqlite3</code></p>
+<h2 id="features">Features</h2>
+<ul>
+<li><p><strong>Query</strong> sqlite databases and view results in a table.</p></li>
+<li><p><strong>Export</strong> query results to <code>json</code>, <code>csv</code> and <code>html</code>.</p></li>
+<li><p><strong>Sidebar explorer</strong>: list databases, tables, views and columns.</p></li>
+<li><p><strong>Autocompletion</strong> for sqlite keywords, table and views names, column names (autocompletion is available for an sql document once its bound to a database, to bind an sql document to a database use the command <code>SQLite: Use Database</code>)</p></li>
+<li><p><strong>Grammar</strong> support for sqlite keywords. This is available for documents with language <code>sqlite</code>. You can mark a document as an <code>sqlite</code> document adding <code>-- sqlite</code> in the first line.</p></li>
+</ul>
+<h2 id="commands">Commands</h2>
+<ul>
+<li><p><strong>SQLite: New Query</strong>   Create a new untitled <code>sqlite</code> file.</p></li>
+<li><p><strong>SQLite: Run Query</strong>   Execute query script in the editor.</p></li>
+<li><p><strong>SQLite: Quick Query</strong>   Choose a database and execute a query without creating a new document.</p></li>
+<li><p><strong>SQLite: Use Database</strong>   Bind current <code>sql</code> document to the selected database.</p></li>
+<li><p><strong>SQLite: Open Database</strong>   Open the selected database in the sqlite explorer.</p></li>
+<li><p><strong>SQLite: Close Database</strong>   Remove the selected database from the sqlite explorer.</p></li>
+<li><p><strong>SQLite: Refresh Databases</strong>   Refresh databases open in the sqlite explorer.</p></li>
+<li><p><strong>SQLite: Show output</strong>   Show the extension's output channel.</p></li>
+</ul>
+<h2 id="settings">Settings</h2>
+<ul>
+<li><p><code>"sqlite.sqlite3": &lt;string&gt;</code>   sqlite3 command or binaries path.</p></li>
+<li><p><code>"sqlite.logLevel": &lt;string&gt;</code>   Set output channel log level (DEBUG, INFO, WARN, ERROR).</p></li>
+<li><p><code>"sqlite.recordsPerPage": &lt;number&gt;</code>   Number of records to show per page. (-1 to show all records).</p></li>
+<li><p><code>"sqlite.databaseExtensions": &lt;string[]&gt;</code>   The file extensions recognized as SQLite database.</p></li>
+</ul>
+<h2 id="thanks-to-the-contributors">Thanks to the <a href="https://github.com/AlexCovizzi/vscode-sqlite/graphs/contributors">Contributors</a>!</h2>
+<ul>
+<li><a href="https://github.com/mandel59">mandel59 (Ryusei YAMAGUCHI)</a></li>
+<li><a href="https://github.com/LokiSharp">LokiSharp (LokiSharp)</a></li>
+</ul>

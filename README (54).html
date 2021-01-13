@@ -1,0 +1,138 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="angular-in-memory-web-api">Angular in-memory-web-api</h1>
+<p><a href="https://travis-ci.org/angular/in-memory-web-api"><img src="https://travis-ci.org/angular/in-memory-web-api.svg?branch=master" alt="Build Status" /></a></p>
+<blockquote>
+<p><strong>UPDATE NOTICE</strong></p>
+<p>As of v.0.1.0, the npm package was renamed from <code>angular2-in-memory-web-api</code> to its current name, <code>angular-in-memory-web-api</code>. All versions <strong><em>after 0.0.21</em></strong> are shipped under this name. <strong>Be sure to update your <code>package.json</code> and import statements</strong>.</p>
+</blockquote>
+<p>An in-memory web api for Angular demos and tests.</p>
+<p>It will intercept HTTP requests that would otherwise go to the remote server via the Angular <code>XHRBackend</code> service</p>
+<p>This in-memory web api service processes an HTTP request and returns an <code>Observable</code> of HTTP <code>Response</code> object in the manner of a RESTy web api. It natively handles URI patterns in the form :base/:collectionName/:id?</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ts"><code class="sourceCode typescript"><a class="sourceLine" id="cb1-1" title="1">  <span class="co">// for store with a &#39;heroes&#39; collection</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  GET api/heroes          <span class="co">// all heroes</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  GET api/heroes/<span class="dv">42</span>       <span class="co">// the character with id=42</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  GET api/heroes<span class="op">?</span>name<span class="op">=^</span>j  <span class="co">// &#39;j&#39; is a regex; returns heroes whose name starting with &#39;j&#39; or &#39;J&#39;</span></a>
+<a class="sourceLine" id="cb1-5" title="5">  GET api/<span class="va">heroes</span><span class="op">.</span><span class="at">json</span>/<span class="dv">42</span>  <span class="co">// ignores the &quot;.json&quot;</span></a></code></pre></div>
+<p>Also accepts "commands": <code>POST "resetDb",     GET/POST "config" - get or (re)set the config</code></p>
+<h2 id="basic-usage">Basic usage</h2>
+<p>Create an <code>InMemoryDataService</code> class that implements <code>InMemoryDataService</code>.</p>
+<p>At minimum it must implement <code>createDb</code> which creates a "database" hash whose keys are collection names and whose values are arrays of collection objects to return or update. For example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ts"><code class="sourceCode typescript"><a class="sourceLine" id="cb2-1" title="1"><span class="im">import</span> <span class="op">{</span> InMemoryDbService <span class="op">}</span> <span class="im">from</span> <span class="st">&#39;angular-in-memory-web-api&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="im">export</span> <span class="kw">class</span> InMemHeroService <span class="kw">implements</span> InMemoryDbService <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-4" title="4">  <span class="fu">createDb</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-5" title="5">    <span class="kw">let</span> heroes <span class="op">=</span> <span class="op">[</span></a>
+<a class="sourceLine" id="cb2-6" title="6">      <span class="op">{</span> id<span class="op">:</span> <span class="st">&#39;1&#39;</span><span class="op">,</span> name<span class="op">:</span> <span class="st">&#39;Windstorm&#39;</span> <span class="op">},</span></a>
+<a class="sourceLine" id="cb2-7" title="7">      <span class="op">{</span> id<span class="op">:</span> <span class="st">&#39;2&#39;</span><span class="op">,</span> name<span class="op">:</span> <span class="st">&#39;Bombasto&#39;</span> <span class="op">},</span></a>
+<a class="sourceLine" id="cb2-8" title="8">      <span class="op">{</span> id<span class="op">:</span> <span class="st">&#39;3&#39;</span><span class="op">,</span> name<span class="op">:</span> <span class="st">&#39;Magneta&#39;</span> <span class="op">},</span></a>
+<a class="sourceLine" id="cb2-9" title="9">      <span class="op">{</span> id<span class="op">:</span> <span class="st">&#39;4&#39;</span><span class="op">,</span> name<span class="op">:</span> <span class="st">&#39;Tornado&#39;</span> <span class="op">}</span></a>
+<a class="sourceLine" id="cb2-10" title="10">    <span class="op">];</span></a>
+<a class="sourceLine" id="cb2-11" title="11">    <span class="cf">return</span> <span class="op">{</span>heroes<span class="op">};</span></a>
+<a class="sourceLine" id="cb2-12" title="12">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb2-13" title="13"><span class="op">}</span></a></code></pre></div>
+<p>Register this module and your service implementation in <code>AppModule.imports</code> calling the <code>forRoot</code> static method with this service class and optional configuration object:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ts"><code class="sourceCode typescript"><a class="sourceLine" id="cb3-1" title="1"><span class="co">// other imports</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="im">import</span> <span class="op">{</span> HttpModule <span class="op">}</span>           <span class="im">from</span> <span class="st">&#39;@angular/http&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="im">import</span> <span class="op">{</span> InMemoryWebApiModule <span class="op">}</span> <span class="im">from</span> <span class="st">&#39;angular-in-memory-web-api&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb3-4" title="4"></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="im">import</span> <span class="op">{</span> InMemHeroService <span class="op">}</span>     <span class="im">from</span> <span class="st">&#39;../app/hero-data&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb3-6" title="6">@<span class="fu">NgModule</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb3-7" title="7"> imports<span class="op">:</span> <span class="op">[</span></a>
+<a class="sourceLine" id="cb3-8" title="8">   HttpModule<span class="op">,</span></a>
+<a class="sourceLine" id="cb3-9" title="9">   <span class="va">InMemoryWebApiModule</span><span class="op">.</span><span class="fu">forRoot</span>(InMemHeroService)<span class="op">,</span></a>
+<a class="sourceLine" id="cb3-10" title="10">   <span class="op">...</span></a>
+<a class="sourceLine" id="cb3-11" title="11"> <span class="op">],</span></a>
+<a class="sourceLine" id="cb3-12" title="12"> <span class="op">...</span></a>
+<a class="sourceLine" id="cb3-13" title="13"><span class="op">}</span>)</a>
+<a class="sourceLine" id="cb3-14" title="14"><span class="im">export</span> <span class="kw">class</span> AppModule <span class="op">{</span> <span class="op">...</span> <span class="op">}</span></a></code></pre></div>
+<p>See examples in the Angular.io such as the <a href="https://angular.io/docs/ts/latest/guide/server-communication.html">Server Communication</a> and <a href="https://angular.io/docs/ts/latest/tutorial/toh-pt6.html">Tour of Heroes</a> chapters.</p>
+<blockquote>
+<p>Always import the <code>InMemoryWebApiModule</code> <em>after</em> the <code>HttpModule</code> to ensure that the <code>XHRBackend</code> provider of the <code>InMemoryWebApiModule</code> supersedes all others.</p>
+</blockquote>
+<h1 id="bonus-features">Bonus Features</h1>
+<p>Some features are not readily apparent in the basic usage example.</p>
+<p>The <code>InMemoryBackendConfigArgs</code> defines a set of options. Add them as the second <code>forRoot</code> argument:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ts"><code class="sourceCode typescript"><a class="sourceLine" id="cb4-1" title="1">   <span class="va">InMemoryWebApiModule</span><span class="op">.</span><span class="fu">forRoot</span>(InMemHeroService<span class="op">,</span> <span class="op">{</span> delay<span class="op">:</span> <span class="dv">500</span> <span class="op">}</span>)<span class="op">,</span></a></code></pre></div>
+<h2 id="simple-query-strings">Simple query strings</h2>
+<p>Pass custom filters as a regex pattern via query string. The query string defines which property and value to match.</p>
+<p>Format: <code>/app/heroes/?propertyName=regexPattern</code></p>
+<p>The following example matches all names start with the letter ‘j' or ‘J' in the heroes collection.</p>
+<p><code>/app/heroes/?name=^j</code></p>
+<blockquote>
+<p>Search pattern matches are case insensitive by default. Set <code>config.caseSensitiveSearch = true</code> if needed.</p>
+</blockquote>
+<h2 id="pass-thru-to-a-live-xhrbackend">Pass thru to a live XHRBackend</h2>
+<p>If an existing, running remote server should handle requests for collections that are not in the in-memory database, set <code>Config.passThruUnknownUrl: true</code>. This service will forward unrecognized requests via a base version of the Angular XHRBackend.</p>
+<h2 id="parseurl-override"><em>parseUrl</em> override</h2>
+<p>The <code>parseUrl</code> method breaks down the request URL into a <code>ParsedUrl</code> object. <code>ParsedUrl</code> is a public interface whose properties guide the in-memory web api as it processes the request.</p>
+<p>Request URLs for your api may not match the api imagined by the default <code>parseUrl</code> and may even cause it to throw an error. You can override the default by implementing a <code>parseUrl</code> method in your <code>InMemoryDbService</code>. Such a method must take the incoming request URL string and return a <code>ParsedUrl</code> object.</p>
+<h2 id="responseinterceptor"><em>responseInterceptor</em></h2>
+<p>You can morph the response returned by the default HTTP methods, called by <code>collectionHandler</code>, to suit your needs by adding a <code>responseInterceptor</code> method to your <code>InMemoryDbService</code> class. The <code>collectionHandler</code> calls your interceptor like this:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ts"><code class="sourceCode typescript"><a class="sourceLine" id="cb5-1" title="1">responseOptions <span class="op">=</span> <span class="va">this</span><span class="op">.</span><span class="fu">responseInterceptor</span>(responseOptions<span class="op">,</span> requestInfo)<span class="op">;</span></a></code></pre></div>
+<h2 id="http-method-interceptors">HTTP method interceptors</h2>
+<p>If you make requests this service can't handle but still want an in-memory database to hold values, override the way this service handles any HTTP method by implementing a method in your <code>InMemoryDbService</code> that does the job.</p>
+<p>The <code>InMemoryDbService</code> method name must be the same as the HTTP method name but all lowercase. This service calls it with an <code>HttpMethodInterceptorArgs</code> object. For example, your HTTP GET interceptor would be called like this: e.g., <code>yourInMemDbService["get"](interceptorArgs)</code>. Your method must return an <code>Observable&lt;Response&gt;</code></p>
+<p>The <code>HttpMethodInterceptorArgs</code> (as of this writing) are:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ts"><code class="sourceCode typescript"><a class="sourceLine" id="cb6-1" title="1">requestInfo<span class="op">:</span> RequestInfo<span class="op">;</span>           <span class="co">// parsed request</span></a>
+<a class="sourceLine" id="cb6-2" title="2">db<span class="op">:</span> <span class="bu">Object</span><span class="op">;</span>                         <span class="co">// the current in-mem database collections</span></a>
+<a class="sourceLine" id="cb6-3" title="3">config<span class="op">:</span> InMemoryBackendConfigArgs<span class="op">;</span>  <span class="co">// the current config</span></a>
+<a class="sourceLine" id="cb6-4" title="4">passThruBackend<span class="op">:</span> ConnectionBackend<span class="op">;</span> <span class="co">// pass through backend, if it exists</span></a></code></pre></div>
+<h2 id="examples">Examples</h2>
+<p>The file <code>examples/hero-data.service.ts</code> is an example of a Hero-oriented <code>InMemoryDbService</code>, derived from the <a href="https://angular.io/docs/ts/latest/guide/server-communication.html">HTTP Client</a> sample in the Angular documentation.</p>
+<p>Add the following line to <code>AppModule.imports</code></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ts"><code class="sourceCode typescript"><a class="sourceLine" id="cb7-1" title="1"><span class="va">InMemoryWebApiModule</span><span class="op">.</span><span class="fu">forRoot</span>(HeroDataService)</a></code></pre></div>
+<p>That file also has a <code>HeroDataOverrideService</code> derived class that demonstrates overriding the <code>parseUrl</code> method and an HTTP GET interceptor.</p>
+<p>Add the following line to <code>AppModule.imports</code> to see it in action:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ts"><code class="sourceCode typescript"><a class="sourceLine" id="cb8-1" title="1"><span class="va">InMemoryWebApiModule</span><span class="op">.</span><span class="fu">forRoot</span>(HeroDataOverrideService)</a></code></pre></div>
+<h1 id="to-do">To Do</h1>
+<ul>
+<li>add tests (shameful omission!)</li>
+</ul>
+<h1 id="build-instructions">Build Instructions</h1>
+<p>Mostly gulp driven.</p>
+<p>The following describes steps for updating from one Angular version to the next</p>
+<blockquote>
+<p>This is essential even when there are no changes of real consequence. Neglecting to synchronize Angular 2 versions triggers typescript definition duplication error messages when compiling your application project.</p>
+</blockquote>
+<ul>
+<li><p><code>gulp bump</code> - up the package version number</p></li>
+<li><p>update <code>CHANGELOG.MD</code> to record the change</p></li>
+<li><p>update the dependent version(s) in <code>package.json</code></p></li>
+<li><p><code>npm install</code> the new package(s) (make sure they really do install!)<br> <code>npm list --depth=0</code></p></li>
+<li>consider updating typings, install individually/several:</li>
+</ul>
+<pre><code>  npm install @types/jasmine @types/node --save-dev</code></pre>
+<ul>
+<li><p><code>gulp clean</code> - clear out all generated <code>text</code></p></li>
+<li><p><code>npm run tsc</code> to confirm the project compiles w/o error (sanity check)</p></li>
+</ul>
+<p>– NO TESTS YET … BAD –</p>
+<ul>
+<li><code>gulp build</code></li>
+<li><p>commit and push</p></li>
+<li><p><code>npm publish</code></p></li>
+<li><p>Fix and validate angular.io docs samples</p></li>
+<li>Add two tags to the release commit with for unpkg
+<ul>
+<li>the version number</li>
+<li>‘latest'</li>
+</ul></li>
+</ul>

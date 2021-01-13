@@ -1,0 +1,52 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="gif-player">Gif Player</h1>
+<p>Adds a play/pause button and a scrubber for controlling gif playback</p>
+<figure>
+<img src="https://github.com/mattbierner/vscode-gif-player/raw/master/documentation/example.gif" alt="Example of using Gif Player to view gifs" /><figcaption>Example of using Gif Player to view gifs</figcaption>
+</figure>
+<h2 id="features">Features</h2>
+<ul>
+<li>Adds play and pause buttons for controlling gif playback.</li>
+<li>Adds a timeline so you can scrub through gifs frame by frame.</li>
+<li>Configure <code>gifPlayer.autoPlay</code> to disable automatic playback of gifs.</li>
+</ul>
+<h2 id="configuration">Configuration</h2>
+<ul>
+<li><code>gifPlayer.autoPlay</code> — Should gifs be automatically played when you open them? Defaults to true.</li>
+</ul>
+<h2 id="commands">Commands</h2>
+<ul>
+<li><p><code>gifPlayer.togglePlay</code> — Toggles if the gif is playing or pauses. Defaults keybinding: <kbd>space</kbd></p></li>
+<li><p><code>gifPlayer.nextFrame</code> — Goes to the next frame in the gif. Defaults keybinding: <kbd>right</kbd></p></li>
+<li><p><code>gifPlayer.previousFrame</code> — Goes to the previous frame in the gif. Defaults keybinding: <kbd>left</kbd></p></li>
+</ul>
+<p>Note that these keybindings are only active when you are focused on the Gif Player editor.</p>
+<h2 id="disabling-gif-player-as-the-default-editor">Disabling Gif Player as the default editor</h2>
+<p>By default, the Gif Player editor is used for any gif you open. You can disable this using the <code>workbench.editorAssociations</code> setting. For example, this setting will use make VS Code use its standard image preview for when you open a gif:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb1-1" title="1"><span class="er">&quot;workbench.editorAssociations&quot;:</span> <span class="ot">[</span></a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="fu">{</span></a>
+<a class="sourceLine" id="cb1-3" title="3">        <span class="dt">&quot;viewType&quot;</span><span class="fu">:</span> <span class="st">&quot;imagePreview.previewEditor&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-4" title="4">        <span class="dt">&quot;filenamePattern&quot;</span><span class="fu">:</span> <span class="st">&quot;*.gif&quot;</span></a>
+<a class="sourceLine" id="cb1-5" title="5">    <span class="fu">}</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="ot">]</span></a></code></pre></div>
+<p>Then you can use the <code>View: Reopen Editor With</code> command to switch open individual gifs using Gif Player.</p>
+<figure>
+<img src="https://github.com/mattbierner/vscode-gif-player/raw/master/documentation/reopen-with.png" alt="Using reopen with" /><figcaption>Using reopen with</figcaption>
+</figure>

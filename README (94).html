@@ -1,0 +1,118 @@
+<h2 id="javascript-snippet-pack-for-visual-studio-code">JavaScript Snippet Pack for Visual Studio Code</h2>
+<p>Download this extension from the <a href="https://marketplace.visualstudio.com/items/akamud.vscode-javascript-snippet-pack">Visual Studio Code Marketplace</a></p>
+<h2 id="sponsors">Sponsors</h2>
+<p><a href="https://sponsorlink.codestream.com/?utm_source=vscmarket&amp;utm_campaign=ali_javascriptsnippet&amp;utm_medium=banner" title="Try CodeStream"><img src="https://alt-images.codestream.com/codestream_logo_ali_javascriptsnippet.png" /></a><br />
+Request and perform code reviews from inside your IDE. Review any code, even if it's a work-in-progress that hasn't been committed yet, and use jump-to-definition, your favorite keybindings, and other IDE tools.<br />
+<a href="https://sponsorlink.codestream.com/?utm_source=vscmarket&amp;utm_campaign=ali_javascriptsnippet&amp;utm_medium=banner" title="Try CodeStream">Try it free</a></p>
+<h2 id="usage">Usage</h2>
+<hr />
+<p>A snippet pack to make you more productive working with JavaScript. Based on <a href="https://github.com/madskristensen/JavaScriptSnippetPack">Visual Studio extension</a> by <a href="https://github.com/madskristensen">Mads Kristensen</a>, which is based on <a href="https://atom.io/packages/javascript-snippets">Atom snippets</a>.</p>
+<p>This extension ships a bunch of useful code snippets for the JavaScript and TypeScript editors.</p>
+<p>Here's the full list of all the snippets:</p>
+<h2 id="console">Console</h2>
+<h3 id="cd-console.dir">[cd] console.dir</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="va">console</span>.<span class="at">dir</span>($<span class="op">{</span><span class="dv">1</span><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<h3 id="ce-console.error">[ce] console.error</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="va">console</span>.<span class="at">error</span>($<span class="op">{</span><span class="dv">1</span><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<h3 id="ci-console.info">[ci] console.info</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">console</span>.<span class="at">info</span>($<span class="op">{</span><span class="dv">1</span><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<h3 id="cl-console.log">[cl] console.log</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="va">console</span>.<span class="at">log</span>($<span class="op">{</span><span class="dv">1</span><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<h3 id="cw-console.warn">[cw] console.warn</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="va">console</span>.<span class="at">warn</span>($<span class="op">{</span><span class="dv">1</span><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<h3 id="de-debugger">[de] debugger</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="cf">debugger</span><span class="op">;</span></a></code></pre></div>
+<h2 id="dom">DOM</h2>
+<h3 id="ae-addeventlistener">[ae] addEventListener</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1">$<span class="op">{</span><span class="dv">1</span><span class="op">:</span>document<span class="op">}</span>.<span class="at">addEventListener</span>(<span class="st">&#39;${2:load}&#39;</span><span class="op">,</span> <span class="kw">function</span>(e) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" title="2">    $<span class="op">{</span><span class="dv">3</span><span class="op">:</span><span class="co">// body}</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<h3 id="ac-appendchild">[ac] appendChild</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1">$<span class="op">{</span><span class="dv">1</span><span class="op">:</span>document<span class="op">}</span>.<span class="at">appendChild</span>($<span class="op">{</span><span class="dv">2</span><span class="op">:</span>elem<span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<h3 id="rc-removechild">[rc] removeChild</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1">$<span class="op">{</span><span class="dv">1</span><span class="op">:</span>document<span class="op">}</span>.<span class="at">removeChild</span>($<span class="op">{</span><span class="dv">2</span><span class="op">:</span>elem<span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<h3 id="cel-createelement">[cel] createElement</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1">$<span class="op">{</span><span class="dv">1</span><span class="op">:</span>document<span class="op">}</span>.<span class="at">createElement</span>($<span class="op">{</span><span class="dv">2</span><span class="op">:</span>elem<span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<h3 id="cdf-createdocumentfragment">[cdf] createDocumentFragment</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1">$<span class="op">{</span><span class="dv">1</span><span class="op">:</span>document<span class="op">}</span>.<span class="at">createDocumentFragment</span>()<span class="op">;</span></a></code></pre></div>
+<h3 id="ca-classlist.add">[ca] classList.add</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" title="1">$<span class="op">{</span><span class="dv">1</span><span class="op">:</span>document<span class="op">}</span>.<span class="va">classList</span>.<span class="at">add</span>(<span class="st">&#39;${2:class}&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<h3 id="ct-classlist.toggle">[ct] classList.toggle</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb13-1" title="1">$<span class="op">{</span><span class="dv">1</span><span class="op">:</span>document<span class="op">}</span>.<span class="va">classList</span>.<span class="at">toggle</span>(<span class="st">&#39;${2:class}&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<h3 id="cr-classlist.remove">[cr] classList.remove</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb14-1" title="1">$<span class="op">{</span><span class="dv">1</span><span class="op">:</span>document<span class="op">}</span>.<span class="va">classList</span>.<span class="at">remove</span>(<span class="st">&#39;${2:class}&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<h3 id="gi-getelementbyid">[gi] getElementById</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb15-1" title="1">$<span class="op">{</span><span class="dv">1</span><span class="op">:</span>document<span class="op">}</span>.<span class="at">getElementById</span>(<span class="st">&#39;${2:id}&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<h3 id="gc-getelementsbyclassname">[gc] getElementsByClassName</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb16-1" title="1">$<span class="op">{</span><span class="dv">1</span><span class="op">:</span>document<span class="op">}</span>.<span class="at">getElementsByClassName</span>(<span class="st">&#39;${2:class}&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<h3 id="gt-getelementsbytagname">[gt] getElementsByTagName</h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb17-1" title="1">$<span class="op">{</span><span class="dv">1</span><span class="op">:</span>document<span class="op">}</span>.<span class="at">getElementsByTagName</span>(<span class="st">&#39;${2:tag}&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<h3 id="ga-getattribute">[ga] getAttribute</h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb18-1" title="1">$<span class="op">{</span><span class="dv">1</span><span class="op">:</span>document<span class="op">}</span>.<span class="at">getAttribute</span>(<span class="st">&#39;${2:attr}&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<h3 id="sa-setattribute">[sa] setAttribute</h3>
+<div class="sourceCode" id="cb19"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb19-1" title="1">$<span class="op">{</span><span class="dv">1</span><span class="op">:</span>document<span class="op">}</span>.<span class="at">setAttribute</span>(<span class="st">&#39;${2:attr}&#39;</span><span class="op">,</span> $<span class="op">{</span><span class="dv">3</span><span class="op">:</span>value<span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<h3 id="ra-removeattribute">[ra] removeAttribute</h3>
+<div class="sourceCode" id="cb20"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb20-1" title="1">$<span class="op">{</span><span class="dv">1</span><span class="op">:</span>document<span class="op">}</span>.<span class="at">removeAttribute</span>(<span class="st">&#39;${2:attr}&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<h3 id="ih-innerhtml">[ih] innerHTML</h3>
+<div class="sourceCode" id="cb21"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb21-1" title="1">$<span class="op">{</span><span class="dv">1</span><span class="op">:</span>document<span class="op">}</span>.<span class="at">innerHTML</span> <span class="op">=</span> <span class="st">&#39;${2:elem}&#39;</span><span class="op">;</span></a></code></pre></div>
+<h3 id="tc-textcontent">[tc] textContent</h3>
+<div class="sourceCode" id="cb22"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb22-1" title="1">$<span class="op">{</span><span class="dv">1</span><span class="op">:</span>document<span class="op">}</span>.<span class="at">textContent</span> <span class="op">=</span> <span class="st">&#39;${2:content}&#39;</span><span class="op">;</span></a></code></pre></div>
+<h3 id="qs-queryselector">[qs] querySelector</h3>
+<div class="sourceCode" id="cb23"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb23-1" title="1">$<span class="op">{</span><span class="dv">1</span><span class="op">:</span>document<span class="op">}</span>.<span class="at">querySelector</span>(<span class="st">&#39;${2:selector}&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<h3 id="qsa-queryselectorall">[qsa] querySelectorAll</h3>
+<div class="sourceCode" id="cb24"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb24-1" title="1">$<span class="op">{</span><span class="dv">1</span><span class="op">:</span>document<span class="op">}</span>.<span class="at">querySelectorAll</span>(<span class="st">&#39;${2:selector}&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<h2 id="loop">Loop</h2>
+<h3 id="fe-foreach">[fe] forEach</h3>
+<div class="sourceCode" id="cb25"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb25-1" title="1">$<span class="op">{</span><span class="dv">1</span><span class="op">:</span>array<span class="op">}</span>.<span class="at">forEach</span>(<span class="kw">function</span>(item) <span class="op">{</span></a>
+<a class="sourceLine" id="cb25-2" title="2">    $<span class="op">{</span><span class="dv">2</span><span class="op">:</span><span class="co">// body}</span></a>
+<a class="sourceLine" id="cb25-3" title="3"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<h2 id="function">Function</h2>
+<h3 id="fn-function">[fn] function</h3>
+<div class="sourceCode" id="cb26"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb26-1" title="1"><span class="kw">function</span> $<span class="op">{</span><span class="dv">1</span><span class="op">:</span>methodName<span class="op">}</span> ($<span class="op">{</span><span class="dv">2</span><span class="op">:</span><span class="kw">arguments</span><span class="op">}</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb26-2" title="2">    $<span class="op">{</span><span class="dv">3</span><span class="op">:</span><span class="co">// body}</span></a>
+<a class="sourceLine" id="cb26-3" title="3"><span class="op">}</span></a></code></pre></div>
+<h3 id="afn-anonymous-function">[afn] anonymous function</h3>
+<div class="sourceCode" id="cb27"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb27-1" title="1"><span class="kw">function</span>($<span class="op">{</span><span class="dv">1</span><span class="op">:</span><span class="kw">arguments</span><span class="op">}</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb27-2" title="2">    $<span class="op">{</span><span class="dv">2</span><span class="op">:</span><span class="co">// body}</span></a>
+<a class="sourceLine" id="cb27-3" title="3"><span class="op">}</span></a></code></pre></div>
+<h3 id="pr-prototype">[pr] prototype</h3>
+<div class="sourceCode" id="cb28"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb28-1" title="1">$<span class="op">{</span><span class="dv">1</span><span class="op">:</span>object<span class="op">}</span>.<span class="va">prototype</span>.<span class="at">$</span><span class="op">{</span><span class="dv">2</span><span class="op">:</span>method<span class="op">}</span> <span class="op">=</span> <span class="kw">function</span>($<span class="op">{</span><span class="dv">3</span><span class="op">:</span><span class="kw">arguments</span><span class="op">}</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb28-2" title="2">    $<span class="op">{</span><span class="dv">4</span><span class="op">:</span><span class="co">// body}</span></a>
+<a class="sourceLine" id="cb28-3" title="3"><span class="op">}</span></a></code></pre></div>
+<h3 id="iife-immediately-invoked-function-expression">[iife] immediately-invoked function expression</h3>
+<div class="sourceCode" id="cb29"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb29-1" title="1">(<span class="kw">function</span>($<span class="op">{</span><span class="dv">1</span><span class="op">:</span>window<span class="op">},</span> $<span class="op">{</span><span class="dv">2</span><span class="op">:</span>document<span class="op">}</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb29-2" title="2">    $<span class="op">{</span><span class="dv">3</span><span class="op">:</span><span class="co">// body}</span></a>
+<a class="sourceLine" id="cb29-3" title="3"><span class="op">}</span>)($<span class="op">{</span><span class="dv">1</span><span class="op">:</span>window<span class="op">},</span> $<span class="op">{</span><span class="dv">2</span><span class="op">:</span>document<span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<h3 id="call-function-call">[call] function call</h3>
+<div class="sourceCode" id="cb30"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb30-1" title="1">$<span class="op">{</span><span class="dv">1</span><span class="op">:</span>method<span class="op">}</span>.<span class="at">call</span>($<span class="op">{</span><span class="dv">2</span><span class="op">:</span>context<span class="op">},</span> $<span class="op">{</span><span class="dv">3</span><span class="op">:</span><span class="kw">arguments</span><span class="op">}</span>)</a></code></pre></div>
+<h3 id="apply-function-apply">[apply] function apply</h3>
+<div class="sourceCode" id="cb31"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb31-1" title="1">$<span class="op">{</span><span class="dv">1</span><span class="op">:</span>method<span class="op">}</span>.<span class="at">apply</span>($<span class="op">{</span><span class="dv">2</span><span class="op">:</span>context<span class="op">},</span> [$<span class="op">{</span><span class="dv">3</span><span class="op">:</span><span class="kw">arguments</span><span class="op">}</span>])</a></code></pre></div>
+<h3 id="ofn-function-as-a-property-of-an-object">[ofn] function as a property of an object</h3>
+<div class="sourceCode" id="cb32"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb32-1" title="1">$<span class="op">{</span><span class="dv">1</span><span class="op">:</span>functionName<span class="op">}:</span> <span class="kw">function</span>($<span class="op">{</span><span class="dv">2</span><span class="op">:</span><span class="kw">arguments</span><span class="op">}</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb32-2" title="2">    $<span class="op">{</span><span class="dv">3</span><span class="op">:</span><span class="co">// body}</span></a>
+<a class="sourceLine" id="cb32-3" title="3"><span class="op">}</span></a></code></pre></div>
+<h2 id="json">JSON</h2>
+<h3 id="jp-json.parse">[jp] JSON.parse</h3>
+<div class="sourceCode" id="cb33"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb33-1" title="1"><span class="va">JSON</span>.<span class="at">parse</span>($<span class="op">{</span><span class="dv">1</span><span class="op">:</span>obj<span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<h3 id="js-json.stringify">[js] JSON.stringify</h3>
+<div class="sourceCode" id="cb34"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb34-1" title="1"><span class="va">JSON</span>.<span class="at">stringify</span>($<span class="op">{</span><span class="dv">1</span><span class="op">:</span>obj<span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<h2 id="timer">Timer</h2>
+<h3 id="si-setinterval">[si] setInterval</h3>
+<div class="sourceCode" id="cb35"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb35-1" title="1"><span class="at">setInterval</span>(<span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb35-2" title="2">    $<span class="op">{</span><span class="dv">0</span><span class="op">:</span><span class="co">// body}</span></a>
+<a class="sourceLine" id="cb35-3" title="3"><span class="op">},</span> $<span class="op">{</span><span class="dv">1</span><span class="op">:</span><span class="dv">1000</span><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<h3 id="st-settimeout">[st] setTimeout</h3>
+<div class="sourceCode" id="cb36"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb36-1" title="1"><span class="at">setTimeout</span>(<span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb36-2" title="2">    $<span class="op">{</span><span class="dv">0</span><span class="op">:</span><span class="co">// body}</span></a>
+<a class="sourceLine" id="cb36-3" title="3"><span class="op">},</span> $<span class="op">{</span><span class="dv">1</span><span class="op">:</span><span class="dv">1000</span><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<h2 id="misc">Misc</h2>
+<h3 id="us-use-strict">[us] use strict</h3>
+<div class="sourceCode" id="cb37"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb37-1" title="1"><span class="st">&#39;use strict&#39;</span><span class="op">;</span></a></code></pre></div>
+<h3 id="al-alert">[al] alert</h3>
+<div class="sourceCode" id="cb38"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb38-1" title="1"><span class="at">alert</span>(<span class="st">&#39;${1:msg}&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<h3 id="co-confirm">[co] confirm</h3>
+<div class="sourceCode" id="cb39"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb39-1" title="1"><span class="at">confirm</span>(<span class="st">&#39;${1:msg}&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<h3 id="pm-prompt">[pm] prompt</h3>
+<div class="sourceCode" id="cb40"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb40-1" title="1"><span class="at">prompt</span>(<span class="st">&#39;${1:msg}&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<h2 id="license">License</h2>
+<p><a href="https://raw.githubusercontent.com/akamud/vscode-javascript-snippet-pack/master/LICENSE">MIT License</a></p>

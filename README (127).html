@@ -1,0 +1,49 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="window-colors">Window Colors</h1>
+<p>Uniquely and automatically colors each VSCode window.</p>
+<p><img src="https://raw.githubusercontent.com/stuartcrobinson/unique-window-colors/master/img/live_dark_screenshot.png" alt="drawing" width="330"/>     <img src="https://raw.githubusercontent.com/stuartcrobinson/unique-window-colors/master/img/live_light_screenshot.png" alt="drawing" width="330"/></p>
+<h2 id="what-it-does">What it does</h2>
+<p>This extension gives each new VS Code window a unique color based on a hash of the root directory name when it is opened. It does this by immediately writing three colors to the following settings in <code>.vscode/settings.json</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1">  <span class="st">&quot;workbench.colorCustomizations&quot;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="st">&quot;activityBar.background&quot;</span><span class="op">:</span> <span class="st">&quot;#13332E&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="st">&quot;titleBar.activeBackground&quot;</span><span class="op">:</span> <span class="st">&quot;#19423B&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-4" title="4">    <span class="st">&quot;titleBar.activeForeground&quot;</span><span class="op">:</span> <span class="st">&quot;#F6FBFB&quot;</span></a>
+<a class="sourceLine" id="cb1-5" title="5">  <span class="op">}</span></a></code></pre></div>
+<p>The extension deletes this file and folder each time the VS Code window is closed unless the colors have been modified or unless they contain any other settings.</p>
+<p>You can optionally set a single Base Color (see Window Colors settings) by hex code or css color name.</p>
+<h2 id="usage-with-git">Usage with Git</h2>
+<p>To avoid checking <code>.vscode/settings.json</code> in to your remote repository without modifying <code>.gitignore</code>, you can either:</p>
+<ol type="1">
+<li><p><strong>locally:</strong> add <code>.vscode/settings.json</code> to your project's <code>.git/info/exclude</code> file</p>
+<p><em>or</em></p></li>
+<li><p><strong>globally:</strong> create and use a global <code>.gitignore_global</code> file like so:</p>
+<p><code>git config --global core.excludesfile ~/.gitignore_global</code></p></li>
+</ol>
+<h2 id="usage">Usage</h2>
+<p>Colors do not get overwritten. This allows you to set custom colors (or a single Base Color). To switch between light and dark themed colors, you must first delete the current colors from <code>.vscode/settings.json</code>. You can do this manually or by or selecting <code>remove</code> in the extension's <code>Window Colors: Theme</code> settings and reloading the VS Code window.</p>
+<!-- <img src="https://github.com/stuartcrobinson/unique-window-colors/blob/master/img/settings.png?raw=true" alt="drawing" width="500"/> -->
+<h2 id="notes">Notes</h2>
+<p>Workspaces containing multiple root folders are not currently supported by this extension. The current behavior for multi-folder workspaces is that the workspace color settings will be set by the first window opened, and can be saved in the workspace's <code>&lt;workspace-name&gt;.code-workspace</code> configuration file.</p>
+<p>When opening new VSCode windows, you might see the relevant theme colors change as they are updated to the new workspace. This is normal:</p>
+<p><img src="https://github.com/stuartcrobinson/unique-window-colors/blob/master/img/colorflicker.gif?raw=true" alt="drawing" width="200"/></p>
+<h2 id="credits">Credits</h2>
+<p>Hashing and color generation functions adapted from https://www.designedbyaturtle.co.uk/convert-string-to-hexidecimal-colour-with-javascript-vanilla/ by Edd Turtle.</p>
+<p>Workspace root folder detection function adapted from https://itnext.io/how-to-make-a-visual-studio-code-extension-77085dce7d82 by Van Huynh.</p>
+<p><br><br> <img style="vertical-align: middle;" src="https://raw.githubusercontent.com/stuartcrobinson/unique-window-colors/master/img/icon_602.png" width="60" /></p>

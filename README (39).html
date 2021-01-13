@@ -1,0 +1,153 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="vscode-phpcs">vscode-phpcs</h1>
+<p>This linter plugin for <a href="https://code.visualstudio.com/">Visual Studio Code</a> provides an interface to <a href="http://pear.php.net/package/PHP_CodeSniffer/">phpcs</a>. It will be used with files that have the "PHP" language mode.</p>
+<h2 id="installation">Installation</h2>
+<p>Visual Studio Code must be installed in order to use this plugin. If Visual Studio Code is not installed, please follow the instructions <a href="https://code.visualstudio.com/Docs/editor/setup">here</a>.</p>
+<h2 id="linter-installation">Linter Installation</h2>
+<p>Before using this plugin, you must ensure that <code>phpcs</code> is installed on your system. The preferred method is using <a href="https://getcomposer.org/">composer</a> for both system-wide and project-wide installations.</p>
+<p>Once phpcs is installed, you can proceed to install the vscode-phpcs plugin if it is not yet installed.</p>
+<blockquote>
+<p><strong>NOTE:</strong> This plugin can detect whether your project has been set up to use phpcs via composer and use the project specific <code>phpcs</code> over the system-wide installation of <code>phpcs</code> automatically. This feature requires that both composer.json and composer.lock file exist in your workspace root or the <code>phpcs.composerJsonPath</code> in order to check for the composer dependency. If you wish to bypass this feature you can set the <code>phpcs.executablePath</code> configuration setting.</p>
+</blockquote>
+<blockquote>
+<p><strong>NOTE:</strong> You can also install <code>phpcs</code> on your system using <a href="http://pear.php.net/">pear</a> or even manually but is beyond the scope of this plugin.</p>
+</blockquote>
+<h3 id="system-wide-installation">System-wide Installation</h3>
+<p>The <code>phpcs</code> linter can be installed globally using the Composer Dependency Manager for PHP.</p>
+<ol type="1">
+<li>Install <a href="https://getcomposer.org/doc/00-intro.md">composer</a>.</li>
+<li><p>Require <code>phpcs</code> package by typing the following in a terminal:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">composer</span> global require squizlabs/php_codesniffer</a></code></pre></div></li>
+</ol>
+<h3 id="project-wide-installation">Project-wide Installation</h3>
+<p>The <code>phpcs</code> linter can be installed in your project using the Composer Dependency Manager for PHP.</p>
+<ol type="1">
+<li>Install <a href="https://getcomposer.org/doc/00-intro.md">composer</a>.</li>
+<li><p>Require <code>phpcs</code> package by typing the following at the root of your project in a terminal:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">composer</span> require --dev squizlabs/php_codesniffer</a></code></pre></div></li>
+</ol>
+<h3 id="plugin-installation">Plugin Installation</h3>
+<ol type="1">
+<li>Open Visual Studio Code.</li>
+<li>Press <code>Ctrl+P</code> on Windows or <code>Cmd+P</code> on Mac to open the Quick Open dialog.</li>
+<li>Type ext install phpcs to find the extension.</li>
+<li>Press Enter or click the cloud icon to install it.</li>
+<li>Restart Visual Studio Code when prompted.</li>
+</ol>
+<h2 id="basic-configuration">Basic Configuration</h2>
+<p>There are various options that can be configured to control how the plugin operates which can be set in your user, workspace or folder preferences.</p>
+<h3 id="phpcs.enable"><strong>phpcs.enable</strong></h3>
+<p>[ <em>Scope:</em> All | Optional | <em>Type:</em> boolean | <em>Default:</em> true ]</p>
+<p>This setting controls whether <code>phpcs</code> linting is enabled.</p>
+<h3 id="phpcs.executablepath"><strong>phpcs.executablePath</strong></h3>
+<p>[ <em>Scope:</em> All | Optional | <em>Type:</em> string | <em>Default:</em> null ]</p>
+<p>This setting controls the executable path for the <code>phpcs</code>. You may specify the absolute path or workspace relative path to the <code>phpcs</code> executable. If omitted, the plugin will try to locate the path parsing your composer configuration or the global path.</p>
+<h3 id="phpcs.standard"><strong>phpcs.standard</strong></h3>
+<p>[ <em>Scope:</em> All | Optional | <em>Type:</em> string | <em>Default:</em> null ]</p>
+<p>This setting controls the coding standard used by <code>phpcs</code>. You may specify the name, absolute path or workspace relative path of the coding standard to use.</p>
+<blockquote>
+<p><strong>NOTE:</strong> While using composer dependency manager over global installation make sure you use the phpcs commands under your project scope !</p>
+</blockquote>
+<p>The following values are applicable:</p>
+<ol type="1">
+<li><p>This setting can be set to <code>null</code>, which is the default behavior and uses the <code>default_standard</code> when set in the <code>phpcs</code> configuration or fallback to the <code>Pear</code> coding standard.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb3-1" title="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">    <span class="dt">&quot;phpcs.standard&quot;</span><span class="fu">:</span> <span class="kw">null</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="fu">}</span></a></code></pre></div>
+<p>You may set the <code>default_standard</code> used by phpcs using the following command:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="ex">phpcs</span> --config-set default_standard <span class="op">&lt;</span>value<span class="op">&gt;</span></a></code></pre></div>
+<p>or when using composer dependency manager from the root of your project issue the following command:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1"><span class="ex">./vendor/bin/phpcs</span> --config-set default_standard <span class="op">&lt;</span>value<span class="op">&gt;</span></a></code></pre></div></li>
+<li><p>The setting can be set to the name of a built-in coding standard ( ie. <code>MySource</code>, <code>PEAR</code>, <code>PHPCS</code>, <code>PSR1</code>, <code>PSR2</code>, <code>Squiz</code>, <code>Zend</code> ) and you are good to go.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb6-1" title="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb6-2" title="2">    <span class="dt">&quot;phpcs.standard&quot;</span><span class="fu">:</span> <span class="st">&quot;PSR2&quot;</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="fu">}</span></a></code></pre></div></li>
+<li><p>The setting can me set to the name of a custom coding standard ( ie. <code>WordPress</code>, <code>Drupal</code>, etc. ). In this case you must ensure that the specified coding standard is installed and accessible by <code>phpcs</code>.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb7-1" title="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb7-2" title="2">    <span class="dt">&quot;phpcs.standard&quot;</span><span class="fu">:</span> <span class="st">&quot;WordPress&quot;</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="fu">}</span></a></code></pre></div>
+<p>After you install the custom coding standard, you can make it available to phpcs by issuing the following command:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" title="1"><span class="ex">phpcs</span> --config-set installed_paths <span class="op">&lt;</span>path/to/custom/coding/standard<span class="op">&gt;</span></a></code></pre></div>
+<p>or when using composer dependency manager from the root of your project issue the following command:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" title="1"><span class="ex">./vendor/bin/phpcs</span> --config-set installed_paths <span class="op">&lt;</span>path/to/custom/coding/standard<span class="op">&gt;</span></a></code></pre></div></li>
+<li><p>The setting can be set to the absolute path to a custom coding standard:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb10-1" title="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb10-2" title="2">    <span class="dt">&quot;phpcs.standard&quot;</span><span class="fu">:</span> <span class="st">&quot;/path/to/coding/standard&quot;</span></a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="fu">}</span></a></code></pre></div>
+<p>or you can use the path to a custom ruleset:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb11-1" title="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb11-2" title="2">    <span class="dt">&quot;phpcs.standard&quot;</span><span class="fu">:</span> <span class="st">&quot;/path/to/project/phpcs.xml&quot;</span></a>
+<a class="sourceLine" id="cb11-3" title="3"><span class="fu">}</span></a></code></pre></div></li>
+<li><p>The setting can be set to your workspace relative path to a custom coding standard:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb12-1" title="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb12-2" title="2">    <span class="dt">&quot;phpcs.standard&quot;</span><span class="fu">:</span> <span class="st">&quot;./vendor/path/to/coding/standard&quot;</span></a>
+<a class="sourceLine" id="cb12-3" title="3"><span class="fu">}</span></a></code></pre></div>
+<p>or you can use the path to your project's custom ruleset:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb13-1" title="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb13-2" title="2">    <span class="dt">&quot;phpcs.standard&quot;</span><span class="fu">:</span> <span class="st">&quot;./phpcs.xml&quot;</span></a>
+<a class="sourceLine" id="cb13-3" title="3"><span class="fu">}</span></a></code></pre></div></li>
+</ol>
+<h3 id="phpcs.autoconfigsearch"><strong>phpcs.autoConfigSearch</strong></h3>
+<p>[ <em>Scope:</em> All | Optional | <em>Type:</em> boolean | <em>Default:</em> true ]</p>
+<p>Automatically search for any <code>phpcs.xml</code>, <code>phpcs.xml.dist</code>, <code>phpcs.ruleset.xml</code> or <code>ruleset.xml</code> file to use as configuration. Overrides <code>phpcs.standard</code> configuration when a ruleset is found.</p>
+<blockquote>
+<p><strong>NOTE:</strong> This option does not apply for unsaved documents (in-memory).</p>
+</blockquote>
+<h3 id="phpcs.ignorepatterns"><strong>phpcs.ignorePatterns</strong></h3>
+<p>[ <em>Scope:</em> All | Optional | <em>Type:</em> array | <em>Default:</em> [] ]</p>
+<p>An array of glob patterns to skip files and folders that match when linting your documents.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb14-1" title="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb14-2" title="2">    <span class="dt">&quot;phpcs.ignorePatterns&quot;</span><span class="fu">:</span> <span class="ot">[</span></a>
+<a class="sourceLine" id="cb14-3" title="3">        <span class="st">&quot;*/ignored-file.php&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb14-4" title="4">        <span class="st">&quot;*/ignored-dir/*&quot;</span></a>
+<a class="sourceLine" id="cb14-5" title="5">    <span class="ot">]</span></a>
+<a class="sourceLine" id="cb14-6" title="6"><span class="fu">}</span></a></code></pre></div>
+<h3 id="phpcs.errorseverity"><strong>phpcs.errorSeverity</strong></h3>
+<p>[ <em>Scope:</em> All | Optional | <em>Type:</em> number | <em>Default:</em> 5 ]</p>
+<p>The minimum severity an error must have to be displayed. You may specify an integer value.</p>
+<h3 id="phpcs.warningseverity"><strong>phpcs.warningSeverity</strong></h3>
+<p>[ <em>Scope:</em> All | Optional | <em>Type:</em> number | <em>Default:</em> 5 ]</p>
+<p>The minimum severity a warning must have to be displayed. You may specify an integer value.</p>
+<h3 id="phpcs.showwarnings"><strong>phpcs.showWarnings</strong></h3>
+<p>[ <em>Scope:</em> All | Optional | <em>Type:</em> boolean | <em>Default:</em> true ]</p>
+<p>Control whether warnings are displayed.</p>
+<h3 id="phpcs.showsources"><strong>phpcs.showSources</strong></h3>
+<p>[ <em>Scope:</em> All | Optional | <em>Type:</em> boolean | <em>Default:</em> false ]</p>
+<p>Show sniff source codes in diagnostic messages.</p>
+<h3 id="phpcs.trace.server"><strong>phpcs.trace.server</strong></h3>
+<p>[ <em>Scope:</em> User | Optional | <em>Type:</em> string | <em>Default:</em> off ]</p>
+<p>This setting controls whether the trace server is activated. Possible values you can use is <code>off</code>, <code>messages</code> or <code>verbose</code>.</p>
+<h2 id="advanced-configuration">Advanced Configuration</h2>
+<h3 id="phpcs.composerjsonpath"><strong>phpcs.composerJsonPath</strong></h3>
+<p>[ <em>Scope:</em> All | Optional | <em>Type:</em> string | <em>Default:</em> composer.json ]</p>
+<p>This setting allows you to override the path to your composer.json file when it does not reside at the workspace root. You may specify the absolute path or workspace relative path to the <code>composer.json</code> file.</p>
+<h2 id="diagnosing-common-errors">Diagnosing common errors</h2>
+<h3 id="the-phpcs-report-contains-invalid-json">The phpcs report contains invalid json</h3>
+<p>This error occurs when something goes wrong in phpcs execution such as PHP Notices, PHP Fatal Exceptions, Other Script Output, etc, most of which can be detected as follows:</p>
+<p>Execute the phpcs command in your terminal with –report=json and see whether the output contains anything other than valid json.</p>
+<blockquote>
+<p><strong>NOTE:</strong> The ‘-q' parameter is automatically passed on phpcs v.2.6.2 and above to suppress such errors. Please update <code>phpcs</code> to a version &gt;=2.6.2.</p>
+</blockquote>
+<h2 id="acknowledgements">Acknowledgements</h2>
+<p>The extension architecture is based off of the <a href="https://github.com/Microsoft/vscode-languageserver-node-example">Language Server Node Example</a>.</p>
+<p>Additional inspiration comes from <a href="https://github.com/AtomLinter/linter-phpcs">Atom Linter-phpcs</a>.</p>
+<h2 id="contributing-and-licensing">Contributing and Licensing</h2>
+<p>The project is hosted on <a href="https://github.com/ikappas/vscode-phpcs">GitHub</a> where you can <a href="https://github.com/ikappas/vscode-phpcs/issues">report issues</a>, fork the project and submit pull requests.</p>
+<p>The project is available under <a href="https://github.com/ikappas/vscode-phpcs/blob/master/LICENSE.md">MIT license</a>, which allows modification and redistribution for both commercial and non-commercial purposes.</p>

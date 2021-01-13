@@ -1,0 +1,225 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="zone.js">Zone.js</h1>
+<p><a href="https://travis-ci.org/angular/zone.js"><img src="https://travis-ci.org/angular/zone.js.png" alt="Build Status" /></a></p>
+<p>Implements <em>Zones</em> for JavaScript, inspired by <a href="https://www.dartlang.org/articles/zones/">Dart</a>.</p>
+<blockquote>
+<p>If you're using zone.js via unpkg please provide a query param <code>?main=browser</code><br />
+<code>https://unpkg.com/zone.js?main=browser</code></p>
+</blockquote>
+<h1 id="new-zone.js-post-v0.6.0">NEW Zone.js POST-v0.6.0</h1>
+<p>See the new API <a href="./dist/zone.js.d.ts">here</a>.</p>
+<h1 id="deprecated-zone.js-pre-v0.5.15">DEPRECATED Zone.js PRE-v0.5.15</h1>
+<h2 id="whats-a-zone">What's a Zone?</h2>
+<p>A Zone is an execution context that persists across async tasks. You can think of it as <a href="http://en.wikipedia.org/wiki/Thread-local_storage">thread-local storage</a> for JavaScript VMs.</p>
+<p>See this video from ng-conf 2014 for a detailed explanation:</p>
+<p><a href="//www.youtube.com/watch?v=3IqtmUscE_U"><img src="/presentation.png" alt="screenshot of the zone.js presentation and ng-conf 2014" /></a></p>
+<h3 id="running-within-a-zone">Running Within a Zone</h3>
+<p>You can run code within a zone with <code>zone.run</code>. Tasks scheduled (with <code>setTimeout</code>, <code>setInterval</code>, or event listeners) stay within that zone.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="va">Zone</span>.<span class="va">current</span>.<span class="at">fork</span>(<span class="op">{}</span>).<span class="at">run</span>(<span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="va">Zone</span>.<span class="va">current</span>.<span class="at">inTheZone</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4">    <span class="at">setTimeout</span>(<span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-5" title="5">        <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;in the zone: &#39;</span> <span class="op">+</span> <span class="op">!!</span><span class="va">Zone</span>.<span class="va">current</span>.<span class="at">inTheZone</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-6" title="6">    <span class="op">},</span> <span class="dv">0</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-8" title="8"></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;in the zone: &#39;</span> <span class="op">+</span> <span class="op">!!</span><span class="va">Zone</span>.<span class="va">current</span>.<span class="at">inTheZone</span>)<span class="op">;</span></a></code></pre></div>
+<p>The above will log:</p>
+<pre><code>&#39;in the zone: false&#39;
+&#39;in the zone: true&#39;</code></pre>
+<p>Note that the function delayed by <code>setTimeout</code> stays inside the zone.</p>
+<h3 id="forking-a-zone">Forking a Zone</h3>
+<p>Zones have a set of hooks that allow you to change the behavior of code running within that zone. To change a zone, you <em>fork</em> it to get a new one.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">zone</span>.<span class="at">fork</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="dt">beforeTask</span><span class="op">:</span> <span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-3" title="3">    <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;hi&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-4" title="4">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="op">}</span>).<span class="at">run</span>(<span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-6" title="6">  <span class="co">// do stuff</span></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<p>Hooks that you don't override when forking a zone are inherited from the existing one.</p>
+<p>See the <a href="#api">API docs</a> below for more.</p>
+<h2 id="usage">Usage</h2>
+<p>To start using Zones, you need to include the <code>zone.js</code> script in this package onto your page. This script should appear in the <code>&lt;head&gt;</code> of your HTML file before any other scripts, including shims/polyfills.</p>
+<h2 id="examples">Examples</h2>
+<p>There are two kinds of examples:</p>
+<ol type="1">
+<li>The kind you have to run</li>
+<li>Illustrative code snippets in this README</li>
+</ol>
+<h3 id="running-the-ones-that-you-have-to-run">Running the ones that you have to run</h3>
+<p>For fully working examples:</p>
+<ol type="1">
+<li>Spawn a webserver in the root of the directory in which this repo lives. (I like to use <code>python -m SimpleHTTPServer 3000</code>).</li>
+<li>Open <code>http://localhost:3000/example</code> in your browser</li>
+</ol>
+<p>Below are the aforementioned snippets.</p>
+<h3 id="overriding-a-zones-hook">Overriding A Zone's Hook</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">var</span> someZone <span class="op">=</span> <span class="va">zone</span>.<span class="at">fork</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="dt">afterTask</span><span class="op">:</span> <span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-3" title="3">    <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;goodbye&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-4" title="4">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-6" title="6"></a>
+<a class="sourceLine" id="cb4-7" title="7"><span class="va">someZone</span>.<span class="at">fork</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb4-8" title="8">  <span class="dt">afterTask</span><span class="op">:</span> <span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-9" title="9">    <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;cya l8r&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-10" title="10">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb4-11" title="11"><span class="op">}</span>).<span class="at">run</span>(<span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-12" title="12">  <span class="co">// do stuff</span></a>
+<a class="sourceLine" id="cb4-13" title="13"><span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-14" title="14"></a>
+<a class="sourceLine" id="cb4-15" title="15"><span class="co">// logs: cya l8r</span></a></code></pre></div>
+<h3 id="augmenting-a-zones-hook">Augmenting A Zone's Hook</h3>
+<p>When you fork a zone, you'll often want to control how the parent zone's hook gets called.</p>
+<p>Prefixing a hook with <code>$</code> means that the hook will be passed the parent zone's hook, and the hook will be expected to return the function to be invoked rather than be the function itself.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">var</span> someZone <span class="op">=</span> <span class="va">zone</span>.<span class="at">fork</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="dt">afterTask</span><span class="op">:</span> <span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-3" title="3">    <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;goodbye&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-4" title="4">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-6" title="6"></a>
+<a class="sourceLine" id="cb5-7" title="7"><span class="va">someZone</span>.<span class="at">fork</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb5-8" title="8">  <span class="dt">$afterTask</span><span class="op">:</span> <span class="kw">function</span> (parentOnLeave) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-9" title="9">    <span class="co">// return the hook</span></a>
+<a class="sourceLine" id="cb5-10" title="10">    <span class="cf">return</span> <span class="kw">function</span> <span class="at">afterTask</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-11" title="11">      <span class="at">parentOnLeave</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-12" title="12">      <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;cya l8r&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-13" title="13">    <span class="op">};</span></a>
+<a class="sourceLine" id="cb5-14" title="14">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb5-15" title="15"><span class="op">}</span>).<span class="at">run</span>(<span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-16" title="16">  <span class="co">// do stuff</span></a>
+<a class="sourceLine" id="cb5-17" title="17"><span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-18" title="18"></a>
+<a class="sourceLine" id="cb5-19" title="19"><span class="co">// logs: goodbye</span></a>
+<a class="sourceLine" id="cb5-20" title="20"><span class="co">//       cya l8r</span></a></code></pre></div>
+<h4 id="and---sugar"><code>+</code> and <code>-</code> Sugar</h4>
+<p>Most of the time, you'll want to run a hook before or after the parent's implementation. You can prefix a hook with <code>-</code> for running before, and <code>+</code> for running after.</p>
+<p>The above can be written like this:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">var</span> someZone <span class="op">=</span> <span class="va">zone</span>.<span class="at">fork</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="dt">afterTask</span><span class="op">:</span> <span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-3" title="3">    <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;goodbye&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-4" title="4">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-6" title="6"></a>
+<a class="sourceLine" id="cb6-7" title="7"><span class="va">someZone</span>.<span class="at">fork</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb6-8" title="8">  <span class="st">&#39;+afterTask&#39;</span><span class="op">:</span> <span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-9" title="9">    <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;cya l8r&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-10" title="10">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb6-11" title="11"><span class="op">}</span>).<span class="at">run</span>(<span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-12" title="12">  <span class="co">// do stuff</span></a>
+<a class="sourceLine" id="cb6-13" title="13"><span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-14" title="14"></a>
+<a class="sourceLine" id="cb6-15" title="15"><span class="co">// logs: goodbye</span></a>
+<a class="sourceLine" id="cb6-16" title="16"><span class="co">//       cya l8r</span></a></code></pre></div>
+<p>This frees you from writing boilerplate to compose a new hook.</p>
+<h2 id="api">API</h2>
+<p>Zone.js exports a single object: <code>window.zone</code>.</p>
+<h3 id="zone.run"><code>zone.run</code></h3>
+<p>Runs a given function within the zone. Explained above.</p>
+<h3 id="zone.bind"><code>zone.bind</code></h3>
+<p>Transforms a function to run within the given zone.</p>
+<h3 id="zone.fork"><code>zone.fork</code></h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">var</span> myZone <span class="op">=</span> <span class="va">zone</span>.<span class="at">fork</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" title="2">  <span class="dt">onZoneCreated</span><span class="op">:</span> <span class="kw">function</span> () <span class="op">{},</span></a>
+<a class="sourceLine" id="cb7-3" title="3">  <span class="dt">beforeTask</span><span class="op">:</span> <span class="kw">function</span> () <span class="op">{},</span></a>
+<a class="sourceLine" id="cb7-4" title="4">  <span class="dt">afterTask</span><span class="op">:</span> <span class="kw">function</span> () <span class="op">{},</span></a>
+<a class="sourceLine" id="cb7-5" title="5">  <span class="dt">onError</span><span class="op">:</span> <span class="kw">function</span> () <span class="op">{},</span></a>
+<a class="sourceLine" id="cb7-6" title="6">  <span class="dt">enqueueTask</span><span class="op">:</span> <span class="kw">function</span>() <span class="op">{},</span></a>
+<a class="sourceLine" id="cb7-7" title="7">  <span class="dt">dequeueTask</span><span class="op">:</span> <span class="kw">function</span>() <span class="op">{},</span></a>
+<a class="sourceLine" id="cb7-8" title="8">  <span class="dt">setTimeout</span><span class="op">:</span> <span class="kw">function</span> () <span class="op">{},</span></a>
+<a class="sourceLine" id="cb7-9" title="9">  <span class="dt">setInterval</span><span class="op">:</span> <span class="kw">function</span> () <span class="op">{},</span></a>
+<a class="sourceLine" id="cb7-10" title="10">  <span class="dt">alert</span><span class="op">:</span> <span class="kw">function</span> () <span class="op">{},</span></a>
+<a class="sourceLine" id="cb7-11" title="11">  <span class="dt">prompt</span><span class="op">:</span> <span class="kw">function</span> () <span class="op">{},</span></a>
+<a class="sourceLine" id="cb7-12" title="12"><span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-13" title="13"><span class="va">myZone</span>.<span class="at">run</span>(<span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-14" title="14">  <span class="co">// woo!</span></a>
+<a class="sourceLine" id="cb7-15" title="15"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<p>Below describes the behavior of each of these hooks.</p>
+<h3 id="zone.onzonecreated"><code>zone.onZoneCreated</code></h3>
+<p>Runs when a zone is forked.</p>
+<h3 id="zone.beforetask"><code>zone.beforeTask</code></h3>
+<p>Before a function invoked with <code>zone.run</code>, this hook runs. If <code>zone.beforeTask</code> throws, the function passed to <code>run</code> will not be invoked.</p>
+<h3 id="zone.aftertask"><code>zone.afterTask</code></h3>
+<p>After a function in a zone runs, the <code>afterTask</code> hook runs. This hook will run even if the function passed to <code>run</code> throws.</p>
+<h3 id="zone.onerror"><code>zone.onError</code></h3>
+<p>This hook is called when the function passed to <code>run</code> or the <code>beforeTask</code> hook throws.</p>
+<h3 id="zone.enqueuetask"><code>zone.enqueueTask</code></h3>
+<p>This hook is called when a function is registered with the VM. For instance <code>setTimeout</code> and <code>addEventListener</code>.</p>
+<h3 id="zone.dequeuetask"><code>zone.dequeueTask</code></h3>
+<p>This hook is called when a function is unregistered with the VM. For instance <code>clearTimeout</code> and <code>removeEventListener</code>.</p>
+<h3 id="zone.settimeout-zone.setinterval-zone.alert-zone.prompt"><code>zone.setTimeout</code>, <code>zone.setInterval</code>, <code>zone.alert</code>, <code>zone.prompt</code></h3>
+<p>These hooks allow you to change the behavior of <code>window.setTimeout</code>, <code>window.setInterval</code>, etc. While in this zone, calls to <code>window.setTimeout</code> will redirect to <code>zone.setTimeout</code>.</p>
+<h3 id="zone.requestanimationframe-zone.webkitrequestanimationframe-zone.mozrequestanimationframe"><code>zone.requestAnimationFrame</code>, <code>zone.webkitRequestAnimationFrame</code>, <code>zone.mozRequestAnimationFrame</code></h3>
+<p>These hooks allow you to change the behavior of <code>window.requestAnimationFrame()</code>, <code>window.webkitRequestAnimationFrame</code>, and <code>window.mozRequestAnimationFrame</code>.</p>
+<p>By default the wrapCallback is executed in the zone where those methods have been called to avoid growing the stack size on each recursive call.</p>
+<h3 id="zone.addeventlistener"><code>zone.addEventListener</code></h3>
+<p>This hook allows you to intercept calls to <code>EventTarget#addEventListener</code>.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">var</span> clickListenerCount <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb8-2" title="2"></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="va">zone</span>.<span class="at">fork</span>(</a>
+<a class="sourceLine" id="cb8-4" title="4">  $addEventListener<span class="op">:</span> <span class="kw">function</span>(parentAddEventListener) <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-5" title="5">    <span class="cf">return</span> <span class="kw">function</span> (type<span class="op">,</span> listener) <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-6" title="6">      <span class="cf">if</span> (type <span class="op">===</span> <span class="st">&#39;click&#39;</span>) clickListenerCount<span class="op">++;</span></a>
+<a class="sourceLine" id="cb8-7" title="7">      <span class="cf">return</span> <span class="va">parentAddEventListener</span>.<span class="at">apply</span>(<span class="kw">this</span><span class="op">,</span> <span class="kw">arguments</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-8" title="8">    <span class="op">};</span></a>
+<a class="sourceLine" id="cb8-9" title="9">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb8-10" title="10">)<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-11" title="11"></a>
+<a class="sourceLine" id="cb8-12" title="12"><span class="va">zone</span>.<span class="at">run</span>(<span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-13" title="13">  <span class="va">myElement</span>.<span class="at">addEventListener</span>(<span class="st">&#39;click&#39;</span><span class="op">,</span> listener)<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-14" title="14">  <span class="va">myOtherElement</span>.<span class="at">addEventListener</span>(<span class="st">&#39;click&#39;</span><span class="op">,</span> listener)<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-15" title="15"></a>
+<a class="sourceLine" id="cb8-16" title="16">  <span class="va">console</span>.<span class="at">log</span>(clickListenerCount)<span class="op">;</span> <span class="co">// 2</span></a>
+<a class="sourceLine" id="cb8-17" title="17"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<h3 id="zone.removeeventlistener"><code>zone.removeEventListener</code></h3>
+<p>This hook allows you to intercept calls to <code>EventTarget#removeEventListener</code>.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">var</span> clickListenerCount <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb9-2" title="2"></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="va">zone</span>.<span class="at">fork</span>(</a>
+<a class="sourceLine" id="cb9-4" title="4">  $removeEventListener<span class="op">:</span> <span class="kw">function</span>(parentRemoveEventListener) <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-5" title="5">    <span class="cf">return</span> <span class="kw">function</span> (type<span class="op">,</span> listener) <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-6" title="6">      <span class="cf">if</span> (type <span class="op">===</span> <span class="st">&#39;click&#39;</span>) clickListenerCount<span class="op">--;</span></a>
+<a class="sourceLine" id="cb9-7" title="7">      <span class="cf">return</span> <span class="va">parentRemoveEventListener</span>.<span class="at">apply</span>(<span class="kw">this</span><span class="op">,</span> <span class="kw">arguments</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-8" title="8">    <span class="op">};</span></a>
+<a class="sourceLine" id="cb9-9" title="9">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb9-10" title="10">)<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-11" title="11"></a>
+<a class="sourceLine" id="cb9-12" title="12"><span class="va">zone</span>.<span class="at">run</span>(<span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-13" title="13">  <span class="va">myElement</span>.<span class="at">addEventListener</span>(<span class="st">&#39;click&#39;</span><span class="op">,</span> listener)<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-14" title="14">  <span class="va">myElement</span>.<span class="at">removeEventListener</span>(<span class="st">&#39;click&#39;</span><span class="op">,</span> listener)<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-15" title="15"></a>
+<a class="sourceLine" id="cb9-16" title="16">  <span class="va">console</span>.<span class="at">log</span>(clickListenerCount)<span class="op">;</span> <span class="co">// 0</span></a>
+<a class="sourceLine" id="cb9-17" title="17"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<h2 id="status">Status</h2>
+<ul>
+<li><code>setTimeout</code>, <code>setInterval</code>, and <code>addEventListener</code> work in FF23, IE10, and Chrome.</li>
+<li>stack trace rewrite is kinda ugly and may contain extraneous calls.</li>
+<li><code>elt.onevent</code> works in FF23, IE10, but not Chrome. There's <a href="https://code.google.com/p/chromium/issues/detail?id=43394">a fix in the works though</a>!</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="https://github.com/othiym23/async-listener">async-listener</a> - a similar library for node</li>
+<li><a href="http://www.html5rocks.com/en/tutorials/developertools/async-call-stack/">Async stack traces in Chrome</a></li>
+<li><a href="https://github.com/strongloop/zone">strongloop/zone</a></li>
+<li><a href="https://github.com/gilbox/vizone">vizone</a> - control flow visualizer that uses zone.js</li>
+</ul>
+<h2 id="license">License</h2>
+<p>MIT</p>

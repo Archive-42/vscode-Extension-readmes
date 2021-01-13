@@ -1,0 +1,74 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="version-lens-for-visual-studio-code">Version Lens for Visual Studio Code</h1>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=pflannery.vscode-versionlens&amp;wt.mc_id=vscode-versionlens-gitlab"><img src="https://vsmarketplacebadge.apphb.com/version-short/pflannery.vscode-versionlens.svg?color=blue&amp;style=?style=for-the-badge&amp;logo=visual-studio-code" alt="Badge for version for Visual Studio Code extension" /></a> <a href="https://marketplace.visualstudio.com/items?itemName=pflannery.vscode-versionlens"><img src="https://vsmarketplacebadge.apphb.com/installs-short/pflannery.vscode-versionlens.svg?color=blue&amp;style=flat-square" alt="Installs" /></a> <a href="https://marketplace.visualstudio.com/items?itemName=pflannery.vscode-versionlens"><img src="https://vsmarketplacebadge.apphb.com/rating-short/pflannery.vscode-versionlens.svg?color=blue&amp;style=flat-square" alt="Rating" /></a> <a href="http://opensource.org/licenses/ISC"><img src="https://img.shields.io/badge/license-ISC-orange.svg?color=blue&amp;style=flat-square" alt="The ISC License" /></a></p>
+<p><a href="https://gitlab.com/versionlens/vscode-versionlens/-/pipelines"><img src="https://gitlab.com/versionlens/vscode-versionlens/badges/master/pipeline.svg" /></a></p>
+<p>This extension shows <strong>version</strong> information when opening a package or project for one of the following:</p>
+<ul>
+<li>dotnet https://www.dotnetfoundation.org/</li>
+<li>dub https://code.dlang.org/</li>
+<li>jspm https://jspm.io/,</li>
+<li>maven https://maven.apache.org/</li>
+<li>npm https://www.npmjs.com/</li>
+<li>pub https://pub.dev/</li>
+<li>composer https://getcomposer.org/</li>
+</ul>
+<h2 id="how-do-i-see-version-information">How do I see version information?</h2>
+<p>Click the V icon in the packagefile toolbar.</p>
+<p>You can also choose the default startup state by setting <code>versionlens.suggestions.showOnStartup</code></p>
+<figure>
+<img src="https://gitlab.com/versionlens/vscode-versionlens/-/raw/master/images/faq/show-releases.gif" alt="Show releases" /><figcaption>Show releases</figcaption>
+</figure>
+<h2 id="can-i-see-prerelease-versions">Can I see prerelease versions?</h2>
+<p>Yes! click on the tag icon in the packagefile toolbar.</p>
+<p>You can also choose the default startup state by setting <code>versionlens.suggestions.showPrereleasesOnStartup</code></p>
+<figure>
+<img src="https://gitlab.com/versionlens/vscode-versionlens/-/raw/master/images/faq/show-prereleases.gif" alt="Show prereleases" /><figcaption>Show prereleases</figcaption>
+</figure>
+<h2 id="how-do-i-install-this-extension">How do I install this extension?</h2>
+<p>Follow this link on <a href="https://code.visualstudio.com/docs/editor/extension-gallery">how to install vscode extensions</a></p>
+<h2 id="can-i-install-this-extension-manually">Can I install this extension manually?</h2>
+<p>Yes goto the <a href="https://gitlab.com/versionlens/vscode-versionlens/-/releases">release page for instructions</a></p>
+<h2 id="im-not-able-to-install-this-extention">I'm not able to install this extention</h2>
+<p>Try a clean install:</p>
+<ul>
+<li>Shut down vscode</li>
+<li>Delete the extension folder <code>{home}/.vscode/extensions/pflannery.vscode-versionlens*</code></li>
+<li>Open vscode and try reinstalling the extension again</li>
+</ul>
+<p>If that fails then have a look in the <code>Log (Extension Host)</code> channel. Report it here if that doesn't help.</p>
+<figure>
+<img src="https://gitlab.com/versionlens/vscode-versionlens/-/raw/master/images/faq/ext-host-log.png" alt="image" /><figcaption>image</figcaption>
+</figure>
+<h2 id="how-do-i-troubleshoot-this-extension">How do I troubleshoot this extension?</h2>
+<ul>
+<li><p>Ensure that the packagefile open is using the correct file type. i.e. json instead of jsonc</p>
+<figure>
+<img src="https://gitlab.com/versionlens/vscode-versionlens/-/raw/master/images/faq/json-file-type.png" alt="image" /><figcaption>image</figcaption>
+</figure></li>
+<li><p>Version lens writes a log to an output channel in vscode.</p>
+<p>If your experiencing issues please set your <code>versionlens.logging.level</code> to <code>debug</code> (vscode needs to be restarted)</p>
+<p>Then open the channel like:</p>
+<figure>
+<img src="https://gitlab.com/versionlens/vscode-versionlens/-/raw/master/images/faq/ext-log.png" alt="image" /><figcaption>image</figcaption>
+</figure></li>
+</ul>
+<h2 id="license">License</h2>
+<p>Licensed under ISC</p>
+<p>Copyright © 2016+ <a href="https://gitlab.com/versionlens/vscode-versionlens/-/graphs/master">contributors</a></p>

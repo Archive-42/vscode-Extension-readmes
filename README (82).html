@@ -1,0 +1,83 @@
+<p><a href="https://marketplace.visualstudio.com/items?itemName=nhoizey.gremlins"><img src="https://img.shields.io/github/package-json/v/nhoizey/vscode-gremlins.svg" alt="GitHub package version" /></a> <a href="https://travis-ci.org/nhoizey/vscode-gremlins"><img src="https://img.shields.io/travis/nhoizey/vscode-gremlins.svg" alt="Travis" /></a> <a href="https://github.com/nhoizey/vscode-gremlins/blob/master/CODE_OF_CONDUCT.md"><img src="https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg" alt="Contributor Covenant" /></a> <a href="https://marketplace.visualstudio.com/items?itemName=nhoizey.gremlins"><img src="https://img.shields.io/vscode-marketplace/d/nhoizey.gremlins.svg" alt="Visual Studio Marketplace" /></a></p>
+<h1 id="gremlins-tracker-for-visual-studio-code">Gremlins tracker for Visual Studio Code</h1>
+<p>This <a href="https://code.visualstudio.com/">Visual Studio Code</a> extension reveals some characters that can be harmful because they are invisible or looking like legitimate ones.</p>
+<h2 id="features">Features</h2>
+<ul>
+<li>When there is a zero-width space in the code, the extension shows a red bar</li>
+<li>When there is a zero-width non-joiner in the code, the extension shows a red bar</li>
+<li>A few characters that can be harmful have a light red or orange background
+<ul>
+<li>Non-breaking spaces</li>
+<li>Left and right double quotation marks</li>
+<li>Etc.</li>
+</ul></li>
+<li>Some other characters are less harmful, but you might be interested in knowing they're here, so they're also shown, in blue</li>
+<li>Move the cursor over the character to have a hint of the potential issue</li>
+<li>A gremlin icon is shown in the gutter for every line that contains at least one of these characters</li>
+</ul>
+<figure>
+<img src="https://github.com/nhoizey/vscode-gremlins/raw/master/images/screenshot.png" alt="A screenshot of Gremlins in action" /><figcaption>A screenshot of Gremlins in action</figcaption>
+</figure>
+<p>You can also use the <a href="https://marketplace.visualstudio.com/items?itemName=zeithaste.cursorCharCode">"Unicode code point of current character" extension</a> to show information about the character under cursor in the status bar.</p>
+<h2 id="adding-new-gremlins-characters">Adding new gremlins characters</h2>
+<p>You can configure the list of additional characters and how they are shown under user settings key <code>gremlins.characters</code>.</p>
+<p>As an example, the following snippet adds the "U+000C" FORM FEED character:</p>
+<pre class="jsonc"><code>&quot;gremlins.characters&quot;: {
+  &quot;000c&quot; : {
+    &quot;zeroWidth&quot;: true,
+    &quot;description&quot;: &quot;FORM FEED (FF)&quot;,
+    &quot;overviewRulerColor&quot;: &quot;rgba(255,127,80,1)&quot;,
+  }
+}</code></pre>
+<p>Please help enhance the extension by suggesting new default characters, through Pull Requests or Issues.</p>
+<p>You can find all characters in <a href="https://unicode-table.com/en/">Unicode Table</a>.</p>
+<h2 id="language-specific-gremlins-characters">Language-specific gremlins characters</h2>
+<p>You can override the characters for a specific language by configuring them in the <code>gremlins.characters</code> property of the language-specific settings key (e.g. <code>[markdown]</code> for Markdown files).</p>
+<blockquote>
+<p>More information about language specific settings can be found in the <a href="https://code.visualstudio.com/docs/getstarted/settings#_language-specific-editor-settings">Language specific editor settings</a> VSCode documentation page.</p>
+</blockquote>
+<p>As an example, the following snippet adds the "U+000C" (form feed) character and disables the "U+00A0" (non-breaking space) character for markdown files:</p>
+<pre class="jsonc"><code>&quot;[markdown]&quot;: {
+  &quot;gremlins.characters&quot;: {
+    // Add the form feed character for markdown files
+    &quot;000c&quot; : {
+      &quot;zeroWidth&quot;: true,
+      &quot;description&quot;: &quot;FORM FEED (FF)&quot;,
+      &quot;level&quot;: &quot;error&quot;,
+    },
+    // Ignore the non-breaking space character for markdown files
+    &quot;00a0&quot;: {
+      &quot;level&quot;: &quot;none&quot;
+    }
+  }
+}</code></pre>
+<h2 id="hiding-the-gremlin-icon-in-the-gutter-for-a-character">Hiding the gremlin icon in the gutter for a character</h2>
+<p>You can chose to hide the gremlin icon in the gutter for some characters.</p>
+<p>Still under user settings key <code>gremlins.characters</code>, you can add the <code>hideGutterIcon</code> property to a character (even one from default settings) and set it to true.</p>
+<p>For example, this removes the gremlin icon in the gutter for non breakable spaces:</p>
+<pre class="jsonc"><code>&quot;gremlins.characters&quot;: {
+  &quot;00a0&quot; : {
+    &quot;hideGutterIcon&quot;: true
+  }
+}</code></pre>
+<h2 id="displaying-gremlins-in-the-problems-pane">Displaying gremlins in the Problems pane</h2>
+<p>By default, gremlins will be highligted in the text editor and an icon will be displayed in the gutter for each line with at least one gremlin. You can toggle whether gremlins also show in the Problems pane with user settings key <code>gremlins.showInProblemPane</code>.</p>
+<figure>
+<img src="https://github.com/nhoizey/vscode-gremlins/raw/master/images/problems-screenshot.png" alt="A screenshot of Gremlins in Problem Pane" /><figcaption>A screenshot of Gremlins in Problem Pane</figcaption>
+</figure>
+<h2 id="displaying-end-of-line-characters">Displaying end-of-line characters</h2>
+<p>If you want to display end-of-line characters, you can use the <a href="https://marketplace.visualstudio.com/items?itemName=medo64.render-crlf">Render Line Endings plugin</a>.</p>
+<h1 id="standing-on-the-shoulders-of-giants">Standing on the shoulders of giants</h1>
+<p>VS Code Gremlins was initialy heavily inspired by <a href="https://packagecontrol.io/packages/Gremlins">Sublime Gremlins</a>, a <a href="https://www.sublimetext.com/">Sublime Text</a> 3 plugin to help identify invisible and ambiguous Unicode whitespace characters (zero width spaces, no-break spaces, and similar.).</p>
+<p>I later discovered the "Gremlins" name had already been used a long time before, in some editors:</p>
+<p><a href="http://www.barebones.com/">Bare Bones Software</a>'s famous <a href="http://www.barebones.com/products/bbedit/">BBEdit</a> HTML and text editor for macOS has a "Zap Gremlins" feature since <a href="https://groups.google.com/forum/#!topic/comp.sys.mac.announce/gvPGyuX3UCs">its first public release April 12th, 1992</a>!</p>
+<p>Here's how it looks in recent versions:</p>
+<p style="text-align: center">
+<img src="https://raw.githubusercontent.com/nhoizey/vscode-gremlins/master/images/bbedit-gremlins.png" width="50%" height="auto" alt="Searching for Gremlins in BBEdit" />
+</p>
+<p>It looks like people liked this feature so much that they made <a href="http://zapgremlins.com/">a dedicated website</a>, unfortunately not anymore. Thanks Archive.org for <a href="https://web.archive.org/web/20120618091150/http://zapgremlins.com/">the cached version</a>:</p>
+<p style="text-align: center">
+<img src="https://raw.githubusercontent.com/nhoizey/vscode-gremlins/master/images/zap-gremlins.jpg" width="75%" height="auto" alt="The Zap Gremlins website" />
+</p>
+<h2 id="license">License</h2>
+<p>MIT</p>

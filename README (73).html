@@ -1,0 +1,120 @@
+<h2 id="arepl-build-status-downloads-downloads-gitter-chat">AREPL <a href="https://github.com/Almenon/AREPL-vscode/actions?query=workflow%3A.github%2Fworkflows%2Fmain.yml"><img src="https://github.com/Almenon/AREPL-vscode/workflows/.github/workflows/main.yml/badge.svg?branch=master" alt="Build Status" /></a> <a href="https://marketplace.visualstudio.com/items?itemName=almenon.arepl"><img src="https://vsmarketplacebadge.apphb.com/installs/almenon.arepl.svg" alt="Downloads" /></a> <a href="https://marketplace.visualstudio.com/items?itemName=almenon.arepl"><img src="https://vsmarketplacebadge.apphb.com/rating-star/almenon.arepl.svg" alt="Downloads" /></a> <a href="https://gitter.im/arepl/lobby"><img src="https://badges.gitter.im/arepl/gitter.png" alt="Gitter chat" /></a></h2>
+<p>AREPL automatically evaluates python code in real-time as you type.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Almenon/AREPL-vscode/master/areplDemoGif2.gif" alt="The demo gif is a bit outdated" /><figcaption>The demo gif is a bit outdated</figcaption>
+</figure>
+<p>AREPL is availible for free on the vscode <a href="https://marketplace.visualstudio.com/items?itemName=almenon.arepl#overview">marketplace</a>.</p>
+<h2 id="usage">Usage</h2>
+<p>First, make sure you have <a href="https://www.python.org/downloads/">python 3.7 or greater</a> installed.</p>
+<p>Open a python file and click on the cat <img src="https://github.com/almenon/arepl-vscode/raw/master/./media/happy_cat_24.png" alt="cat" /> in the top bar to the right to open AREPL. You can click the cat again to close.</p>
+<p>Or run AREPL through the command search: <code>control-shift-p</code></p>
+<p>or use the shortcuts: <code>control-shift-a</code> (current doc) / <code>control-shift-q</code> (new doc)</p>
+<h2 id="features">Features</h2>
+<ul>
+<li><p>Real-time evaluation: no need to run - AREPL evaluates your code automatically. You can control this (or even turn it off) in the settings.</p></li>
+<li><p>Variable display: The final state of your local variables are displayed in a collapsible JSON format.</p></li>
+<li><p>Error display: The instant you make a mistake an error with stack trace is shown.</p></li>
+<li><p>Settings: AREPL offers many settings to fit your user experience. Customize the look and feel, debounce time, python options, and more!</p></li>
+</ul>
+<h2 id="misc">Misc</h2>
+<h3 id="dumping">Dumping</h3>
+<p>If you want to dump local variables or dump variables at a specific point in your program you can use the dump function:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1"><span class="im">from</span> arepl_dump <span class="im">import</span> dump</a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">def</span> milesToKilometers(miles):</a>
+<a class="sourceLine" id="cb1-4" title="4">    kilometers <span class="op">=</span> miles<span class="op">*</span><span class="fl">1.60934</span></a>
+<a class="sourceLine" id="cb1-5" title="5">    dump() <span class="co"># dumps all the vars in your function when the function is called the first time</span></a>
+<a class="sourceLine" id="cb1-6" title="6"></a>
+<a class="sourceLine" id="cb1-7" title="7">    <span class="co"># or dump when function is called for a second time</span></a>
+<a class="sourceLine" id="cb1-8" title="8">    dump(<span class="va">None</span>,<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb1-9" title="9"></a>
+<a class="sourceLine" id="cb1-10" title="10">milesToKilometers(<span class="dv">2</span><span class="op">*</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb1-11" title="11">milesToKilometers(<span class="dv">3</span><span class="op">*</span><span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb1-12" title="12"></a>
+<a class="sourceLine" id="cb1-13" title="13"><span class="cf">for</span> char <span class="kw">in</span> [<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>]:</a>
+<a class="sourceLine" id="cb1-14" title="14">    dump(char,<span class="dv">2</span>) <span class="co"># dump a var at a specific iteration</span></a>
+<a class="sourceLine" id="cb1-15" title="15"></a>
+<a class="sourceLine" id="cb1-16" title="16">a<span class="op">=</span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb1-17" title="17">dump(a) <span class="co"># dump specific vars at any point in your program</span></a>
+<a class="sourceLine" id="cb1-18" title="18">a<span class="op">=</span><span class="dv">2</span></a></code></pre></div>
+<h3 id="stdin">STDIN</h3>
+<p>see https://github.com/Almenon/AREPL-vscode/wiki/Using-AREPL-with-input</p>
+<h3 id="guis">GUIS</h3>
+<p>see https://github.com/Almenon/AREPL-vscode/wiki/Using-AREPL-with-GUI's</p>
+<h3 id="end">#$end</h3>
+<p>Use the <code>#$end</code> comment to indicate the end of the real-time code. Code after <code>#$end</code> will not be executed in real-time. This is useful if you have something specific you want to run without running the entire file along with it. For example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1">x <span class="op">=</span> calculate_all_digits_of_pi()</a>
+<a class="sourceLine" id="cb2-2" title="2"></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="co">#$end</span></a>
+<a class="sourceLine" id="cb2-4" title="4"></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="co"># I can inspect variables without rerunning calculate_all_digits_of_pi</span></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="co"># the shortcut is control-enter - the code block should flash yellow.</span></a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="bu">print</span>(x) <span class="co"># 3.14......</span></a>
+<a class="sourceLine" id="cb2-8" title="8"></a>
+<a class="sourceLine" id="cb2-9" title="9"><span class="co"># I can also temporarily change the state of variables</span></a>
+<a class="sourceLine" id="cb2-10" title="10"><span class="co"># note that control-enter will run all adjacent lines of code</span></a>
+<a class="sourceLine" id="cb2-11" title="11">x <span class="op">=</span> math.floor(x)</a>
+<a class="sourceLine" id="cb2-12" title="12"><span class="bu">print</span>(x) <span class="co"># 3</span></a>
+<a class="sourceLine" id="cb2-13" title="13"></a>
+<a class="sourceLine" id="cb2-14" title="14"><span class="co"># i only want to do this once I&#39;ve determined that x is correct</span></a>
+<a class="sourceLine" id="cb2-15" title="15">upload_results_to_s3(x)</a></code></pre></div>
+<p>Note that you can also use control-enter to run a block of code outside <code>#$end</code>.</p>
+<h3 id="filtering-variables-from-display">Filtering variables from display</h3>
+<p>Don't want to see a variable in AREPL's result panel? Just add it to a variable named <code>arepl_filter</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1">arepl_filter <span class="op">=</span> [<span class="st">&#39;a&#39;</span>]</a>
+<a class="sourceLine" id="cb3-2" title="2">a <span class="op">=</span> <span class="st">&quot;foo&quot;</span> <span class="co"># this won&#39;t show up</span></a>
+<a class="sourceLine" id="cb3-3" title="3">b <span class="op">=</span> <span class="dv">3</span> <span class="co"># this does</span></a></code></pre></div>
+<p>You can also filter out types:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" title="1">arepl_filter_type<span class="op">=</span>[<span class="st">&quot;&lt;class &#39;str&#39;&gt;&quot;</span>]</a>
+<a class="sourceLine" id="cb4-2" title="2">c <span class="op">=</span> <span class="st">&quot;foo&quot;</span> <span class="co"># this won&#39;t show up</span></a>
+<a class="sourceLine" id="cb4-3" title="3">c <span class="op">=</span> <span class="dv">3</span> <span class="co"># this does</span></a></code></pre></div>
+<p>Finally there is a super-powerful arepl_filter_function var you can use to totally customize what is shown:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" title="1"><span class="im">from</span> collections <span class="im">import</span> namedtuple</a>
+<a class="sourceLine" id="cb5-2" title="2"></a>
+<a class="sourceLine" id="cb5-3" title="3">Point <span class="op">=</span> namedtuple(<span class="st">&#39;Point&#39;</span>, [<span class="st">&#39;x&#39;</span>, <span class="st">&#39;y&#39;</span>])</a>
+<a class="sourceLine" id="cb5-4" title="4">p <span class="op">=</span> Point(x<span class="op">=</span><span class="dv">1</span>, y<span class="op">=</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb5-5" title="5"></a>
+<a class="sourceLine" id="cb5-6" title="6"><span class="kw">def</span> arepl_filter_function(var_dict):</a>
+<a class="sourceLine" id="cb5-7" title="7">    var_dict[<span class="st">&#39;p&#39;</span>]<span class="op">=</span>var_dict[<span class="st">&#39;p&#39;</span>].x <span class="op">+</span> var_dict[<span class="st">&#39;p&#39;</span>].y</a>
+<a class="sourceLine" id="cb5-8" title="8">    <span class="cf">return</span> var_dict</a>
+<a class="sourceLine" id="cb5-9" title="9"></a>
+<a class="sourceLine" id="cb5-10" title="10"><span class="co"># p will show up as 2</span></a></code></pre></div>
+<p>You can set default filters via the <code>defaultFilterVars</code> or <code>defaultFilterTypes</code> settings.</p>
+<h3 id="howdoi">HOWDOI</h3>
+<p>You can use <a href="https://github.com/gleitz/howdoi">howdoi</a> with arepl.</p>
+<p>First install in the terminal / command line:</p>
+<blockquote>
+<p>pip install howdoi</p>
+</blockquote>
+<p>Then reopen arepl and you will be able to use howdoi to get answers to your questions. For example:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" title="1">howdoi(<span class="st">&#39;calculate fibbonaci in python&#39;</span>)</a></code></pre></div>
+<p>will give you a function to calcualate a fibonaci number</p>
+<h3 id="variable-representation">Variable Representation</h3>
+<p>I have <a href="https://github.com/Almenon/AREPL-backend/blob/master/python/arepl_custom_handlers.py">overridden the display</a> of some types (like datetime) to be more readable to humans.</p>
+<p>If you want a type to be displayed in a particular manner just <a href="https://github.com/Almenon/AREPL-vscode/issues">file an issue</a></p>
+<h3 id="save">#$save</h3>
+<p><em>This is buggy and I would suggest using the <a href="https://github.com/Almenon/AREPL-vscode/wiki/Caching-data-between-runs">arepl_store variable</a> instead</em></p>
+<p>If you want to avoid a section of code being executed in real-time (due to it being slow or calling external resources) you can use #$save. For example:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">def</span> largest_prime_factor(n):</a>
+<a class="sourceLine" id="cb7-2" title="2">    i <span class="op">=</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb7-3" title="3">    <span class="cf">while</span> i <span class="op">*</span> i <span class="op">&lt;=</span> n:</a>
+<a class="sourceLine" id="cb7-4" title="4">        <span class="cf">if</span> n <span class="op">%</span> i:</a>
+<a class="sourceLine" id="cb7-5" title="5">            i <span class="op">+=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb7-6" title="6">        <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb7-7" title="7">            n <span class="op">//=</span> i</a>
+<a class="sourceLine" id="cb7-8" title="8">    <span class="cf">return</span> n</a>
+<a class="sourceLine" id="cb7-9" title="9"></a>
+<a class="sourceLine" id="cb7-10" title="10"><span class="co"># this takes a looonnggg time to execute</span></a>
+<a class="sourceLine" id="cb7-11" title="11">result <span class="op">=</span> largest_prime_factor(<span class="dv">8008514751439999</span>)</a>
+<a class="sourceLine" id="cb7-12" title="12"></a>
+<a class="sourceLine" id="cb7-13" title="13"><span class="co">#$save</span></a>
+<a class="sourceLine" id="cb7-14" title="14"><span class="bu">print</span>(<span class="st">&quot;but now that i saved i am back to real-time execution&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" title="1"><span class="im">import</span> random</a>
+<a class="sourceLine" id="cb8-2" title="2">x <span class="op">=</span> random.random()</a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="co">#$save</span></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="bu">print</span>(x) <span class="co"># this number will not change when editing below the #$save line</span></a></code></pre></div>
+<p>Please note that #$save <a href="https://github.com/Almenon/AREPL-vscode/issues/53">does not work</a> with certain types, like generators. If #$save fails in pickling the code state <a href="https://github.com/Almenon/AREPL-vscode/issues">file an issue</a> so I can look into it.</p>
+<h3 id="more-stuff">More Stuff</h3>
+<p>Check out the <a href="https://github.com/Almenon/AREPL-vscode/wiki">wiki</a>!</p>
+<h4 id="contributing-to-the-project">Contributing to the project</h4>
+<p>See the <a href="https://github.com/Almenon/AREPL-vscode/wiki/Getting-Started-for-contributors-to-AREPL">wiki page</a> on getting started. Contributions welcome!</p>

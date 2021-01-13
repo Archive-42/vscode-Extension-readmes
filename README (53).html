@@ -1,0 +1,206 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="pylance">Pylance</h1>
+<h3 id="fast-feature-rich-language-support-for-python">Fast, feature-rich language support for Python</h3>
+<p>Pylance is an extension that works alongside Python in Visual Studio Code to provide performant language support. Under the hood, Pylance is powered by <a href="https://github.com/microsoft/pyright">Pyright</a>, Microsoft's static type checking tool. Using Pyright, Pylance has the ability to supercharge your Python IntelliSense experience with rich type information, helping you write better code faster.</p>
+<p>The Pylance name is a small ode to Monty Python's Lancelot who was the first knight to answer the bridgekeeper's questions in the Holy Grail.</p>
+<h1 id="quick-start">Quick Start</h1>
+<ol type="1">
+<li>Install the <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance">Pylance extension</a> from the marketplace.</li>
+<li>Open a Python (.py) file and the Pylance extension will activate.</li>
+<li>Select Yes when prompted to make Pylance the default language server. This will update your preferences, which you can also do manually by adding <code>"python.languageServer": "Pylance"</code> to your settings.json file using the text editor.</li>
+</ol>
+<h1 id="features">Features</h1>
+<figure>
+<img src="https://github.com/microsoft/pylance-release/raw/master/screencap.gif" alt="screencast" /><figcaption>screencast</figcaption>
+</figure>
+<p>Pylance provides some awesome features for Python 3, including:</p>
+<ul>
+<li>Docstrings</li>
+<li>Signature help, with type information</li>
+<li>Parameter suggestions</li>
+<li>Code completion</li>
+<li>Auto-imports (as well as add and remove import code actions)</li>
+<li>As-you-type reporting of code errors and warnings (diagnostics)</li>
+<li>Code outline</li>
+<li>Code navigation</li>
+<li>Type checking mode</li>
+<li>Native multi-root workspace support</li>
+<li>IntelliCode compatibility</li>
+<li>Jupyter Notebooks compatibility</li>
+<li>Semantic highlighting</li>
+</ul>
+<p>See the <a href="https://github.com/microsoft/pylance-release/blob/master/CHANGELOG.md">changelog</a> for the latest release.</p>
+<h1 id="settings-and-customization">Settings and Customization</h1>
+<p>Pylance provides users with the ability to customize their Python language support via a host of settings which can either be placed in the settings.json file in your workspace, or edited through the Settings Editor UI.</p>
+<ul>
+<li><code>pylance.insidersChannel</code>
+<ul>
+<li>Used to control the insiders download channel.</li>
+<li>Available values:
+<ul>
+<li><code>off</code> (default)</li>
+<li><code>daily</code></li>
+</ul></li>
+</ul></li>
+<li><code>python.analysis.typeCheckingMode</code>
+<ul>
+<li>Used to specify the level of type checking analysis performed;</li>
+<li>Default: <code>off</code></li>
+<li>Available values:
+<ul>
+<li><code>off</code>: No type checking analysis is conducted; unresolved imports/variables diagnostics are produced</li>
+<li><code>basic</code>: Non-type checking-related rules (all rules in <code>off</code>) + basic type checking rules</li>
+<li><code>strict</code>: All type checking rules at the highest severity of error (includes all rules in <code>off</code> and <code>basic</code> categories)</li>
+</ul></li>
+</ul></li>
+<li><code>python.analysis.diagnosticMode</code>
+<ul>
+<li>Used to allow a user to specify what files they want the language server to analyze to get problems flagged in their code.</li>
+<li>Available values:
+<ul>
+<li><code>workspace</code></li>
+<li><code>openFilesOnly</code> (default)</li>
+</ul></li>
+</ul></li>
+<li><code>python.analysis.stubPath</code>
+<ul>
+<li>Used to allow a user to specify a path to a directory that contains custom type stubs. Each package's type stub file(s) are expected to be in its own subdirectory.</li>
+<li>Default value: <code>./typings</code></li>
+</ul></li>
+<li><code>python.analysis.autoSearchPaths</code>
+<ul>
+<li>Used to automatically add search paths based on some predefined names (like <code>src</code>).</li>
+<li>Available values:
+<ul>
+<li><code>true</code> (default)</li>
+<li><code>false</code></li>
+</ul></li>
+</ul></li>
+<li><code>python.analysis.extraPaths</code>
+<ul>
+<li>Used to specify extra search paths for import resolution. This replaces the old <code>python.autoComplete.extraPaths</code> setting.</li>
+<li>Default value: empty array</li>
+</ul></li>
+<li><code>python.analysis.diagnosticSeverityOverrides</code>
+<ul>
+<li>Used to allow a user to override the severity levels for individual diagnostics should they desire</li>
+<li>Accepted severity values:
+<ul>
+<li><code>error</code> (red squiggle)</li>
+<li><code>warning</code> (yellow squiggle)</li>
+<li><code>information</code> (blue squiggle)</li>
+<li><code>none</code> (disables the rule)</li>
+</ul></li>
+<li>Available rule to use as keys can be found <a href="https://github.com/microsoft/pylance-release/blob/master/DIAGNOSTIC_SEVERITY_RULES.md">here</a></li>
+<li>Example:</li>
+</ul>
+<pre><code>{ 
+    &quot;python.analysis.diagnosticSeverityOverrides:&quot; { 
+        &quot;reportUnboundVariable&quot; : &quot;information&quot;, 
+        &quot;reportImplicitStringConcatenation&quot; : &quot;warning&quot; 
+    } 
+} </code></pre></li>
+<li><code>python.analysis.useLibraryCodeForTypes</code>
+<ul>
+<li>Used to parse the source code for a package when a typestub is not found</li>
+<li>Accepted values:
+<ul>
+<li><code>true</code> (default)</li>
+<li><code>false</code></li>
+</ul></li>
+</ul></li>
+<li><code>python.analysis.autoImportCompletions</code>
+<ul>
+<li>Used to control the offering of auto-imports in completions.</li>
+<li>Accepted values:
+<ul>
+<li><code>true</code> (default)</li>
+<li><code>false</code></li>
+</ul></li>
+</ul></li>
+<li><code>python.analysis.completeFunctionParens</code>
+<ul>
+<li>Add parentheses to function completions.</li>
+<li>Accepted values:
+<ul>
+<li><code>true</code></li>
+<li><code>false</code> (default)</li>
+</ul></li>
+</ul></li>
+</ul>
+<h1 id="semantic-highlighting">Semantic highlighting</h1>
+<p>Visual Studio Code uses TextMate grammars as the main tokenization engine. TextMate grammars work on a single file as input and break it up based on lexical rules expressed in regular expressions.</p>
+<p>Semantic tokenization allows language servers to provide additional token information based on the language server's knowledge on how to resolve symbols in the context of a project. Themes can opt-in to use semantic tokens to improve and refine the syntax highlighting from grammars. The editor applies the highlighting from semantic tokens on top of the highlighting from grammars.</p>
+<p>Here's an example of what semantic highlighting can add:</p>
+<p>Without semantic highlighting:</p>
+<figure>
+<img src="https://github.com/microsoft/pylance-release/raw/master/semantic-disabled.png" alt="semantic highlighting disabled" /><figcaption>semantic highlighting disabled</figcaption>
+</figure>
+<p>With semantic highlighting:</p>
+<figure>
+<img src="https://github.com/microsoft/pylance-release/raw/master/semantic-enabled.png" alt="semantic highlighting enabled" /><figcaption>semantic highlighting enabled</figcaption>
+</figure>
+<p>Semantic colors can be customized in settings.json by associating the Pylance semantic token types and modifiers with the desired colors.</p>
+<ul>
+<li>Semantic token types
+<ul>
+<li>class, enum</li>
+<li>parameter, variable, property, enumMember</li>
+<li>function, member</li>
+<li>module</li>
+<li>intrinsic</li>
+<li>magicFunction (dunder methods)</li>
+<li>selfParameter, clsParameter</li>
+</ul></li>
+<li>Semantic token modifiers
+<ul>
+<li>declaration</li>
+<li>readonly, static, abstract</li>
+<li>async</li>
+<li>typeHint, typeHintComment</li>
+<li>decorator</li>
+<li>builtin</li>
+</ul></li>
+</ul>
+<p>The <a href="https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide#scope-inspector">scope inspector</a> tool allows you to explore what semantic tokens are present in a source file and what theme rules they match to.</p>
+<p>Example of customizing semantic colors in settings.json:</p>
+<pre><code>{
+    &quot;editor.semanticTokenColorCustomizations&quot;: {
+        &quot;[One Dark Pro]&quot;: { // Apply to this theme only
+            &quot;enabled&quot;: true,
+            &quot;rules&quot;: {
+                &quot;magicFunction:python&quot;: &quot;#ee0000&quot;,
+                &quot;function.declaration:python&quot;: &quot;#990000&quot;,
+                &quot;*.decorator:python&quot;: &quot;#0000dd&quot;,
+                &quot;*.typeHint:python&quot;: &quot;#5500aa&quot;,
+                &quot;*.typeHintComment:python&quot;: &quot;#aaaaaa&quot;
+            }
+        }
+    }
+}</code></pre>
+<h1 id="contributing">Contributing</h1>
+<p>Pylance leverages Microsoft's open-source static type checking tool, Pyright, to provide performant language support for Python.</p>
+<p>Code contributions are welcomed via the <a href="https://github.com/microsoft/pyright">Pyright</a> repo.</p>
+<p>For information on getting started, refer to the <a href="https://github.com/microsoft/pyright/blob/master/CONTRIBUTING.md">CONTRIBUTING instructions</a>.</p>
+<h1 id="feedback">Feedback</h1>
+<ul>
+<li>File a bug in <a href="https://github.com/microsoft/pylance-release/issues/new/choose">GitHub Issues</a></li>
+<li><a href="https://twitter.com/pythonvscode/">Tweet us</a> with other feedback</li>
+</ul>

@@ -1,0 +1,221 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="markdown-formatter">markdown-formatter</h1>
+<p><a href="https://github.com/sumnow/markdown-formatter/blob/master/./README_CN.md">中文文档</a></p>
+<h2 id="introduction">Introduction</h2>
+<p>This is a tool to improve the writing efficiency of markdown, not only provides a relatively uniform format for the <code>markdown</code> user, but also provides some snippets.</p>
+<h2 id="instructions">Instructions</h2>
+<p>After the installation is complete, you may need to restart your vscode.</p>
+<p>In any <code>markdown</code> standard file with a <code>.md</code> suffix, you can use <code>shift+option+f</code>(osx) or <code>ctrl+shift+f</code>(window) to quickly format the code.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/sumnow/markdown-formatter/master/images/example.gif" alt="example.gif" /><figcaption>example.gif</figcaption>
+</figure>
+<blockquote>
+<p>PS: It does not fix your markdown syntax errors. for example, there is no space after <code>#</code> as a title, because in the code <code>#</code> is a usable character that is widely used as a comment or variable declaration.</p>
+</blockquote>
+<h2 id="feature">Feature</h2>
+<h3 id="snippets-part">Snippets part</h3>
+<p><strong>First of all, You must config like this in <code>settings.json</code></strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="st">&quot;[markdown]&quot;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="co">// 快速补全</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="st">&quot;editor.quickSuggestions&quot;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-4" title="4">    <span class="st">&quot;other&quot;</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-5" title="5">    <span class="st">&quot;comments&quot;</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-6" title="6">    <span class="st">&quot;strings&quot;</span><span class="op">:</span> <span class="kw">true</span></a>
+<a class="sourceLine" id="cb1-7" title="7">  <span class="op">},</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="op">}</span></a></code></pre></div>
+<h4 id="import-image">import image</h4>
+<p>Typing <code>img</code></p>
+<figure>
+<img src="https://github.com/sumnow/markdown-formatter/raw/master/./images/example-img.gif" alt="img" /><figcaption>img</figcaption>
+</figure>
+<h4 id="import-table">import table</h4>
+<p>Typing <code>tab</code></p>
+<figure>
+<img src="https://github.com/sumnow/markdown-formatter/raw/master/./images/example-tab.gif" alt="img" /><figcaption>img</figcaption>
+</figure>
+<h4 id="import-code">import code</h4>
+<p>Typing <code>js</code> , <code>html</code> , <code>css</code> , <code>python</code> , <code>go</code> , <code>java</code> , or <code>code</code></p>
+<figure>
+<img src="https://github.com/sumnow/markdown-formatter/raw/master/./images/example-code.gif" alt="img" /><figcaption>img</figcaption>
+</figure>
+<h4 id="import-list">import list</h4>
+<p>Typing <code>ul</code> or <code>ol</code></p>
+<figure>
+<img src="https://github.com/sumnow/markdown-formatter/raw/master/./images/example-list.gif" alt="img" /><figcaption>img</figcaption>
+</figure>
+<h3 id="formatter-part">Formatter part</h3>
+<h4 id="symbols">symbols</h4>
+<ul>
+<li>For <code>，,。;；！、？：</code> add a space after these symbols;</li>
+<li><code>，：；！""‘'（）？。</code> , unify it as a half-width character(Optional);</li>
+<li><code>.!?</code> add a space after these symbols, if before uppercases or chineses;</li>
+<li>Supports converting Chinese symbols into full-width symbols according to context, or converting English into half-width symbols;</li>
+<li>a space before and after the back-quote, which wrapped by back-quote will not be formatted;</li>
+</ul>
+<h4 id="line">line</h4>
+<ul>
+<li>Empty a line for the title;</li>
+<li>Empty a line for the code block;</li>
+<li>The table is aligned automatically;</li>
+<li>Empty a line for the link block;</li>
+<li>erase dulicated line;</li>
+</ul>
+<h4 id="table">table</h4>
+<figure>
+<img src="https://github.com/sumnow/markdown-formatter/raw/master/./images/example-tab_format.gif" alt="alt" /><figcaption>alt</figcaption>
+</figure>
+<h4 id="list">list</h4>
+<h5 id="unordered-list">unordered list</h5>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb2-1" title="1"></a>
+<a class="sourceLine" id="cb2-2" title="2">* <span class="fl">TITLE</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="fl">  + Title</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="fl">    - title</span></a></code></pre></div>
+<figure>
+<img src="https://github.com/sumnow/markdown-formatter/raw/master/./images/example-list_format.gif" alt="alt" /><figcaption>alt</figcaption>
+</figure>
+<h4 id="code">code</h4>
+<p>Format the code, by <code>js-beautify</code> tool, currently only the <code>javascript</code> , <code>html</code> and <code>css</code> language;</p>
+<h5 id="code-block">code block</h5>
+<pre class="lang"><code>function sayHello() {console.log(&#39;hello&#39;)}</code></pre>
+<ol type="1">
+<li>If <code>lang</code> is <code>js</code> or <code>javascript</code> or empty, it will be formatted according to js syntax.</li>
+<li>If <code>lang</code> is <code>html</code> , it will be formatted according to html syntax.</li>
+<li>If <code>lang</code> is <code>css</code> , it will be formatted according to css syntax.</li>
+<li>If you don't use <code>js</code> usually, You can disable code block or code area autoformat code by setting the parameter <code>formatOpt</code> to false.</li>
+</ol>
+<blockquote>
+<p>The js formatting rules can be configured in <code>settings.json</code> .</p>
+</blockquote>
+<blockquote>
+<p>Code blocks can clearly mark the type of language, so it is recommended to use code blocks, you can configure <code>codeAreaToBlock</code> to set the conversion method.</p>
+</blockquote>
+<h5 id="code-area">code area</h5>
+<p>The default is not formatted. If <code>codeAreaToBlock</code> is any language name, such as <code>js</code> or <code>go</code>, it will be converted into a code block and then formatted.</p>
+<figure>
+<img src="https://github.com/sumnow/markdown-formatter/raw/master/./images/example-code_area.gif" alt="img" /><figcaption>img</figcaption>
+</figure>
+<p><strong>Tips: Empty lines in the code area cannot exceed one line.</strong></p>
+<h2 id="config">Config</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode typescript"><code class="sourceCode typescript"><a class="sourceLine" id="cb4-1" title="1"><span class="co">// enable/disable markdown-formatter</span></a>
+<a class="sourceLine" id="cb4-2" title="2">enable <span class="op">=</span> <span class="va">config</span><span class="op">.</span><span class="at">get</span> <span class="op">&lt;</span><span class="dt">boolean</span><span class="op">&gt;</span> (<span class="st">&#39;enable&#39;</span><span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span> </a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="co">// fullwidth character translate into halfwidth character, such as `，：；！""‘'（）？。`</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="co">// Automatically convert symbols based on context when set to &#39;auto&#39;</span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="co">// Don&#39;t convert symbols based on context when set to &#39;_&#39; or &#39;&#39;</span></a>
+<a class="sourceLine" id="cb4-6" title="6">fullWidthTurnHalfWidth <span class="op">=</span> <span class="va">config</span><span class="op">.</span><span class="fu">get</span><span class="op">&lt;</span><span class="dt">string</span><span class="op">&gt;</span>(<span class="st">&#39;fullWidthTurnHalfWidth&#39;</span><span class="op">,</span> <span class="st">&#39;auto&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-7" title="7"><span class="co">// Convert code block to code area, and the default is not converted. </span></a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="co">// You can set it by any meaningful strings</span></a>
+<a class="sourceLine" id="cb4-9" title="9"><span class="co">// if it is set to js, it will be formatted according to the js language syntax.</span></a>
+<a class="sourceLine" id="cb4-10" title="10">codeAreaToBlock <span class="op">=</span> <span class="va">config</span><span class="op">.</span><span class="fu">get</span><span class="op">&lt;</span><span class="dt">string</span><span class="op">&gt;</span>(<span class="st">&#39;codeAreaToBlock&#39;</span><span class="op">,</span> <span class="st">&#39;&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-11" title="11"><span class="co">// enable/disable format code</span></a>
+<a class="sourceLine" id="cb4-12" title="12"><span class="co">// false: disable format code</span></a>
+<a class="sourceLine" id="cb4-13" title="13">formatCodes <span class="op">=</span> <span class="va">config</span><span class="op">.</span><span class="fu">get</span><span class="op">&lt;</span><span class="dt">boolean</span><span class="op">&gt;</span>(<span class="st">&#39;formatCodes&#39;</span><span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-14" title="14"><span class="co">// config beautifyjs</span></a>
+<a class="sourceLine" id="cb4-15" title="15"><span class="co">// {}: config beautifyjs</span></a>
+<a class="sourceLine" id="cb4-16" title="16">formatOpt <span class="op">=</span> <span class="va">config</span><span class="op">.</span><span class="at">get</span><span class="op">&lt;</span><span class="dt">any</span><span class="op">&gt;</span> (<span class="st">&#39;formatOpt&#39;</span><span class="op">,</span> <span class="op">{}</span>)<span class="op">;</span> </a>
+<a class="sourceLine" id="cb4-17" title="17"><span class="co">// Format the symbols of the unordered list</span></a>
+<a class="sourceLine" id="cb4-18" title="18"><span class="co">// * &gt; + &gt; -</span></a>
+<a class="sourceLine" id="cb4-19" title="19">formatULSymbol <span class="op">=</span> <span class="va">config</span><span class="op">.</span><span class="fu">get</span><span class="op">&lt;</span><span class="dt">boolean</span><span class="op">&gt;</span>(<span class="st">&#39;formatULSymbol&#39;</span><span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-20" title="20"><span class="co">// Whether a space is required after the full-width or half-width symbol</span></a>
+<a class="sourceLine" id="cb4-21" title="21">spaceAfterFullWidthOrHalfWidth <span class="op">=</span> <span class="va">config</span><span class="op">.</span><span class="fu">get</span><span class="op">&lt;</span><span class="dt">string</span><span class="op">&gt;</span>(<span class="st">&#39;spaceAfterFullWidthOrHalfWidth&#39;</span><span class="op">,</span> <span class="st">&#39;half&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p>How to config <code>beautifyjs</code> , you can click<a href="https://github.com/beautify-web/js-beautify">here</a></p>
+<h3 id="configuration-example">configuration example</h3>
+<p>You can refer to my configuration:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="co">// settings.json</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="co">// markdown-formatter conf</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="co">// Convert the code area of unnamed language into code block according to js type</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="co">// &quot;markdownFormatter.codeAreaToBlock&quot;: &quot;js&quot;,</span></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="co">// or not</span></a>
+<a class="sourceLine" id="cb5-6" title="6"><span class="st">&quot;markdownFormatter.codeAreaToBlock&quot;</span><span class="op">:</span> <span class="st">&quot;&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-7" title="7"><span class="co">// format punctuation automatically</span></a>
+<a class="sourceLine" id="cb5-8" title="8"><span class="st">&quot;markdownFormatter.fullWidthTurnHalfWidth&quot;</span><span class="op">:</span> <span class="st">&quot;auto&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-9" title="9"><span class="co">// Chinese punctuation formatted to English</span></a>
+<a class="sourceLine" id="cb5-10" title="10"><span class="co">// &quot;markdownFormatter.fullWidthTurnHalfWidth&quot;: &quot;，：；！""‘'（）？。&quot;,</span></a>
+<a class="sourceLine" id="cb5-11" title="11"><span class="st">&quot;markdownFormatter.formatOpt&quot;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-12" title="12">  <span class="st">&quot;indent_size&quot;</span><span class="op">:</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb5-13" title="13"><span class="op">},</span></a>
+<a class="sourceLine" id="cb5-14" title="14"><span class="st">&quot;[markdown]&quot;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-15" title="15">  <span class="co">// auto save</span></a>
+<a class="sourceLine" id="cb5-16" title="16">  <span class="st">&quot;editor.formatOnSave&quot;</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-17" title="17">  <span class="co">// show space</span></a>
+<a class="sourceLine" id="cb5-18" title="18">  <span class="st">&quot;editor.renderWhitespace&quot;</span><span class="op">:</span> <span class="st">&quot;all&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-19" title="19">  <span class="co">// </span></a>
+<a class="sourceLine" id="cb5-20" title="20">  <span class="st">&quot;editor.quickSuggestions&quot;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-21" title="21">    <span class="st">&quot;other&quot;</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-22" title="22">    <span class="st">&quot;comments&quot;</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-23" title="23">    <span class="st">&quot;strings&quot;</span><span class="op">:</span> <span class="kw">true</span></a>
+<a class="sourceLine" id="cb5-24" title="24">  <span class="op">},</span></a>
+<a class="sourceLine" id="cb5-25" title="25">  <span class="co">// </span></a>
+<a class="sourceLine" id="cb5-26" title="26">  <span class="st">&quot;editor.snippetSuggestions&quot;</span><span class="op">:</span> <span class="st">&quot;top&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-27" title="27">  <span class="st">&quot;editor.tabCompletion&quot;</span><span class="op">:</span> <span class="st">&quot;on&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-28" title="28">  <span class="co">// </span></a>
+<a class="sourceLine" id="cb5-29" title="29">  <span class="st">&quot;editor.acceptSuggestionOnEnter&quot;</span><span class="op">:</span> <span class="st">&quot;on&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-30" title="30">  <span class="co">// </span></a>
+<a class="sourceLine" id="cb5-31" title="31">  <span class="st">&quot;editor.defaultFormatter&quot;</span><span class="op">:</span> <span class="st">&quot;mervin.markdown-formatter&quot;</span></a>
+<a class="sourceLine" id="cb5-32" title="32"><span class="op">}</span></a></code></pre></div>
+<h2 id="software-version-and-development-environment">Software version and development environment</h2>
+<h4 id="develop-version">develop version</h4>
+<p>VSCode version 1.29.1 (macOS Mojave)</p>
+<h4 id="test-version">test version</h4>
+<p>VSCode version 1.33.1 (macOS Mojave)</p>
+<h2 id="contact">Contact</h2>
+<p>If you have any ideas, please contact me.</p>
+<p>If you know how to format other languages using front-end libraries, please let me know.</p>
+<p>email: mydiamervin@gmail.com or <a href="https://github.com/sumnow/markdown-formatter/issues">here</a></p>
+<h2 id="gratitude">Gratitude</h2>
+<p>Thank you for helping me improve this tool.</p>
+<ul>
+<li><a href="https://github.com/lancerXXXX">lancerXXXX</a>
+<ul>
+<li>Bug(https://github.com/sumnow/markdown-formatter/issues/16)</li>
+</ul></li>
+<li><a href="https://github.com/rgeorgiev583">rgeorgiev583</a>
+<ul>
+<li>Bug(https://github.com/sumnow/markdown-formatter/issues/14)</li>
+</ul></li>
+<li><a href="https://github.com/Ardeshir81">Ardeshir81</a>
+<ul>
+<li>Bug(https://github.com/sumnow/markdown-formatter/issues/13)</li>
+</ul></li>
+<li><a href="https://github.com/busyrat">busyrat</a>
+<ul>
+<li>Feature(https://github.com/sumnow/markdown-formatter/issues/10)</li>
+</ul></li>
+<li><a href="https://github.com/lartpang">lartpang</a>
+<ul>
+<li>Bug(https://github.com/sumnow/markdown-formatter/issues/15)</li>
+<li>Feature(https://github.com/sumnow/markdown-formatter/issues/11)</li>
+<li>Bug(https://github.com/sumnow/markdown-formatter/issues/9)</li>
+<li>Bug(https://github.com/sumnow/markdown-formatter/issues/8)</li>
+<li>Bug(https://github.com/sumnow/markdown-formatter/issues/7)</li>
+<li>Bug(https://github.com/sumnow/markdown-formatter/issues/6)</li>
+<li>Bug(https://github.com/sumnow/markdown-formatter/issues/5)</li>
+</ul></li>
+<li><a href="https://github.com/iostalks">iostalks</a>
+<ul>
+<li>Feature(https://github.com/sumnow/markdown-formatter/issues/3)</li>
+</ul></li>
+<li><a href="https://github.com/zhuoyan">zhuoyan</a>
+<ul>
+<li>Bug(https://github.com/sumnow/markdown-formatter/issues/1)</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Sorting only according to the time of the question</p>
+</blockquote>

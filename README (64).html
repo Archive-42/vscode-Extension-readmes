@@ -1,0 +1,131 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="auto-close-tag">Auto Close Tag</h1>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag"><img src="https://vsmarketplacebadge.apphb.com/version/formulahendry.auto-close-tag.svg" alt="Marketplace Version" /></a> <a href="https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag"><img src="https://vsmarketplacebadge.apphb.com/installs/formulahendry.auto-close-tag.svg" alt="Installs" /></a> <a href="https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag"><img src="https://vsmarketplacebadge.apphb.com/rating/formulahendry.auto-close-tag.svg" alt="Rating" /></a> <a href="https://travis-ci.org/formulahendry/vscode-auto-close-tag"><img src="https://travis-ci.org/formulahendry/vscode-auto-close-tag.svg?branch=master" alt="Build Status" /></a></p>
+<p>Automatically add HTML/XML close tag, same as Visual Studio IDE or Sublime Text does.</p>
+<h2 id="sponsors">Sponsors</h2>
+<p><a href="http://wd5a.2.vu/1"><img src="https://github.com/formulahendry/vscode-auto-close-tag/raw/master/images/tabnine.png" alt="Tabnine" /></a></p>
+<p>Increase your coding productivity with Tabnine's AI code completions! Tabnine is a free powerful Artificial Intelligence assistant designed to help you code faster, reduce mistakes, and discover best coding practices - without ever leaving the comfort of VS Code.</p>
+<p>Tabnine is trusted by more than a million developers worldwide. <a href="http://wd5a.2.vu/1">Get it now</a>.</p>
+<p>
+<a title="Try CodeStream" href="https://sponsorlink.codestream.com/?utm_source=vscmarket&amp;utm_campaign=autoclosetag&amp;utm_medium=banner"><img src="https://alt-images.codestream.com/codestream_logo_autoclosetag.png"></a><br> Eliminate context switching and costly distractions. Create and merge PRs and perform code reviews from inside your IDE while using jump-to-definition, your keybindings, and other IDE favorites.<br> <a title="Try CodeStream" href="https://sponsorlink.codestream.com/?utm_source=vscmarket&amp;utm_campaign=autoclosetag&amp;utm_medium=banner">Learn more</a>
+</p>
+<h2 id="book-for-vs-code">Book for VS Code</h2>
+<p><a href="https://union-click.jd.com/jdc?e=jdext-1261348777639735296-0&amp;p=AyIGZRhbHQsWAVIaXxEyEgRdG1sRBxU3EUQDS10iXhBeGlcJDBkNXg9JHUlSSkkFSRwSBF0bWxEHFRgMXgdIMkRxFAUJD1RQZT0cBnwKDE4%2BaDpgB2ILWStbHAIQD1QaWxIBIgdUGlsRBxEEUxprJQIXNwd1g6O0yqLkB4%2B%2FjcePwitaJQIWD1cfWhwKGwVSG1wlAhoDZc31gdeauIyr%2FsOovNLYq46cqca50ytrJQEiXABPElAeEgRSG1kQCxQBUxxZHQQQA1YTXAkDIgdUGlscChECXRs1FGwSD1UbWRALFwRWK1slASJZOxoLRlUXU1NONU9QEkdXWRlJbBUDVB9TFgAVN1caWhcA">《Visual Studio Code 权威指南》</a>：带你深入浅出 VS Code！</p>
+<figure>
+<img src="https://github.com/formulahendry/vscode-auto-close-tag/raw/master/images/book.jpg" alt="Book" /><figcaption>Book</figcaption>
+</figure>
+<h2 id="note">Note</h2>
+<p>From VS Code 1.16, it has <a href="https://code.visualstudio.com/updates/v1_16#_html-close-tags">built-in close tag support</a> for HTML, Handlebars and Razor files. This extension is enabled for other languages like XML, PHP, Vue, JavaScript, TypeScript, JSX, TSX and so on. It is configurable.</p>
+<h2 id="features">Features</h2>
+<ul>
+<li>Automatically add closing tag when you type in the closing bracket of the opening tag</li>
+<li>After closing tag is inserted, the cursor is between the opening and closing tag</li>
+<li>Set the tag list that would not be auto closed</li>
+<li>Automatically close self-closing tag</li>
+<li>Support auto close tag as Sublime Text 3</li>
+<li>Use Keyboard Shortcut or Command Palette to add close tag manually</li>
+</ul>
+<h2 id="usages">Usages</h2>
+<p>After typing in the closing bracket of the opening tag, the closing tag will be inserted automatically.</p>
+<figure>
+<img src="https://github.com/formulahendry/vscode-auto-close-tag/raw/master/images/usage.gif" alt="Usage" /><figcaption>Usage</figcaption>
+</figure>
+<p>To add close tag manually, use shortcut <code>Alt+.</code> (<code>Command+Alt+.</code> for Mac), or press <code>F1</code> and then select/type <code>Close Tag</code></p>
+<figure>
+<img src="https://github.com/formulahendry/vscode-auto-close-tag/raw/master/images/close-tag.gif" alt="Usage" /><figcaption>Usage</figcaption>
+</figure>
+<h2 id="sublime-text-3-mode">Sublime Text 3 Mode</h2>
+<p>To automatically add close tag when <code>&lt;/</code> is typed (same as Sublime Text 3 does), set the below config as <code>true</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="dt">&quot;auto-close-tag.SublimeText3Mode&quot;</span><span class="fu">:</span> <span class="kw">true</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="fu">}</span></a></code></pre></div>
+<p>The setting is <code>false</code> by default.</p>
+<figure>
+<img src="https://github.com/formulahendry/vscode-auto-close-tag/raw/master/images/st3.gif" alt="Sublime Text 3" /><figcaption>Sublime Text 3</figcaption>
+</figure>
+<h2 id="configuration">Configuration</h2>
+<p>Use <code>auto-close-tag.enableAutoCloseTag</code> to set whether to insert close tag automatically (it is <code>true</code> by default):</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb2-1" title="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">    <span class="dt">&quot;auto-close-tag.enableAutoCloseTag&quot;</span><span class="fu">:</span> <span class="kw">true</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="fu">}</span></a></code></pre></div>
+<p>To set whether to close self-closing tag automatically (e.g. type <code>&lt;br</code>, then type <code>/</code>, <code>&gt;</code> will be added automatically) (it is <code>true</code> by default):</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb3-1" title="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">    <span class="dt">&quot;auto-close-tag.enableAutoCloseSelfClosingTag&quot;</span><span class="fu">:</span> <span class="kw">true</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="fu">}</span></a></code></pre></div>
+<p>Add entry into <code>auto-close-tag.activationOnLanguage</code> to set the languages that the extension will be activated. Use <code>["*"]</code> to activate for all languages. Below are the default settings:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb4-1" title="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">    <span class="dt">&quot;auto-close-tag.activationOnLanguage&quot;</span><span class="fu">:</span> <span class="ot">[</span></a>
+<a class="sourceLine" id="cb4-3" title="3">        <span class="st">&quot;xml&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb4-4" title="4">        <span class="st">&quot;php&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb4-5" title="5">        <span class="st">&quot;blade&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb4-6" title="6">        <span class="st">&quot;ejs&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb4-7" title="7">        <span class="st">&quot;jinja&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb4-8" title="8">        <span class="st">&quot;javascript&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb4-9" title="9">        <span class="st">&quot;javascriptreact&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb4-10" title="10">        <span class="st">&quot;typescript&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb4-11" title="11">        <span class="st">&quot;typescriptreact&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb4-12" title="12">        <span class="st">&quot;plaintext&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb4-13" title="13">        <span class="st">&quot;markdown&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb4-14" title="14">        <span class="st">&quot;vue&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb4-15" title="15">        <span class="st">&quot;liquid&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb4-16" title="16">        <span class="st">&quot;erb&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb4-17" title="17">        <span class="st">&quot;lang-cfml&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb4-18" title="18">        <span class="st">&quot;cfml&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb4-19" title="19">        <span class="st">&quot;HTML (Eex)&quot;</span></a>
+<a class="sourceLine" id="cb4-20" title="20">    <span class="ot">]</span></a>
+<a class="sourceLine" id="cb4-21" title="21"><span class="fu">}</span></a></code></pre></div>
+<p><strong>Note:</strong> The setting should be set with language id defined in <a href="https://github.com/Microsoft/vscode/tree/master/extensions">VS Code</a>. Taking <a href="https://github.com/Microsoft/vscode/blob/master/extensions/javascript/package.json">javascript definition</a> as an example, we need to use <code>javascript</code> for <code>.js</code> and <code>.es6</code>, use <code>javascriptreact</code> for <code>.jsx</code>. So, if you want to enable this extension on <code>.js</code> file, you need to add <code>javascript</code> in settings.json.</p>
+<p>Alternatively you could also exlude the languages where you don't want the extension to be activated. Below is an example:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb5-1" title="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2">    <span class="dt">&quot;auto-close-tag.disableOnLanguage&quot;</span><span class="fu">:</span> <span class="ot">[</span></a>
+<a class="sourceLine" id="cb5-3" title="3">        <span class="st">&quot;php&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb5-4" title="4">        <span class="st">&quot;python&quot;</span></a>
+<a class="sourceLine" id="cb5-5" title="5">    <span class="ot">]</span></a>
+<a class="sourceLine" id="cb5-6" title="6"><span class="fu">}</span></a></code></pre></div>
+<p>You could also set the tag list that would not be auto closed. Below are the default settings for void elements in HTML per <a href="https://www.w3.org/TR/html-markup/syntax.html#syntax-elements">W3C spec</a>, and you could overwrite it:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb6-1" title="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb6-2" title="2">    <span class="dt">&quot;auto-close-tag.excludedTags&quot;</span><span class="fu">:</span> <span class="ot">[</span></a>
+<a class="sourceLine" id="cb6-3" title="3">        <span class="st">&quot;area&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb6-4" title="4">        <span class="st">&quot;base&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb6-5" title="5">        <span class="st">&quot;br&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb6-6" title="6">        <span class="st">&quot;col&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb6-7" title="7">        <span class="st">&quot;command&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb6-8" title="8">        <span class="st">&quot;embed&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb6-9" title="9">        <span class="st">&quot;hr&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb6-10" title="10">        <span class="st">&quot;img&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb6-11" title="11">        <span class="st">&quot;input&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb6-12" title="12">        <span class="st">&quot;keygen&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb6-13" title="13">        <span class="st">&quot;link&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb6-14" title="14">        <span class="st">&quot;meta&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb6-15" title="15">        <span class="st">&quot;param&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb6-16" title="16">        <span class="st">&quot;source&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb6-17" title="17">        <span class="st">&quot;track&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb6-18" title="18">        <span class="st">&quot;wbr&quot;</span></a>
+<a class="sourceLine" id="cb6-19" title="19">    <span class="ot">]</span></a>
+<a class="sourceLine" id="cb6-20" title="20"><span class="fu">}</span></a></code></pre></div>
+<p><code>auto-close-tag.fullMode</code>: Whether to enable both Visual Studio and Sublime Text mode. (Default is <strong>false</strong>)</p>
+<h2 id="change-log">Change Log</h2>
+<p>See Change Log <a href="https://github.com/formulahendry/vscode-auto-close-tag/blob/master/CHANGELOG.md">here</a></p>
+<h2 id="issues">Issues</h2>
+<p>Submit the <a href="https://github.com/formulahendry/vscode-auto-close-tag/issues">issues</a> if you find any bug or have any suggestion.</p>
+<h2 id="contribution">Contribution</h2>
+<p>Fork the <a href="https://github.com/formulahendry/vscode-auto-close-tag">repo</a> and submit pull requests.</p>
+<h2 id="blog">Blog</h2>
+<p>Visit the <a href="https://blogs.msdn.microsoft.com/formulahendry">blog</a> or the <a href="https://blogs.msdn.microsoft.com/formulahendry/2016/06/29/auto-close-tag-for-visual-studio-code/">post</a> for more detailed info</p>

@@ -1,0 +1,164 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 align="center">
+<br> <img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/master/logo.png" alt="logo" width="200"> <br><br> Material Icon Theme <br> <br>
+</h1>
+<h4 align="center">
+Get the Material Design icons into your VS Code.
+</h4>
+<p align="center">
+<a href="https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme"><img src="https://vsmarketplacebadge.apphb.com/version-short/pkief.material-icon-theme.svg?style=for-the-badge&colorA=252526&colorB=43A047&label=VERSION" alt="Version"></a>  <a href="https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme"><img src="https://vsmarketplacebadge.apphb.com/rating-short/pkief.material-icon-theme.svg?style=for-the-badge&colorA=252526&colorB=43A047&label=Rating" alt="Rating"></a>  <a href="https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme"><img src="https://vsmarketplacebadge.apphb.com/installs-short/PKief.material-icon-theme.svg?style=for-the-badge&colorA=252526&colorB=43A047&label=Installs" alt="Installs"></a>  <a href="https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme"><img src="https://vsmarketplacebadge.apphb.com/downloads-short/PKief.material-icon-theme.svg?style=for-the-badge&colorA=252526&colorB=43A047&label=Downloads" alt="Downloads"></a>
+</p>
+<h3 id="file-icons">File icons</h3>
+<p><img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/master/images/fileIcons.png" alt="file icons"></p>
+<h3 id="folder-icons">Folder icons</h3>
+<p><img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/master/images/folderIcons.png" alt="folder icons"></p>
+<h4 id="customize-folder-color">Customize folder color</h4>
+<p>You can change the color of the default folder icon using the command palette:</p>
+<p><img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/master/images/set-folder-color.gif" alt="custom folder colors"></p>
+<p>or via user settings:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb1-1" title="1"><span class="er">&quot;material-icon-theme.folders.color&quot;:</span> <span class="er">&quot;#ef5350&quot;,</span></a></code></pre></div>
+<h4 id="folder-themes">Folder themes</h4>
+<p>You can change the design of the folder icons using the command palette:</p>
+<p><img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/master/images/set-folder-theme.gif" alt="folder themes"></p>
+<p>or via user settings:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb2-1" title="1"><span class="er">&quot;material-icon-theme.folders.theme&quot;:</span> <span class="er">&quot;specific&quot;</span></a></code></pre></div>
+<h2 id="custom-icon-opacity">Custom icon opacity</h2>
+<p>You can set a custom opacity for the icons:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb3-1" title="1"><span class="er">&quot;material-icon-theme.opacity&quot;:</span> <span class="er">0.5</span></a></code></pre></div>
+<h2 id="custom-icon-saturation">Custom icon saturation</h2>
+<p>If colors do not make you happy you can change the icons to have less saturation making them look grayish or completely grayscale by setting saturation to 0:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb4-1" title="1"><span class="er">&quot;material-icon-theme.saturation&quot;:</span> <span class="er">0.5</span></a></code></pre></div>
+<h2 id="custom-icon-associations">Custom icon associations</h2>
+<p>You can customize the icon associations directly in the user settings.</p>
+<h3 id="file-associations">File associations</h3>
+<p>With the <code>*.[extension]</code> pattern you can define custom file icon associations. For example you could define an icon for <code>*.sample</code> and every file that ends with <code>.sample</code> will have the defined icon. Use <code>**.[extension]</code> with two asterisks to apply the file association also for the filenames ending with that file extension.</p>
+<p>If there's no leading <code>*</code> it will be automatically configured as filename and not as file extension.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb5-1" title="1"><span class="er">&quot;material-icon-theme.files.associations&quot;:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2">    <span class="dt">&quot;*.ts&quot;</span><span class="fu">:</span> <span class="st">&quot;typescript&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb5-3" title="3">    <span class="dt">&quot;fileName.ts&quot;</span><span class="fu">:</span> <span class="st">&quot;angular&quot;</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="fu">}</span></a></code></pre></div>
+<h4 id="custom-svg-icons">Custom SVG icons</h4>
+<p>It's possible to add custom icons by adding a path to an SVG file which is located relative to the extension's dist folder. For example a custom SVG file called "sample.svg" can be placed in an icons folder next to VS Code's extensions folder:</p>
+<pre><code>.vscode
+ ┣ extensions
+ ┗ icons
+   ┗ sample.svg</code></pre>
+<p>In the settings.json the icon can be associated to a file name or file extension like this:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb7-1" title="1"><span class="er">&quot;material-icon-theme.files.associations&quot;:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb7-2" title="2">    <span class="dt">&quot;fileName.ts&quot;</span><span class="fu">:</span> <span class="st">&quot;../../../icons/sample&quot;</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="fu">}</span></a></code></pre></div>
+<p><em>Note: The custom file name must be configured in the settings without the file ending <code>.svg</code> as shown in the example above.</em></p>
+<h3 id="folder-associations">Folder associations</h3>
+<p>The following configuration can customize the folder icons. It is also possible to overwrite existing associations and create nice combinations. For example you could change the folder theme to "classic" and define icons only for the folder names you like.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb8-1" title="1"><span class="er">&quot;material-icon-theme.folders.associations&quot;:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb8-2" title="2">    <span class="dt">&quot;customFolderName&quot;</span><span class="fu">:</span> <span class="st">&quot;src&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb8-3" title="3">    <span class="dt">&quot;sample&quot;</span><span class="fu">:</span> <span class="st">&quot;dist&quot;</span></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="fu">}</span></a></code></pre></div>
+<h4 id="custom-svg-folder-icons">Custom SVG folder icons</h4>
+<p>Similar to the files, it is also possible to reference your own SVG icons for folder icons. Here it's important to provide two SVG files: one for the folder if it's closed and another one for the opened state. These two files - let's call them "folder-sample.svg" and "folder-sample-open.svg" - have to be placed into a directory which is relative to the extensions dist folder. In our example we place them into an icons folder inside of the .vscode folder:</p>
+<pre><code>.vscode
+ ┣ extensions
+ ┗ icons
+   ┣ folder-sample.svg
+   ┗ folder-sample-open.svg</code></pre>
+<p>In the settings.json the folder icons can be associated to a folder name (e.g. "src") like this:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb10-1" title="1"><span class="er">&quot;material-icon-theme.folders.associations&quot;:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb10-2" title="2">    <span class="dt">&quot;src&quot;</span><span class="fu">:</span> <span class="st">&quot;../../../../../icons/folder-sample&quot;</span></a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="fu">}</span></a></code></pre></div>
+<h3 id="language-associations">Language associations</h3>
+<p>With the following configuration you can customize the language icons. It is also possible to overwrite existing associations.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb11-1" title="1"><span class="er">&quot;material-icon-theme.languages.associations&quot;:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb11-2" title="2">    <span class="dt">&quot;languageId&quot;</span><span class="fu">:</span> <span class="st">&quot;iconName&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb11-3" title="3">    <span class="dt">&quot;json&quot;</span><span class="fu">:</span> <span class="st">&quot;json&quot;</span></a>
+<a class="sourceLine" id="cb11-4" title="4"><span class="fu">}</span></a></code></pre></div>
+<p>Available language ids:</p>
+<p>https://code.visualstudio.com/docs/languages/identifiers#_known-language-identifiers</p>
+<p>You can see the available icon names in the overview above.</p>
+<h2 id="one-click-activation">One-click activation</h2>
+<p>After installation or update you can click on the ‘Activate'-button to activate the icon theme, if you haven't already. The icons will be visible immediately.</p>
+<p><img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/master/images/oneclickactivation.png" alt="activation"></p>
+<h2 id="commands">Commands</h2>
+<p>Press <code>Ctrl-Shift-P</code> to open the command palette and type <code>Material Icons</code>.</p>
+<p><img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/master/images/commandPalette.png" alt="commands"></p>
+<p>
+</p>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Activate Icon Theme</strong></td>
+<td>Activate the icon theme.</td>
+</tr>
+<tr class="even">
+<td><strong>Change Folder Color</strong></td>
+<td>Change the color of the folder icons.</td>
+</tr>
+<tr class="odd">
+<td><strong>Change Folder Theme</strong></td>
+<td>Change the design of the folder icons.</td>
+</tr>
+<tr class="even">
+<td><strong>Change Opacity</strong></td>
+<td>Change the opacity of the icons.</td>
+</tr>
+<tr class="odd">
+<td><strong>Change Saturation</strong></td>
+<td>Change the saturation value of the icons.</td>
+</tr>
+<tr class="even">
+<td><strong>Configure Icon Packs</strong></td>
+<td>Select an icon pack that enables additional icons (e.g. for Angular, React, Ngrx).</td>
+</tr>
+<tr class="odd">
+<td><strong>Hide Folder Arrows</strong></td>
+<td>Hides the arrows next to the folder icons.</td>
+</tr>
+<tr class="even">
+<td><strong>Restore Default Configuration</strong></td>
+<td>Reset the default configurations of the icon theme.</td>
+</tr>
+<tr class="odd">
+<td><strong>Toggle Grayscale</strong></td>
+<td>Sets the saturation of the icons to zero, so that they are grayscale.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="icon-sources">Icon sources</h2>
+<ul>
+<li><a href="https://materialdesignicons.com/">Material Design Icons</a></li>
+<li>official icons</li>
+</ul>
+<h2 id="contributors">Contributors</h2>
+<p><a href="https://github.com/PKief/vscode-material-icon-theme/graphs/contributors"> <img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/master/images/contributors.png" alt="Contributors"> </a></p>
+<p><strong>Would you like to contribute?</strong></p>
+<p>Take a look at the <a href="https://github.com/PKief/vscode-material-icon-theme/blob/master/CONTRIBUTING.md">contribution guidelines</a> and open a <a href="https://github.com/PKief/vscode-material-icon-theme/issues">new issue</a> or <a href="https://github.com/PKief/vscode-material-icon-theme/pulls">pull request</a> on GitHub.</p>
+<h2 id="related-extensions">Related extensions</h2>
+<ul>
+<li><a href="https://github.com/Claudiohbsantos/github-material-icons-extension">Material Icons for GitHub</a></li>
+</ul>

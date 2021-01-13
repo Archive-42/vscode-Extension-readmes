@@ -1,0 +1,111 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="jedi-language-server">jedi-language-server</h1>
+<p><a href="https://python.org/pypi/jedi-language-server"><img src="https://img.shields.io/pypi/v/jedi-language-server.svg" alt="image-version" /></a> <a href="https://python.org/pypi/jedi-language-server"><img src="https://img.shields.io/pypi/l/jedi-language-server.svg" alt="image-license" /></a> <a href="https://python.org/pypi/jedi-language-server"><img src="https://img.shields.io/pypi/pyversions/jedi-language-server.svg" alt="image-python-versions" /></a></p>
+<p>A <a href="https://microsoft.github.io/language-server-protocol/">Language Server</a> for the latest version(s) of <a href="https://jedi.readthedocs.io/en/latest/">Jedi</a>. If using Neovim/Vim, we recommend using with <a href="https://github.com/pappasam/coc-jedi">coc-jedi</a>.</p>
+<p><strong>Note:</strong> this tool is actively used by its primary author. He's happy to review pull requests / respond to issues you may discover.</p>
+<h2 id="installation">Installation</h2>
+<p>From your command line (bash / zsh), run:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">pip</span> install -U jedi-language-server</a></code></pre></div>
+<p><code>-U</code> ensures that you're pulling the latest version from pypi.</p>
+<p>Alternatively, consider using <a href="https://github.com/pipxproject/pipx">pipx</a> to keep jedi-language-server isolated from your other Python dependencies. Don't worry, jedi is smart enough to figure out which Virtual environment you're currently using!</p>
+<h2 id="capabilities">Capabilities</h2>
+<p>jedi-language-server aims to support all of Jedi's capabilities and expose them through the Language Server Protocol. It currently supports the following Language Server capabilities:</p>
+<h3 id="language-features">Language Features</h3>
+<ul>
+<li><a href="https://microsoft.github.io/language-server-protocol/specification#textDocument_codeAction">textDocument/codeAction</a> (refactor.inline, refactor.extract)</li>
+<li><a href="https://microsoft.github.io/language-server-protocol/specifications/specification-current/#textDocument_completion">textDocument/completion</a></li>
+<li><a href="https://microsoft.github.io/language-server-protocol/specifications/specification-current/#textDocument_definition">textDocument/definition</a></li>
+<li><a href="https://microsoft.github.io/language-server-protocol/specification#textDocument_documentHighlight">textDocument/documentHighlight</a></li>
+<li><a href="https://microsoft.github.io/language-server-protocol/specifications/specification-current/#textDocument_documentSymbol">textDocument/documentSymbol</a></li>
+<li><a href="https://microsoft.github.io/language-server-protocol/specifications/specification-current/#textDocument_hover">textDocument/hover</a></li>
+<li><a href="https://microsoft.github.io/language-server-protocol/specification#textDocument_publishDiagnostics">textDocument/publishDiagnostics</a></li>
+<li><a href="https://microsoft.github.io/language-server-protocol/specifications/specification-current/#textDocument_references">textDocument/references</a></li>
+<li><a href="https://microsoft.github.io/language-server-protocol/specifications/specification-current/#textDocument_rename">textDocument/rename</a></li>
+<li><a href="https://microsoft.github.io/language-server-protocol/specification#textDocument_signatureHelp">textDocument/signatureHelp</a></li>
+<li><a href="https://microsoft.github.io/language-server-protocol/specifications/specification-current/#workspace_symbol">workspace/symbol</a></li>
+</ul>
+<h3 id="text-synchronization-for-diagnostics">Text Synchronization (for diagnostics)</h3>
+<ul>
+<li><a href="https://microsoft.github.io/language-server-protocol/specification#textDocument_didChange">textDocument/didChange</a></li>
+<li><a href="https://microsoft.github.io/language-server-protocol/specification#textDocument_didOpen">textDocument/didOpen</a></li>
+<li><a href="https://microsoft.github.io/language-server-protocol/specification#textDocument_didSave">textDocument/didSave</a></li>
+</ul>
+<h2 id="editor-setup">Editor Setup</h2>
+<p>The following instructions show how to use jedi-language-server with your development tooling. The instructions assume you have already installed jedi-language-server.</p>
+<h3 id="vim-neovim">Vim / Neovim</h3>
+<p>Use <a href="https://github.com/neoclide/coc.nvim">coc.nvim</a> with <a href="https://github.com/pappasam/coc-jedi">coc-jedi</a>.</p>
+<h3 id="emacs">Emacs</h3>
+<p>Use <a href="https://github.com/fredcamps/lsp-jedi">lsp-jedi</a>.</p>
+<h3 id="command-line-bash-zsh">Command line (bash / zsh)</h3>
+<p>At your terminal prompt:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">jedi-language-server</span></a></code></pre></div>
+<p>jedi-language-server currently works only over IO. This may change in the future.</p>
+<h2 id="configuration">Configuration</h2>
+<p>We recommend using <a href="https://github.com/pappasam/coc-jedi">coc-jedi</a> and following its <a href="https://github.com/pappasam/coc-jedi#configuration">configuration instructions</a>.</p>
+<p>If you are configuring manually, jedi-language-server supports the following <a href="https://microsoft.github.io/language-server-protocol/specification#initialize">initializationOptions</a>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb3-1" title="1"><span class="er">...</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="er">&quot;initializationOptions&quot;:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb3-3" title="3">    <span class="dt">&quot;markupKindPreferred&quot;</span><span class="fu">:</span> <span class="kw">null</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb3-4" title="4">    <span class="dt">&quot;jediSettings&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb3-5" title="5">      <span class="dt">&quot;autoImportModules&quot;</span><span class="fu">:</span> <span class="ot">[]</span></a>
+<a class="sourceLine" id="cb3-6" title="6">    <span class="fu">},</span></a>
+<a class="sourceLine" id="cb3-7" title="7">    <span class="dt">&quot;completion&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb3-8" title="8">      <span class="dt">&quot;disableSnippets&quot;</span><span class="fu">:</span> <span class="kw">false</span></a>
+<a class="sourceLine" id="cb3-9" title="9">    <span class="fu">},</span></a>
+<a class="sourceLine" id="cb3-10" title="10">    <span class="dt">&quot;diagnostics&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb3-11" title="11">      <span class="dt">&quot;enable&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb3-12" title="12">      <span class="dt">&quot;didOpen&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb3-13" title="13">      <span class="dt">&quot;didChange&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb3-14" title="14">      <span class="dt">&quot;didSave&quot;</span><span class="fu">:</span> <span class="kw">true</span></a>
+<a class="sourceLine" id="cb3-15" title="15">    <span class="fu">}</span></a>
+<a class="sourceLine" id="cb3-16" title="16">  <span class="fu">}</span></a>
+<a class="sourceLine" id="cb3-17" title="17"><span class="er">...</span></a></code></pre></div>
+<p>See coc-jedi's <a href="https://github.com/pappasam/coc-jedi#configuration">configuration instructions</a> for an explanation of the above configurations.</p>
+<h2 id="additional-diagnostics">Additional Diagnostics</h2>
+<p>jedi-langugage-server currently provides diagnostics about syntax errors, powered by Jedi. If you would like additional diagnostics, we suggest using the powerful <a href="https://github.com/iamcco/diagnostic-languageserver">diagnostic-language-server</a>.</p>
+<h2 id="local-development">Local Development</h2>
+<p>To build and run this project from source:</p>
+<h3 id="dependencies">Dependencies</h3>
+<p>Install the following tools manually:</p>
+<ul>
+<li><a href="https://github.com/sdispater/poetry#installation">Poetry</a></li>
+<li><a href="https://www.gnu.org/software/make/">GNU Make</a></li>
+</ul>
+<h4 id="recommended">Recommended</h4>
+<ul>
+<li><a href="https://github.com/asdf-vm/asdf">asdf</a></li>
+</ul>
+<h3 id="get-source-code">Get source code</h3>
+<p><a href="https://help.github.com/en/github/getting-started-with-github/fork-a-repo">Fork</a> this repository and clone the fork to your development machine:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="fu">git</span> clone https://github.com/<span class="op">&lt;</span>YOUR-USERNAME<span class="op">&gt;</span>/jedi-language-server</a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="bu">cd</span> jedi-language-server</a></code></pre></div>
+<h3 id="set-up-development-environment">Set up development environment</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1"><span class="fu">make</span> setup</a></code></pre></div>
+<h3 id="run-tests">Run tests</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" title="1"><span class="fu">make</span> test</a></code></pre></div>
+<h2 id="inspiration">Inspiration</h2>
+<p>Palantir's <a href="https://github.com/palantir/python-language-server">python-language-server</a> inspired this project. Unlike python-language-server, jedi-language-server:</p>
+<ul>
+<li>Uses <a href="https://github.com/openlawlibrary/pygls">pygls</a> instead of creating its own low-level Language Server Protocol bindings</li>
+<li>Supports one powerful 3rd party library: Jedi. By only supporting Jedi, we can focus on supporting all Jedi features without exposing ourselves to too many broken 3rd party dependencies (I'm looking at you, <a href="https://github.com/python-rope/rope">rope</a>).</li>
+<li>Is supremely simple because of its scope constraints. Leave complexity to the Jedi <a href="https://github.com/davidhalter">master</a>. If the force is strong with you, please submit a PR!</li>
+</ul>
+<h2 id="written-by">Written by</h2>
+<p>Samuel Roeca <em>samuel.roeca@gmail.com</em></p>

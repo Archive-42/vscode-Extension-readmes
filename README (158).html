@@ -1,0 +1,61 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="shebang-snippets">Shebang Snippets</h1>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=rpinski.shebang-snippets"><img src="https://img.shields.io/vscode-marketplace/v/rpinski.shebang-snippets.svg" alt="Visual Studio Marketplace" /></a></p>
+<p>Set of snippets for <a href="https://code.visualstudio.com/">Visual Studio Code</a> to insert "shebang" lines for various types of scripts and interpreters used on Unix-like systems.</p>
+<h2 id="features">Features</h2>
+<p>After opening a new file you can just type <code>#!</code> and the interpreter name to add the full line. Currently supported shebang snippets:</p>
+<ul>
+<li>Shell:
+<ul>
+<li><code>#!sh</code> -&gt; <code>#!/usr/bin/env sh</code></li>
+<li><code>#!bash</code> -&gt; <code>#!/usr/bin/env bash</code></li>
+</ul></li>
+<li>Expect: <code>#!expect</code> -&gt; <code>#!/usr/bin/expect -f</code></li>
+<li>Perl: <code>#!perl</code> -&gt; <code>#!/usr/bin/env perl</code></li>
+<li>Lua: <code>#!lua</code> -&gt; <code>#!/usr/bin/env lua</code></li>
+<li>Python:
+<ul>
+<li><code>#!python</code> -&gt; <code>#!/usr/bin/env python</code></li>
+<li><code>#!python+encoding</code> -&gt;
+<ul>
+<li><code>#!/usr/bin/env python</code></li>
+<li><code># -*- coding: utf-8 -*-</code></li>
+</ul></li>
+</ul></li>
+<li>PHP: <code>#!php</code> -&gt; <code>#!/usr/bin/env php</code></li>
+<li>Node: <code>#!node</code> -&gt; <code>#!/usr/bin/env node</code></li>
+<li>F#: <code>#!fsharp</code> -&gt; <code>#!/usr/bin/env fsharpi --exec</code></li>
+<li>Ruby:
+<ul>
+<li><code>#!ruby</code> -&gt; <code>#!/usr/bin/env ruby</code></li>
+<li><code>#!ruby+encoding</code> -&gt;
+<ul>
+<li><code>#!/usr/bin/env ruby</code></li>
+<li><code># -*- coding: utf-8 -*-</code></li>
+</ul></li>
+</ul></li>
+<li>Groovy: <code>#!groovy</code> -&gt; <code>#!/usr/bin/env groovy</code></li>
+<li>PowerShell Core: <code>#!pwsh</code> or <code>#!powershell</code> -&gt; <code>#!/usr/bin/env pwsh</code></li>
+</ul>
+<figure>
+<img src="https://raw.githubusercontent.com/Rpinski/vscode-shebang-snippets/master/images/snippet.gif" alt="Shebang Snippets in action" /><figcaption>Shebang Snippets in action</figcaption>
+</figure>
+<p>To insert the magic comment for encoding (<code># -*- coding: utf-8 -*-</code>) you can also just type <code>#encoding</code>. The snippet offers different encodings for selection.</p>
+<p>If you have already saved your script with appropriate file extension and need the shebang, you can alternatively just start typing <code>shebang</code> to complete the line for your script type.</p>

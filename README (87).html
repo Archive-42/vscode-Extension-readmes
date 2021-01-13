@@ -1,0 +1,164 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="vscode-standardjs">vscode-standardjs</h1>
+<p>VSCode extension to integrate <a href="https://github.com/feross/standard">JavaScript Standard Style</a> into VSCode.</p>
+<p>We support <a href="https://github.com/Flet/semistandard">JavaScript Semi-Standard Style</a> too, if you prefer keeping the semicolon.</p>
+<p><a href="https://github.com/standard/standardx">JavaScript Standard Style with custom tweaks</a> is also supported if you want to fine-tune your ESLint config while keeping the power of Standard.</p>
+<p>This plugin also works with [TypeScript Standard Style][https://github.com/toddbluhm/ts-standard] which has additonal rules for TypeScript based projects.</p>
+<h2 id="how-to-use">How to use</h2>
+<ol type="1">
+<li><p><strong>Install the ‘JavaScript Standard Style' extension</strong></p>
+<p>If you don't know how to install extensions in VSCode, take a look at the <a href="https://code.visualstudio.com/docs/editor/extension-gallery#_browse-and-install-extensions">documentation</a>.</p>
+<p>You will need to reload VSCode before new extensions can be used.</p></li>
+<li><p><strong>Install <code>standard</code>, <code>semistandard</code>, <code>standardx</code> or <code>ts-standard</code></strong></p>
+<p>This can be done globally or locally. We recommend that you install them locally (i.e. saved in your project's <code>devDependencies</code>), to ensure that other developers have it installed when working on the project.</p></li>
+<li><p><strong>Disable the built-in VSCode validator</strong></p>
+<p>To do this, set <code>"javascript.validate.enable": false</code> in your VSCode <code>settings.json</code>.</p></li>
+</ol>
+<h2 id="plugin-options">Plugin options</h2>
+<p>We give you some options to customize vscode-standardjs in your VSCode <a href="https://code.visualstudio.com/docs/customization/userandworkspace"><code>settings.json</code></a>.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Option</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>standard.enable</code></td>
+<td>enable or disable JavaScript Standard Style</td>
+<td><code>true</code></td>
+</tr>
+<tr class="even">
+<td><code>standard.run</code></td>
+<td>run linter <code>onSave</code> or <code>onType</code></td>
+<td><code>onType</code></td>
+</tr>
+<tr class="odd">
+<td><code>standard.autoFixOnSave</code></td>
+<td>enable or disable auto fix on save. It is only available when VSCode's <code>files.autoSave</code> is either <code>off</code>, <code>onFocusChange</code> or <code>onWindowChange</code>. It will not work with <code>afterDelay</code>.</td>
+<td><code>false</code></td>
+</tr>
+<tr class="even">
+<td><code>standard.nodePath</code></td>
+<td>use this setting if an installed <code>standard</code> package can't be detected.</td>
+<td><code>null</code></td>
+</tr>
+<tr class="odd">
+<td><code>standard.validate</code></td>
+<td>an array of language identifiers specify the files to be validated</td>
+<td><code>["javascript", "javascriptreact", "typescript", "typescriptreact]</code></td>
+</tr>
+<tr class="even">
+<td><code>standard.workingDirectories</code></td>
+<td>an array for working directories to be used.</td>
+<td><code>[]</code></td>
+</tr>
+<tr class="odd">
+<td><code>standard.engine</code></td>
+<td>You can use <code>semistandard</code>, <code>standardx</code> or <code>ts-standard</code> instead of <code>standard</code>. <strong>Just make sure you've installed the <code>semistandard</code>, the <code>standardx</code> or the <code>ts-standard</code> package, instead of <code>standard</code>.</strong></td>
+<td><code>standard</code></td>
+</tr>
+<tr class="even">
+<td><code>standard.usePackageJson</code></td>
+<td>if set to <code>true</code>, JavaScript Standard Style will use project's <code>package.json</code> settings, otherwise globally installed <code>standard</code> module is used</td>
+<td><code>false</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="configuring-standard">Configuring Standard</h2>
+<p>You can still configure <code>standard</code> itself with the <code>standard.options</code> setting, for example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb1-1" title="1"><span class="er">&quot;standard.options&quot;:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="dt">&quot;globals&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;$&quot;</span><span class="ot">,</span> <span class="st">&quot;jQuery&quot;</span><span class="ot">,</span> <span class="st">&quot;fetch&quot;</span><span class="ot">]</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="dt">&quot;ignore&quot;</span><span class="fu">:</span> <span class="ot">[</span></a>
+<a class="sourceLine" id="cb1-4" title="4">        <span class="st">&quot;node_modules/**&quot;</span></a>
+<a class="sourceLine" id="cb1-5" title="5">    <span class="ot">]</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-6" title="6">    <span class="dt">&quot;plugins&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;html&quot;</span><span class="ot">]</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-7" title="7">    <span class="dt">&quot;parser&quot;</span><span class="fu">:</span> <span class="st">&quot;babel-eslint&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-8" title="8">    <span class="dt">&quot;envs&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;jest&quot;</span><span class="ot">]</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="fu">}</span></a></code></pre></div>
+<p>It's recommended to change these options in your <code>package.json</code> file on a per-project basis, rather than setting them globally in <code>settings.json</code>. For example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb2-1" title="1"><span class="er">&quot;standard&quot;:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">    <span class="dt">&quot;plugins&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;html&quot;</span><span class="ot">]</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-3" title="3">    <span class="dt">&quot;parser&quot;</span><span class="fu">:</span> <span class="st">&quot;babel-eslint&quot;</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="fu">}</span></a></code></pre></div>
+<p>If you've got multiple projects within a workspace (e.g. you're inside a monorepo), VSCode prevents extensions from accessing multiple <code>package.json</code> files.</p>
+<p>If you want this functionality, you should add each project folder to your workspace (<code>File -&gt; Add folder to workspace...</code>). If you can't see this option, download the <a href="https://code.visualstudio.com/insiders/">VSCode Insiders Build</a> to get the latest features.</p>
+<h3 id="commands">Commands</h3>
+<p>When you open the Command Palette in VSCode (⇧⌘P or Ctrl+Shift+P), this plugin has the following options:</p>
+<ul>
+<li><code>Fix all auto-fixable problems</code> - applies JavaScript Standard Style auto-fix resolutions to all fixable problems.</li>
+<li><code>Disable JavaScript Standard Style for this Workspace</code> - disable JavaScript Standard Style extension for this workspace.</li>
+<li><code>Enable JavaScript Standard Style for this Workspace</code> - enable JavaScript Standard Style extension for this workspace.</li>
+<li><code>Show output channel</code> - view the linter output for JavaScript Standard Style.</li>
+</ul>
+<h3 id="faq">FAQ</h3>
+<ol type="1">
+<li><p>How do I lint <code>script</code> tags in <code>vue</code> or <code>html</code> files?</p>
+<p>You can lint them with <code>eslint-plugin-html</code>. Make sure it's installed, then enable linting for those file types in your <code>settings.json</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb3-1" title="1"><span class="er">&quot;standard.validate&quot;:</span> <span class="ot">[</span></a>
+<a class="sourceLine" id="cb3-2" title="2">    <span class="st">&quot;javascript&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb3-3" title="3">    <span class="st">&quot;javascriptreact&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb3-4" title="4">    <span class="st">&quot;html&quot;</span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="ot">]</span><span class="er">,</span></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="er">&quot;standard.options&quot;:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb3-7" title="7">    <span class="dt">&quot;plugins&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;html&quot;</span><span class="ot">]</span></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="fu">}</span><span class="er">,</span></a>
+<a class="sourceLine" id="cb3-9" title="9"><span class="er">&quot;files.associations&quot;:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb3-10" title="10">    <span class="dt">&quot;*.vue&quot;</span><span class="fu">:</span> <span class="st">&quot;html&quot;</span></a>
+<a class="sourceLine" id="cb3-11" title="11"><span class="fu">}</span><span class="er">,</span></a></code></pre></div>
+<p>If you want to enable <code>autoFix</code> for the new languages, you should enable it yourself:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb4-1" title="1"><span class="er">&quot;standard.validate&quot;:</span> <span class="ot">[</span></a>
+<a class="sourceLine" id="cb4-2" title="2">    <span class="st">&quot;javascript&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb4-3" title="3">    <span class="st">&quot;javascriptreact&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb4-4" title="4">    <span class="fu">{</span></a>
+<a class="sourceLine" id="cb4-5" title="5">        <span class="dt">&quot;language&quot;</span><span class="fu">:</span> <span class="st">&quot;html&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb4-6" title="6">        <span class="dt">&quot;autoFix&quot;</span><span class="fu">:</span> <span class="kw">true</span></a>
+<a class="sourceLine" id="cb4-7" title="7">    <span class="fu">}</span></a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="ot">]</span><span class="er">,</span></a>
+<a class="sourceLine" id="cb4-9" title="9"><span class="er">&quot;standard.options&quot;:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb4-10" title="10">    <span class="dt">&quot;plugins&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;html&quot;</span><span class="ot">]</span></a>
+<a class="sourceLine" id="cb4-11" title="11"><span class="fu">}</span></a></code></pre></div></li>
+</ol>
+<h2 id="how-to-develop">How to develop</h2>
+<ol type="1">
+<li>Fork this repo, and clone your fork locally.</li>
+<li>Run <code>npm install</code> right under project root.</li>
+<li>Open project in VSCode. The plugin should be disabled whilst developing.</li>
+<li>Run the <code>watch</code> build task (⇧⌘B or Ctrl+Shift+B) to compile the client and server.</li>
+<li>To run/debug the extension, use the <code>Launch Extension</code> launch configuration (from the VSCode debug panel).</li>
+<li>To debug the server, use the <code>Attach to Server</code> launch configuration.</li>
+</ol>
+<h2 id="how-to-package">How to package</h2>
+<ol type="1">
+<li>Run <code>npm install</code>,</li>
+<li>Run <code>npm run compile</code>,</li>
+<li>Run <code>npm run package</code> to build a .vsix file, then you can install it with <code>code --install-extension vscode-standardjs.vsix</code>.</li>
+</ol>
+<h2 id="todo">TODO</h2>
+<ol type="1">
+<li>[ ] add tests</li>
+</ol>

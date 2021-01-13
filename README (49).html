@@ -1,0 +1,158 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="insert-unicode">Insert Unicode</h1>
+<p>This is an extension for <a href="https://code.visualstudio.com/">Visual Studio Code</a> which adds commands for inserting Unicode characters/codes and Emoji.</p>
+<p>The commands can be executed via the command palette (<code>View</code> &gt; <code>Command Palette...</code>/ <code>Ctrl</code> + <code>Shift</code> + <code>P</code>) or bound to keyboard shortcuts.</p>
+<p>No keys are bound by default. Use the command <code>Preferences: Open Keyboard Shortcuts</code> to add custom keyboard shortcuts.</p>
+<details>
+<p><summary>Table of Contents</summary></p>
+<ul>
+<li><a href="#insert-unicode">Insert Unicode</a>
+<ul>
+<li><a href="#features">Features</a>
+<ul>
+<li><a href="#inserting-individual-characterscodes">Inserting Individual Characters/Codes</a></li>
+<li><a href="#insert-from-favorites">Insert From Favorites</a></li>
+<li><a href="#insertingreplacing-text-with-a-unicode-font">Inserting/Replacing Text With a "Unicode Font"</a></li>
+<li><a href="#identify-unicode-characters">Identify Unicode Characters</a>
+<ul>
+<li><a href="#identify-view">Identify View</a></li>
+</ul></li>
+<li><a href="#direct-hex-code-input">Direct Hex Code Input</a></li>
+</ul></li>
+<li><a href="#how-to">How To?</a>
+<ul>
+<li><a href="#insert-compound-characters-apply-accents-and-modifiers">Insert Compound Characters, Apply Accents and Modifiers</a></li>
+</ul></li>
+<li><a href="#unicode-standards-versions">Unicode Standards Versions</a></li>
+<li><a href="#known-issues">Known Issues</a></li>
+<li><a href="#attribution">Attribution</a></li>
+</ul></li>
+</ul>
+</details>
+<h2 id="features">Features</h2>
+<p>In this section the various commands will be explained. Every subsection first lists the commands that it is about (the prefix common to all commands, <code>Insert Unicode:</code>, is omitted for brevity).</p>
+<p>The command identifier (used in custom keyboard shortcuts) will be given in parentheses (again, the prefix <code>insert-unicode.</code> is omitted).</p>
+<h3 id="inserting-individual-characterscodes">Inserting Individual Characters/Codes</h3>
+<ul>
+<li><em>Insert</em> (<code>insertText</code>)</li>
+<li><em>Insert as Decimal Code</em> (<code>insertDecimalCode</code>)</li>
+<li><em>Insert as Hex Code</em> (<code>insertCode</code>)</li>
+<li><em>Insert Exact</em> (<code>insertTextExact</code>)</li>
+<li><em>Insert Exact as Decimal Code</em> (<code>insertDecimalCodeExact</code>)</li>
+<li><em>Insert Exact as Hex Code</em> (<code>insertCodeExact</code>)</li>
+</ul>
+<p>These commands insert Unicode characters as text, decimal or hex codes.</p>
+<p>The "exact" variations search for an exact name rather than a substring to facilitate faster insertion when the name is known (particularly useful for custom keyboard shortcuts).</p>
+<p>Example for <em>Insert</em>, searching for <code>fire</code>:</p>
+<figure>
+<img src="https://github.com/brunnerh/insert-unicode/raw/master/./readme-files/search-prompt.gif" alt="search-prompt" /><figcaption>search-prompt</figcaption>
+</figure>
+<p>When binding a command to a keyboard shortcut, the search string can be provided as an argument. Note that the UI for binding keyboard shortcuts currently does not support setting arguments, so the JSON file has to be edited (execute command <code>Preferences: Open Keyboard Shortcuts (JSON)</code>).</p>
+<p>E.g. to quickly insert skintone modifier characters:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="dt">&quot;key&quot;</span><span class="fu">:</span> <span class="st">&quot;ctrl+e ctrl+f&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="dt">&quot;command&quot;</span><span class="fu">:</span> <span class="st">&quot;insert-unicode.insertText&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-4" title="4">    <span class="dt">&quot;args&quot;</span><span class="fu">:</span> <span class="st">&quot;fitzpatrick&quot;</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="fu">}</span></a></code></pre></div>
+<p>The "exact" directly inserts a given character, e.g. <code>FIRE</code>, which otherwise would lead to multiple results, including characters like <code>FIREWORKS</code> and <code>FIRE ENGINE</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb2-1" title="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">    <span class="dt">&quot;key&quot;</span><span class="fu">:</span> <span class="st">&quot;ctrl+e f&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-3" title="3">    <span class="dt">&quot;command&quot;</span><span class="fu">:</span> <span class="st">&quot;insert-unicode.insertTextExact&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-4" title="4">    <span class="dt">&quot;args&quot;</span><span class="fu">:</span> <span class="st">&quot;fire&quot;</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="fu">}</span></a></code></pre></div>
+<h3 id="insert-from-favorites">Insert From Favorites</h3>
+<ul>
+<li><em>Insert from Favorites</em> (<code>insertFavoriteText</code>)</li>
+<li><em>Insert from Favorites as Decimal Code</em> (<code>insertFavoriteDecimalCode</code>)</li>
+<li><em>Insert from Favorites as Hex Code</em> (<code>insertFavoriteHexCode</code>)</li>
+<li><em>Manage Favorites</em> (<code>manageFavorites</code>)</li>
+</ul>
+<p>These commands insert characters from a favorites directory tree.</p>
+<figure>
+<img src="https://github.com/brunnerh/insert-unicode/raw/master/./readme-files/favorites.png" alt="favorites" /><figcaption>favorites</figcaption>
+</figure>
+<p>Favorites can be configured via the <em>Manage Favorites</em> command, which opens an editor:</p>
+<figure>
+<img src="https://github.com/brunnerh/insert-unicode/raw/master/./readme-files/favorites-manager.png" alt="favorites" /><figcaption>favorites</figcaption>
+</figure>
+<p>The buttons prefixed with <code>+</code> add new directories/favorite entries respectively. <code>x</code> removes directories/favorites. Clicking the folder icon in front of the directory name expands/collapses the contents. Directories can be renamed by clicking the name and editing it.</p>
+<p><code>Save</code> (Ctrl+S) saves changes to the settings files.<br/> <code>Revert</code> reloads the favorites from the settings, discarding any changes.</p>
+<h3 id="insertingreplacing-text-with-a-unicode-font">Inserting/Replacing Text With a "Unicode Font"</h3>
+<ul>
+<li><em>Insert/Replace Text With "Unicode Font"</em> (<code>insertFont</code>)</li>
+</ul>
+<p>This command inserts/replaces Latin alphabetic characters with unicode variations that give them another appearance. Whether these characters can be displayed properly depends on the font, of course.</p>
+<p>When the command is invoked the user can select the font style:</p>
+<figure>
+<img src="https://github.com/brunnerh/insert-unicode/raw/master/./readme-files/font-prompt.png" alt="font-prompt" /><figcaption>font-prompt</figcaption>
+</figure>
+<p>This command can also be bound using an argument to specify the font, e.g.:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb3-1" title="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">    <span class="dt">&quot;key&quot;</span><span class="fu">:</span> <span class="st">&quot;ctrl+e f&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb3-3" title="3">    <span class="dt">&quot;command&quot;</span><span class="fu">:</span> <span class="st">&quot;insert-unicode.insertFont&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb3-4" title="4">    <span class="dt">&quot;args&quot;</span><span class="fu">:</span> <span class="st">&quot;Math Fraktur Bold&quot;</span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="fu">}</span></a></code></pre></div>
+<h3 id="identify-unicode-characters">Identify Unicode Characters</h3>
+<ul>
+<li><em>Identify Characters</em> (<code>identify</code>)</li>
+</ul>
+<p>This command will show the Unicode name and code point of the selected characters.</p>
+<p>Example text:</p>
+<pre class="plain"><code>🇳🇵👌🏻🔥</code></pre>
+<p>Output:</p>
+<pre class="plain"><code>🇳: REGIONAL INDICATOR SYMBOL LETTER N (0x1f1f3)
+🇵: REGIONAL INDICATOR SYMBOL LETTER P (0x1f1f5)
+👌: OK HAND SIGN (0x1f44c)
+🏻: EMOJI MODIFIER FITZPATRICK TYPE-1-2 (0x1f3fb)
+🔥: FIRE (0x1f525)</code></pre>
+<p>Note that joint characters are split up in the analysis.</p>
+<p>The message window will not display line breaks, but there is a button that opens the result in a new file. Right clicking the notification and selecting "Copy" will also preserve the line breaks.</p>
+<p>You can always open the output in a new file by changing the setting <em>Show Identified Characters in File</em> (<code>insert-unicode.show-identified-characters-in-file</code>).</p>
+<h4 id="identify-view">Identify View</h4>
+<p>There also is the <em>Identify</em> view in the Explorer sidebar which performs the identification of characters in the current selection on the fly. The view can be dragged to its own or another section as well as hidden via the context menu on the section title.</p>
+<figure>
+<img src="https://github.com/brunnerh/insert-unicode/raw/master/./readme-files/identify-view.png" alt="Identify view exmaple" /><figcaption>Identify view exmaple</figcaption>
+</figure>
+<p>There are settings for adjusting the update rate and maximal number of identified characters if performance adjustments are necessary. While the view is not visible (i.e. collapsed or hidden) it will not perform any lookups.</p>
+<h3 id="direct-hex-code-input">Direct Hex Code Input</h3>
+<ul>
+<li><em>Insert from Hex Code</em> (<code>fromHexCode</code>)</li>
+</ul>
+<p>If you happen to know the exact hexadecimal code, this command can be used to insert the corresponding character.</p>
+<h2 id="how-to">How To?</h2>
+<h3 id="insert-compound-characters-apply-accents-and-modifiers">Insert Compound Characters, Apply Accents and Modifiers</h3>
+<p>If you e.g. want to apply a <em>grave accent</em> to an <code>e</code> (resulting in <code>è</code>), you first type out the character to be modified and then insert the modifier, in this case <code>COMBINING GRAVE ACCENT</code> (<code>0x300</code>).</p>
+<p>Modifiers that can be applied to the previous character generally have <em>combining</em> in their name. The stand-alone character version of grave accent would be <code>GRAVE ACCENT</code> (<code>0x60</code>).</p>
+<p>There is another method of combining characters that uses a dedicated character for joining other characters, e.g. the <code>ZERO WIDTH JOINER</code> (<code>0x200d</code>) which is used e.g. in the various family emoji. The family consisting of a man, woman and a girl (👨‍👩‍👧), e.g. is written as <code>MAN</code> <code>ZWJ</code> <code>WOMAN</code> <code>ZWJ</code> <code>GIRL</code> (<code>0x1f468</code> <code>0x200d</code> <code>0x1f469</code> <code>0x200d</code> <code>0x1f467</code>).</p>
+<p>In general, if you see a special character or symbol and do not know how to write it, try copying it into VS Code and execute the <a href="#identify-unicode-characters"><em>Identify Characters</em></a> command on it.</p>
+<h2 id="unicode-standards-versions">Unicode Standards Versions</h2>
+<ul>
+<li>Unicode Standard: 13.0.0</li>
+<li>Unicode Emoji: 13.0</li>
+</ul>
+<h2 id="known-issues">Known Issues</h2>
+<ul>
+<li>Some of "fonts" do not convert correctly.</li>
+<li>The unicode fonts may confuse word wrapping, which is an issue on the side of VS Code itself.</li>
+</ul>
+<h2 id="attribution">Attribution</h2>
+<ul>
+<li><a href="https://github.com/microsoft/vscode-codicons">microsoft/vscode-codicons</a> (<a href="https://github.com/microsoft/vscode-codicons/blob/master/LICENSE">License</a>) - Slightly modified icons from this project are used.</li>
+</ul>

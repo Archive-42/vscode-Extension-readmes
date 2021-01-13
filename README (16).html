@@ -1,0 +1,390 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="vscode-data-preview">vscode-data-preview</h1>
+<p><a href="https://travis-ci.com/RandomFractals/vscode-data-preview"><img src="https://travis-ci.org/HoangNguyen17193/vscode-simple-rest-client.svg?branch=master" alt="Build Status" /></a> <a href="http://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/license-Apache2-orange.svg?color=green" alt="Apache-2.0 License" /></a> <a href='https://ko-fi.com/F1F812DLR' target='_blank' title='support: https://ko-fi.com/dataPixy'> <img height='24' style='border:0px;height:20px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=2' alt='https://ko-fi.com/dataPixy' /></a></p>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=RandomFractalsInc.vscode-data-preview"><img src="https://vsmarketplacebadge.apphb.com/version/RandomFractalsInc.vscode-data-preview.svg?color=orange&amp;style=?style=for-the-badge&amp;logo=visual-studio-code" alt="Version" /></a> <a href="https://marketplace.visualstudio.com/items?itemName=RandomFractalsInc.vscode-data-preview"><img src="https://vsmarketplacebadge.apphb.com/installs/RandomFractalsInc.vscode-data-preview.svg?color=orange" alt="Installs" /></a> <a href="https://marketplace.visualstudio.com/items?itemName=RandomFractalsInc.vscode-data-preview"><img src="https://vsmarketplacebadge.apphb.com/downloads/RandomFractalsInc.vscode-data-preview.svg?color=orange" alt="Downloads" /></a></p>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=RandomFractalsInc.vscode-data-preview">Data Preview 🈸</a> extension for importing 📤 viewing 🔎 slicing 🔪 dicing 🎲 charting 📊 &amp; exporting 📥 <strong>large</strong> <code>.json</code> array <code>.arrow</code> <code>.avro</code> data files, <code>.config</code> <code>.env</code> <code>.properties</code> <code>.ini</code> <code>.yml</code> configurations files, <code>.csv/.tsv</code> &amp; <code>.xlsx/.xlsb</code> Excel files and <code>.md</code> markdown tables with <a href="https://perspective.finos.org/">Perspective</a> - streaming data analytics WebAssembly library.</p>
+<figure>
+<img src="https://github.com/RandomFractals/vscode-data-preview/blob/master/images/vscode-data-preview.png?raw=true%20%22Data%20Preview%22" alt="Data Preview" /><figcaption>Data Preview</figcaption>
+</figure>
+<h1 id="features">🈸 Features</h1>
+<ul>
+<li>Preview <code>.json</code> <code>.arrow</code> <code>.avro</code> <code>.yml</code> <code>.csv/.tsv</code> &amp; <code>.xlsx/.xlsb</code> data files in a Data Grid w/Sorting &amp; Filtering</li>
+<li>Grid Data Summary display w/Aggregate Functions, Row &amp; Column Pivots (a.k.a. <code>Group By</code> &amp; <code>Split By</code>)</li>
+<li>Basic Charts 📊 creation w/Aggregate Functions, Row &amp; Column Pivots</li>
+<li>Pluggable Charting 📊 libraries for bult-in Charts: <a href="https://d3fc.io/">d3fc</a> || <a href="https://www.highcharts.com/demo">highcharts</a></li>
+<li>Persistent Data Preview Settings (View, Sort, Filter, Pivots, etc.) for restore of open Data View panels on VSCode Reload</li>
+<li>Mulptiple Spreadsheets Data Preview for <code>Excel</code> data files</li>
+<li>Markdown tables data preview for <code>.md</code> documentation files</li>
+<li>Data <code>.schema.json</code> generation for Arrow &amp; Avro Data Schema Text Previews in JSON format</li>
+<li>Binary Data files <code>.json</code> generation for Arrow, Avro &amp; <code>Excel</code> formats for Text Data Preview</li>
+<li>Property Grid display for <code>.json</code> <code>.config</code> <code>.env</code> <code>.properties</code> <code>.ini</code> &amp; <code>.yml</code> configuration files</li>
+<li>Open Data Preview on Side option for slim data || config files</li>
+<li>Quick Launch new Data Preview input box for data files in open workspace</li>
+<li>Save Filtered Data Grid || Chart 📊 Data in <code>.arrow</code> <code>.csv</code> <code>.json(s)</code> <code>.yml</code> &amp; <code>.properties</code> formats</li>
+<li>Save &amp; Load Data View <code>.config</code> options</li>
+<li>Dark, Light, Dense &amp; High Contrast Blue Data Preview 🈸 Panel UI Themes</li>
+</ul>
+<h1 id="next-v.">Next V.</h1>
+<ul>
+<li>Will include <code>.parquet</code> data format support, large text &amp; binary data files loading &amp; <a href="https://observablehq.com/@randomfractals/apache-arrow">Apache Arrow</a> data streaming</li>
+</ul>
+<p><strong>Note:</strong> Data Preview 🈸 is already capable of loading a few 10+MB's large data files with 100+K records &amp; extensive list of <a href="https://github.com/RandomFractals/vscode-data-preview#supported-json-config-binary--excel-data-file-formats">supported Data Formats</a> you'll be hard pressed to find on <a href="https://marketplace.visualstudio.com/search?term=data&amp;target=VSCode&amp;category=All%20categories&amp;sortBy=Relevance">VSCode marketplace</a> in one extension.</p>
+<p>See <a href="https://github.com/RandomFractals/vscode-data-preview/tree/master/data/large">data/large/…</a> data folder for sample large data files and Data View <code>.config</code>s you can try in Data Preview 🈸.</p>
+<h1 id="installation">Installation</h1>
+<p>Install <a href="https://marketplace.visualstudio.com/items?itemName=RandomFractalsInc.vscode-data-preview">Data Preview</a> 🈸 via vscode Extensions tab (<code>Ctrl+Shift+X</code>) by searching for <code>data preview</code> || via <a href="https://marketplace.visualstudio.com/search?term=data%20preview&amp;target=VSCode&amp;category=All%20categories&amp;sortBy=Relevance">VSCode marketplace search results</a>.</p>
+<p>List of Data Preview 🈸 extension config Settings, <code>data.preview</code> command(s), keyboard shortcut(s), augmented vscode UI context menus, added Data Language mappings, supported Data Files list &amp; configurable Theme &amp; Charts 📊 Settings:</p>
+<figure>
+<img src="https://github.com/RandomFractals/vscode-data-preview/blob/master/images/vscode-data-preview-contributions.png?raw=true%20%22Data%20Preview%20Contributions%22" alt="Data Preview Contributions" /><figcaption>Data Preview Contributions</figcaption>
+</figure>
+<h1 id="configuration">Configuration</h1>
+<p><a href="http://code.visualstudio.com/docs/customization/userandworkspace#_creating-user-and-workspace-settings">Create User or Workspace Settings in vscode</a> to change default Data Preview 🈸 extension Settings:</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 11%" />
+<col style="width: 37%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Setting</th>
+<th>Type</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>data.preview.theme</td>
+<td>string</td>
+<td>dark</td>
+<td>Data Preview UI Theme: <code>dark</code>, <code>light</code>, <code>dense.light</code>, <code>dense.dark</code>, or <code>vaporwave</code> (hight contrast blue theme)</td>
+</tr>
+<tr class="even">
+<td>data.preview.charts.plugin</td>
+<td>string</td>
+<td>d3fc</td>
+<td>Data Preview Charts 📊 library to use for built-in charts: <a href="https://d3fc.io/">d3fc</a> or <a href="https://www.highcharts.com/demo">highcharts</a></td>
+</tr>
+<tr class="odd">
+<td>data.preview.create.json.files</td>
+<td>boolean</td>
+<td>false</td>
+<td>Creates <code>.json</code> data files for Arrow, Avro &amp; Excel binary data formats</td>
+</tr>
+<tr class="even">
+<td>data.preview.create.json.schema</td>
+<td>boolean</td>
+<td>true</td>
+<td>Creates <code>.schema.json</code> files for Arrow &amp; Avro metadata binary data formats</td>
+</tr>
+<tr class="odd">
+<td>data.preview.openSavedFileEditor</td>
+<td>boolean</td>
+<td>true</td>
+<td>Opens created data file Content Editor on Data Save</td>
+</tr>
+<tr class="even">
+<td>data.preview.log.level</td>
+<td>string</td>
+<td><code>info</code></td>
+<td>Data Preview run log level: <code>info</code> or <code>debug</code> for issues troubleshooting</td>
+</tr>
+</tbody>
+</table>
+<p>Data Preview 🈸 example using <code>dark</code> UI theme with <code>d3fc</code> Charts 📊 Data View <code>config</code>, viewing <a href="https://github.com/finos/perspective/blob/master/examples/simple/superstore.arrow">superstore</a><code>.arrow</code> data file :)</p>
+<figure>
+<img src="https://github.com/RandomFractals/vscode-data-preview/blob/master/images/vscode-data-preview-dark.png?raw=true%20%22Data%20Preview%20Dark%22" alt="Data Preview Dark" /><figcaption>Data Preview Dark</figcaption>
+</figure>
+<h1 id="usage-tips">Usage Tips</h1>
+<h2 id="data-preview-launch-tips">Data Preview 🈸 Launch Tips</h2>
+<ol type="1">
+<li>Run <code>View -&gt; Command Palette...&gt;Data: Preview Data</code> command or <code>Ctrl+Shift+D</code> in an open <code>.json</code> <code>.config</code> <code>.env</code> <code>.properties</code> <code>.ini</code> <code>.yml</code> or <code>.csv/.tsv</code> text data file document to launch Data Preview panel.</li>
+<li><code>File -&gt; Save</code> (<code>Ctrl+S</code>) your text data file for immediate updates in an open Data Preview 🈸 panel.</li>
+<li>Right-click on a Binary <code>.xlsx/.xlsb</code>, <code>.arrow</code> or <code>.avro</code> data file in VSCode File Explorer to launch Data Preview panel.</li>
+<li>Use exposed <code>explorer/context</code>, <code>editor/title</code> or <code>editor/title/context</code> Preview Data 🈸 or Preview Data on Side context menu options to preview your data files.</li>
+<li>Click on the Data View Filename toolbar link to Load saved Data View Grid || Chart 📊 <code>.config</code>.</li>
+<li>Click on the Data View 🈸 icon to Launch new Data Preview Panel for new view config changes.</li>
+<li>Use Open Data File or URL 📤 option from Data View toolbar to launch new Data Preview 🈸.</li>
+<li>Run <code>View -&gt; Command Palette...&gt;Data: Preview Remote Data</code> command or <code>Ctrl+Shift+R</code> to launch Data Preview for remote <code>http(s)</code> data files.</li>
+</ol>
+<figure>
+<img src="https://github.com/RandomFractals/vscode-data-preview/blob/master/images/vscode-data-preview-open-file.png?raw=true%20%22Data%20Preview%20Open%20Data%20File%22" alt="Data Preview Open Data File" /><figcaption>Data Preview Open Data File</figcaption>
+</figure>
+<h2 id="data-gridfiltercolumns-ux-tips">Data Grid/Filter/Columns UX Tips</h2>
+<ol type="1">
+<li>Double click on the Grid Column header to <code>Sort</code> data by that column.</li>
+<li>Drag and drop a column from the left-side <code>Columns</code> control panel into <code>Filter fields</code> for data filtering (<code>Group By</code>, <code>Split By</code>, <code>Sort</code>, <code>Filter</code>).</li>
+<li>Drag columns up and down in the left-side <code>Columns</code> control panel to reorder displayed columns in the Data Grid.</li>
+<li>Uncheck a column in the <code>Columns</code> control panel to remove it from a Chart 📊 or Data Grid display.</li>
+</ol>
+<h1 id="usage-scenarios">Usage Scenarios</h1>
+<p>Use Data Preview 🈸 to:</p>
+<ul>
+<li>Load large data files for sorting, filtering &amp; charting 📊</li>
+<li>Export displayed data in a compact binary <code>.arrow</code> data format, <code>.ods</code> <code>.xlsb</code> || <code>.xlsx</code> spreadsheet format, or <code>.csv</code> <code>.json</code> <code>.yml</code> <code>.md</code> or <code>.properties</code> text formats</li>
+<li>Preview <code>.properites</code> and other key-value pairs configuration files to reformat them or find set config option values</li>
+<li>Generate Arrow &amp; Avro <code>.shema.json</code> for metadata text preview of those binary data files</li>
+<li>Generate <code>.json</code> files for text data preview of binary Excel files</li>
+<li>Preview Excel files and workbooks with multiple workseets without opening Excel</li>
+<li>Convert <code>.csv</code> or <code>.tsv</code> data to <code>.json</code> or <code>.yml</code> format</li>
+<li>Extract, sort, filter and save markdown tables from <code>.md</code> documentation files</li>
+<li>Use built-in Charts 📊 for Exploratory Data Analysis</li>
+</ul>
+<h1 id="supported-json-config-binary-excel-data-file-formats">Supported JSON, Config, Binary &amp; Excel Data File Formats</h1>
+<p><strong>Tip</strong>: try sample data and Data View <code>.config</code> files from this repository <a href="https://github.com/RandomFractals/vscode-data-preview/tree/master/data">data/…</a> folders: <a href="https://github.com/RandomFractals/vscode-data-preview/tree/master/data/arrow"><code>data/arrow</code></a> <a href="https://github.com/RandomFractals/vscode-data-preview/tree/master/data/avro"><code>data/avro</code></a> <a href="https://github.com/RandomFractals/vscode-data-preview/tree/master/data/config"><code>data/config</code></a> <a href="https://github.com/RandomFractals/vscode-data-preview/tree/master/data/excel"><code>data/excel</code></a> <a href="https://github.com/RandomFractals/vscode-data-preview/tree/master/data/json"><code>data/json</code></a> <a href="https://github.com/RandomFractals/vscode-data-preview/tree/master/data/yaml"><code>data/yaml</code></a> <a href="https://github.com/RandomFractals/vscode-data-preview/tree/master/data/large"><code>data/large</code></a></p>
+<p><a href="https://github.com/vega/vega-datasets">Vega datasets</a> repository also has a broad collection of sample <code>.csv</code> &amp; <code>.json</code> array data files you can try in Data Preview 🈸</p>
+<h2 id="data-preview-files-matching-rules">Data Preview 🈸 Files Matching Rules</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="st">&quot;when&quot;</span><span class="op">:</span> <span class="st">&quot;resourceFilename =~ /.*</span><span class="sc">\\</span><span class="st">.(json|jsonl|json5|hjson|ndjson|arrow|arr|avro|env|config|properties|ini|yml|md|csv|tsv|txt|tab|dif|ods|xls|xlsb|xlsx|xlsm|xml|html)/&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="st">&quot;command&quot;</span><span class="op">:</span> <span class="st">&quot;data.preview&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="st">&quot;group&quot;</span><span class="op">:</span> <span class="st">&quot;navigation&quot;</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="op">}</span></a></code></pre></div>
+<h2 id="data-preview-files-loading-details">Data Preview 🈸 Files Loading Details</h2>
+<p><strong>Note:</strong> <code>.json</code> <code>.config</code> &amp; <code>.yml</code> configuration files that don't contain array data are converted to flat properties key/value pairs Object and displayed in a Property Grid Data View mode. See <a href="https://github.com/RandomFractals/vscode-data-preview/blob/master/src/utils/json.utils.ts">json.utils.ts</a> for more info.</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Data File Extension(s)</th>
+<th>File Type</th>
+<th>Data Parsing Library/Method Used</th>
+<th>Data Format Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>.json</code> <code>.config</code> <code>.jsonl</code> <code>.ndjson</code></td>
+<td>text</td>
+<td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse"><code>JSON.parse()</code></a></td>
+<td>https://json.org/</td>
+</tr>
+<tr class="even">
+<td><code>.json5</code></td>
+<td>text</td>
+<td><a href="https://github.com/json5/json5">json5</a>/<a href="https://github.com/json5/json5#json5parse"><code>JSON5.parse()</code></a></td>
+<td>https://json5.org/</td>
+</tr>
+<tr class="odd">
+<td><code>.hjson</code></td>
+<td>text</td>
+<td><a href="https://github.com/hjson/hjson-js">hjson-js</a>/<a href="https://github.com/hjson/hjson-js#hjsonparsetext-options"><code>Hjson.parse()</code></a></td>
+<td>https://hjson.org/</td>
+</tr>
+<tr class="even">
+<td><code>.arrow</code> <code>.arr</code></td>
+<td>binary</td>
+<td><a href="https://github.com/apache/arrow/tree/master/js">apache-arrow</a>/<a href="https://github.com/apache/arrow/tree/master/js#get-a-table-from-an-arrow-file-on-disk-in-ipc-format"><code>Table.from()</code></a></td>
+<td>https://arrow.apache.org/</td>
+</tr>
+<tr class="odd">
+<td><code>.avro</code></td>
+<td>binary</td>
+<td><a href="https://github.com/mtth/avsc">avsc</a>/<a href="https://github.com/mtth/avsc/wiki/API#createfiledecoderpath-opts"><code>avro.createFileDecoder()</code></a></td>
+<td>https://avro.apache.org/docs/current/</td>
+</tr>
+<tr class="even">
+<td><code>.properties</code> <code>.env</code></td>
+<td>text</td>
+<td><a href="https://github.com/gagle/node-properties">node-properties</a>/<a href="https://github.com/gagle/node-properties#parse"><code>properties.parse()</code></a></td>
+<td>https://en.wikipedia.org/wiki/.properties</td>
+</tr>
+<tr class="odd">
+<td><code>.ini</code></td>
+<td>text</td>
+<td><a href="https://github.com/gagle/node-properties">node-properties</a>/<a href="https://github.com/gagle/node-properties#ini"><code>properties.parse()</code></a></td>
+<td>https://en.wikipedia.org/wiki/INI_file</td>
+</tr>
+<tr class="even">
+<td><code>.md</code></td>
+<td>text</td>
+<td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a>/<a href="https://github.com/RandomFractals/vscode-data-preview/blob/f7d8db4062914822c3e74cfd6259a90cdc051b82/src/data.preview.ts#L1035"><code>markdownToCsv()</code></a></td>
+<td>https://en.wikipedia.org/wiki/Markdown</td>
+</tr>
+<tr class="odd">
+<td><code>.yml</code> <code>.yaml</code></td>
+<td>text</td>
+<td><a href="https://github.com/nodeca/js-yaml">js-yaml</a>/<a href="https://github.com/nodeca/js-yaml#load-string---options-"><code>yaml.load()</code></a></td>
+<td>https://yaml.org/</td>
+</tr>
+<tr class="even">
+<td><code>.csv</code> <code>.tsv</code> <code>.txt</code> <code>.tab</code></td>
+<td>text</td>
+<td><a href="https://github.com/finos/perspective/">perspective</a>/<a href="https://github.com/finos/perspective/tree/master/packages/perspective-viewer#module_perspective-viewer..PerspectiveViewer+load"><code>perspectiveViewer.load(text)</code></a></td>
+<td>https://en.wikipedia.org/wiki/Comma-separated_values https://en.wikipedia.org/wiki/Tab-separated_values</td>
+</tr>
+<tr class="odd">
+<td><code>.dif</code> <code>.ods</code> <code>.xls</code> <code>.xlsb</code> <code>.xlsx</code> <code>.xlsm</code> <code>.xml</code> <code>.html</code></td>
+<td>binary/text</td>
+<td><a href="https://github.com/SheetJS/js-xlsx">js-xlsx</a>/<a href="https://github.com/SheetJS/js-xlsx#parsing-functions"><code>XLSX.read()</code></a></td>
+<td>See https://github.com/SheetJS/js-xlsx#file-formats for more info on <code>Excel</code> file formats</td>
+</tr>
+</tbody>
+</table>
+<p><strong>See</strong> <a href="https://github.com/RandomFractals/vscode-data-preview/blob/master/src/data.manager.ts">Data Manager API</a> &amp; <a href="https://github.com/RandomFractals/vscode-data-preview/tree/master/src/data.providers">src/data.providers</a> folder for data loading and saving imlementation details.</p>
+<h2 id="provided-chart-types">Provided Chart 📊 Types</h2>
+<ul>
+<li>Area Chart</li>
+<li>Bar Chart</li>
+<li>Candlesick Chart (<code>d3fc</code> only))</li>
+<li>Heatmap</li>
+<li>Line Chart</li>
+<li>OHLC Chart (<code>d3fc</code> only)</li>
+<li>Scatter Chart</li>
+<li>Sunburst</li>
+<li>Tree Map</li>
+</ul>
+<figure>
+<img src="https://github.com/RandomFractals/vscode-data-preview/blob/master/images/vscode-data-preview-chart-types.png?raw=true%20%22Data%20Preview%20Chart%20Types%22" alt="Data Preview Chart Types" /><figcaption>Data Preview Chart Types</figcaption>
+</figure>
+<h2 id="supported-filter-functions">Supported Filter Functions</h2>
+<ul>
+<li><code>&lt;, &lt;=, ==, !=, &gt;, &gt;=</code> for dates and number columns/fields</li>
+<li><code>==, !=, contains, in, not in, begins with, ends with</code> for string fields and dictionaries</li>
+<li><code>&amp;, |, and, or, ==, !=</code> for bolean fields</li>
+</ul>
+<h2 id="supported-aggregate-functions">Supported Aggregate Functions</h2>
+<ul>
+<li>any</li>
+<li>avg</li>
+<li>count</li>
+<li>distinct count</li>
+<li>dominant</li>
+<li>first by index</li>
+<li>last by index</li>
+<li>last</li>
+<li>high</li>
+<li>low</li>
+<li>mean</li>
+<li>mean by count</li>
+<li>median</li>
+<li>pct sum parent</li>
+<li>pct sum grand total</li>
+<li>sum</li>
+<li>sum abs</li>
+<li>sum not null</li>
+<li>unique</li>
+</ul>
+<h1 id="recommended-vscode-extensions">Recommended VSCode Extensions</h1>
+<p>Other extensions Data Preview 🈸 replaces, enhances or supplements for working with <a href="https://github.com/RandomFractals/vscode-data-preview#supported-json-config-binary--excel-data-file-formats">supported data file formats</a> in VSCode:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Extension</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://marketplace.visualstudio.com/items?itemName=GrapeCity.gc-excelviewer">Excel Viewer</a></td>
+<td>View Excel spreadsheets and CSV files</td>
+</tr>
+<tr class="even">
+<td><a href="https://marketplace.visualstudio.com/items?itemName=romiogaku.vscode-avro-viewer">Avro Viewer</a></td>
+<td><code>.avro</code> file viewer</td>
+</tr>
+<tr class="odd">
+<td><a href="https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.avro">avro-idl</a></td>
+<td>Avro IDL Syntax Highlighter</td>
+</tr>
+<tr class="even">
+<td><a href="https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv">DotENV</a></td>
+<td><code>.env</code> Syntax Highlighter</td>
+</tr>
+<tr class="odd">
+<td><a href="https://marketplace.visualstudio.com/items?itemName=DavidWang.ini-for-vscode">Ini for VSCode</a></td>
+<td>Provides outline view and section folding for INI files</td>
+</tr>
+<tr class="even">
+<td><a href="https://marketplace.visualstudio.com/items?itemName=laktak.hjson">Hjson</a></td>
+<td>Hjson language syntax support</td>
+</tr>
+<tr class="odd">
+<td><a href="https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-json5">JSON5 syntax</a></td>
+<td>Adds syntax highlighting of JSON5 files</td>
+</tr>
+<tr class="even">
+<td><a href="https://marketplace.visualstudio.com/items?itemName=buster.ndjson-colorizer">NDJSON Colorizer</a></td>
+<td>Colorizes NDJSON (Newline Delimited JSON) files</td>
+</tr>
+<tr class="odd">
+<td><a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml">YAML</a></td>
+<td>YAML Language Support by Red Hat, with built-in Kubernetes and Kedge syntax support</td>
+</tr>
+<tr class="even">
+<td><a href="https://marketplace.visualstudio.com/items?itemName=docsmsft.docs-yaml">docs-yaml</a></td>
+<td>YAML schema validation and auto-completion for docs.microsoft.com authoring</td>
+</tr>
+<tr class="odd">
+<td><a href="https://marketplace.visualstudio.com/items?itemName=ahebrank.yaml2json">YAML to JSON</a></td>
+<td>Convert YAML from clipboard or current document/selection to JSON and vice versa</td>
+</tr>
+<tr class="even">
+<td><a href="https://marketplace.visualstudio.com/items?itemName=tanaka-x.prop2yaml">Properties To Yaml</a></td>
+<td>Convert properties to yaml</td>
+</tr>
+<tr class="odd">
+<td><a href="https://marketplace.visualstudio.com/items?itemName=darkriszty.markdown-table-prettify">Markdown Table Prettifier</a></td>
+<td>Transforms markdown tables to be more readable</td>
+</tr>
+</tbody>
+</table>
+<h1 id="dev-log">Dev Log</h1>
+<p>See <a href="https://twitter.com/hashtag/datapreview?f=tweets&amp;vertical=default&amp;src=hash">#DataPreview 🈸 tag on Twitter</a> for the latest and greatest updates on this vscode extension and what's in store next.</p>
+<h1 id="dev-build">Dev Build</h1>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1">$ <span class="fu">git</span> clone https://github.com/RandomFractals/vscode-data-preview</a>
+<a class="sourceLine" id="cb2-2" title="2">$ <span class="bu">cd</span> vscode-data-preview</a>
+<a class="sourceLine" id="cb2-3" title="3">$ <span class="ex">npm</span> install</a>
+<a class="sourceLine" id="cb2-4" title="4">$ <span class="ex">code</span> .</a></code></pre></div>
+<p><code>F5</code> to launch Data Preview extension VSCode debug session.</p>
+<p>||</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="ex">vscode-data-preview</span><span class="op">&gt;</span>vsce package</a></code></pre></div>
+<p>to generate <code>VSIX</code> Data Preview extension package from our latest for local dev install in VSCode.</p>
+<p><strong>Note:</strong> Use <code>Help -&gt; Toggle Developer Tools</code> vscode menu option to view Data Preview console log.</p>
+<h1 id="contributions">Contributions</h1>
+<p>Any and all test, code or feedback contributions are welcome.</p>
+<p>Open an <a href="https://github.com/RandomFractals/vscode-data-preview/issues">issue</a> or create a pull request to make this Data Preview 🈸 extension work better for all.</p>
+<h1 id="backers">Backers</h1>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><a href="https://sheetjs.com/"><img src="https://sheetjs.com/sketch128.png" width="80"></a></th>
+<th style="text-align: center;"><a href="https://amanhimself.dev/"><img src="https://avatars2.githubusercontent.com/u/10234615?s=400&v=4" width="80"></a></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><a href="https://sheetjs.com/">SheetJS</a></td>
+<td style="text-align: center;"><a href="https://amanhimself.dev/">Aman Mittal</a></td>
+</tr>
+</tbody>
+</table>
+<p><a href='https://ko-fi.com/F1F812DLR' target='_blank'> <img height='36' style='border:0px;height:36px;' border='0'
+    src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=2' 
+    alt='support me on ko-fi.com' /> </a></p>

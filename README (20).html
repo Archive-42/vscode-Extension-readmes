@@ -1,0 +1,228 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="microsoft-edge-developer-tools-for-visual-studio-code">Microsoft Edge Developer Tools for Visual Studio Code</h1>
+<p><strong>Show the browser's Elements and Network tool inside the Visual Studio Code editor and use it to fix CSS issues with your site and inspect network activity.</strong></p>
+<p>A Visual Studio Code extension that allows you to use the browser's Elements and Network tool from within the editor. The DevTools will connect to an instance of Microsoft Edge giving you the ability to see the runtime HTML structure, alter layout, fix styling issues, and view network requests. All without leaving Visual Studio Code.</p>
+<p><strong>Note</strong>: This extension <em>only</em> supports Microsoft Edge (version greater than 80.0.361.48)</p>
+<figure>
+<img src="https://github.com/Microsoft/vscode-edge-devtools/raw/master/basic_usage.gif" alt="Microsoft Edge Tools - Demo" /><figcaption>Microsoft Edge Tools - Demo</figcaption>
+</figure>
+<h2 id="supported-features">Supported Features</h2>
+<ul>
+<li>Debug configurations for launching Microsoft Edge browser in remote-debugging mode and auto attaching the tools.</li>
+<li>Side Bar view for listing all the debuggable targets, including tabs, extensions, service workers, etc.</li>
+<li>Fully featured Elements and Network tool with views for HTML, CSS, accessibility and more.</li>
+<li>Screen-casting feature to allow you to see your page without leaving Visual Studio Code.</li>
+<li>Go directly to the line/column for source files in your workspace when clicking on a link or CSS rule inside the Elements tool.</li>
+<li>Auto attach the Microsoft Edge Tools when you start debugging with the <a href="https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge">Debugger for Microsoft Edge</a> extension.</li>
+<li>Debug using a windowed or headless version of the Microsoft Edge Browser</li>
+</ul>
+<h2 id="using-the-extension">Using the Extension</h2>
+<h3 id="getting-started">Getting Started</h3>
+<p>For use inside Visual Studio Code:</p>
+<ol type="1">
+<li>Install any channel (Canary/Dev/etc.) of <a href="https://aka.ms/edgeinsider">Microsoft Edge</a>.</li>
+<li>Install the extension* <a href="https://marketplace.visualstudio.com/items?itemName=ms-edgedevtools.vscode-edge-devtools">Microsoft Edge Tools</a>.</li>
+<li>Open the folder containing the project you want to work on.</li>
+</ol>
+<p>*<a href="https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge">Debugger for Microsoft Edge</a> extension will be also installed to enable debugging on VSCode.</p>
+<h3 id="changing-extension-settings">Changing Extension Settings</h3>
+<p>You can customize the extension to your needs. You can reach the settings by clicking the gear icon of the extension listing or via the settings menu.</p>
+<figure>
+<img src="https://github.com/Microsoft/vscode-edge-devtools/raw/master/edge-devtools-for-vscode-settings.png" alt="The gear icon in the extension listing" /><figcaption>The gear icon in the extension listing</figcaption>
+</figure>
+<h4 id="turning-on-network-inspection">Turning on Network Inspection</h4>
+<p>You can enable the Network Pane to inspect any network request of the attached browser. To do this, change the setting and restart the extension.</p>
+<figure>
+<img src="https://github.com/Microsoft/vscode-edge-devtools/raw/master/edge-devtools-for-vscode-settings-network.png" alt="Example how to turn on the network pane" /><figcaption>Example how to turn on the network pane</figcaption>
+</figure>
+<p>You can see an example of the change in the following screencast. After restart, you get an extra tab with network functionality.</p>
+<figure>
+<img src="https://github.com/Microsoft/vscode-edge-devtools/raw/master/basic_usage(network_and_headless).gif" alt="Example how to turn on the network pane" /><figcaption>Example how to turn on the network pane</figcaption>
+</figure>
+<h4 id="turning-on-headless-mode">Turning on Headless Mode</h4>
+<p>By default, the extension will launch the browser in its own window. This means you get an extra browser icon in your task bar and you need to turn on casting to see the browser inside the editor. You can also choose "headless mode" to not have the browser open in an own window, but embed itself directly into Visual Studio Code.</p>
+<p><strong>Note</strong>: In the past we had issues on Macintosh computers where the Microsoft Edge instance reported itself as "inactive" when the window wasn't visible. Using headless mode fixes that problem.</p>
+<figure>
+<img src="https://github.com/Microsoft/vscode-edge-devtools/raw/master/edge-devtools-for-vscode-settings-headless.png" alt="Example how to turn on the network pane" /><figcaption>Example how to turn on the network pane</figcaption>
+</figure>
+<p>You can see an example of the change in the following screencast:</p>
+<figure>
+<img src="https://github.com/Microsoft/vscode-edge-devtools/raw/master/basic_usage(headless).gif" alt="Example how to turn on the headless mode" /><figcaption>Example how to turn on the headless mode</figcaption>
+</figure>
+<h3 id="using-the-tools">Using the tools</h3>
+<p>The extension operates in two modes - it can launch an instance of Microsoft Edge navigated to your app, or it can attach to a running instance of Microsoft Edge. Both modes requires you to be serving your web application from local web server, which is started from either a Visual Studio Code task or from your command-line. Using the <code>url</code> parameter you tell Visual Studio Code which URL to either open or launch in the browser.</p>
+<p>You can now use the high-fidelity tools to tweak your CSS and inspect network calls and go directly back to your code without leaving the editor.</p>
+<figure>
+<img src="https://github.com/Microsoft/vscode-edge-devtools/raw/master/basic_usage.gif" alt="Microsoft Edge Tools - Demo" /><figcaption>Microsoft Edge Tools - Demo</figcaption>
+</figure>
+<h4 id="opening-source-files-from-the-elements-tool">Opening source files from the Elements tool</h4>
+<p>One of the features of the Elements tool is that it can show you what file applied the styles and event handlers for a given node.</p>
+<figure>
+<img src="https://github.com/Microsoft/vscode-edge-devtools/raw/master/links.png" alt="Microsoft Edge Tools - Links" /><figcaption>Microsoft Edge Tools - Links</figcaption>
+</figure>
+<p>The source files for these applied styles and attached event handlers appear in the form of links to a url specified by the browser. Clicking on one will attempt to open that file inside the Visual Studio Code editor window. Correctly mapping these runtime locations to actual files on disk that are part of your current workspace, may require you to enable source maps as part of your build environment.</p>
+<p>An example webpack configuration for sass and typescript is given below:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="dt">devtool</span><span class="op">:</span> <span class="st">&quot;source-map&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="dt">module</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-4" title="4">    <span class="dt">rules</span><span class="op">:</span> [</a>
+<a class="sourceLine" id="cb1-5" title="5">      <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-6" title="6">        <span class="dt">test</span><span class="op">:</span> <span class="ss">/</span><span class="sc">\.</span><span class="ss">ts</span><span class="sc">$</span><span class="ss">/</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-7" title="7">        <span class="dt">loader</span><span class="op">:</span> <span class="st">&quot;ts-loader&quot;</span></a>
+<a class="sourceLine" id="cb1-8" title="8">      <span class="op">},</span></a>
+<a class="sourceLine" id="cb1-9" title="9">      <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-10" title="10">        <span class="dt">test</span><span class="op">:</span> <span class="ss">/</span><span class="sc">\.(</span><span class="ss">s</span><span class="sc">*)</span><span class="ss">css</span><span class="sc">$</span><span class="ss">/</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-11" title="11">        <span class="dt">use</span><span class="op">:</span> [</a>
+<a class="sourceLine" id="cb1-12" title="12">          <span class="op">{</span> <span class="dt">loader</span><span class="op">:</span> <span class="va">MiniCssExtractPlugin</span>.<span class="at">loader</span> <span class="op">},</span></a>
+<a class="sourceLine" id="cb1-13" title="13">          <span class="op">{</span> <span class="dt">loader</span><span class="op">:</span> <span class="st">&quot;css-loader&quot;</span><span class="op">,</span> <span class="dt">options</span><span class="op">:</span> <span class="op">{</span> <span class="dt">sourceMap</span><span class="op">:</span> <span class="kw">true</span> <span class="op">}</span> <span class="op">},</span></a>
+<a class="sourceLine" id="cb1-14" title="14">          <span class="op">{</span> <span class="dt">loader</span><span class="op">:</span> <span class="st">&quot;sass-loader&quot;</span><span class="op">,</span> <span class="dt">options</span><span class="op">:</span> <span class="op">{</span> <span class="dt">sourceMap</span><span class="op">:</span> <span class="kw">true</span> <span class="op">}</span> <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-15" title="15">        ]</a>
+<a class="sourceLine" id="cb1-16" title="16">      <span class="op">},</span></a>
+<a class="sourceLine" id="cb1-17" title="17">    ]</a>
+<a class="sourceLine" id="cb1-18" title="18">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-19" title="19"><span class="op">}</span></a></code></pre></div>
+<p>With source maps enabled, you may also need to configure the extension settings/launch.json config to add customized paths between your runtime urls and your workspace paths, see <a href="#sourcemaps">Sourcemaps</a> for more information.</p>
+<h4 id="debug-configuration">Debug Configuration</h4>
+<p>You can launch the Microsoft Edge Tools extension like you would a debugger, by using a <code>launch.json</code> config file.</p>
+<p>Microsoft Edge Tools works great when paired with <a href="https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge">Debugger for Microsoft Edge</a>, you can use the first one to design your frontend and the latter to debug your code and set breakpoints</p>
+<p>To add a new debug configuration, in your <code>launch.json</code> add a new debug config with the following parameters:</p>
+<ul>
+<li><code>type</code> - The name of the debugger which must be <code>vscode-edge-devtools.debug.</code> <strong>Required.</strong></li>
+<li><code>request</code> - <code>launch</code> to open a new browser tab or <code>attach</code> to connect to an existing tab. <strong>Required.</strong></li>
+<li><code>name</code> - A friendly name to show in the Visual Studio Code UI. <strong>Required.</strong></li>
+<li><code>url</code> - The url for the new tab or of the existing tab. <strong>Optional.</strong></li>
+<li><code>file</code> - The local file path for the new tab or of the existing tab. <strong>Optional.</strong></li>
+<li><code>webRoot</code> - The directory that files are served from. Used to resolve urls like <code>http://localhost:8000/app.js</code> to a file on disk like <code>/out/app.js</code>. <strong>Optional.</strong></li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">    <span class="st">&quot;version&quot;</span><span class="op">:</span> <span class="st">&quot;0.1.0&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-3" title="3">    <span class="st">&quot;configurations&quot;</span><span class="op">:</span> [</a>
+<a class="sourceLine" id="cb2-4" title="4">        <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-5" title="5">            <span class="st">&quot;type&quot;</span><span class="op">:</span> <span class="st">&quot;vscode-edge-devtools.debug&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-6" title="6">            <span class="st">&quot;request&quot;</span><span class="op">:</span> <span class="st">&quot;launch&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-7" title="7">            <span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;Launch Microsoft Edge and open the Edge DevTools&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-8" title="8">            <span class="st">&quot;file&quot;</span><span class="op">:</span> <span class="st">&quot;${workspaceFolder}/index.html&quot;</span></a>
+<a class="sourceLine" id="cb2-9" title="9">        <span class="op">},</span></a>
+<a class="sourceLine" id="cb2-10" title="10">        <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-11" title="11">            <span class="st">&quot;type&quot;</span><span class="op">:</span> <span class="st">&quot;vscode-edge-devtools.debug&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-12" title="12">            <span class="st">&quot;request&quot;</span><span class="op">:</span> <span class="st">&quot;attach&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-13" title="13">            <span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;Attach to Microsoft Edge and open the Edge DevTools&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-14" title="14">            <span class="st">&quot;url&quot;</span><span class="op">:</span> <span class="st">&quot;http://localhost:8000/&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-15" title="15">            <span class="st">&quot;webRoot&quot;</span><span class="op">:</span> <span class="st">&quot;${workspaceFolder}/out&quot;</span></a>
+<a class="sourceLine" id="cb2-16" title="16">        <span class="op">}</span></a>
+<a class="sourceLine" id="cb2-17" title="17">    ]</a>
+<a class="sourceLine" id="cb2-18" title="18"><span class="op">}</span></a></code></pre></div>
+<h4 id="other-optional-launch-config-fields">Other optional launch config fields</h4>
+<ul>
+<li><code>browserPath</code>: The full path to the browser executable that will be launched. If not specified the most stable channel of Microsoft Edge will be launched from the default install location instead.</li>
+<li><code>hostname</code>: By default the extension searches for debuggable instances using <code>localhost</code>. If you are hosting your web app on a remote machine you can specify the hostname using this setting.</li>
+<li><code>port</code>: By default the extension will set the remote-debugging-port to <code>9222</code>. Use this option to specify a different port on which to connect.</li>
+<li><code>userDataDir</code>: Normally, if Microsoft Edge is already running when you start debugging with a launch config, then the new instance won't start in remote debugging mode. So by default, the extension launches Microsoft Edge with a separate user profile in a temp folder. Use this option to set a different path to use, or set to false to launch with your default user profile instead.</li>
+<li><code>useHttps</code>: By default the extension will search for attachable instances using the <code>http</code> protocol. Set this to true if you are hosting your web app over <code>https</code> instead.</li>
+<li><code>sourceMaps</code>: By default, the extension will use sourcemaps and your original sources whenever possible. You can disable this by setting <code>sourceMaps</code> to false.</li>
+<li><code>pathMapping</code>: This property takes a mapping of URL paths to local paths, to give you more flexibility in how URLs are resolved to local files. <code>"webRoot": "${workspaceFolder}"</code> is just shorthand for a pathMapping like <code>{ "/": "${workspaceFolder}" }</code>.</li>
+<li><code>sourceMapPathOverrides</code>: A mapping of source paths from the sourcemap, to the locations of these sources on disk. See <a href="#sourcemaps">Sourcemaps</a> for more information</li>
+<li><code>urlFilter</code>: A string that can contain wildcards that will be used for finding a browser target, for example, "localhost:*/app" will match either "http://localhost:123/app" or "http://localhost:456/app", but not "https://stackoverflow.com". This property will only be used if <code>url</code> and <code>file</code> are not specified.</li>
+<li><code>timeout</code>: The number of milliseconds that the Microsoft Edge Tools will keep trying to attach to the browser before timing out. Defaults to 10000ms.</li>
+</ul>
+<h4 id="sourcemaps">Sourcemaps</h4>
+<p>The elements tool uses sourcemaps to correctly open original source files when you click links in the UI, but sometimes the sourcemaps aren't generated properly and overrides are needed. In the config we support <code>sourceMapPathOverrides</code>, a mapping of source paths from the sourcemap, to the locations of these sources on disk. Useful when the sourcemap isn't accurate or can't be fixed in the build process.</p>
+<p>The left hand side of the mapping is a pattern that can contain a wildcard, and will be tested against the <code>sourceRoot</code> + <code>sources</code> entry in the source map. If it matches, the source file will be resolved to the path on the right hand side, which should be an absolute path to the source file on disk.</p>
+<p>A few mappings are applied by default, corresponding to some common default configs for Webpack and Meteor: Note: These are the mappings that are included by default out of the box, with examples of how they could be resolved in different scenarios. These are not mappings that would make sense together in one project.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="st">&quot;sourceMapPathOverrides&quot;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">    <span class="st">&quot;webpack:///./~/*&quot;</span><span class="op">:</span> <span class="st">&quot;${webRoot}/node_modules/*&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-3" title="3">    <span class="st">&quot;webpack:///./*&quot;</span><span class="op">:</span> <span class="st">&quot;${webRoot}/*&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-4" title="4">    <span class="st">&quot;webpack:///*&quot;</span><span class="op">:</span> <span class="st">&quot;*&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-5" title="5">    <span class="st">&quot;webpack:///src/*&quot;</span><span class="op">:</span> <span class="st">&quot;${webRoot}/*&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-6" title="6">    <span class="st">&quot;meteor://💻app/*&quot;</span><span class="op">:</span> <span class="st">&quot;${webRoot}/*&quot;</span></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="op">}</span></a></code></pre></div>
+<p>If you set <code>sourceMapPathOverrides</code> in your launch config, that will override these defaults. <code>${workspaceFolder}</code> and <code>${webRoot}</code> can be used there.</p>
+<p>See the following examples for each entry in the default mappings (<code>webRoot = /Users/me/project</code>):</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="st">&quot;webpack:///./~/*&quot;</span><span class="op">:</span> <span class="st">&quot;${webRoot}/node_modules/*&quot;</span> </a>
+<a class="sourceLine" id="cb4-2" title="2">Example<span class="op">:</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="st">&quot;webpack:///./~/querystring/index.js&quot;</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="op">-&gt;</span> <span class="st">&quot;/Users/me/project/node_modules/querystring/index.js&quot;</span></a>
+<a class="sourceLine" id="cb4-5" title="5"></a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="st">&quot;webpack:///./*&quot;</span><span class="op">:</span>   <span class="st">&quot;${webRoot}/*&quot;</span> </a>
+<a class="sourceLine" id="cb4-7" title="7">Example<span class="op">:</span></a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="st">&quot;webpack:///./src/app.js&quot;</span> <span class="op">-&gt;</span> <span class="st">&quot;/Users/me/project/src/app.js&quot;</span></a>
+<a class="sourceLine" id="cb4-9" title="9"></a>
+<a class="sourceLine" id="cb4-10" title="10"><span class="st">&quot;webpack:///*&quot;</span><span class="op">:</span> <span class="st">&quot;*&quot;</span> </a>
+<a class="sourceLine" id="cb4-11" title="11">Example<span class="op">:</span></a>
+<a class="sourceLine" id="cb4-12" title="12"><span class="st">&quot;webpack:///project/app.ts&quot;</span> <span class="op">-&gt;</span> <span class="st">&quot;/project/app.ts&quot;</span></a>
+<a class="sourceLine" id="cb4-13" title="13"></a>
+<a class="sourceLine" id="cb4-14" title="14"><span class="st">&quot;webpack:///src/*&quot;</span><span class="op">:</span> <span class="st">&quot;${webRoot}/*&quot;</span> </a>
+<a class="sourceLine" id="cb4-15" title="15">Example<span class="op">:</span></a>
+<a class="sourceLine" id="cb4-16" title="16"><span class="st">&quot;webpack:///src/app.js&quot;</span> <span class="op">-&gt;</span> <span class="st">&quot;/Users/me/project/app.js&quot;</span></a>
+<a class="sourceLine" id="cb4-17" title="17"></a>
+<a class="sourceLine" id="cb4-18" title="18"><span class="st">&quot;meteor://💻app/*&quot;</span><span class="op">:</span> <span class="st">&quot;${webRoot}/*&quot;</span></a>
+<a class="sourceLine" id="cb4-19" title="19">Example<span class="op">:</span></a>
+<a class="sourceLine" id="cb4-20" title="20"><span class="st">&quot;meteor://💻app/main.ts&quot;</span><span class="vs">` -&gt; `</span><span class="st">&quot;/Users/me/project/main.ts&quot;</span></a></code></pre></div>
+<h4 id="ionicgulp-sourcemaps-note">Ionic/gulp-sourcemaps note</h4>
+<p>Ionic and gulp-sourcemaps output a sourceRoot of <code>"/source/"</code> by default. If you can't fix this via your build config, try this setting:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="st">&quot;sourceMapPathOverrides&quot;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2">    <span class="st">&quot;/source/*&quot;</span><span class="op">:</span> <span class="st">&quot;${workspaceFolder}/*&quot;</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="op">}</span></a></code></pre></div>
+<h3 id="launching-the-browser-via-the-side-bar-view">Launching the browser via the side bar view</h3>
+<ul>
+<li>Start Microsoft Edge via the side bar
+<ul>
+<li>Click the <code>Microsoft Edge Tools</code> view in the side bar.</li>
+<li>Click the <code>Open a new tab</code> icon to launch the browser (if it isn't open yet) and open a new tab.</li>
+</ul></li>
+<li>Attach the Microsoft Edge Tools via the side bar view
+<ul>
+<li>Click the <code>Attach</code> icon next to the tab to open the Microsoft Edge Tools.</li>
+</ul></li>
+</ul>
+<h3 id="launching-the-browser-manually">Launching the browser manually</h3>
+<ul>
+<li>Start Microsoft Edge with remote-debugging enabled on port 9222:
+<ul>
+<li><code>msedge.exe --remote-debugging-port=9222</code></li>
+<li>Navigate the browser to the desired URL.</li>
+</ul></li>
+<li>Attach the Microsoft Edge Tools via a command:
+<ul>
+<li>Run the command <code>Microsoft Edge Tools: Attach to a target</code></li>
+<li>Select a target from the drop down.</li>
+</ul></li>
+</ul>
+<h3 id="attaching-automatically-when-launching-the-browser-for-debugging">Attaching automatically when launching the browser for debugging</h3>
+<ul>
+<li>Install the <a href="https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge">Debugger for Microsoft Edge</a> extension</li>
+<li>Setup your <code>launch.json</code> configuration to launch and debug Microsoft Edge.
+<ul>
+<li>See <a href="https://github.com/microsoft/vscode-edge-debug2/blob/master/README.md">Debugger for Microsoft Edge Readme.md</a>.</li>
+</ul></li>
+<li>Start Microsoft Edge for debugging.
+<ul>
+<li>Once debugging has started, the Microsoft Edge Tools will auto attach to the browser (it will keep retrying until the Debugger for Microsoft Edge launch.json config <code>timeout</code> value is reached).</li>
+<li>This auto attach functionality can be disabled via the <code>vscode-edge-devtools.autoAttachViaDebuggerForEdge</code> Visual Studio Code setting.</li>
+</ul></li>
+</ul>
+<h1 id="contributing">Contributing</h1>
+<p>This project welcomes contributions and suggestions. Most contributions require you to agree to a Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us the rights to use your contribution. For details, visit [https://cla.microsoft.com].</p>
+<p>See <a href="https://github.com/Microsoft/vscode-edge-devtools/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a> for more information.</p>
+<h1 id="other-information">Other information</h1>
+<h2 id="datatelemetry">Data/Telemetry</h2>
+<p>This project collects usage data and sends it to Microsoft to help improve our products and services. Read <a href="https://privacy.microsoft.com/en-US/privacystatement">Microsoft's privacy statement</a> to learn more.</p>
+<h2 id="reporting-security-issues">Reporting Security Issues</h2>
+<p>Security issues and bugs should be reported privately, via email, to the Microsoft Security Response Center (MSRC) at <a href="mailto:secure@microsoft.com">secure@microsoft.com</a>. You should receive a response within 24 hours. If for some reason you do not, please follow up via email to ensure we received your original message. Further information, including the <a href="https://technet.microsoft.com/en-us/security/dn606155">MSRC PGP</a> key, can be found in the <a href="https://technet.microsoft.com/en-us/security/default">Security TechCenter</a>.</p>

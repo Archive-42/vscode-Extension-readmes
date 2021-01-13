@@ -1,0 +1,269 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="javascript">JavaScript</h1>
+<h2 id="vs-code-javascript-es6-snippets">## VS Code JavaScript (ES6) snippets</h2>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets"><img src="https://vsmarketplacebadge.apphb.com/version/xabikos.JavaScriptSnippets.svg" alt="Version" /></a> <a href="https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets"><img src="https://vsmarketplacebadge.apphb.com/installs/xabikos.JavaScriptSnippets.svg" alt="Installs" /></a> <a href="https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets"><img src="https://vsmarketplacebadge.apphb.com/rating/xabikos.JavaScriptSnippets.svg" alt="Ratings" /></a></p>
+<p>This extension contains code snippets for JavaScript in ES6 syntax for <a href="https://code.visualstudio.com/">Vs Code</a> editor (supports both JavaScript and TypeScript).</p>
+<h3 id="note">Note</h3>
+<p><strong>All the snippets include the final semicolon <code>;</code> There is a fork of those snippets <a href="https://marketplace.visualstudio.com/items?itemName=jmsv.JavaScriptSnippetsStandard">here</a> made by <span class="citation" data-cites="jmsv">@jmsv</span> where semicolons are not included. So feel free to use them according to your needs.</strong></p>
+<h2 id="sponsors">Sponsors</h2>
+<p>
+<a title="Try CodeStream" href="https://sponsorlink.codestream.com/?utm_source=vscmarket&amp;utm_campaign=jses6codesnippets&amp;utm_medium=banner"><img src="https://alt-images.codestream.com/codestream_logo_jses6codesnippets.png"></a></br> Request and perform code reviews from inside your IDE. Review any code, even if it's a work-in-progress that hasn't been committed yet, and use jump-to-definition, your favorite keybindings, and other IDE tools.<br> <a title="Try CodeStream" href="https://sponsorlink.codestream.com/?utm_source=vscmarket&amp;utm_campaign=jses6codesnippets&amp;utm_medium=banner">Try it free</a>
+</p>
+<h2 id="installation">Installation</h2>
+<p>In order to install an extension you need to launch the Command Palette (Ctrl + Shift + P or Cmd + Shift + P) and type Extensions. There you have either the option to show the already installed snippets or install new ones. Search for <em>JavaScript (ES6) code snippets</em> and install it.</p>
+<h2 id="supported-languages-file-extensions">Supported languages (file extensions)</h2>
+<ul>
+<li>JavaScript (.js)</li>
+<li>TypeScript (.ts)</li>
+<li>JavaScript React (.jsx)</li>
+<li>TypeScript React (.tsx)</li>
+<li>Html (.html)</li>
+<li>Vue (.vue)</li>
+</ul>
+<h2 id="snippets">Snippets</h2>
+<p>Below is a list of all available snippets and the triggers of each one. The <strong>⇥</strong> means the <code>TAB</code> key.</p>
+<h3 id="import-and-export">Import and export</h3>
+<table>
+<colgroup>
+<col style="width: 53%" />
+<col style="width: 46%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Trigger</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><code>imp→</code></td>
+<td>imports entire module <code>import fs from 'fs';</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><code>imn→</code></td>
+<td>imports entire module without module name <code>import 'animate.css'</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><code>imd→</code></td>
+<td>imports only a portion of the module using destructing <code>import {rename} from 'fs';</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><code>ime→</code></td>
+<td>imports everything as alias from the module <code>import * as localAlias from 'fs';</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><code>ima→</code></td>
+<td>imports only a portion of the module as alias <code>import { rename  as localRename } from 'fs';</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><code>rqr→</code></td>
+<td>require package <code>require('');</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><code>req→</code></td>
+<td>require package to const <code>const packageName = require('packageName');</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><code>mde→</code></td>
+<td>default module.exports <code>module.exports = {};</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><code>env→</code></td>
+<td>exports name variable <code>export const nameVariable = localVariable;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><code>enf→</code></td>
+<td>exports name function <code>export const log = (parameter) =&gt; { console.log(parameter);};</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><code>edf→</code></td>
+<td>exports default function <code>export default function fileName (parameter){ console.log(parameter);};</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><code>ecl→</code></td>
+<td>exports default class <code>export default class Calculator { };</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><code>ece→</code></td>
+<td>exports default class by extending a base one <code>export default class Calculator extends BaseClass { };</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="class-helpers">Class helpers</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Trigger</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><code>con→</code></td>
+<td>adds default constructor in the class <code>constructor() {}</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><code>met→</code></td>
+<td>creates a method inside a class <code>add() {}</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><code>pge→</code></td>
+<td>creates a getter property <code>get propertyName() {return value;}</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><code>pse→</code></td>
+<td>creates a setter property <code>set propertyName(value) {}</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="various-methods">Various methods</h3>
+<table>
+<colgroup>
+<col style="width: 53%" />
+<col style="width: 46%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Trigger</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><code>fre→</code></td>
+<td>forEach loop in ES6 syntax <code>array.forEach(currentItem =&gt; {})</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><code>fof→</code></td>
+<td>for … of loop <code>for(const item of object) {}</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><code>fin→</code></td>
+<td>for … in loop <code>for(const item in object) {}</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><code>anfn→</code></td>
+<td>creates an anonymous function <code>(params) =&gt; {}</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><code>nfn→</code></td>
+<td>creates a named function <code>const add = (params) =&gt; {}</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><code>dob→</code></td>
+<td>destructing object syntax <code>const {rename} = fs</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><code>dar→</code></td>
+<td>destructing array syntax <code>const [first, second] = [1,2]</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><code>sti→</code></td>
+<td>set interval helper method <code>setInterval(() =&gt; {});</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><code>sto→</code></td>
+<td>set timeout helper method <code>setTimeout(() =&gt; {});</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><code>prom→</code></td>
+<td>creates a new Promise <code>return new Promise((resolve, reject) =&gt; {});</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><code>thenc→</code></td>
+<td>adds then and catch declaration to a promise <code>.then((res) =&gt; {}).catch((err) =&gt; {});</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="console-methods">Console methods</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Trigger</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><code>cas→</code></td>
+<td>console alert method <code>console.assert(expression, object)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><code>ccl→</code></td>
+<td>console clear <code>console.clear()</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><code>cco→</code></td>
+<td>console count <code>console.count(label)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><code>cdb→</code></td>
+<td>console debug <code>console.debug(object)</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><code>cdi→</code></td>
+<td>console dir <code>console.dir</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><code>cer→</code></td>
+<td>console error <code>console.error(object)</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><code>cgr→</code></td>
+<td>console group <code>console.group(label)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><code>cge→</code></td>
+<td>console groupEnd <code>console.groupEnd()</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><code>clg→</code></td>
+<td>console log <code>console.log(object)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><code>clo→</code></td>
+<td>console log object with name <code>console.log('object :&gt;&gt; ', object);</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><code>ctr→</code></td>
+<td>console trace <code>console.trace(object)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><code>cwa→</code></td>
+<td>console warn <code>console.warn</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><code>cin→</code></td>
+<td>console info <code>console.info</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><code>clt→</code></td>
+<td>console table <code>console.table</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><code>cti→</code></td>
+<td>console time <code>console.time</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><code>cte→</code></td>
+<td>console timeEnd <code>console.timeEnd</code></td>
+</tr>
+</tbody>
+</table>

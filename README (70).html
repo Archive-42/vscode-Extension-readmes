@@ -1,0 +1,82 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="visual-studio-code-remote---ssh">Visual Studio Code Remote - SSH</h1>
+<p>The <strong>Remote - SSH</strong> extension lets you use any remote machine with a SSH server as your development environment. This can greatly simplify development and troubleshooting in a wide variety of situations. You can:</p>
+<ul>
+<li>Develop on the same operating system you deploy to or use larger, faster, or more specialized hardware than your local machine.</li>
+<li>Quickly swap between different, remote development environments and safely make updates without worrying about impacting your local machine.</li>
+<li>Access an existing development environment from multiple machines or locations.</li>
+<li>Debug an application running somewhere else such as a customer site or in the cloud.</li>
+</ul>
+<p>No source code needs to be on your local machine to gain these benefits since the extension runs commands and other extensions directly on the remote machine. You can open any folder on the remote machine and work with it just as you would if the folder were on your own machine.</p>
+<figure>
+<img src="https://microsoft.github.io/vscode-remote-release/images/ssh-readme.gif" alt="Remote SSH" /><figcaption>Remote SSH</figcaption>
+</figure>
+<h2 id="ssh-host-requirements">SSH Host Requirements</h2>
+<p>You can connect to a running SSH server on the following platforms.</p>
+<p><strong>Supported</strong>:</p>
+<ul>
+<li>x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+ Linux.</li>
+<li>ARMv7l (AArch32) Raspbian Stretch/9+ (32-bit).</li>
+<li>ARMv8l (AArch64) Ubuntu 18.04+ (64-bit).</li>
+<li>Windows 10 / Server 2016/2019 (1803+) using the <a href="https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse">official OpenSSH Server</a>.</li>
+<li>macOS 10.14+ (Mojave) SSH hosts with <a href="https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac">Remote Login enabled</a>.</li>
+</ul>
+<p>Other <code>glibc</code> based Linux distributions for x86_64, ARMv7l (AArch32), and ARMv8l (AArch64) should work if they have the needed prerequisites. See the <a href="https://aka.ms/vscode-remote/linux">Remote Development with Linux</a> article for information prerequisites and tips for getting community supported distributions up and running.</p>
+<p>While ARMv7l (AArch32) and ARMv8l (AArch64) support is available, some extensions installed on these devices may not work due to the use of x86 native code in the extension.</p>
+<h2 id="installation">Installation</h2>
+<ol type="1">
+<li><p>Install <a href="https://code.visualstudio.com/">VS Code</a> or <a href="https://code.visualstudio.com/insiders">VS Code - Insiders</a> and this extension.</p></li>
+<li><p>Install <a href="https://aka.ms/vscode-remote/ssh/supported-clients">an OpenSSH compatible SSH client</a>.</p></li>
+<li><p>If you do not have a SSH host set up, follow the directions for <a href="https://aka.ms/vscode-remote/ssh/ssh-server">Linux</a>, <a href="https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse">Windows 10 / Server (1803+)</a>, or <a href="https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac">macOS</a> or create a <a href="https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">VM on Azure</a>.</p></li>
+</ol>
+<h2 id="getting-started">Getting started</h2>
+<p><strong><a href="https://aka.ms/vscode-remote/ssh/tutorial">Follow the step-by-step tutorial</a></strong> or if you have a simple SSH host setup, connect to it as follows:</p>
+<ol type="1">
+<li>Press <code>F1</code> and run the <strong>Remote-SSH: Open SSH Host…</strong> command.</li>
+<li>Enter your user and host/IP in the following format in the input box that appears and press enter: <code>user@host-or-ip</code> or <code>user@domain@host-or-ip</code></li>
+<li>If prompted, enter your password (but we suggest setting up <a href="https://aka.ms/vscode-remote/ssh/key-based-auth">key based authentication</a>).</li>
+<li>After you are connected, use <strong>File &gt; Open Folder</strong> to open a folder on the host.</li>
+</ol>
+<p>You can press <code>F1</code> to bring up the Command Palette and type in <code>Remote-SSH</code> for a full list of available commands.</p>
+<figure>
+<img src="https://microsoft.github.io/vscode-remote-release/images/remote-ssh-command-palette.png" alt="Command palette" /><figcaption>Command palette</figcaption>
+</figure>
+<p>You can also click on the Remote "Quick Access" status bar item in the lower left corner to get a list of the most common commands.</p>
+<figure>
+<img src="https://microsoft.github.io/vscode-remote-release/images/remote-dev-status-bar.png" alt="Quick actions status bar item" /><figcaption>Quick actions status bar item</figcaption>
+</figure>
+<p>For more information, please see the <a href="https://aka.ms/vscode-remote/ssh">extension documentation</a>.</p>
+<h2 id="release-notes">Release Notes</h2>
+<p>While an optional install, this extension releases with VS Code. <a href="https://code.visualstudio.com/updates/">VS Code release notes</a> include a summary of changes to all three Remote Development extensions with a link to <a href="https://github.com/microsoft/vscode-docs/tree/master/remote-release-notes">detailed release notes</a>.</p>
+<p>As with VS Code itself, the extensions update during a development iteration with changes that are only available in <a href="https://code.visualstudio.com/insiders/">VS Code Insiders Edition</a>.</p>
+<h2 id="questions-feedback-contributing">Questions, Feedback, Contributing</h2>
+<p>Have a question or feedback?</p>
+<ul>
+<li>See the <a href="https://aka.ms/vscode-remote">documentation</a> or the <a href="https://aka.ms/vscode-remote/troubleshooting">troubleshooting guide</a>.</li>
+<li><a href="https://aka.ms/vscode-remote/feature-requests">Up-vote a feature or request a new one</a>, search <a href="https://aka.ms/vscode-remote/issues">existing issues</a>, or <a href="https://aka.ms/vscode-remote/issues/new">report a problem</a>.</li>
+<li>Contribute to <a href="https://github.com/Microsoft/vscode-docs">our documentation</a></li>
+<li>…and more. See our <a href="https://aka.ms/vscode-remote/contributing">CONTRIBUTING</a> guide for details.</li>
+</ul>
+<p>Or connect with the community…</p>
+<p><a href="https://aka.ms/vscode-remote/twitter"><img src="https://microsoft.github.io/vscode-remote-release/images/Twitter_Social_Icon_24x24.png" alt="Twitter" /></a> <a href="https://stackoverflow.com/questions/tagged/vscode"><img src="https://microsoft.github.io/vscode-remote-release/images/so-image-24x24.png" alt="Stack Overflow" /></a> <a href="https://aka.ms/vscode-dev-community"><img src="https://microsoft.github.io/vscode-remote-release/images/Slack_Mark-24x24.png" alt="VS Code Dev Community Slack" /></a> <a href="https://gitter.im/Microsoft/vscode"><img src="https://microsoft.github.io/vscode-remote-release/images/gitter-icon-24x24.png" alt="VS CodeGitter" /></a></p>
+<h2 id="telemetry">Telemetry</h2>
+<p>Visual Studio Code <strong>Remote - SSH</strong> and related extensions collect telemetry data to help us build a better experience working remotely from VS Code. We only collect data on which commands are executed. We do not collect any information about image names, paths, etc. The extension respects the <code>telemetry.enableTelemetry</code> setting which you can learn more about in the <a href="https://aka.ms/vscode-remote/telemetry">Visual Studio Code FAQ</a>.</p>
+<h2 id="license">License</h2>
+<p>By downloading and using the Visual Studio <strong>Remote - SSH</strong> extension and its related components, you agree to the product <a href="https://go.microsoft.com/fwlink/?linkid=2077057">license terms</a> and <a href="https://www.microsoft.com/en-us/privacystatement/EnterpriseDev/default.aspx">privacy statement</a>.</p>

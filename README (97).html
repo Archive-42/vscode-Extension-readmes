@@ -1,0 +1,79 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="intellisense-for-css-class-names-in-html">IntelliSense for CSS class names in HTML</h1>
+<p>A Visual Studio Code extension that provides CSS class name completion for the HTML <code>class</code> attribute based on the definitions found in your workspace or external files referenced through the <code>link</code> element.</p>
+<p><img src="https://i.imgur.com/5crMfTj.gif" /></p>
+<h2 id="features">Features</h2>
+<ul>
+<li>Gives you autocompletion for CSS class definitions that can be found in your workspace (defined in CSS files or the in the file types listed in the Supported Language Modes section);</li>
+<li>Supports external stylesheets referenced through <code>link</code> elements in HTML files;</li>
+<li>Command to manually re-cache the class definitions used in the autocompletion;</li>
+<li>User Settings to override which folders and files should be considered or excluded from the caching process.</li>
+</ul>
+<h2 id="supported-language-modes">Supported Language Modes</h2>
+<ul>
+<li>HTML</li>
+<li>Razor</li>
+<li>PHP</li>
+<li>Laravel (Blade)</li>
+<li>JavaScript</li>
+<li>JavaScript React (.jsx)</li>
+<li>TypeScript React (.tsx)</li>
+<li>Vue (.vue) [requires <a href="https://marketplace.visualstudio.com/items?itemName=octref.vetur">octref.vetur</a>]</li>
+<li>Twig</li>
+<li>Markdown (.md)</li>
+<li>Embedded Ruby (.html.erb) [requires <a href="https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby">rebornix.Ruby</a>]</li>
+<li>Handlebars</li>
+<li>EJS (.ejs)</li>
+<li>Django template (django-html)</li>
+</ul>
+<h2 id="extended-support-for-other-language-modes">Extended Support for Other Language Modes</h2>
+<p>It's possible to specify which language modes will have autocompletion. There are three settings for this feature: * <code>html-css-class-completion.HTMLLanguages</code> is for language modes based on HTML, the ones you have the <code>class</code> attribute; * <code>html-css-class-completion.CSSLanguages</code> currently is for languages like CSS, Sass and Scss, this one is not very useful right now because it only supports the <code>@apply</code> function; * <code>html-css-class-completion.JavaScriptLanguages</code> is for JavaScript based languages supporting the <code>class</code> or <code>className</code> attribute.</p>
+<p>The language modes listed in the previous section are already defined as default values in these settings, and you can add new ones or remove the already defined ones as necessary.</p>
+<h2 id="specific-support">Specific Support</h2>
+<ul>
+<li>"<span class="citation" data-cites="apply">@apply</span>" directive in CSS, SASS and SCSS Files for <a href="https://tailwindcss.com">Tailwind CSS</a>;</li>
+<li>"className" and "class" in TypeScript React, JavaScript and JavaScript React language modes;</li>
+<li>Emmet abbreviations support triggered by typing a "." (comes disabled by default, check the User Settings topic for more information).</li>
+</ul>
+<h2 id="contributions">Contributions</h2>
+<p>You can request new features and contribute to the extension development on its <a href="https://github.com/Zignd/HTML-CSS-Class-Completion/issues">repository on GitHub</a>. Look for an issue you're interested in working on, comment on it to let me know you're working on it and submit your pull request! :D</p>
+<h2 id="whats-new-in-version-1.20-dec-19-2020">What's new in version 1.20 (Dec 19, 2020)</h2>
+<ul>
+<li>Settings to allow users to specify which language modes will have autocompletion;</li>
+<li>Fix interpretation of classes defined inside media queries.</li>
+</ul>
+<p>Check out the <a href="https://github.com/zignd/HTML-CSS-Class-Completion/blob/master/CHANGELOG.md">changelog</a> for the current and previous updates.</p>
+<h2 id="usage">Usage</h2>
+<p>If there are HTML or JS files on your workspace, the extension automatically starts and looks for CSS class definitions. In case new CSS classes are defined, or new CSS files are added to the workspace, and you also want auto-completion for them, just hit the lightning icon on the status bar. Also, you can execute the command by pressing <code>Ctrl+Shift+P</code>(<code>Cmd+Shift+P</code> for Mac) and then typing "Cache CSS class definitions."</p>
+<h3 id="more-user-settings">More User Settings</h3>
+<p>The extension supports a few user settings, changes to these settings will be automatically recognized and the caching process will be re-executed.</p>
+<h4 id="folders-and-files">Folders and Files</h4>
+<p>You can change the folders and files the extension will consider or exclude during the caching process by setting the following user settings:</p>
+<ul>
+<li><code>"html-css-class-completion.includeGlobPattern"</code> (default: <code>"**/*.{css,html}"</code>)</li>
+<li><code>"html-css-class-completion.excludeGlobPattern"</code> (default: <code>""</code>)</li>
+</ul>
+<h4 id="emmet">Emmet</h4>
+<p>Emmet support comes disabled by default, the reason behind this choice is because it the current implementation simply triggers completion when you type a "." (period) and this behavior might be considered a little annoying, but it might change in the future.</p>
+<p>Currently it supports the following languages (those are <a href="https://code.visualstudio.com/docs/languages/identifiers#_known-language-identifiers">language identifier</a>): "html", "razor", "php", "blade", "vue", "twig", "markdown", "erb", "handlebars", "ejs", "typescriptreact", "javascript", "javascriptreact".</p>
+<ul>
+<li><code>"html-css-class-completion.enableEmmetSupport"</code> (default: <code>false</code>)</li>
+</ul>
+<p><img src="https://i.imgur.com/O7NjEUW.gif" /> <img src="https://i.imgur.com/uyiXqMb.gif" /></p>

@@ -1,0 +1,41 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="vscode-favorites">vscode-favorites</h1>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=howardzuo.vscode-favorites"><img src="https://vsmarketplacebadge.apphb.com/version/howardzuo.vscode-favorites.svg" alt="vscode version" /></a> <img src="https://vsmarketplacebadge.apphb.com/installs/howardzuo.vscode-favorites.svg" /> <img src="https://vsmarketplacebadge.apphb.com/rating/howardzuo.vscode-favorites.svg" /> <img src="https://img.shields.io/github/license/leftstick/vscode-favorites.svg" /></p>
+<p>An extension that lets the developer mark resources (files or folders) as favorites, so they can be easily accessed.</p>
+<p><img src="https://raw.githubusercontent.com/leftstick/vscode-favorites/master/images/preview.gif" /></p>
+<h2 id="install">Install</h2>
+<p>Launch VS Code Quick Open (<code>cmd</code>/<code>ctrl</code> + <code>p</code>), paste the following command, and press Enter.</p>
+<pre><code>ext install howardzuo.vscode-favorites</code></pre>
+<h2 id="usage">Usage</h2>
+<p>An <strong>Add to Favorites</strong> command in Explorer's context menu saves links to your favorite files or folders into your <em><em><code>XYZ</code></em></em><code>.code-workspace</code> file if you are using one, else into the <code>.vscode/settings.json</code> file of your root folder.</p>
+<p>Your favorites are listed in a separate view and can be quickly accessed from there.</p>
+<h3 id="configuration">Configuration</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">    <span class="st">&quot;favorites.resources&quot;</span><span class="op">:</span> []<span class="op">,</span> <span class="co">// resources path you prefer to mark</span></a>
+<a class="sourceLine" id="cb2-3" title="3">    <span class="st">&quot;favorites.sortOrder&quot;</span><span class="op">:</span> <span class="st">&quot;ASC&quot;</span><span class="op">,</span> <span class="co">// DESC, MANUAL</span></a>
+<a class="sourceLine" id="cb2-4" title="4">    <span class="st">&quot;favorites.saveSeparated&quot;</span><span class="op">:</span> <span class="kw">false</span> <span class="co">// whether to use an extra config file</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="op">}</span></a></code></pre></div>
+<blockquote>
+<p>You normally don't need to modify this config manually. Use context menus instead.</p>
+</blockquote>
+<h2 id="changelog">Changelog</h2>
+<p><a href="https://marketplace.visualstudio.com/items/howardzuo.vscode-favorites/changelog">Changelog on Marketplace</a></p>
+<h2 id="license">LICENSE</h2>
+<p><a href="https://raw.githubusercontent.com/leftstick/vscode-favorites/master/LICENSE">GPL v3 License</a></p>

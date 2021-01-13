@@ -1,0 +1,154 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="bracket-pair-colorizer">Bracket Pair Colorizer</h1>
+<hr />
+<h4 id="announcement-a-new-version-is-being-developed-at-httpsgithub.comcoenraadsbracket-pair-colorizer-2">Announcement: A new version is being developed at https://github.com/CoenraadS/Bracket-Pair-Colorizer-2</h4>
+<hr />
+<p>This extension allows matching brackets to be identified with colours. The user can define which characters to match, and which colours to use.</p>
+<p>Screenshot:<br />
+<img src="https://github.com/CoenraadS/BracketPair/raw/master/images/example.png" title="Bracket Pair Colorizer" alt="Screenshot" /></p>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">## <a href="https://github.com/CoenraadS/BracketPair/blob/master/CHANGELOG.md">Release Notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">## Features</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">### User defined matching characters &gt; By default (), [], and {} are matched, however custom bracket characters can also be configured.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">&gt; A list of colors can be configured, as well as a specific color for orphaned brackets.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">&gt; Language support provided by Prism.js: http://prismjs.com/#languages-list</td>
+</tr>
+</tbody>
+</table>
+<h2 id="settings">Settings</h2>
+<blockquote>
+<p><code>"bracketPairColorizer.timeOut"</code><br />
+Configure how long the editor should be idle for before updating the document.<br />
+Set to 0 to disable.</p>
+</blockquote>
+<blockquote>
+<p><code>"bracketPairColorizer.forceUniqueOpeningColor"</code><br />
+<img src="https://github.com/CoenraadS/BracketPair/raw/master/images/forceUniqueOpeningColorDisabled.png" title="forceUniqueOpeningColor Disabled" alt="Disabled" /> <img src="https://github.com/CoenraadS/BracketPair/raw/master/images/forceUniqueOpeningColorEnabled.png" title="forceUniqueOpeningColor Enabled" alt="Enabled" /></p>
+</blockquote>
+<blockquote>
+<p><code>"bracketPairColorizer.forceIterationColorCycle"</code><br />
+<img src="https://github.com/CoenraadS/BracketPair/raw/master/images/forceIterationColorCycleEnabled.png" title="forceIterationColorCycle Enabled" alt="Enabled" /></p>
+</blockquote>
+<blockquote>
+<p><code>"bracketPairColorizer.colorMode"</code><br />
+Consecutive brackets share a color pool for all bracket types<br />
+Independent brackets allow each bracket type to use its own color pool<br />
+<img src="https://github.com/CoenraadS/BracketPair/raw/master/images/consecutiveExample.png" title="Consecutive Example" alt="Consecutive" /> <img src="https://github.com/CoenraadS/BracketPair/raw/master/images/independentExample.png" title="Independent Example" alt="Independent" /></p>
+</blockquote>
+<blockquote>
+<p><code>"bracketPairColorizer.highlightActiveScope"</code><br />
+Should the currently scoped brackets always be highlighted?</p>
+</blockquote>
+<blockquote>
+<p><code>"bracketPairColorizer.activeScopeCSS"</code><br />
+Choose a border style to highlight the active scope. Use <code>{color}</code> to match the existing bracket color<br />
+It is recommended to disable the inbuilt <code>editor.matchBrackets</code> setting if using this feature<br />
+<img src="https://github.com/CoenraadS/BracketPair/raw/master/images/activeScopeBorder.png" title="Active Scope Border Example" alt="BorderStyle" /><br />
+Tip: Add the value <code>"backgroundColor : {color}"</code> to increase visibility<br />
+<img src="https://github.com/CoenraadS/BracketPair/raw/master/images/activeScopeBackground.png" title="Active Scope Background Example" alt="BorderBackground" /></p>
+</blockquote>
+<blockquote>
+<p><code>"bracketPairColorizer.showBracketsInGutter"</code><br />
+Show active scope brackets in the gutter<br />
+<img src="https://github.com/CoenraadS/BracketPair/raw/master/images/gutter.png" title="Gutter Brackets Example" alt="Gutter" /></p>
+</blockquote>
+<blockquote>
+<p><code>"bracketPairColorizer.showBracketsInRuler"</code><br />
+Show active scope brackets in the ruler</p>
+</blockquote>
+<blockquote>
+<p><code>"bracketPairColorizer.rulerPosition"</code><br />
+Decoration position in the ruler</p>
+</blockquote>
+<blockquote>
+<p><code>"bracketPairColorizer.showVerticalScopeLine"</code><br />
+Show a vertical line between the brackets? Enabled by default<br />
+<img src="https://github.com/CoenraadS/BracketPair/raw/master/images/no-extra.png" title="Gutter Brackets Example" alt="Scope Line" /></p>
+</blockquote>
+<blockquote>
+<p><code>"bracketPairColorizer.showHorizontalScopeLine"</code><br />
+Show a horizontal line between the brackets? Enabled by default<br />
+<img src="https://github.com/CoenraadS/BracketPair/raw/master/images/extra.png" title="Gutter Brackets Example" alt="Scope Line" /></p>
+</blockquote>
+<blockquote>
+<p><code>"bracketPairColorizer.scopeLineRelativePosition"</code><br />
+Disable this to show the vertical line in column 0<br />
+<img src="https://github.com/CoenraadS/BracketPair/raw/master/images/no-relative.png" title="Gutter Brackets Example" alt="Scope Line" /></p>
+</blockquote>
+<blockquote>
+<p><code>"bracketPairColorizer.scopeLineCSS"</code><br />
+Choose a border style to highlight the active scope. Use <code>{color}</code> to match the existing bracket color</p>
+</blockquote>
+<blockquote>
+<p><code>"bracketPairColorizer.consecutivePairColors"</code><br />
+A new bracket pair can be configured by adding it to the array.<br />
+Note: Pair must be supported punctuation type by Prism.js</p>
+</blockquote>
+<blockquote>
+<p><code>"bracketPairColorizer.independentPairColors"</code><br />
+A new bracket pair can be configured by adding it to the array.<br />
+Note: Pair must be supported punctuation type by Prism.js</p>
+</blockquote>
+<blockquote>
+<p><code>"bracketPairColorizer.excludedLanguages"</code><br />
+Exclude languages from being parsed by this extension</p>
+</blockquote>
+<h3 id="commands">Commands</h3>
+<p>These commands will expand/undo the cursor selection to the next scope</p>
+<p><code>"bracket-pair-colorizer.expandBracketSelection"</code><br />
+<code>"bracket-pair-colorizer.undoBracketSelection"</code></p>
+<p>Quick-start:</p>
+<pre><code>    {
+        &quot;key&quot;: &quot;shift+alt+right&quot;,
+        &quot;command&quot;: &quot;bracket-pair-colorizer.expandBracketSelection&quot;,
+        &quot;when&quot;: &quot;editorTextFocus&quot;
+    },
+    {
+        &quot;key&quot;: &quot;shift+alt+left&quot;,
+        &quot;command&quot;: &quot;bracket-pair-colorizer.undoBracketSelection&quot;,
+        &quot;when&quot;: &quot;editorTextFocus&quot;
+    }</code></pre>
+<h3 id="html-configuration">HTML Configuration</h3>
+<blockquote>
+<p>An example configuration for HTML is:</p>
+</blockquote>
+<pre><code>    &quot;bracketPairColorizer.consecutivePairColors&quot;: [
+        [&quot;&lt;&quot;, &quot;&lt;/&quot;],
+        [&quot;&lt;&quot;, &quot;/&gt;&quot;],
+        [
+            &quot;Gold&quot;,
+            &quot;Orchid&quot;,
+            &quot;LightSkyBlue&quot;
+        ],
+        &quot;Red&quot;
+    ]</code></pre>

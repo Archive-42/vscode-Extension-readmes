@@ -1,0 +1,184 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 align="center">
+<br> VS Code - Debugger for Microsoft Edge <br>
+</h1>
+<h4 align="center">
+Debug your JavaScript code running in Microsoft Edge from VS Code and Visual Studio.
+</h4>
+<p>A VS Code extension to debug your JavaScript code in the Microsoft Edge browser. This is also used to enable JavaScript debugging inside the Microsoft Edge browser when launched from ASP.Net Projects in Visual Studio.</p>
+<p><strong>Note:</strong> This extension currently supports both Microsoft Edge (Chromium) and Microsoft Edge (EdgeHTML). This extension can debug any version of Microsoft Edge (Chromium) but only some versions of Microsoft Edge (EdgeHTML). To see if your Windows version supports debugging Microsoft Edge (EdgeHTML) via Edge DevTools Protocol, please refer <a href="https://docs.microsoft.com/en-us/microsoft-edge/devtools-protocol/">here</a>.</p>
+<p><strong>Supported features</strong> * Setting breakpoints, including in source files when source maps are enabled * Stepping through the code * The Locals pane * Debugging eval scripts, script tags, and scripts that are added dynamically * Watches</p>
+<p><strong>Unsupported scenarios</strong> * Debugging web workers * Any features that aren't script debugging.</p>
+<h2 id="getting-started">Getting Started</h2>
+<h3 id="for-debugging-inside-vs-code">For debugging inside VS Code</h3>
+<ol type="1">
+<li><a href="https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge">Install the extension.</a></li>
+<li>Open the folder containing the project you want to work on.</li>
+</ol>
+<h3 id="for-debugging-microsoft-edge-edgehtml-or-chromium-inside-visual-studio">For debugging Microsoft Edge (EdgeHTML or Chromium) inside Visual Studio</h3>
+<ol type="1">
+<li>Install a supported version of Windows.</li>
+<li>Install the latest version of Visual Studio. Debugging Microsoft Edge (EdgeHTML) is supported for VS versions &gt;= 15.7. Debugging Microsoft Edge (Chromium) is supported for VS versions &gt;= 15.9.19.</li>
+<li>Create an ASP.Net/ASP.Net Core Web Application.</li>
+<li>Set a breakpoint in your JavaScript/TypeScript file.</li>
+<li>Select ‘Microsoft Edge' from the ‘Web Browser' submenu in the debug target dropdown, and then press F5.</li>
+</ol>
+<h3 id="for-enabling-both-microsoft-edge-edgehtml-and-microsoft-edge-chromium-in-visual-studio">For enabling both Microsoft Edge (EdgeHTML) and Microsoft Edge (Chromium) in Visual Studio</h3>
+<p>By default, installing Microsoft Edge (Chromium) will overwrite Microsoft Edge (EdgeHTML). To enable both browsers: 1. <a href="https://www.microsoftedgeinsider.com/en-us/enterprise">Download Microsoft Edge group policy templates.</a> 2. After extracting the template files above, copy the files as shown below:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th>Destination</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>&lt;zip‑extract‑location&gt;\*.admx</td>
+<td>C:</td>
+</tr>
+<tr class="even">
+<td>&lt;zip‑extract‑location&gt;\&lt;your-locale&gt;\*.adml</td>
+<td>C:\&lt;your-locale&gt;</td>
+</tr>
+</tbody>
+</table>
+<ol start="3" type="1">
+<li>Follow <a href="https://docs.microsoft.com/en-us/deployedge/microsoft-edge-sysupdate-access-old-edge">these instructions</a> to enable side by side installations.</li>
+</ol>
+<h2 id="using-the-debugger">Using the debugger</h2>
+<p>When your launch config is set up, you can debug your project. Pick a launch config from the dropdown on the Debug pane in Code. Press the play button or F5 to start.</p>
+<h3 id="configuration">Configuration</h3>
+<p>The extension operates in two modes - it can launch an instance of Microsoft Edge navigated to your app, or it can attach to a running instance of Edge. Both modes require you to be serving your web application from a local web server, which is started from either a VS Code task or from your command-line. Using the <code>url</code> parameter you simply tell VS Code which URL to either open or launch in Edge.</p>
+<p>You can configure these modes with a <code>.vscode/launch.json</code> file in the root directory of your project. You can create this file manually, or Code will create one for you if you try to run your project, and it doesn't exist yet.</p>
+<h3 id="launch">Launch</h3>
+<p>Below are two example <code>launch.json</code> configs with <code>"request": "launch"</code>. You must specify either <code>file</code> or <code>url</code> to launch Microsoft Edge against a local file or a url. If you use a url, set <code>webRoot</code> to the directory that files are served from. This can be either an absolute path or a path using <code>${workspaceFolder}</code> (the folder open in Code). Note that <code>webRoot</code> is used to resolve urls (like "http://localhost/app.js") to a file on disk (like <code>/Users/me/project/app.js</code>), so be careful that it's set correctly.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="dt">&quot;version&quot;</span><span class="fu">:</span> <span class="st">&quot;0.2.0&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="dt">&quot;configurations&quot;</span><span class="fu">:</span> <span class="ot">[</span></a>
+<a class="sourceLine" id="cb1-4" title="4">        <span class="fu">{</span></a>
+<a class="sourceLine" id="cb1-5" title="5">            <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Launch localhost in Microsoft Edge&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-6" title="6">            <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;edge&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-7" title="7">            <span class="dt">&quot;request&quot;</span><span class="fu">:</span> <span class="st">&quot;launch&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-8" title="8">            <span class="dt">&quot;url&quot;</span><span class="fu">:</span> <span class="st">&quot;http://localhost/mypage.html&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-9" title="9">            <span class="dt">&quot;webRoot&quot;</span><span class="fu">:</span> <span class="st">&quot;${workspaceFolder}/wwwroot&quot;</span></a>
+<a class="sourceLine" id="cb1-10" title="10">        <span class="fu">}</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb1-11" title="11">        <span class="fu">{</span></a>
+<a class="sourceLine" id="cb1-12" title="12">            <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Launch index.html in Microsoft Edge&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-13" title="13">            <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;edge&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-14" title="14">            <span class="dt">&quot;request&quot;</span><span class="fu">:</span> <span class="st">&quot;launch&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-15" title="15">            <span class="dt">&quot;file&quot;</span><span class="fu">:</span> <span class="st">&quot;${workspaceFolder}/index.html&quot;</span></a>
+<a class="sourceLine" id="cb1-16" title="16">        <span class="fu">}</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb1-17" title="17">    <span class="ot">]</span></a>
+<a class="sourceLine" id="cb1-18" title="18"><span class="fu">}</span></a></code></pre></div>
+<h4 id="microsoft-edge-chromium">Microsoft Edge (Chromium)</h4>
+<p>If the stable release of Microsoft Edge (Chromium) is on your machine, this debug adapter will launch it by default. If you'd like to launch a different channel of Microsoft Edge (Chromium), simply add a <code>version</code> attribute to your existing configuration with the version you want to launch (<code>dev</code>, <code>beta</code>, or <code>canary</code>). The example configuration below will launch the Canary version of Microsoft Edge (Chromium):</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb2-1" title="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">    <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Launch localhost in Microsoft Edge (Chromium) Canary&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-3" title="3">    <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;edge&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-4" title="4">    <span class="dt">&quot;request&quot;</span><span class="fu">:</span> <span class="st">&quot;launch&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-5" title="5">    <span class="dt">&quot;version&quot;</span><span class="fu">:</span> <span class="st">&quot;canary&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-6" title="6">    <span class="dt">&quot;url&quot;</span><span class="fu">:</span> <span class="st">&quot;http://localhost/mypage.html&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-7" title="7">    <span class="dt">&quot;webRoot&quot;</span><span class="fu">:</span> <span class="st">&quot;${workspaceFolder}/wwwroot&quot;</span></a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="fu">}</span></a></code></pre></div>
+<p>If you want to use a different installation of a Chromium-based browser, you can also set the <code>runtimeExecutable</code> field with a path to the browser executable. Note that if you are using the <code>runtimeExecutable</code> flag, you should <strong>not</strong> be using <code>version</code>.</p>
+<h4 id="microsoft-edge-edgehtml">Microsoft Edge (EdgeHTML)</h4>
+<p>If you do <strong>not</strong> have the stable release of Microsoft Edge (Chromium) on your machine, the debug adapter will launch Microsoft Edge (EdgeHTML) by default. You will have the same default configuration as above.</p>
+<h3 id="attach">Attach</h3>
+<p>With <code>"request": "attach"</code>, you must launch Microsoft Edge with remote debugging enabled in order for the extension to attach to it. Here's how you can do that:</p>
+<p><strong>Windows</strong> * Open the Command Prompt * Run <code>msedge.exe --remote-debugging-port=2015</code> for Microsoft Edge (Chromium) or <code>microsoftedge.exe --devtools-server-port=2015</code> for Microsoft Edge (EdgeHTML)</p>
+<p>The example <code>launch.json</code> config below will attach to either Microsoft Edge (Chromium) or Microsoft Edge (EdgeHTML) depending on which one you launched on port <code>2015</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb3-1" title="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">    <span class="dt">&quot;version&quot;</span><span class="fu">:</span> <span class="st">&quot;0.2.0&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb3-3" title="3">    <span class="dt">&quot;configurations&quot;</span><span class="fu">:</span> <span class="ot">[</span></a>
+<a class="sourceLine" id="cb3-4" title="4">        <span class="fu">{</span></a>
+<a class="sourceLine" id="cb3-5" title="5">            <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;edge&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb3-6" title="6">            <span class="dt">&quot;request&quot;</span><span class="fu">:</span> <span class="st">&quot;attach&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb3-7" title="7">            <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Attach to Microsoft Edge&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb3-8" title="8">            <span class="dt">&quot;port&quot;</span><span class="fu">:</span> <span class="dv">2015</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb3-9" title="9">            <span class="dt">&quot;webRoot&quot;</span><span class="fu">:</span> <span class="st">&quot;${workspaceFolder}&quot;</span></a>
+<a class="sourceLine" id="cb3-10" title="10">        <span class="fu">}</span></a>
+<a class="sourceLine" id="cb3-11" title="11">    <span class="ot">]</span></a>
+<a class="sourceLine" id="cb3-12" title="12"><span class="fu">}</span></a></code></pre></div>
+<h3 id="other-optional-launch-config-fields">Other optional launch config fields</h3>
+<ul>
+<li><code>trace</code>: When true, the adapter logs its own diagnostic info to a file. The file path will be printed in the Debug Console. This is often useful info to include when filing an issue on GitHub. If you set it to "verbose", it will log to a file and also log to the console.</li>
+<li><code>version</code>: When set to <code>canary</code>, <code>dev</code>, or <code>beta</code>, it will launch the matching version of Microsoft Edge (Chromium). If not specified, Microsoft Edge (EdgeHTML) will be launched.</li>
+<li><code>runtimeExecutable</code>: Workspace relative or absolute path to the runtime executable to be used. If not specified, Microsoft Edge (EdgeHTML) will be used from the default install location.</li>
+<li><code>runtimeArgs</code>: Optional arguments passed to the runtime executable.</li>
+<li><code>env</code>: Optional dictionary of environment key/value pairs.</li>
+<li><code>cwd</code>: Optional working directory for the runtime executable.</li>
+<li><code>userDataDir</code>: Normally, if Microsoft Edge is already running when you start debugging with a launch config, then the new instance won't start in remote debugging mode. So by default, the extension launches Microsoft Edge with a separate user profile in a temp folder. Use this option to set a different path to use, or set to false to launch with your default user profile. Note that this is only applicable to Microsoft Edge (Chromium) and will not work with Microsoft Edge (EdgeHTML).</li>
+<li><code>url</code>: On a ‘launch' config, it will launch Microsoft Edge at this URL.</li>
+<li><code>urlFilter</code>: On an ‘attach' config, or a ‘launch' config with no ‘url' set, search for a page with this url and attach to it. It can also contain wildcards, for example, <code>"localhost:*/app"</code> will match either <code>"http://localhost:123/app"</code> or <code>"http://localhost:456/app"</code>, but not <code>"https://stackoverflow.com"</code>.</li>
+<li><code>targetTypes</code>: On an ‘attach' config, or a ‘launch' config with no ‘url' set, set a list of acceptable target types from the default <code>["page"]</code>. For example, if you are attaching to an Electron app, you might want to set this to <code>["page", "webview"]</code>. A value of <code>null</code> disables filtering by target type. Note that this is only applicable to Microsoft Edge (Chromium) and will not work with Microsoft Edge (EdgeHTML).</li>
+<li><code>sourceMaps</code>: By default, the adapter will use sourcemaps and your original sources whenever possible. You can disable this by setting <code>sourceMaps</code> to false.</li>
+<li><code>pathMapping</code>: This property takes a mapping of URL paths to local paths, to give you more flexibility in how URLs are resolved to local files. <code>"webRoot": "${workspaceFolder}"</code> is just shorthand for a pathMapping like <code>{ "/": "${workspaceFolder}" }</code>.</li>
+<li><code>smartStep</code>: Automatically steps over code that doesn't map to source files. Especially useful for debugging with async/await.</li>
+<li><code>disableNetworkCache</code>: If true, the network cache will be disabled.</li>
+<li><code>showAsyncStacks</code>: If true, callstacks across async calls (like <code>setTimeout</code>, <code>fetch</code>, resolved Promises, etc) will be shown.</li>
+<li><code>useWebView</code>: If true or <code>advanced</code>, the debugger will treat the <code>runtimeExecutable</code> as an application hosting a WebView. See: <a href="#Microsoft-Edge-(Chromium)-WebView-applications">Microsoft Edge (Chromium) WebView applications</a></li>
+</ul>
+<h3 id="microsoft-edge-chromium-webview-applications">Microsoft Edge (Chromium) WebView applications</h3>
+<p>You can also use the debugger to launch applications that are using an embedded <a href="https://docs.microsoft.com/en-us/microsoft-edge/hosting/webview2">Microsoft Edge (Chromium) WebView</a>. With the correct <code>launch.json</code> properties, the debugger will launch your host application and attach to the WebView allowing you to debug the running script content.</p>
+<p>To use the debugger against a WebView application use the following properties in your launch config: * <code>runtimeExecutable</code>: Set this to the full path to your host application. * <code>useWebView</code>: Set this to be <code>true</code> or <code>advanced</code> depending on how your host application is using WebViews</p>
+<p>In basic scenarios, your host application is using a single WebView that is loaded on launch of your application. If this is the case, you should set <code>useWebView</code> to be <code>true</code>. This will treat the host application just like it was another browser, attaching to the WebView on launch and failing with a timeout if it cannot find a matching <code>url</code> or <code>urlFilter</code> within the timeout.</p>
+<p>In more advanced scenarios, your host appliation may be using a single WebView that doesn't load until later in your workflow. It may also be using multiple WebViews within the same application, or have a dependency on a specific <code>userDataDir</code> setting. In these cases you should set <code>useWebView</code> to be <code>advanced</code>. This will cause the debugger to treat your host application differently. When launching, the debugger will wait until it gets notified of a WebView that matches the <code>urlFilter</code> value without timing out. It will also not override the <code>userDataDir</code> internally and may attach on a different <code>port</code> value than what is specified in the config if several WebViews created in the host application.</p>
+<h3 id="other-targets">Other targets</h3>
+<p>You can also theoretically attach to other targets that support the same <a href="https://chromedevtools.github.io/devtools-protocol/tot">Chrome DevTools Protocol</a> as the Microsoft Edge (Chromium) browser, such as Electron or Cordova. These aren't officially supported, but should work with basically the same steps. You can use a launch config by setting <code>"runtimeExecutable"</code> to a program or script to launch, or an attach config to attach to a process that's already running. If Code can't find the target, you can always verify that it is actually available by navigating to <code>http://localhost:&lt;port&gt;/json</code> in a browser. If you get a response with a bunch of JSON, and can find your target page in that JSON, then the target should be available to this extension.</p>
+<h2 id="skip-files-mark-as-library-code">Skip files / Mark as Library code</h2>
+<p>You can use the <code>skipFiles</code> property to mark specific files as Library code while debugging. For example, if you set <code>"skipFiles": ["jquery.js"]</code>, then you will skip any file named ‘jquery.js' when stepping through your code. You also won't break on exceptions thrown from ‘jquery.js'. This works the same as "Mark as Library code" in the Microsoft Edge DevTools.</p>
+<p>The supported formats are: * The name of a file (like <code>jquery.js</code>) * The name of a folder, under which to skip all scripts (like <code>node_modules</code>) * A path glob, to skip all scripts that match (like <code>node_modules/react/*.min.js</code>)</p>
+<h2 id="sourcemaps">Sourcemaps</h2>
+<p>The debugger uses sourcemaps to let you debug with your original sources, but sometimes the sourcemaps aren't generated properly and overrides are needed. In the config we support <code>sourceMapPathOverrides</code>, a mapping of source paths from the sourcemap, to the locations of these sources on disk. Useful when the sourcemap isn't accurate or can't be fixed in the build process.</p>
+<p>The left hand side of the mapping is a pattern that can contain a wildcard, and will be tested against the <code>sourceRoot</code> + <code>sources</code> entry in the source map. If it matches, the source file will be resolved to the path on the right hand side, which should be an absolute path to the source file on disk.</p>
+<p>A few mappings are applied by default, corresponding to some common default configs for Webpack and Meteor:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="co">// Note: These are the mappings that are included by default out of the box, with examples of how they could be resolved in different scenarios. These are not mappings that would make sense together in one project.</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="co">// webRoot = /Users/me/project</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="st">&quot;sourceMapPathOverrides&quot;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-4" title="4">    <span class="st">&quot;webpack:///./~/*&quot;</span><span class="op">:</span> <span class="st">&quot;${webRoot}/node_modules/*&quot;</span><span class="op">,</span>       <span class="co">// Example: &quot;webpack:///./~/querystring/index.js&quot; -&gt; &quot;/Users/me/project/node_modules/querystring/index.js&quot;</span></a>
+<a class="sourceLine" id="cb4-5" title="5">    <span class="st">&quot;webpack:///./*&quot;</span><span class="op">:</span>   <span class="st">&quot;${webRoot}/*&quot;</span><span class="op">,</span>                    <span class="co">// Example: &quot;webpack:///./src/app.js&quot; -&gt; &quot;/Users/me/project/src/app.js&quot;,</span></a>
+<a class="sourceLine" id="cb4-6" title="6">    <span class="st">&quot;webpack:///*&quot;</span><span class="op">:</span>     <span class="st">&quot;*&quot;</span><span class="op">,</span>                               <span class="co">// Example: &quot;webpack:///project/app.ts&quot; -&gt; &quot;/project/app.ts&quot;</span></a>
+<a class="sourceLine" id="cb4-7" title="7">    <span class="st">&quot;webpack:///src/*&quot;</span><span class="op">:</span> <span class="st">&quot;${webRoot}/*&quot;</span><span class="op">,</span>                    <span class="co">// Example: &quot;webpack:///src/app.js&quot; -&gt; &quot;/Users/me/project/app.js&quot;</span></a>
+<a class="sourceLine" id="cb4-8" title="8">    <span class="st">&quot;meteor://💻app/*&quot;</span><span class="op">:</span> <span class="st">&quot;${webRoot}/*&quot;</span>                    <span class="co">// Example: &quot;meteor://💻app/main.ts&quot; -&gt; &quot;/Users/me/project/main.ts&quot;</span></a>
+<a class="sourceLine" id="cb4-9" title="9"><span class="op">}</span></a></code></pre></div>
+<p>If you set <code>sourceMapPathOverrides</code> in your launch config, that will override these defaults. <code>${workspaceFolder}</code> and <code>${webRoot}</code> can be used here. If you aren't sure what the left side should be, you can use the <code>trace</code> option to see the contents of the sourcemap, or look at the paths of the sources in the Microsoft Edge DevTools, or open your <code>.js.map</code> file and check the values manually.</p>
+<h3 id="ionicgulp-sourcemaps-note">Ionic/gulp-sourcemaps note</h3>
+<p>Ionic and gulp-sourcemaps output a sourceRoot of <code>"/source/"</code> by default. If you can't fix this via your build config, we suggest this setting:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb5-1" title="1"><span class="er">&quot;sourceMapPathOverrides&quot;:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2">    <span class="dt">&quot;/source/*&quot;</span><span class="fu">:</span> <span class="st">&quot;${workspaceFolder}/*&quot;</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="fu">}</span></a></code></pre></div>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="my-breakpoints-arent-hit-when-debugging-microsoft-edgeedgehtml.-whats-wrong">My breakpoints aren't hit when debugging Microsoft Edge(EdgeHTML). What's wrong?</h3>
+<p>If your breakpoints weren't hit, it's most likely a sourcemapping issue or because you set breakpoints before launching Microsoft Edge (EdgeHTML) and were expecting them to hit while the browser loads. If that's the case, you will have to refresh the page in Microsoft Edge (EdgeHTML) after we have attached from VS Code/Visual Studio to hit your breakpoint.</p>
+<p>If you are using sourcemaps, make sure they are configured right.</p>
+<h3 id="cannot-connect-to-the-target-connect-econnrefused-127.0.0.12015">Cannot connect to the target: connect ECONNREFUSED 127.0.0.1:2015</h3>
+<p>This message means that the extension can't attach to Microsoft Edge, probably because Microsoft Edge wasn't launched in debug mode. Here are some things to try: * Ensure that the <code>port</code> property matches the port on which Microsoft Edge is listening for remote debugging connections. This is <code>2015</code> by default. Ensure nothing else is using this port, including your web server. If something else on your computer responds at <code>http://localhost:2015</code>, then set a different port. * If all else fails, try to navigate to <code>http://localhost:&lt;port&gt;/json/list</code> in a browser when you see this message - if there is no response, then something is wrong upstream of the extension. If there is a page of JSON returned, then ensure that the <code>port</code> in the launch config matches the port in that url. * If the above steps do not work, try closing all windows of Microsoft Edge and then relaunch.</p>
+<h3 id="general-things-to-try-if-youre-having-issues">General things to try if you're having issues:</h3>
+<ul>
+<li>Ensure <code>webRoot</code> is set correctly if needed</li>
+<li>Look at your sourcemap config carefully. A sourcemap has a path to the source files, and this extension uses that path to find the original source files on disk. Check the <code>sourceRoot</code> and <code>sources</code> properties in your sourcemap and make sure that they can be combined with the <code>webRoot</code> property in your launch config to build the correct path to the original source files.</li>
+<li>Check the console for warnings that this extension prints in some cases when it can't attach.</li>
+<li>Ensure the code in your browser matches the code in Code. The browser may cache an old version of your code.</li>
+<li>If your breakpoints bind, but aren't hit in Microsoft Edge (EdgeHTML), try refreshing the page. If you set a breakpoint in code that runs immediately when the page loads in Microsoft Edge (EdgeHTML), you won't hit that breakpoint until you refresh the page.</li>
+</ul>
+<h2 id="feedback">Feedback</h2>
+<p>Send us your feedback by <a href="https://github.com/Microsoft/vscode-edge-debug2/issues/new">filing an issue</a> against this extension's <a href="https://github.com/Microsoft/vscode-edge-debug2">GitHub repo</a>. Please include the debug adapter log file, which is created for each run in the %temp% directory with the name <code>vscode-edge-debug2.txt</code>. You can drag this file into an issue comment to upload it to GitHub.</p>
+<p>This project has adopted the <a href="https://opensource.microsoft.com/codeofconduct/">Microsoft Open Source Code of Conduct</a>. For more information see the <a href="https://opensource.microsoft.com/codeofconduct/faq/">Code of Conduct FAQ</a> or contact <a href="https://github.com/Microsoft/vscode-edge-debug2/blob/master/mailto:opencode@microsoft.com">opencode@microsoft.com</a> with any additional questions or comments.</p>

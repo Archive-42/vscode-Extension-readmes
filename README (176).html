@@ -1,0 +1,24 @@
+<p>VSCode extensions to manage npm commands. This repo is inspired by the official sample. More commands will come.</p>
+<h2 id="commands-available">Commands available</h2>
+<ul>
+<li><code>npm init</code></li>
+<li><code>npm install</code></li>
+<li><code>npm install &lt;pkg&gt; --save</code></li>
+<li><code>npm install &lt;pkg&gt; --save-dev</code></li>
+<li><code>npm uninstall &lt;pkg&gt; --save</code></li>
+<li><code>npm uninstall &lt;pkg&gt; --save-dev</code></li>
+<li><code>npm start</code></li>
+<li><code>npm test</code></li>
+<li><code>npm publish [tag]</code></li>
+<li><code>npm deprecate &lt;pkg&gt;[@version] message</code> (experimental)</li>
+<li><code>npm run &lt;script&gt;</code></li>
+</ul>
+<p>Not happy with the available commands ? No problem, raw command is also available. Enter any npm command you want.</p>
+<h2 id="run-last-executed-script">Run last executed script</h2>
+<p>You can also run the last executed script by typing <code>npm run last...</code>. Thanks to: <a href="https://github.com/fknop/vscode-npm/pull/4">#4</a></p>
+<h2 id="terminate-a-script">Terminate a script</h2>
+<p>You can terminate a script with the <code>terminate</code> command. It uses the <code>tree-kill</code> module that you can find on <code>npm</code>. It has different behaviors on Unix or Windows.</p>
+<p>I have only tried it for <code>Windows</code> so it would be nice to have <code>Unix</code> users feedback, thanks.</p>
+<p>Thanks to <code>stkb</code> for his suggestion. https://github.com/fknop/vscode-npm/issues/1</p>
+<h2 id="contribute">Contribute</h2>
+<p>Report a bug or a suggestion by posting an issue on the git repository (https://github.com/fknop/vscode-npm).</p>

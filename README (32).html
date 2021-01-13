@@ -1,0 +1,157 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="vscode-js-import">vscode-js-import</h1>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=wangtao0101.vscode-js-import"><img src="https://vsmarketplacebadge.apphb.com/version/wangtao0101.vscode-js-import.svg" alt="Marketplace Version" /></a> <a href="https://marketplace.visualstudio.com/items?itemName=wangtao0101.vscode-js-import"><img src="https://vsmarketplacebadge.apphb.com/installs/wangtao0101.vscode-js-import.svg" alt="Installs" /></a> <a href="https://travis-ci.org/wangtao0101/vscode-js-import"><img src="https://img.shields.io/travis/wangtao0101/vscode-js-import.svg?style=flat" alt="Build Status" /></a> <a href="https://marketplace.visualstudio.com/items?itemName=wangtao0101.vscode-js-import"><img src="https://vsmarketplacebadge.apphb.com/trending-monthly/wangtao0101.vscode-js-import.svg" alt="Marketplace Version" /></a></p>
+<p>Intelligent and fast import extension for js in vscode, support import position option and adding import to existing import statement. !!!</p>
+<h1 id="multi-root-workspace-ready">Multi-root workspace Ready!</h1>
+<p><a href="https://github.com/wangtao0101/vscode-js-import/blob/master/./Chinese.md">以中文查看</a></p>
+<h1 id="introduce">Introduce</h1>
+<figure>
+<img src="https://github.com/wangtao0101/vscode-js-import/blob/master/img/newimport.gif?raw=true" alt="GitHub Logo" /><figcaption>GitHub Logo</figcaption>
+</figure>
+<h1 id="heads-up">Heads up</h1>
+<p>We have to move shortcut to ctrl + alt + h (mac cmd + alt + h)!!!</p>
+<h1 id="shortcuts">Shortcuts</h1>
+<p>ctrl + alt + h (mac cmd + alt + h)</p>
+<p>Move cursor into target word and enter shortcuts, then select the match import.</p>
+<h1 id="feature">Feature</h1>
+<h2 id="support-autofix-by-using-eslint-ruleno-undef-or-ts-compiler-error">Support autofix by using eslint rule(no-undef) or ts compiler error</h2>
+<p>To enable the feature, you should install enable <a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint">eslint</a> in vscode or enable ts compiler.</p>
+<figure>
+<img src="https://github.com/wangtao0101/vscode-js-import/blob/master/img/autofix.gif?raw=true" alt="GitHub Logo" /><figcaption>GitHub Logo</figcaption>
+</figure>
+<h2 id="support-import-in-multiple-line-and-support-comment-in-any-where">Support import in multiple line and support comment in any where</h2>
+<p>If origin import statement occupies multiple lines or exceed maxLine option , we will turn into multiple line mode and carefully handle comments.</p>
+<p>Here we add a new namedImport ‘e':</p>
+<figure>
+<img src="https://github.com/wangtao0101/vscode-js-import/blob/master/img/mer.png?raw=true" alt="GitHub Logo" /><figcaption>GitHub Logo</figcaption>
+</figure>
+<p>We split comments into every identifier: 1. Comments in the same line with defaultImport or ‘import' word will be moved after ‘{'. 2. There are two kinds of comment related to namedImports, comments in previous line or in the same line of namedImports, comments in previous will be in previous also, and comments in the same line will be moved after ‘,' 3. Comments in the same line with ‘from' word or moduleSpecifier will be moved after ‘;'</p>
+<p>Tips: We don't know how to put the comment of the statement in somewhere after spliting the single line import statement, so we move the comment after moduleSpecifier, then you should move comment to the right position by your self. (comments like eslint-disable-line)</p>
+<h2 id="suport-insert-position-option">Suport insert position option</h2>
+<p>There are two positions we can insert new statement, before all import statements or after all import statements. (soon we can support sort option)</p>
+<p>You should know how we deal with comments.</p>
+<pre><code>// i am leading comment of import a from &#39;b&#39;;
+import a from &#39;b&#39;;
+// i am trailing comment of import a from &#39;b&#39;;
+
+// i am leading comment of import a from &#39;b&#39;;
+import a from &#39;b&#39;;
+// i am leading comment of import c from &#39;d&#39;;
+import c from &#39;d&#39;;</code></pre>
+<p>So, if you want to comment after import in a new line, you should not forget to add a empty line after comment.</p>
+<p>Also, we can skip <span class="citation" data-cites="flow">@flow</span> or copyright comment.</p>
+<h2 id="support-auto-code-completion">Support auto code completion</h2>
+<figure>
+<img src="https://github.com/wangtao0101/vscode-js-import/blob/master/img/codecomplete.gif?raw=true" alt="GitHub Logo" /><figcaption>GitHub Logo</figcaption>
+</figure>
+<h2 id="support-import-scss-css-less-json-bmp-gif-jpe-jpeg-png-file-support-css-modules">Support import scss, css, less, json, bmp, gif, jpe, jpeg, png … file, support css-modules</h2>
+<p>see config js-import.plainFileSuffix and js-import.plainFileSuffixWithDefaultMember</p>
+<h2 id="support-multi-packages-like-lerna-style">Support multi-packages like <a href="https://github.com/lerna/lerna">lerna</a> style</h2>
+<p>If you have a file system that looks like this:</p>
+<pre><code>my-lerna-repo/
+  package.json
+  packages/
+    package-1/
+      abc.js
+      def.js
+      package.json
+    package-2/
+      package.json</code></pre>
+<p>Then you can config looks like this:</p>
+<pre><code>&quot;js-import.root&quot;: &quot;packages&quot;
+&quot;js-import.alias&quot;: {
+    &quot;package-1&quot;: &quot;packages/package-1/&quot;
+    &quot;package-2&quot;: &quot;packages/package-2/&quot;
+}</code></pre>
+<p>If you you want to import the identifier abc in abc.js, the statement looks like this:</p>
+<pre><code>import abc from &#39;package-1/abc&#39;</code></pre>
+<p>If the target file and source file are in same package, the extension wil use relative path.</p>
+<h2 id="node_modules-support">node_modules support</h2>
+<p>We only process module form dependencies, devDependencies, peerDependencies, optionalDependencies in package.json, and only extract import from mainfile in module's package.json.</p>
+<p>If you want to import module using vscode-js-import, you should add the module into package.json. Besides, we support export style like module.exports = require(‘./lib/React');</p>
+<p>We will watch the change of package.json, and auto add and remove module.</p>
+<h2 id="a-cute-icon-shows-that-how-many-export-statements-in-your-workspace.">A cute icon shows that how many export statements in your workspace.</h2>
+<figure>
+<img src="https://github.com/wangtao0101/vscode-js-import/blob/master/img/icon.png?raw=true" alt="GitHub Logo" /><figcaption>GitHub Logo</figcaption>
+</figure>
+<h1 id="setting">Setting</h1>
+<pre><code>//the source dir, currently we only support single root
+&quot;js-import.root&quot;: &quot;src&quot;
+
+//module alias like webpack resolve.alias 或者 typescript compilerOptions.paths, not support nested alias path, e.g { util: &#39;src/util/&#39; }
+&quot;js-import.alias&quot;: {
+    &quot;helpalias&quot;: &quot;src/package/packageA&quot;
+}
+//you can import statement from packageA like: import abc from &#39;helpalias/abc&#39;，import ccc from &#39;helpalias/xxx/xx&#39;.
+
+//Glob for files to watch and scan, e.g ./src/** ./src/app/**/*.js. Defaults to **/*.{jsx,js,ts,tsx}
+&quot;js-import.filesToScan&quot;: &quot;**/*.{jsx,js,tsx,ts}&quot;
+
+//Glob for files to exclude from watch and scan, e.g **/.meteor/**. Defaults to nothing
+&quot;js-import.excludeFilesToScan&quot;: &quot;&quot;
+
+//suffix of plainFiles. Defaults to css,less,sass
+//When import file with these suffixes, the import statement only has &#39;import&#39; and &#39;model-name&#39; like &#39;import &#39;xxx.less&#39;.
+//if you use css modules, you can remove css,less,sass in here, see config js-import.plainFileSuffixWithDefaultMember
+&quot;js-import.plainFileSuffix&quot;: &quot;css,less,sass&quot;
+
+//suffix of plainFiles which should be imported with default member. Defaults to json,bmp,gif,jpe,jpeg,png
+//When import file with these suffixes, the import statement has default import like &#39;import json form &#39;xxx.json&#39;
+//if you use css modules, you can add css,less,sass in here
+&quot;js-import.plainFileSuffixWithDefaultMember&quot;: &quot;json,bmp,gif,jpe,jpeg,png&quot;
+
+//the insert position of new import statement, first means first of all imports, last means last of all imports, soon we will suport sort
+&quot;js-import.insertPosition&quot;: &quot;last&quot;
+
+//option for comma-dangle to generate import statement, like esline rule imports of comma-dangle, there are four options :　never, always, always-multiline, only-multiline
+&quot;js-import.commaDangleImport&quot;: &quot;never&quot;
+
+//whether to enable codeCompletion
+&quot;js-import.codeCompletion&quot;: true
+
+//whether to use singlequote or use doublequote
+&quot;js-import.quote&quot;: &quot;singlequote&quot;
+
+//whether to autofix import when you select completion item, you can set it false to avoid mistaken import,
+//then we will only provide code completion and you can use shutcut or autofix to import identifier
+&quot;js-import.codeCompletionAction&quot;: false
+
+//max-line length like eslint rule max-line, the -1 will disable the rule,
+//if import statement exceed maxLen, the statement will be split into multiple lines.
+&quot;js-import.maxLen&quot;: 100
+
+//whether to add semicolon after import statement
+&quot;js-import.semicolon&quot;: true</code></pre>
+<h1 id="todo">TODO</h1>
+<p>Currently in beta, there are a lot of work to do; - [x] full suport in node_modules, only extract export form main file and support module.exports = require(‘./lib/React') - [x] full support import statement, such as ‘feedline' in import statement - [x] option for insert position (ability to skip flow, Copyright, Lisence comment in top of file) - [x] support autocomplete - [x] support auto fix by eslint rule - [x] support option for max-line like eslint rule max-line, auto split statement to mutilines - [x] support import "module-name" - [x] support import scss, css, less, json, bmp, gif, jpe, jpeg, png file - [ ] sort import statement by eslint rule, deal with comment - [ ] support shortcut goto module under cursor, spec react conpoment, alias module - [ ] support commonjs, considering require nodejs built-in modules - [ ] full support typescript, using typescript parse - [ ] full support flow, export type and import type - [ ] support action for remove unused import identifier using eslint or tslint, eslint rule(no-unused-vars) - [ ] support config for extra module path, such as module in node_modules but not in dependenciess - [ ] support config for css modules, import less css sass like import * as css from ‘xxx.less' - [ ] support single vue Single File Components - [ ] support read path of tsconfig.json and alias of webpack.config to config alias</p>
+<h1 id="export-regexp">Export RegExp</h1>
+<pre><code>exports.default\\s*=\\s*(\\w+).default
+module.exports\\s*=\\s*(\\w+)
+exports\\[[\\&#39;\\&quot;]default[\\&#39;\\&quot;]\\]\\s*=\\s*(\\w+)
+export\\s+(default\\s+){0,1}(?:(?:const|let|var|interface|enum|function|function\\*|class|abstract\\sclass)\\s+){0,1}([\\w]+)
+exports\\.([\\w]+)\\s*=
+exports\\[\\&quot;([\\w]+)\\&quot;\\]\\s*=
+Object.defineProperty\\(\\s*exports\\s*,\\s*[\\&#39;|\\&quot;](https://github.com/wangtao0101/vscode-js-import/blob/master/[\\w]+)[\\&#39;|\\&quot;]
+export\\s+(?:default\\s+){0,1}(\\{[^\\}]+\\})</code></pre>
+<h2 id="contributing">Contributing</h2>
+<p>Pull requests and stars are always welcome. For bugs and feature requests, <a href="https://github.com/wangtao0101/vscode-js-import/issues">please create an issue</a>.</p>
+<h1 id="thanks">Thanks</h1>
+<p>some code from <a href="https://github.com/Galooshi/import-js">import-js</a></p>
+<h1 id="changelog"><a href="https://github.com/wangtao0101/vscode-js-import/blob/master/CHANGELOG.md">CHANGELOG</a></h1>

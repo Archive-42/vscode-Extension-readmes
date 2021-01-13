@@ -1,0 +1,119 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="php-debug-adapter-for-visual-studio-code">PHP Debug Adapter for Visual Studio Code</h1>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug"><img src="https://img.shields.io/vscode-marketplace/v/felixfbecker.php-debug.svg?label=vs%20marketplace" alt="vs marketplace" /></a> <a href="https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug"><img src="https://img.shields.io/vscode-marketplace/d/felixfbecker.php-debug.svg" alt="downloads" /></a> <a href="https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug"><img src="https://img.shields.io/vscode-marketplace/r/felixfbecker.php-debug.svg" alt="rating" /></a> <a href="https://github.com/felixfbecker/vscode-php-debug/actions?query=branch%3Amain"><img src="https://img.shields.io/github/workflow/status/felixfbecker/vscode-php-debug/build/main?logo=github" alt="build status" /></a> <a href="https://codecov.io/gh/felixfbecker/vscode-php-debug"><img src="https://codecov.io/gh/felixfbecker/vscode-php-debug/branch/main/graph/badge.svg" alt="codecov" /></a> <a href="https://github.com/prettier/prettier"><img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg" alt="code style: prettier" /></a> <a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="semantic-release" /></a> <a href="https://gitter.im/felixfbecker/vscode-php-debug?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge"><img src="https://badges.gitter.im/felixfbecker/vscode-php-debug.svg" alt="chat: on gitter" /></a></p>
+<figure>
+<img src="https://github.com/felixfbecker/vscode-php-debug/raw/master/images/demo.gif" alt="Demo GIF" /><figcaption>Demo GIF</figcaption>
+</figure>
+<h2 id="installation">Installation</h2>
+<p>Install the extension: Press <code>F1</code>, type <code>ext install php-debug</code>.</p>
+<p>This extension is a debug adapter between VS Code and <a href="https://xdebug.org/">XDebug</a> by Derick Rethan. XDebug is a PHP extension (a <code>.so</code> file on Linux and a <code>.dll</code> on Windows) that needs to be installed on your server.</p>
+<ol type="1">
+<li><p><a href="https://xdebug.org/docs/install">Install XDebug</a> <strong><em>I highly recommend you make a simple <code>test.php</code> file, put a <code>phpinfo();</code> statement in there, then copy the output and paste it into the <a href="https://xdebug.org/wizard.php">XDebug installation wizard</a>. It will analyze it and give you tailored installation instructions for your environment.</em></strong> In short:</p>
+<ul>
+<li>On Windows: <a href="https://xdebug.org/download.php">Download</a> the appropiate precompiled DLL for your PHP version, architecture (64/32 Bit), thread safety (TS/NTS) and Visual Studio compiler version and place it in your PHP extension folder.</li>
+<li>On Linux: Either download the source code as a tarball or <a href="https://xdebug.org/docs/install#source">clone it with git</a>, then <a href="https://xdebug.org/docs/install#compile">compile it</a>.</li>
+</ul></li>
+<li><p><a href="https://xdebug.org/docs/install#configure-php">Configure PHP to use XDebug</a> by adding <code>zend_extension=path/to/xdebug</code> to your php.ini. The path of your php.ini is shown in your <code>phpinfo()</code> output under "Loaded Configuration File".</p></li>
+<li><p>Enable remote debugging in your <code>php.ini</code>:</p>
+<p>For XDebug v3.x.x:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ini"><code class="sourceCode ini"><a class="sourceLine" id="cb1-1" title="1"><span class="dt">xdebug.mode </span><span class="ot">=</span><span class="st"> debug</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="dt">xdebug.start_with_request </span><span class="ot">=</span><span class="st"> </span><span class="kw">yes</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="dt">xdebug.client_port </span><span class="ot">=</span><span class="st"> </span><span class="dv">9000</span></a></code></pre></div>
+<p>For XDebug v2.x.x:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ini"><code class="sourceCode ini"><a class="sourceLine" id="cb2-1" title="1"><span class="dt">xdebug.remote_enable </span><span class="ot">=</span><span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="dt">xdebug.remote_autostart </span><span class="ot">=</span><span class="st"> </span><span class="dv">1</span></a></code></pre></div>
+<p>There are other ways to tell XDebug to connect to a remote debugger, like cookies, query parameters or browser extensions. I recommend <code>remote_autostart</code> (XDebug v2)/<code>start_with_request</code> (XDebug v3) because it "just works". There are also a variety of other options, like the port, please see the <a href="https://xdebug.org/docs/remote#starting">XDebug documentation on remote debugging</a> for more information. Please note that the default XDebug port changed between XDebug v2 to v3 from 9000 to 9003. The extension still defaults to 9000, so make sure your configuration in <code>launch.json</code> and <code>php.ini</code> match.</p></li>
+<li><p>If you are doing web development, don't forget to restart your webserver to reload the settings.</p></li>
+<li><p>Verify your installation by checking your <code>phpinfo()</code> output for an XDebug section.</p></li>
+</ol>
+<h3 id="vs-code-configuration">VS Code Configuration</h3>
+<p>In your project, go to the debugger and hit the little gear icon and choose <em>PHP</em>. A new launch configuration will be created for you with two configurations:</p>
+<ul>
+<li><strong>Listen for XDebug</strong> This setting will simply start listening on the specified port (by default 9000) for XDebug. If you configured XDebug like recommended above, everytime you make a request with a browser to your webserver or launch a CLI script XDebug will connect and you can stop on breakpoints, exceptions etc.</li>
+<li><strong>Launch currently open script</strong> This setting is an example of CLI debugging. It will launch the currently opened script as a CLI, show all stdout/stderr output in the debug console and end the debug session once the script exits.</li>
+</ul>
+<h4 id="supported-launch.json-settings">Supported launch.json settings:</h4>
+<ul>
+<li><code>request</code>: Always <code>"launch"</code></li>
+<li><code>hostname</code>: The address to bind to when listening for XDebug (default: all IPv6 connections if available, else all IPv4 connections)</li>
+<li><code>port</code>: The port on which to listen for XDebug (default: <code>9000</code>)</li>
+<li><code>stopOnEntry</code>: Wether to break at the beginning of the script (default: <code>false</code>)</li>
+<li><code>pathMappings</code>: A list of server paths mapping to the local source paths on your machine, see "Remote Host Debugging" below</li>
+<li><code>log</code>: Wether to log all communication between VS Code and the adapter to the debug console. See <em>Troubleshooting</em> further down.</li>
+<li><code>ignore</code>: An optional array of glob patterns that errors should be ignored from (for example <code>**/vendor/**/*.php</code>)</li>
+<li><code>xdebugSettings</code>: Allows you to override XDebug's remote debugging settings to fine tuning XDebug to your needs. For example, you can play with <code>max_children</code> and <code>max_depth</code> to change the max number of array and object children that are retrieved and the max depth in structures like arrays and objects. This can speed up the debugger on slow machines. For a full list of feature names that can be set please refer to the <a href="https://xdebug.org/docs-dbgp.php#feature-names">XDebug documentation</a>.
+<ul>
+<li><code>max_children</code>: max number of array or object children to initially retrieve</li>
+<li><code>max_data</code>: max amount of variable data to initially retrieve.</li>
+<li><code>max_depth</code>: maximum depth that the debugger engine may return when sending arrays, hashs or object structures to the IDE.</li>
+<li><code>show_hidden</code>: This feature can get set by the IDE if it wants to have more detailed internal information on properties (eg. private members of classes, etc.) Zero means that hidden members are not shown to the IDE.</li>
+</ul></li>
+</ul>
+<p>Options specific to CLI debugging:</p>
+<ul>
+<li><code>program</code>: Path to the script that should be launched</li>
+<li><code>args</code>: Arguments passed to the script</li>
+<li><code>cwd</code>: The current working directory to use when launching the script</li>
+<li><code>runtimeExecutable</code>: Path to the PHP binary used for launching the script. By default the one on the PATH.</li>
+<li><code>runtimeArgs</code>: Additional arguments to pass to the PHP binary</li>
+<li><code>externalConsole</code>: Launches the script in an external console window instead of the debug console (default: <code>false</code>)</li>
+<li><code>env</code>: Environment variables to pass to the script</li>
+</ul>
+<h2 id="features">Features</h2>
+<ul>
+<li>Line breakpoints</li>
+<li>Conditional breakpoints</li>
+<li>Function breakpoints</li>
+<li>Step over, step in, step out</li>
+<li>Break on entry</li>
+<li>Breaking on uncaught exceptions and errors / warnings / notices</li>
+<li>Multiple, parallel requests</li>
+<li>Stack traces, scope variables, superglobals, user defined constants</li>
+<li>Arrays &amp; objects (including classname, private and static properties)</li>
+<li>Debug console</li>
+<li>Watches</li>
+<li>Run as CLI</li>
+<li>Run without debugging</li>
+</ul>
+<h2 id="remote-host-debugging">Remote Host Debugging</h2>
+<p>To debug a running application on a remote host, you need to tell XDebug to connect to a different IP than <code>localhost</code>. This can either be done by setting <a href="https://xdebug.org/docs/remote#remote_host"><code>xdebug.remote_host</code></a> to your IP or by setting <a href="https://xdebug.org/docs/remote#remote_connect_back"><code>xdebug.remote_connect_back = 1</code></a> to make XDebug always connect back to the machine who did the web request. The latter is the only setting that supports multiple users debugging the same server and "just works" for web projects. Again, please see the <a href="https://xdebug.org/docs/remote#communcation">XDebug documentation</a> on the subject for more information.</p>
+<p>To make VS Code map the files on the server to the right files on your local machine, you have to set the <code>pathMappings</code> settings in your launch.json. Example:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb3-1" title="1"><span class="er">//</span> <span class="er">server</span> <span class="er">-&gt;</span> <span class="er">local</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="er">&quot;pathMappings&quot;:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="dt">&quot;/var/www/html&quot;</span><span class="fu">:</span> <span class="st">&quot;${workspaceFolder}/www&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb3-4" title="4">  <span class="dt">&quot;/app&quot;</span><span class="fu">:</span> <span class="st">&quot;${workspaceFolder}/app&quot;</span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="fu">}</span></a></code></pre></div>
+<p>Please also note that setting any of the CLI debugging options will not work with remote host debugging, because the script is always launched locally. If you want to debug a CLI script on a remote host, you need to launch it manually from the command line.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ul>
+<li>Ask a question on <a href="https://gitter.im/felixfbecker/vscode-php-debug">Gitter</a></li>
+<li>If you think you found a bug, <a href="https://github.com/felixfbecker/vscode-php-debug/issues">open an issue</a></li>
+<li>Make sure you have the latest version of this extension and XDebug installed</li>
+<li>Try out a simple PHP file to recreate the issue, for example from the <a href="https://github.com/felixfbecker/vscode-php-debug/tree/main/testproject">testproject</a></li>
+<li>In your php.ini, set <a href="https://xdebug.org/docs/remote#remote_log"><code>xdebug.remote_log = /path/to/logfile</code></a> (make sure your webserver has write permissions to the file)</li>
+<li>Set <code>"log": true</code> in your launch.json</li>
+</ul>
+<h2 id="contributing">Contributing</h2>
+<p>To hack on this adapter, clone the repository and open it in VS Code. You need NodeJS and typings installed (<code>npm install -g typings</code>). Install dependencies by running <code>npm install</code> and <code>typings install</code>.</p>
+<p>You can debug the extension (run it in "server mode") by selecting the "Debug adapter" launch configuration and hitting <code>F5</code>. Then, open a terminal inside the project, and open the included testproject with VS Code while specifying the current directory as <code>extensionDevelopmentPath</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="ex">code</span> testproject --extensionDevelopmentPath=.</a></code></pre></div>
+<p>VS Code will open an "Extension Development Host" with the debug adapter running. Open <code>.vscode/launch.json</code> and uncomment the <code>debugServer</code> configuration line. Hit <code>F5</code> to start a debugging session. Now you can debug the testproject like specified above and set breakpoints inside your first VS Code instance to step through the adapter code.</p>
+<p>The extension is written in TypeScript and compiled using a Gulpfile that first transpiles to ES6 and then uses Babel to specifically target VS Code's Node version. You can run the compile task through <code>npm run compile</code>, <code>gulp compile</code> or from VS Code with <code>Ctrl</code>+<code>Shift</code>+<code>B</code>. <code>npm run watch</code> / <code>gulp watch</code> enables incremental compilation.</p>
+<p>Tests are written with Mocha and can be run with <code>npm test</code>. The tests are run in CI on Linux and Windows against PHP 5.4, 5.6, 7.0 and XDebug 2.3, 2.4.</p>

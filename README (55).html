@@ -1,0 +1,373 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="image-preview---visual-studio-code-extension">Image Preview - Visual Studio Code Extension</h1>
+<p>Shows image preview in the gutter and on hover</p>
+<h2 id="it-looks-like-this">It looks like this</h2>
+<figure>
+<img src="https://raw.githubusercontent.com/kisstkondoros/gutter-preview/master/images/sample.png" alt="Demonstrating svg image preview in a css file" /><figcaption>Demonstrating svg image preview in a css file</figcaption>
+</figure>
+<h2 id="install">Install</h2>
+<p><a href="https://code.visualstudio.com/docs/editor/extension-gallery">How to install Visual Studio Code extensions</a></p>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=kisstkondoros.vscode-gutter-preview">Direct link to Visual Studio Code Marketplace</a></p>
+<h3 id="change-log">Change Log</h3>
+<ul>
+<li>0.26.2
+<ul>
+<li>Update dependencies</li>
+</ul></li>
+<li>0.26.1
+<ul>
+<li>Update vscode engine version to 1.44.0</li>
+</ul></li>
+<li>0.26.0
+<ul>
+<li>Support for paths with spaces in markdown's image syntax (contribution by <span class="citation" data-cites="episage">@episage</span>)</li>
+</ul></li>
+<li>0.25.0
+<ul>
+<li>Add "Open Containing Folder" link to hover message</li>
+</ul></li>
+<li>0.24.0
+<ul>
+<li>Skip style injection for svg-s if currentColorForSVG is set to empty string</li>
+</ul></li>
+<li>0.23.0
+<ul>
+<li>Added webp to acceptedExtensions (contribution by <span class="citation" data-cites="Afsar-Pasha">@Afsar-Pasha</span>)</li>
+</ul></li>
+<li>0.22.3
+<ul>
+<li>Fix handling of special characters in URIs</li>
+</ul></li>
+<li>0.22.2
+<ul>
+<li>Fix file URI handling</li>
+</ul></li>
+<li>0.22.1
+<ul>
+<li>Remove unnecessary files from the package</li>
+</ul></li>
+<li>0.22.0
+<ul>
+<li>Use webpack to bundle the extension</li>
+<li>Update to vscode@1.37.0</li>
+<li>Check CancellationToken while collecting resource references</li>
+</ul></li>
+<li>0.21.1
+<ul>
+<li>Disable reference resolution by default</li>
+</ul></li>
+<li>0.21.0
+<ul>
+<li>Show images defined in constant classes</li>
+</ul></li>
+<li>0.20.0
+<ul>
+<li>Add currentColor configuration support for SVGs</li>
+</ul></li>
+<li>0.19.5
+<ul>
+<li>Fix data uri handling (contribution by <span class="citation" data-cites="rafaelkendy">@rafaelkendy</span>)</li>
+</ul></li>
+<li>0.19.4
+<ul>
+<li>Prepend file protocol to image url in the hover preview (bug fix for Remote - WSL)</li>
+</ul></li>
+<li>0.19.3
+<ul>
+<li>Add special case extracting urls from between braces for latex</li>
+</ul></li>
+<li>0.19.2
+<ul>
+<li>Downgrade vscode-languageclient and -server to 5.21</li>
+</ul></li>
+<li>0.19.1
+<ul>
+<li>Update dependencies</li>
+</ul></li>
+<li>0.19.0
+<ul>
+<li>Add ico to accepted extensions</li>
+</ul></li>
+<li>0.18.0
+<ul>
+<li>Add "Reveal in Side Bar" link to hover message</li>
+</ul></li>
+<li>0.17.5
+<ul>
+<li>Fix processing of js/tsconfig path section</li>
+</ul></li>
+<li>0.17.4
+<ul>
+<li>Ensure loadPathsFromTSConfig always returns at least an empty object</li>
+<li>Update runtime dependencies</li>
+</ul></li>
+<li>0.17.3
+<ul>
+<li>Fix and adjust loading of path aliases from js/tsconfig</li>
+</ul></li>
+<li>0.17.2
+<ul>
+<li>Remove trailing wildcard from js/tsconfig path mappings</li>
+</ul></li>
+<li>0.17.1
+<ul>
+<li>Add typescript as runtime dependency</li>
+</ul></li>
+<li>0.17.0
+<ul>
+<li>Add support for path aliases defined by config property or by js/tsconfig
+<ul>
+<li>see path mapping in the <a href="https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping">typescript documentation</a> for further details Please note that a restart is necessary after changing the js/tsconfig.json.</li>
+</ul></li>
+</ul></li>
+<li>0.16.5
+<ul>
+<li>Replace probe-image-size with image-size</li>
+</ul></li>
+<li>0.16.4
+<ul>
+<li>Update dependencies</li>
+</ul></li>
+<li>0.16.3
+<ul>
+<li>Avoid repeated decorations when word wrapping is enabled</li>
+</ul></li>
+<li>0.16.2
+<ul>
+<li>Handle error explicitly when requesting resources from the network</li>
+</ul></li>
+<li>0.16.1
+<ul>
+<li>Fix typo in readme</li>
+</ul></li>
+<li>0.16.0
+<ul>
+<li>Fix image size calculation</li>
+<li>Fix image path handling under Windows</li>
+<li>Require vscode version 1.28.0</li>
+<li>Make use of ImageCache for faster image path verification</li>
+<li>Implement partial scan and proper cancellation token handling</li>
+</ul></li>
+<li>0.15.3
+<ul>
+<li>Skip lines longer than 20k when searching for potential links</li>
+<li>Fix runtime dependency issue (slash)</li>
+</ul></li>
+<li>0.15.2
+<ul>
+<li>Restore vscode.Uri based image handling for decorations</li>
+</ul></li>
+<li>0.15.1
+<ul>
+<li>Update dependencies</li>
+<li>Add scope for configuration properties</li>
+</ul></li>
+<li>0.15.0
+<ul>
+<li>Change casing of configuration options (by Orhan Sönmez)</li>
+<li>Add option (<code>gutterpreview.showUnderline</code>) to disable link like underline (by Orhan Sönmez)</li>
+<li>Use more flexible pattern for data url detection</li>
+<li>Fix path resolution for urls relative to the workspace folder</li>
+</ul></li>
+<li>0.14.2
+<ul>
+<li>Fix several windows compatiblity issues</li>
+</ul></li>
+<li>0.14.1
+<ul>
+<li>Add null checks around editor instances</li>
+</ul></li>
+<li>0.14.0
+<ul>
+<li>Remove onFileChange callback from ImageCache</li>
+<li>Fix throttledScan implementation</li>
+<li>Add recognizer for data Urls</li>
+<li>Reformat package json</li>
+<li>Add underline to recognized urls</li>
+<li>Dispose unused decorations</li>
+<li>Detect more than one url in a single line</li>
+<li>Use column metadata from recognizers</li>
+<li>Pass workspacefolder for the given document explicitly</li>
+<li>Remove superfluous recognizers</li>
+<li>Replace onLanguage activation events with ‘*'</li>
+<li>Move link search logic off the extension host</li>
+<li>Add localLinkRecognizer</li>
+<li>Add workspace.rootPath as fallback to RelativeToWorkspaceRootFileUrlMapper</li>
+<li>Simplify recognizer execution</li>
+<li>Reorganize variables</li>
+<li>Move temporary file handling to imagecache</li>
+<li>Simplify disposable handling</li>
+<li>Extract ImageCache</li>
+<li>Extract mappers and recognizers from extension.ts</li>
+<li>Add prettier along with husky to ensure consistent formatting</li>
+<li>Remove unused variables</li>
+<li>Remove unused dependency: base64-img</li>
+<li>Remove unused imports</li>
+<li>Add linkRecognizer</li>
+<li>Support hover preview in output tab</li>
+<li>Reformat extension.ts</li>
+</ul></li>
+<li>0.13.1
+<ul>
+<li>Avoid NPE for invalid URL's</li>
+</ul></li>
+<li>0.13.0
+<ul>
+<li>Add new configuration property ‘gutterpreview.imagepreviewmaxheight'</li>
+</ul></li>
+<li>0.12.2
+<ul>
+<li>Only consider path name in file system based url mappers</li>
+</ul></li>
+<li>0.12.1
+<ul>
+<li>Adjust file lookup and add multi root support</li>
+</ul></li>
+<li>0.12.0
+<ul>
+<li>Avoid file locks by using temp files</li>
+</ul></li>
+<li>0.11.4
+<ul>
+<li>Support lookup in template strings</li>
+</ul></li>
+<li>0.11.3
+<ul>
+<li>Add missing protocol check</li>
+</ul></li>
+<li>0.11.2
+<ul>
+<li>Updated the python regex to account for lines with multiple strings</li>
+</ul></li>
+<li>0.11.1
+<ul>
+<li>Remove path separator replacements</li>
+</ul></li>
+<li>0.11.0
+<ul>
+<li>Added a python image filename recognizer</li>
+</ul></li>
+<li>0.10.2
+<ul>
+<li>Provide fallback for http hosted images</li>
+</ul></li>
+<li>0.10.1
+<ul>
+<li>Attempt to fix path join on macOS Sierra</li>
+</ul></li>
+<li>0.10.0
+<ul>
+<li>Add info about image size to hover preview</li>
+<li>Show hover preview without file type restriction</li>
+</ul></li>
+<li>0.9.1
+<ul>
+<li>Ignore workspace relative url mapper when there is no workspace at all</li>
+</ul></li>
+<li>0.9.0
+<ul>
+<li>Support images in markdown files</li>
+</ul></li>
+<li>0.8.0
+<ul>
+<li>Change Extension name to Image Preview</li>
+<li>Add option ("showimagepreviewongutter") to disable image preview on the gutter</li>
+</ul></li>
+<li>0.7.2
+<ul>
+<li>Set image height on supported vscode versions</li>
+</ul></li>
+<li>0.7.1
+<ul>
+<li>Update changelog</li>
+</ul></li>
+<li>0.7.0
+<ul>
+<li>Add http scheme for // urls</li>
+</ul></li>
+<li>0.6.2
+<ul>
+<li>Run recognition also when the activeTextEditor is changed</li>
+<li>Fix image url detection RegExp</li>
+</ul></li>
+<li>0.6.1
+<ul>
+<li>Support old and new RenderOptions API</li>
+</ul></li>
+<li>0.6.0
+<ul>
+<li>Add image src recognizer</li>
+</ul></li>
+<li>0.5.0
+<ul>
+<li>Added "gutterpreview.sourcefolder" configuration variable</li>
+</ul></li>
+<li>0.4.1
+<ul>
+<li>Add image hover provider to scss files as well</li>
+</ul></li>
+<li>0.4.0
+<ul>
+<li>Add html to supported file types</li>
+<li>Dedupe recognized urls</li>
+<li>Format source code</li>
+<li>Add http/https url matcher</li>
+<li>Fix file url creation</li>
+</ul></li>
+<li>0.3.0
+<ul>
+<li>Support data URI's in hover widget</li>
+</ul></li>
+<li>0.2.3
+<ul>
+<li>VSCode engine dependency changed to allow further versions</li>
+</ul></li>
+<li>0.2.2
+<ul>
+<li>Hack is now unnecessary it was removed from the readme</li>
+</ul></li>
+<li>0.2.1
+<ul>
+<li>Readme updated</li>
+</ul></li>
+<li>0.2.0
+<ul>
+<li>code restricted to work on css/scss/less files</li>
+<li>hacks removed</li>
+</ul></li>
+<li>0.1.0
+<ul>
+<li>Image preview shown on hover as well</li>
+</ul></li>
+<li>0.0.3
+<ul>
+<li>Displayname fixed</li>
+</ul></li>
+<li>0.0.2
+<ul>
+<li>Sample image attached</li>
+</ul></li>
+<li>0.0.1
+<ul>
+<li>Initial project setup</li>
+</ul></li>
+</ul>
+<h3 id="license">License</h3>
+<p>Licensed under MIT</p>

@@ -1,0 +1,130 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="react-apollo-snippets">React Apollo Snippets</h1>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=leveluptutorials.react-apollo-snippets"><img src="https://vsmarketplacebadge.apphb.com/version/leveluptutorials.react-apollo-snippets.svg" alt="Version" /></a></p>
+<p>This plugin is sponsored by <a href="https://www.leveluptutorials.com/">Level Up Tutorials</a></p>
+<h2 id="installation">Installation</h2>
+<ol type="1">
+<li>Open the extensions sidebar on Visual Studio Code</li>
+<li>Search for <strong>React Apollo Snipets</strong></li>
+<li>Click <strong>Install</strong> to install it.</li>
+<li>Click <strong>Reload</strong> to reload the your editor</li>
+<li>Enjoy</li>
+</ol>
+<h2 id="snippets">Snippets</h2>
+<h3 id="imports">Imports</h3>
+<table>
+<thead>
+<tr class="header">
+<th>prefix</th>
+<th>snippet</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>iap</td>
+<td>import { ApolloProvider } from ‘react-apollo';</td>
+</tr>
+<tr class="even">
+<td>iaq</td>
+<td>import { Query } from ‘react-apollo';</td>
+</tr>
+<tr class="odd">
+<td>iam</td>
+<td>import { Mutation } from ‘react-apollo';</td>
+</tr>
+<tr class="even">
+<td>iaqm</td>
+<td>import { Query, Mutation } from ‘react-apollo';</td>
+</tr>
+<tr class="odd">
+<td>iac</td>
+<td>import { ApolloConsumer } from ‘react-apollo';</td>
+</tr>
+</tbody>
+</table>
+<h3 id="components">Components</h3>
+<h4 id="aq">aq</h4>
+<h5 id="apollo-query-simple">Apollo Query Simple</h5>
+<pre><code>&lt;Query query={QUERY_CONST}&gt;
+  {({ data }) =&gt; (
+    {data}
+  )}
+&lt;/Query&gt;</code></pre>
+<h4 id="aqf">aqf</h4>
+<h5 id="apollo-query-full">Apollo Query Full</h5>
+<pre><code>&lt;Query query={QUERY_CONST}&gt;
+  {({ loading, error, data }) =&gt; {
+    if (loading) return &quot;Loading...&quot;;
+    if (error) return `Error! ${error.message}`;
+    return (
+      {data}
+    );
+  }}
+&lt;/Query&gt;</code></pre>
+<h4 id="am">am</h4>
+<h5 id="apollo-mutation-simple">Apollo Mutation Simple</h5>
+<pre><code>&lt;Mutation
+  mutation={MUTATION_CONST}
+&gt;
+  {mutationName =&gt; (
+
+  )}
+&lt;/Mutation&gt;</code></pre>
+<h4 id="amrf">amrf</h4>
+<h5 id="apollo-mutation-refetch-queries">Apollo Mutation Refetch Queries</h5>
+<pre><code>&lt;Mutation
+  mutation={MUTATION_CONST}
+  refetchQueries={[&#39;queryName&#39;]}
+&gt;
+  {mutationName =&gt; (
+
+  )}
+&lt;/Mutation&gt;</code></pre>
+<h4 id="amb">amb</h4>
+<h5 id="apollo-mutation-button">Apollo Mutation Button</h5>
+<pre><code>&lt;Mutation
+  mutation={MUTATION_CONST}
+&gt;
+  {$1:mutationName =&gt; &lt;button onClick={mutationName}&gt;$2&lt;/button&gt;}
+&lt;/Mutation&gt;</code></pre>
+<h4 id="asm">asm</h4>
+<h5 id="apollo-state-mutation">Apollo State Mutation</h5>
+<pre><code>&lt;ApolloConsumer&gt;
+  {cache =&gt; (
+    &lt;Button
+      onClick={() =&gt; cache.writeData({ data: { $1: $2 } })}
+    &gt;
+      $3
+    &lt;/Button&gt;
+  )}
+&lt;/ApolloConsumer&gt;</code></pre>
+<h4 id="ap">ap</h4>
+<h5 id="apollo-provider">Apollo Provider</h5>
+<pre><code>&lt;ApolloProvider client={client}&gt;
+  &lt;App /&gt;
+&lt;/ApolloProvider&gt;</code></pre>
+<h2 id="sponsorship">Sponsorship</h2>
+<p>This plugin is sponsored by <a href="https://www.leveluptutorials.com/">Level Up Tutorials</a></p>
+<p><a href="https://www.leveluptutorials.com/"><img src="https://github.com/leveluptuts/React-Apollo-Snippets-for-VSCode/raw/master/images/logo.png" alt="Level Up Tutorials Logo" /></a></p>
+<p><a href="https://www.youtube.com/user/LevelUpTuts">Level Up Tutorials on Youtube</a></p>
+<p><a href="https://www.instagram.com/leveluptutorials/">Level Up Tutorials on Instagram</a></p>
+<p>Please consider becoming a pro subscriber or purchasing a tutorial series to help support Level Up Tutorials</p>
+<h2 id="contribute">Contribute</h2>
+<p>I'm happy to accept PRs for snippets that are wanted. I primarily made this for snippets that I personally use frequently and am probably missing some important ones.</p>

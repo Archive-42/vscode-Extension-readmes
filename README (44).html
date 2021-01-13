@@ -1,0 +1,173 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="java-test-runner">Java Test Runner</h1>
+<blockquote>
+<p>Run and debug Java test cases in Visual Studio Code</p>
+</blockquote>
+<p align="center">
+<img src="https://raw.githubusercontent.com/Microsoft/vscode-java-test/master/resources/logo.png" width="150" height="150" alt="">
+</p>
+<p align="center">
+<a href="https://travis-ci.org/microsoft/vscode-java-test/"> <img src="https://img.shields.io/travis/microsoft/vscode-java-test?style=flat-square" alt=""> </a> <a href="https://lgtm.com/projects/g/microsoft/vscode-java-test/alerts/?mode=list"> <img src="https://img.shields.io/lgtm/alerts/g/microsoft/vscode-java-test.svg?style=flat-square" alt=""> </a> <a href="https://gitter.im/microsoft/vscode-java-test"> <img src="https://img.shields.io/gitter/room/microsoft/vscode-java-test.svg?style=flat-square" alt=""> </a> <a href="https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test"> <img src="https://img.shields.io/visual-studio-marketplace/d/vscjava.vscode-java-test.svg?style=flat-square" alt=""> </a>
+</p>
+<h2 id="overview">Overview</h2>
+<p>A lightweight extension to run and debug Java test cases in Visual Studio Code. The extension support following test frameworks:</p>
+<ul>
+<li>JUnit 4 (v4.8.0+)</li>
+<li>JUnit 5 (v5.1.0+)</li>
+<li>TestNG (v6.8.0+)</li>
+</ul>
+<blockquote>
+<p>Note: JUnit 3 styled tests are not supported in this extension (i.e. extends <code>junit.framework.TestCase</code>).</p>
+</blockquote>
+<p>The <a href="https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test">Java Test Runner</a> works with <a href="https://marketplace.visualstudio.com/items?itemName=redhat.java">Language Support for Java by Red Hat</a> and <a href="https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug">Debugger for Java</a> to provide the following features:</p>
+<ul>
+<li>Run/Debug test cases</li>
+<li>Customize test configurations</li>
+<li>View test report</li>
+<li>View tests in Test Explorer</li>
+<li>Show test logs</li>
+</ul>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>JDK (version 11 or later)</li>
+<li>VS Code (version 1.44.0 or later)</li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=redhat.java">Language Support for Java by Red Hat</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug">Debugger for Java</a></li>
+</ul>
+<h2 id="quickstart">Quickstart</h2>
+<figure>
+<img src="https://github.com/Microsoft/vscode-java-test/raw/master/demo/demo.gif" alt="Run/debug JUnit test" /><figcaption>Run/debug JUnit test</figcaption>
+</figure>
+<h3 id="getting-started-for-junit-5">Getting Started for JUnit 5</h3>
+<p>Please refer to <a href="https://junit.org/junit5/docs/current/user-guide/#overview-getting-started">Getting Started</a> from the JUnit 5's official document for getting started guide.</p>
+<blockquote>
+<p>Note: You can use <a href="https://search.maven.org/search?q=g:org.junit.platform%20AND%20a:junit-platform-console-standalone">junit-platform-console-standalone.jar</a> in projects that manually manage their dependencies similar to the <a href="https://github.com/junit-team/junit4/wiki/Download-and-Install#plain-old-jar">plain-old JAR known from JUnit 4</a>.</p>
+</blockquote>
+<h3 id="getting-started-for-junit-4">Getting Started for JUnit 4</h3>
+<p>Please refer to <a href="https://github.com/junit-team/junit4/wiki/Download-and-Install">Download and Install</a> from the JUnit 4's official document for the getting started guide.</p>
+<h3 id="getting-started-for-testng">Getting Started for TestNG</h3>
+<p>Please refer to <a href="https://testng.org/doc/">TestNG Docs</a> from the TestNG's official document for getting started guide.</p>
+<h2 id="features">Features</h2>
+<h3 id="rundebug-test-cases">Run/Debug Test Cases</h3>
+<p align="center">
+<img src="https://raw.githubusercontent.com/Microsoft/vscode-java-test/master/demo/run_codelens.png" style="border-radius: 15px" alt="Run Code Lens"/>
+</p>
+<ul>
+<li>The extension will generate <code>Run Test</code> and <code>Debug Test</code> shortcuts (also known as Code Lens) above the class and method definition. Simply click on them will start running or debugging the target test cases.</li>
+</ul>
+<blockquote>
+<p>Note: If you cannot see the Code Lens in your editor, please refer to this <a href="https://github.com/Microsoft/vscode-java-test/issues/470#issuecomment-444681714">issue comment</a> as a workaround.</p>
+</blockquote>
+<hr />
+<h3 id="test-explorer">Test Explorer</h3>
+<p align="center">
+<img src="https://raw.githubusercontent.com/Microsoft/vscode-java-test/master/demo/run_explorer.png" style="border-radius: 15px" alt="Run Explorer"/>
+</p>
+<ul>
+<li>The Test Explorer is the place to show all the test cases in your project. You can also run/debug your test cases from here.</li>
+<li>Click the node in the Test Explorer will navigate to the location of the source code.</li>
+</ul>
+<blockquote>
+<p>Note: If the Test Explorer is empty, please refer to this <a href="https://github.com/Microsoft/vscode-java-test/issues/470#issuecomment-444681714">issue comment</a> as a workaround.</p>
+</blockquote>
+<hr />
+<h3 id="customize-test-configurations">Customize Test Configurations</h3>
+<p align="center">
+<img src="https://raw.githubusercontent.com/Microsoft/vscode-java-test/master/demo/configuration.png" style="border-radius: 15px" alt="Customize Test Configurations"/>
+</p>
+<ul>
+<li>Sometimes you may want to customize the configuration for running the test cases. To achieve this, you can add it into your workspace settings under the section: <code>java.test.config</code>.</li>
+</ul>
+<blockquote>
+<p>Note: More details can be found <a href="https://github.com/Microsoft/vscode-java-test/wiki/Run-with-Configuration">here</a>.</p>
+</blockquote>
+<hr />
+<h3 id="view-test-report">View Test Report</h3>
+<p align="center">
+<img src="https://raw.githubusercontent.com/Microsoft/vscode-java-test/master/demo/status_bar.png" style="border-radius: 15px" alt="Status Bar"/>
+</p>
+<ul>
+<li>After running/debugging the test cases, the status bar will show the final results. Simply click on it to show the Test Report.</li>
+<li>You can also click the ✔️ or ❌ mark in Code Lens to open the Test Report.</li>
+</ul>
+<p align="center">
+<img src="https://raw.githubusercontent.com/Microsoft/vscode-java-test/master/demo/report_navigate.png" style="border-radius: 15px" alt="Status Bar"/>
+</p>
+<ul>
+<li>You can navigate to the source location of the target test case by clicking the navigate button.</li>
+</ul>
+<blockquote>
+<p>Note: You can use <code>java.test.report.showAfterExecution</code> to configure whether to automatically show the test report after execution. By default, it will be shown when there are failed tests.</p>
+</blockquote>
+<h2 id="settings">Settings</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Setting Name</th>
+<th>Description</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>java.test.report.position</code></td>
+<td>Specify where to show the test report. Supported values are: <code>sideView</code>, <code>currentView</code>.</td>
+<td><code>sideView</code></td>
+</tr>
+<tr class="even">
+<td><code>java.test.report.showAfterExecution</code></td>
+<td>Specify if the test report will automatically be shown after execution. Supported values are: <code>always</code>, <code>onFailure</code>, <code>never</code>.</td>
+<td><code>onFailure</code></td>
+</tr>
+<tr class="odd">
+<td><code>java.test.editor.enableShortcuts</code></td>
+<td>Specify whether to show the Code Lenses in editor or not.</td>
+<td><code>true</code></td>
+</tr>
+<tr class="even">
+<td><code>java.test.log.level</code></td>
+<td>Specify the level of the test logs. Supported values are: <code>error</code>, <code>info</code>, <code>verbose</code>.</td>
+<td><code>info</code></td>
+</tr>
+<tr class="odd">
+<td><code>java.test.config</code></td>
+<td>Specify the configuration for the test cases to run with. <a href="https://aka.ms/java-test-config">More details</a>.</td>
+<td><code>{}</code></td>
+</tr>
+<tr class="even">
+<td><code>java.test.defaultConfig</code></td>
+<td>Specify the name of the default test configuration.</td>
+<td><code>""</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="faq">FAQ</h2>
+<p>If you meet any problem when using the extension, please refer to the <a href="https://github.com/microsoft/vscode-java-test/wiki/FAQ">FAQ</a> to check if there is an answer to your problem.</p>
+<h2 id="contributing-and-feedback">Contributing and Feedback</h2>
+<p>If you are interested in providing feedback or contributing directly to the code base, please check the document <a href="https://github.com/Microsoft/vscode-java-test/blob/master/CONTRIBUTING.md">Contributing to Java Test Runner</a>, which covers the following parts: - <a href="https://github.com/Microsoft/vscode-java-test/blob/master/CONTRIBUTING.md#questions-and-feedback">Questions and Feedback</a> - <a href="https://github.com/Microsoft/vscode-java-test/blob/master/CONTRIBUTING.md#reporting-issues">Reporting Issues</a> - <a href="https://github.com/Microsoft/vscode-java-test/blob/master/CONTRIBUTING.md#contributing-fixes">Contributing Fixes</a></p>
+<h2 id="license">License</h2>
+<p>This extension is licensed under <a href="https://github.com/Microsoft/vscode-java-test/blob/master/LICENSE.txt">MIT License</a>.</p>
+<h2 id="telemetry">Telemetry</h2>
+<p>This extension collects telemetry data to help improve our products. Please read <a href="https://privacy.microsoft.com/en-us/privacystatement">Microsoft privacy statement</a> to learn more. If you opt out to send telemetry data to Microsoft, please set below configuration in settings.json: <code>telemetry.enableTelemetry = false</code>. Learn more in our <a href="https://code.visualstudio.com/docs/supporting/faq#_how-to-disable-telemetry-reporting">FAQ</a>.</p>

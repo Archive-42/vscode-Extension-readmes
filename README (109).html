@@ -1,0 +1,115 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="php-getters-and-setters-for-visual-studio-code">PHP getters and setters for Visual Studio Code</h1>
+<blockquote>
+<p>Fast generator of getters and setters for your PHP class properties.</p>
+</blockquote>
+<figure>
+<img src="https://github.com/phproberto/vscode-php-getters-setters/raw/master/images/demo.gif" alt="Demo" /><figcaption>Demo</figcaption>
+</figure>
+<h2 id="features">Features</h2>
+<p>This extension allows you to quickly generate getters and setters with one single command.</p>
+<p>Features:</p>
+<ul>
+<li>Detects indentation. No matter if you use spaces or tabs.</li>
+<li>Uses configuration options to show doc blocks as you like them.</li>
+<li>Generates method's descriptions based on the property description.</li>
+<li>Detects valid type hints to use them in the setter.</li>
+</ul>
+<p>It adds 3 comands to vscode's command palette:</p>
+<ul>
+<li>Insert PHP getter.</li>
+<li>Insert PHP setter.</li>
+<li>Insert PHP getter and setter.</li>
+</ul>
+<p>You can also access commands from contextual menu when clicking on a class property:</p>
+<figure>
+<img src="https://github.com/phproberto/vscode-php-getters-setters/raw/master/images/context-menu.jpg" alt="Contexttual menu" /><figcaption>Contexttual menu</figcaption>
+</figure>
+<h2 id="extension-settings">Extension Settings</h2>
+<p>This extension contributes the following settings:</p>
+<ul>
+<li><code>phpGettersSetters.spacesAfterParam</code>: Number of spaces to insert between <span class="citation" data-cites="param">@param</span> tag and variable name in doc blocks. Default: 2</li>
+<li><code>phpGettersSetters.spacesAfterParamVar</code>: Number of spaces to insert after the variable name in the <span class="citation" data-cites="param">@param</span> tag line. Default: 2</li>
+<li><code>phpGettersSetters.spacesAfterReturn</code>: Number of spaces to insert after the <span class="citation" data-cites="return">@return</span> tag. Default: 2</li>
+<li><code>phpGettersSetters.redirect</code>: Redirect editor to generated functions after generating them? Default: true</li>
+<li><code>phpGettersSetters.templatesDir</code>: Folder where custom templates are stored</li>
+<li><code>phpGettersSetters.getterTemplate</code>: File to use as template for getters. Default: getter.js</li>
+<li><code>phpGettersSetters.setterTemplate</code>: File to use as template for setters. Default :setter.js</li>
+</ul>
+<h2 id="custom-templates">Custom Templates</h2>
+<p>By default this extension will use a custom function to generate your getters &amp; setters but you can fully customise the markup used to generate them. By default templates are stored in:</p>
+<ul>
+<li>Linux: <code>~/.config/Code/User/phpGettersSetters</code></li>
+<li>OSX: <code>~/Library/Application Support/Code/User/phpGettersSetters</code></li>
+<li>Windows: <code>Users\{User}\AppData\Roaming\Code\User\phpGettersSetters</code></li>
+</ul>
+<p>You can also set a custom templates dir entering a custom folder in <code>phpGettersSetters.templatesDir</code> setting.</p>
+<p>Template Literals are used for templating because the flexibility they provide. With them you can easily create a custom template with no knowledge and also invest some time for complex things. For advanced usage you will have to google about template literals but here are 2 sample templates.</p>
+<p>Sample getter.js template:</p>
+<pre><code>module.exports = (property) =&gt; `
+    /**
+     * ${property.getterDescription()}
+     *
+     * @return  ${property.getType() ? property.getType() : &#39;mixed&#39;}
+     */
+    public function ${property.getterName()}()
+    {
+        return $this-&gt;${property.getName()};
+    }
+`</code></pre>
+<p>Sample setter.js template:</p>
+<pre><code>module.exports = (property) =&gt; `
+    /**
+     * ${property.setterDescription()}
+     *
+     * @param   ${property.getType() ? property.getType() : &#39;mixed&#39;}  \$${property.getName()}  ${property.getDescription() ? property.getDescription() : &#39;&#39;}
+     *
+     * @return  self
+     */
+    public function ${property.setterName()}(${property.getTypeHint() ? property.getTypeHint() + &#39; &#39; : &#39;&#39; }\$${property.getName()})
+    {
+        $this-&gt;${property.getName()} = \$${property.getName()};
+
+        return $this;
+    }
+`</code></pre>
+<p>As you can see a <a href="https://github.com/phproberto/vscode-php-getters-setters/blob/master/blob/master/src/Property.ts">Property</a> object is passed to templates so you can access any public method there. I also like the idea of adding more stuff as users find limits. Open an issue if you find something you cannot achieve.</p>
+<h2 id="release-notes">Release Notes</h2>
+<p>Relevant releases:</p>
+<h3 id="section">1.2.0</h3>
+<ul>
+<li>Added support for custom templates</li>
+</ul>
+<h3 id="section-1">1.1.0</h3>
+<ul>
+<li>Added support for multiple cursor</li>
+</ul>
+<h3 id="section-2">1.0.5</h3>
+<ul>
+<li>Fixed <code>No property found</code> when switching between editors. Thanks for reporting Carlos Alfonso Pérez Rivera!</li>
+</ul>
+<h3 id="section-3">1.0.3</h3>
+<ul>
+<li>Added context menu links</li>
+</ul>
+<h3 id="section-4">1.0.0</h3>
+<ul>
+<li>Initial version</li>
+</ul>

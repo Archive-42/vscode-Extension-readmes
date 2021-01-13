@@ -1,0 +1,53 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="python-path">Python Path</h1>
+<p>This extension adds a set of tools which help you generate internal import statements in a python project.</p>
+<h2 id="features">Features</h2>
+<p>"Copy Python Path" is accessible from:</p>
+<ul>
+<li>Command</li>
+<li>Explorer contextual menu</li>
+<li>Editor contextual menu</li>
+<li>Editor title contextual menu</li>
+</ul>
+<h3 id="basic-copy-python-path">Basic Copy Python Path</h3>
+<p>Copies the full module name of the current file to the clipboard.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/mgesbert/vscode-python-path/master/images/readme_1.gif" alt="Basic Copy Python Path" /><figcaption>Basic Copy Python Path</figcaption>
+</figure>
+<h3 id="generate-import-statement">Generate import statement</h3>
+<p>Copies an import statement for the selected text to the clipboard. In case of a simple selection, the generated statement will be:</p>
+<pre><code>from module.name import selected_text</code></pre>
+<p>In case of a multiple selection, the generated statement will be:</p>
+<pre><code>from module.name import (
+    selected_text_1,
+    selected_text_2,
+    [...]
+    selected_text_n,
+)</code></pre>
+<figure>
+<img src="https://raw.githubusercontent.com/mgesbert/vscode-python-path/master/images/readme_2.gif" alt="Generate import statement" /><figcaption>Generate import statement</figcaption>
+</figure>
+<h2 id="miscellaneous">Miscellaneous</h2>
+<p>Inspiration from the Sublime Package: https://github.com/pokidovea/copy_python_path</p>
+<h2 id="credits">Credits</h2>
+<ul>
+<li>https://github.com/mgesbert</li>
+<li>https://github.com/nfau</li>
+</ul>

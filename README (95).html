@@ -1,0 +1,169 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="node-tdd">node-tdd</h1>
+<blockquote>
+<p>A <a href="http://code.visualstudio.com/">Visual Studio Code</a> <a href="https://marketplace.visualstudio.com/items?itemName=prashaantt.node-tdd">extension</a> to ease <a href="https://en.wikipedia.org/wiki/Test-driven_development">test-driven development</a> in Node and JavaScript.</p>
+</blockquote>
+<h2 id="features">Features</h2>
+<figure>
+<img src="https://github.com/prashaantt/node-tdd/raw/master/images/node-tdd.gif" alt="node-tdd demo" /><figcaption>node-tdd demo</figcaption>
+</figure>
+<ul>
+<li>Activates when a workspace containing <code>package.json</code> is opened.</li>
+<li>Triggers an automatic test build whenever source files are updated.</li>
+<li>Shows a colour-coded build summary.</li>
+<li>Shows the average test coverage (experimental).</li>
+<li>Optionally, if your test runner generates <a href="https://testanything.org/producers.html#javascript">TAP outputs</a>, use the <code>nodeTdd.reporter</code> setting to provide a more meaningful test summary:</li>
+</ul>
+<figure>
+<img src="https://github.com/prashaantt/node-tdd/raw/master/images/tap.png" alt="tap" /><figcaption>tap</figcaption>
+</figure>
+<ul>
+<li>Finally, use <code>nodeTdd.minimal</code> to reclaim some status bar real estate:</li>
+</ul>
+<figure>
+<img src="https://github.com/prashaantt/node-tdd/raw/master/images/minimal.png" alt="minimal mode" /><figcaption>minimal mode</figcaption>
+</figure>
+<h2 id="settings">Settings</h2>
+<p>This extension contributes the following settings:</p>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 11%" />
+<col style="width: 23%" />
+<col style="width: 46%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Setting</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>nodeTdd.activateOnStartup</code></td>
+<td>boolean</td>
+<td><code>true</code></td>
+<td>Activate TDD mode when workspace is opened</td>
+</tr>
+<tr class="even">
+<td><code>nodeTdd.testScript</code></td>
+<td>string</td>
+<td><code>test</code></td>
+<td>The npm script to run tests</td>
+</tr>
+<tr class="odd">
+<td><code>nodeTdd.glob</code></td>
+<td>string</td>
+<td><code>{src,test}/**/*.{js,ts,jsx,tsx}</code></td>
+<td>The glob pattern for files to watch, relative to the workspace root</td>
+</tr>
+<tr class="even">
+<td><code>nodeTdd.verbose</code></td>
+<td>boolean / object</td>
+<td><code>false</code> / <code>{onlyOnFailure: true}</code></td>
+<td>Show build status dialogs</td>
+</tr>
+<tr class="odd">
+<td><code>nodeTdd.minimal</code></td>
+<td>boolean</td>
+<td><code>false</code></td>
+<td>Minimise status bar clutter</td>
+</tr>
+<tr class="even">
+<td><code>nodeTdd.buildOnActivation</code></td>
+<td>boolean</td>
+<td><code>false</code></td>
+<td>Run tests when TDD mode is activated</td>
+</tr>
+<tr class="odd">
+<td><code>nodeTdd.buildOnCreate</code></td>
+<td>boolean</td>
+<td><code>false</code></td>
+<td>Run tests when matching files are created</td>
+</tr>
+<tr class="even">
+<td><code>nodeTdd.buildOnDelete</code></td>
+<td>boolean</td>
+<td><code>false</code></td>
+<td>Run tests when matching files are deleted</td>
+</tr>
+<tr class="odd">
+<td><code>nodeTdd.showCoverage</code></td>
+<td>boolean</td>
+<td><code>false</code></td>
+<td>Show the average test coverage if reported (experimental)</td>
+</tr>
+<tr class="even">
+<td><code>nodeTdd.coverageThreshold</code></td>
+<td>number / null</td>
+<td><code>null</code></td>
+<td>The coverage threshold percentage, used to colour-code the coverage</td>
+</tr>
+<tr class="odd">
+<td><code>nodeTdd.reporter</code></td>
+<td>string / null</td>
+<td><code>null</code></td>
+<td>The test reporter used (currently only "tap" is supported)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="commands">Commands</h2>
+<p>The following commands are available from the commands menu as well as status bar buttons:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>activate</code></td>
+<td>Activate <code>node-tdd</code> in a workspace</td>
+</tr>
+<tr class="even">
+<td><code>deactivate</code></td>
+<td>Deactivate <code>node-tdd</code> in a workspace</td>
+</tr>
+<tr class="odd">
+<td><code>toggleOutput</code></td>
+<td>Toggle detailed test results output</td>
+</tr>
+<tr class="even">
+<td><code>stopBuild</code></td>
+<td>Stop a running build</td>
+</tr>
+</tbody>
+</table>
+<h2 id="limitations-and-known-issues">Limitations and known issues</h2>
+<ul>
+<li>The extension doesn't get activated if <code>package.json</code> was not initially present when the workspace was opened; a window restart will be required to detect a change.</li>
+<li>It doesn't work with watch mode/incremental test builds. The build process used for running tests must exit on each execution, otherwise it will never report the status.</li>
+<li><code>showCoverage</code> is an experimental setting that currently only works with the text-summary reports from <a href="https://github.com/hapijs/lab">Lab</a>, <a href="https://github.com/gotwarlost/istanbul">Istanbul</a> and <a href="https://github.com/istanbuljs/nyc">nyc</a>. Disable it if it doesn't work for you or its output looks funny.</li>
+<li>Despite recent fixes, it might still be <a href="https://github.com/prashaantt/node-tdd/issues/5">flaky</a> on Windows. Please report any issues.</li>
+<li>Ironically for a TDD extension, it has very few tests of its own because I don't yet know how to test UI elements in VS Code. :/</li>
+</ul>
+<p>Suggestions and PRs are <a href="https://github.com/prashaantt/node-tdd/issues">welcome</a>.</p>
+<h2 id="release-notes">Release notes</h2>
+<p>See the <a href="https://github.com/prashaantt/node-tdd/blob/master/CHANGELOG.md">change log</a>. If you are reading this from within VS Code, click on the Changelog tab of the extension preview page.</p>
+<h2 id="license">License</h2>
+<p>MIT License.</p>

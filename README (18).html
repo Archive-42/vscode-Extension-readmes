@@ -1,0 +1,164 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="vs-code-eslint-extension">VS Code ESLint extension</h1>
+<p><a href="https://dev.azure.com/ms/vscode-eslint/_build/latest?definitionId=18"><embed src="https://dev.azure.com/ms/vscode-eslint/_apis/build/status/Microsoft.vscode-eslint" /></a></p>
+<p>Integrates <a href="http://eslint.org/">ESLint</a> into VS Code. If you are new to ESLint check the <a href="http://eslint.org/">documentation</a>.</p>
+<p>The extension uses the ESLint library installed in the opened workspace folder. If the folder doesn't provide one the extension looks for a global install version. If you haven't installed ESLint either locally or globally do so by running <code>npm install eslint</code> in the workspace folder for a local install or <code>npm install -g eslint</code> for a global install.</p>
+<p>On new folders you might also need to create a <code>.eslintrc</code> configuration file. You can do this by either using the VS Code command <code>Create ESLint configuration</code> or by running the <code>eslint</code> command in a terminal. If you have installed ESLint globally (see above) then run <a href="http://eslint.org/docs/user-guide/command-line-interface"><code>eslint --init</code></a> in a terminal. If you have installed ESLint locally then run <a href="http://eslint.org/docs/user-guide/command-line-interface"><code>.\node_modules\.bin\eslint --init</code></a> under Windows and <a href="http://eslint.org/docs/user-guide/command-line-interface"><code>./node_modules/.bin/eslint --init</code></a> under Linux and Mac.</p>
+<h2 id="release-notes">Release Notes</h2>
+<p>This section describes major releases and their improvements. For a detailed list of changes please refer to the <a href="https://github.com/Microsoft/vscode-eslint/blob/master/./CHANGELOG.md">change log</a>;</p>
+<h3 id="version-2.1.10">Version 2.1.10</h3>
+<p>The approval flow to allow the execution of a ESLint library got reworked. Its initial experience is now as follows:</p>
+<ul>
+<li>no modal dialog is shown when the ESLint extension tries to load an ESLint library for the first time and an approval is necessary. Instead the ESLint status bar item changes to <img src="https://github.com/Microsoft/vscode-eslint/raw/master/images/2_1_10/eslint-status.png" alt="ESLint status icon" /> indicating that the execution is currently block.</li>
+<li>if the active text editor content would be validated using ESLint, a problem at the top of the file is shown in addition.</li>
+</ul>
+<p>The execution of the ESLint library can be denied or approved using the following gestures: - clicking on the status bar icon - using the quick fix for the corresponding ESLint problem - executing the command <code>ESLint: Manage Library Execution</code> from the command palette</p>
+<p>All gestures will open the following dialog:</p>
+<figure>
+<img src="https://github.com/Microsoft/vscode-eslint/raw/master/images/2_1_10/eslint-dialog.png" alt="ESLint Dialog" /><figcaption>ESLint Dialog</figcaption>
+</figure>
+<p>The chosen action is then reflected in the ESLint status bar item in the following way:</p>
+<ul>
+<li><code>Allow</code> will prefix the status bar item with a check mark.</li>
+<li><code>Allow Everywhere</code> will prefix the status bar item with a double check mark.</li>
+<li><code>Deny</code> and <code>Disable</code> will prefix the status bar item with a blocked sign.</li>
+</ul>
+<p>You can manage our decisions using the following commands:</p>
+<ul>
+<li><code>ESLint: Manage Library Execution</code> will reopen aboves dialog</li>
+<li><code>ESLint: Reset Library Decisions</code> lets you reset previous decisions who have made.</li>
+</ul>
+<h3 id="version-2.0.4">Version 2.0.4</h3>
+<p>The 2.0.4 version of the extension contains the following major improvements:</p>
+<ul>
+<li>Improved TypeScript detection - As soon as TypeScript is correctly configured inside ESLint, you no longer need additional configuration through VS Code's <code>eslint.validate</code> setting. The same is true for HTML and Vue.js files.</li>
+<li>Glob working directory support - Projects that have a complex folder structure and need to customize the working directories via <code>eslint.workingDirectories</code> can now use glob patterns instead of listing every project folder. For example, <code>{ "pattern": "code-*" }</code> will match all project folders starting with <code>code-</code>. In addition, the extension now changes the working directory by default. You can disable this feature with the new <code>!cwd</code> property.</li>
+<li>Formatter support: ESLint can now be used as a formatter. To enable this feature use the <code>eslint.format.enable</code> setting.</li>
+<li>Improved Auto Fix on Save - Auto Fix on Save is now part of VS Code's Code Action on Save infrastructure and computes all possible fixes in one round. It is customized via the <code>editor.codeActionsOnSave</code> setting. The setting supports the ESLint specific property <code>source.fixAll.eslint</code>. The extension also respects the generic property <code>source.fixAll</code>.</li>
+</ul>
+<p>The setting below turns on Auto Fix for all providers including ESLint:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb1-1" title="1">    <span class="er">&quot;editor.codeActionsOnSave&quot;:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">        <span class="dt">&quot;source.fixAll&quot;</span><span class="fu">:</span> <span class="kw">true</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="fu">}</span></a></code></pre></div>
+<p>In contrast, this configuration only turns it on for ESLint:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb2-1" title="1">    <span class="er">&quot;editor.codeActionsOnSave&quot;:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">        <span class="dt">&quot;source.fixAll.eslint&quot;</span><span class="fu">:</span> <span class="kw">true</span></a>
+<a class="sourceLine" id="cb2-3" title="3">    <span class="fu">}</span></a></code></pre></div>
+<p>You can also selectively disable ESLint via:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb3-1" title="1">    <span class="er">&quot;editor.codeActionsOnSave&quot;:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">        <span class="dt">&quot;source.fixAll&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb3-3" title="3">        <span class="dt">&quot;source.fixAll.eslint&quot;</span><span class="fu">:</span> <span class="kw">false</span></a>
+<a class="sourceLine" id="cb3-4" title="4">    <span class="fu">}</span></a></code></pre></div>
+<p>Also note that there is a time budget of 750ms to run code actions on save which might not be enough for large JavaScript / TypeScript file. You can increase the time budget using the <code>editor.codeActionsOnSaveTimeout</code> setting.</p>
+<p>The old <code>eslint.autoFixOnSave</code> setting is now deprecated and can safely be removed.</p>
+<h2 id="settings-options">Settings Options</h2>
+<p>If you are using an ESLint extension version &lt; 2.x then please refer to the settings options <a href="https://github.com/microsoft/vscode-eslint/blob/master/history/settings_1_9_x.md">here</a>.</p>
+<p>This extension contributes the following variables to the <a href="https://code.visualstudio.com/docs/customization/userandworkspace">settings</a>:</p>
+<ul>
+<li><code>eslint.enable</code>: enable/disable ESLint. Is enabled by default.</li>
+<li><code>eslint.debug</code>: enables ESLint's debug mode (same as –debug command line option). Please see the ESLint output channel for the debug output. This options is very helpful to track down configuration and installation problems with ESLint since it provides verbose information about how ESLint is validating a file.</li>
+<li><code>eslint.lintTask.enable</code>: whether the extension contributes a lint task to lint a whole workspace folder.</li>
+<li><p><code>eslint.lintTask.options</code>: Command line options applied when running the task for linting the whole workspace (https://eslint.org/docs/user-guide/command-line-interface). An example to point to a custom <code>.eslintrc.json</code> file and a custom <code>.eslintignore</code> is:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb4-1" title="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="dt">&quot;eslint.lintTask.options&quot;</span><span class="fu">:</span> <span class="st">&quot;-c C:/mydirectory/.eslintrc.json --ignore-path C:/mydirectory/.eslintignore .&quot;</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="fu">}</span></a></code></pre></div></li>
+<li><code>eslint.packageManager</code>: controls the package manager to be used to resolve the ESLint library. This has only an influence if the ESLint library is resolved globally. Valid values are <code>"npm"</code> or <code>"yarn"</code> or <code>"pnpm"</code>.</li>
+<li><p><code>eslint.options</code>: options to configure how ESLint is started using the <a href="http://eslint.org/docs/developer-guide/nodejs-api#cliengine">ESLint CLI Engine API</a>. Defaults to an empty option bag. An example to point to a custom <code>.eslintrc.json</code> file is:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb5-1" title="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="dt">&quot;eslint.options&quot;</span><span class="fu">:</span> <span class="fu">{</span> <span class="dt">&quot;configFile&quot;</span><span class="fu">:</span> <span class="st">&quot;C:/mydirectory/.eslintrc.json&quot;</span> <span class="fu">}</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="fu">}</span></a></code></pre></div></li>
+<li><code>eslint.run</code> - run the linter <code>onSave</code> or <code>onType</code>, default is <code>onType</code>.</li>
+<li><code>eslint.quiet</code> - ignore warnings.</li>
+<li><code>eslint.runtime</code> - use this setting to set the path of the node runtime to run ESLint under.</li>
+<li><code>eslint.nodeEnv</code> - use this setting if an ESLint plugin or configuration needs <code>process.env.NODE_ENV</code> to be defined.</li>
+<li><code>eslint.nodePath</code> - use this setting if an installed ESLint package can't be detected, for example <code>/myGlobalNodePackages/node_modules</code>.</li>
+<li><code>eslint.probe</code> = an array for language identifiers for which the ESLint extension should be activated and should try to validate the file. If validation fails for probed languages the extension says silent. Defaults to <code>["javascript", "javascriptreact", "typescript", "typescriptreact", "html", "vue", "markdown"]</code>.</li>
+<li><code>eslint.validate</code> - an array of language identifiers specifying the files for which validation is to be enforced. This is an old legacy setting and should in normal cases not be necessary anymore. Defaults to <code>["javascript", "javascriptreact"]</code>.</li>
+<li><code>eslint.format.enable</code>: enables ESLint as a formatter for validated files. Although you can also use the formatter on save using the setting <code>editor.formatOnSave</code> it is recommended to use the <code>editor.codeActionsOnSave</code> feature since it allows for better configurability.</li>
+<li><code>eslint.workingDirectories</code> - specifies how the working directories ESLint is using are computed. ESLint resolves configuration files (e.g. <code>eslintrc</code>, <code>.eslintignore</code>) relative to a working directory so it is important to configure this correctly. If executing ESLint in the terminal requires you to change the working directory in the terminal into a sub folder then it is usually necessary to tweak this setting. (see also <a href="https://eslint.org/docs/developer-guide/nodejs-api#cliengine">CLIEngine options#cwd</a>). Please also keep in mind that the <code>.eslintrc*</code> file is resolved considering the parent directories whereas the <code>.eslintignore</code> file is only honored in the current working directory. The following values can be used:
+<ul>
+<li><code>[{ "mode": "location" }]</code> (<span class="citation" data-cites="since">@since</span> 2.0.0): instructs ESLint to uses the workspace folder location or the file location (if no workspace folder is open) as the working directory. This is the default and is the same strategy as used in older versions of the ESLint extension (1.9.x versions).</li>
+<li><code>[{ "mode": "auto" }]</code> (<span class="citation" data-cites="since">@since</span> 2.0.0): instructs ESLint to infer a working directory based on the location of <code>package.json</code>, <code>.eslintignore</code> and <code>.eslintrc*</code> files. This might work in many cases but can lead to unexpected results as well.</li>
+<li><code>string[]</code>: an array of working directories to use. Consider the following directory layout:</li>
+</ul>
+<pre><code>root/
+  client/
+    .eslintrc.json
+    client.js
+  server/
+    .eslintignore
+    .eslintrc.json
+    server.js</code></pre>
+<p>Then using the setting:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1">  <span class="st">&quot;eslint.workingDirectories&quot;</span><span class="op">:</span> [ <span class="st">&quot;./client&quot;</span><span class="op">,</span> <span class="st">&quot;./server&quot;</span> ]</a></code></pre></div>
+will validate files inside the server directory with the server directory as the current eslint working directory. Same for files in the client directory. The ESLint extension will also change the process's working directory to the provided directories. If this is not wanted a literal with the <code>!cwd</code> property can be used (e.g. <code>{ "directory": "./client", "!cwd": true }</code>). This will use the client directory as the ESLint working directory but will not change the process<code>s working directory. -</code>[{ "pattern": glob pattern }]<code>(@since 2.0.0): Allows to specify a pattern to detect the working directory. This is basically a short cut for listing every directory. If you have a mono repository with all your projects being below a packages folder you can use</code>{ "pattern": "./packages/*/" }` to make all these folders working directories.</li>
+<li><code>eslint.codeAction.disableRuleComment</code> - object with properties:
+<ul>
+<li><code>enable</code> - show disable lint rule in the quick fix menu. <code>true</code> by default.</li>
+<li><code>location</code> - choose to either add the <code>eslint-disable</code> comment on the <code>separateLine</code> or <code>sameLine</code>. <code>separateLine</code> is the default. Example:</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb8-1" title="1"><span class="fu">{</span> <span class="dt">&quot;enable&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span> <span class="dt">&quot;location&quot;</span><span class="fu">:</span> <span class="st">&quot;sameLine&quot;</span> <span class="fu">}</span></a></code></pre></div></li>
+<li><code>eslint.codeAction.showDocumentation</code> - object with properties:
+<ul>
+<li><code>enable</code> - show open lint rule documentation web page in the quick fix menu. <code>true</code> by default.</li>
+</ul></li>
+<li><code>eslint.codeActionsOnSave.mode</code> (<span class="citation" data-cites="since">@since</span> 2.0.12): controls which problems are fix when running code actions on save
+<ul>
+<li><code>all</code>: fixes all possible problems by revalidating the file's content. This executes the same code path as running eslint with the <code>--fix</code> option in the terminal and therefore can take some time. This is the default value.</li>
+<li><code>problems</code>: fixes only the currently known fixable problems as long as their textual edits are non overlapping. This mode is a lot faster but very likely only fixes parts of the problems.</li>
+</ul></li>
+<li><code>eslint.format.enable</code> (<span class="citation" data-cites="since">@since</span> 2.0.0): uses ESlint as a formatter for files that are validated by ESLint. If enabled please ensure to disable other formatters if you want to make this the default. A good way to do so is to add the following setting <code>"[javascript]": { "editor.defaultFormatter": "dbaeumer.vscode-eslint" }</code> for JavaScript. For TypeScript you need to add <code>"[typescript]": { "editor.defaultFormatter": "dbaeumer.vscode-eslint" }</code>.</li>
+<li><code>eslint.onIgnoredFiles</code> (<span class="citation" data-cites="since">@since</span> 2.0.10): used to control whether warnings should be generated when trying to lint ignored files. Default is <code>off</code>. Can be set to <code>warn</code>.</li>
+<li><p><code>editor.codeActionsOnSave</code> (<span class="citation" data-cites="since">@since</span> 2.0.0): this setting now supports an entry <code>source.fixAll.eslint</code>. If set to true all auto-fixable ESLint errors from all plugins will be fixed on save. You can also selectively enable and disabled specific languages using VS Code's language scoped settings. To disable <code>codeActionsOnSave</code> for HTML files use the following setting:</p></li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb9-1" title="1">  <span class="er">&quot;</span><span class="ot">[</span><span class="er">html</span><span class="ot">]</span><span class="er">&quot;:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb9-2" title="2">    <span class="dt">&quot;editor.codeActionsOnSave&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb9-3" title="3">      <span class="dt">&quot;source.fixAll.eslint&quot;</span><span class="fu">:</span> <span class="kw">false</span></a>
+<a class="sourceLine" id="cb9-4" title="4">    <span class="fu">}</span></a>
+<a class="sourceLine" id="cb9-5" title="5">  <span class="fu">}</span></a></code></pre></div>
+<p>The old <code>eslint.autoFixOnSave</code> setting is now deprecated and can safely be removed. Please also note that if you use ESLint as your default formatter you should turn off <code>editor.formatOnSave</code> when you have turned on <code>editor.codeActionsOnSave</code>. Otherwise you file gets fixed twice which in unnecessary.</p>
+<h2 id="settings-migration">Settings Migration</h2>
+<p>If the old <code>eslint.autoFixOnSave</code> option is set to true ESLint will prompt to convert it to the new <code>editor.codeActionsOnSave</code> format. If you want to avoid the migration you can respond in the dialog in the following ways:</p>
+<ul>
+<li>Not now: the setting will not be migrated by ESLint prompts again the next time you open the workspace</li>
+<li>Never migrate Settings: the settings migration will be disabled by changing the user setting <code>eslint.migration.2_x</code> to <code>off</code></li>
+</ul>
+<p>The migration can always be triggered manually using the command <code>ESLint: Migrate Settings</code></p>
+<h2 id="commands">Commands:</h2>
+<p>This extension contributes the following commands to the Command palette.</p>
+<ul>
+<li><code>Create '.eslintrc.json' file</code>: creates a new <code>.eslintrc.json</code> file.</li>
+<li><code>Fix all auto-fixable problems</code>: applies ESLint auto-fix resolutions to all fixable problems.</li>
+<li><code>Disable ESLint for this Workspace</code>: disables ESLint extension for this workspace.</li>
+<li><code>Enable ESLint for this Workspace</code>: enable ESLint extension for this workspace.</li>
+<li><code>Reset Library Decisions</code>: Resets the ESLint library validation confirmations.</li>
+<li><code>Manage Library Execution</code>: Opens the library execution confirmation dialog.</li>
+</ul>
+<h2 id="using-the-extension-with-vs-codes-task-running">Using the extension with VS Code's task running</h2>
+<p>The extension is linting an individual file only on typing. If you want to lint the whole workspace set <code>eslint.lintTask.enable</code> to <code>true</code> and the extension will also contribute the <code>eslint: lint whole folder</code> task. There is no need anymore to define a custom task in <code>tasks.json</code>.</p>
+<h2 id="using-eslint-to-validate-typescript-files">Using ESLint to validate TypeScript files</h2>
+<p>A great introduction on how to lint TypeScript using ESlint can be found in the <a href="https://github.com/typescript-eslint/typescript-eslint">TypeScript - ESLint</a>. Please make yourself familiar with the introduction before using the VS Code ESLint extension in a TypeScript setup. Especially make sure that you can validate TypeScript files successfully in a terminal using the <code>eslint</code> command.</p>
+<p>This project itself uses ESLint to validate its TypeScript files. So it can be used as a blueprint to get started.</p>
+<p>To avoid validation from any TSLint installation disable TSLint using <code>"tslint.enable": false</code>.</p>
+<h3 id="mono-repository-setup">Mono repository setup</h3>
+<p>As with JavaScript validating TypeScript in a mono repository requires that you tell the VS Code ESLint extension what the current working directories are. Use the <code>eslint.workingDirectories</code> setting to do so. For this repository the working directory setup looks as follows:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb10-1" title="1">    <span class="er">&quot;eslint.workingDirectories&quot;:</span> <span class="ot">[</span> <span class="st">&quot;./client&quot;</span><span class="ot">,</span> <span class="st">&quot;./server&quot;</span> <span class="ot">]</span></a></code></pre></div>
+<h2 id="eslint-6.x">ESLint 6.x</h2>
+<p>Migrating from ESLint 5.x to ESLint 6.x might need some adaption (see the <a href="https://eslint.org/docs/user-guide/migrating-to-6.0.0">ESLint Migration Guide</a> for details). Before filing an issue against the VS Code ESLint extension please ensure that you can successfully validate your files in a terminal using the eslint command.</p>

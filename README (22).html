@@ -1,0 +1,215 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="leetcode">LeetCode</h1>
+<blockquote>
+<p>Solve LeetCode problems in VS Code</p>
+</blockquote>
+<p align="center">
+<img src="https://raw.githubusercontent.com/LeetCode-OpenSource/vscode-leetcode/master/resources/LeetCode.png" alt="">
+</p>
+<p align="center">
+<a href="https://travis-ci.org/LeetCode-OpenSource/vscode-leetcode"> <img src="https://img.shields.io/travis/LeetCode-OpenSource/vscode-leetcode.svg?style=flat-square" alt=""> </a> <a href="https://gitter.im/vscode-leetcode/Lobby"> <img src="https://img.shields.io/gitter/room/LeetCode-OpenSource/vscode-leetcode.svg?style=flat-square" alt=""> </a> <a href="https://marketplace.visualstudio.com/items?itemName=LeetCode.vscode-leetcode"> <img src="https://img.shields.io/visual-studio-marketplace/d/LeetCode.vscode-leetcode.svg?style=flat-square" alt=""> </a> <a href="https://github.com/LeetCode-OpenSource/vscode-leetcode/blob/master/LICENSE"> <img src="https://img.shields.io/github/license/LeetCode-OpenSource/vscode-leetcode.svg?style=flat-square" alt=""> </a>
+</p>
+<ul>
+<li>English Document | <a href="https://github.com/LeetCode-OpenSource/vscode-leetcode/blob/master/docs/README_zh-CN.md">中文文档</a></li>
+</ul>
+<h2 id="attention-️--workaround-to-login-to-leetcode-endpoint">❗️ Attention ❗️- Workaround to login to LeetCode endpoint</h2>
+<blockquote>
+<p>Note: If you are using <code>leetcode-cn.com</code>, you can just ignore this section.</p>
+</blockquote>
+<p>Recently we observed that <a href="https://github.com/LeetCode-OpenSource/vscode-leetcode/issues/478">the extension cannot login to leetcode.com endpoint anymore</a>. The root cause of this issue is that leetcode.com changed its login mechanism and so far there is no ideal way to fix that issue.</p>
+<p>Thanks for <span class="citation" data-cites="yihong0618">[@yihong0618]</span>(https://github.com/yihong0618) provided a workaround which can somehow mitigate this. Now you can simply click the <code>Sign In</code> button and then select <code>Third Party</code> login or <code>Cookie</code> login.</p>
+<blockquote>
+<p>Note: If you want to use third-party login(<strong>Recommended</strong>), please make sure your account has been connected to the thrid-party. If you want to use <code>Cookie</code> login, click <a href="https://github.com/LeetCode-OpenSource/vscode-leetcode/issues/478#issuecomment-564757098">here</a> to see the steps.</p>
+</blockquote>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li><a href="https://code.visualstudio.com/">VS Code 1.30.1+</a></li>
+<li><a href="https://nodejs.org">Node.js 10+</a> &gt; NOTE: Please make sure that <code>Node</code> is in your <code>PATH</code> environment variable. You can also use the setting <code>leetcode.nodePath</code> to specify the location of your <code>Node.js</code> executable.</li>
+</ul>
+<h2 id="quick-start">Quick Start</h2>
+<figure>
+<img src="https://raw.githubusercontent.com/LeetCode-OpenSource/vscode-leetcode/master/docs/gifs/demo.gif" alt="demo" /><figcaption>demo</figcaption>
+</figure>
+<h2 id="features">Features</h2>
+<h3 id="sign-inout">Sign In/Out</h3>
+<p align="center">
+<img src="https://raw.githubusercontent.com/LeetCode-OpenSource/vscode-leetcode/master/docs/imgs/sign_in.png" alt="Sign in" />
+</p>
+<ul>
+<li><p>Simply click <code>Sign in to LeetCode</code> in the <code>LeetCode Explorer</code> will let you <strong>sign in</strong> with your LeetCode account.</p></li>
+<li>You can also use the following command to sign in/out:
+<ul>
+<li><strong>LeetCode: Sign in</strong></li>
+<li><h2 id="leetcode-sign-out"><strong>LeetCode: Sign out</strong></h2></li>
+</ul></li>
+</ul>
+<h3 id="switch-endpoint">Switch Endpoint</h3>
+<p align="center">
+<img src="https://raw.githubusercontent.com/LeetCode-OpenSource/vscode-leetcode/master/docs/imgs/endpoint.png" alt="Switch Endpoint" />
+</p>
+<ul>
+<li><p>By clicking the button <img src="https://raw.githubusercontent.com/LeetCode-OpenSource/vscode-leetcode/master/docs/imgs/btn_endpoint.png" alt="btn_endpoint" /> at the <strong>explorer's navigation bar</strong>, you can switch between different endpoints.</p></li>
+<li>The supported endpoints are:
+<ul>
+<li><strong>leetcode.com</strong></li>
+<li><strong>leetcode-cn.com</strong></li>
+</ul>
+<blockquote>
+<p>Note: The accounts of different endpoints are <strong>not</strong> shared. Please make sure you are using the right endpoint. The extension will use <code>leetcode.com</code> by default.</p>
+</blockquote></li>
+</ul>
+<hr />
+<h3 id="pick-a-problem">Pick a Problem</h3>
+<p align="center">
+<img src="https://raw.githubusercontent.com/LeetCode-OpenSource/vscode-leetcode/master/docs/imgs/pick_problem.png" alt="Pick a Problem" />
+</p>
+<ul>
+<li>Directly click on the problem or right click the problem in the <code>LeetCode Explorer</code> and select <code>Preview Problem</code> to see the problem description.</li>
+<li><p>Select <code>Show Problem</code> to directly open the file with the problem description.</p>
+<blockquote>
+<p>Note：You can specify the path of the workspace folder to store the problem files by updating the setting <code>leetcode.workspaceFolder</code>. The default value is：<strong>$HOME/.leetcode/</strong>.</p>
+</blockquote>
+<blockquote>
+<p>You can specify whether including the problem description in comments or not by updating the setting <code>leetcode.showCommentDescription</code>.</p>
+</blockquote>
+<blockquote>
+<p>You can switch the default language by triggering the command: <code>LeetCode: Switch Default Language</code>.</p>
+</blockquote></li>
+</ul>
+<hr />
+<h3 id="editor-shortcuts">Editor Shortcuts</h3>
+<p align="center">
+<img src="https://raw.githubusercontent.com/LeetCode-OpenSource/vscode-leetcode/master/docs/imgs/shortcuts.png" alt="Editor Shortcuts" />
+</p>
+<ul>
+<li>The extension supports 4 editor shortcuts (aka Code Lens):
+<ul>
+<li><code>Submit</code>: Submit your answer to LeetCode.</li>
+<li><code>Test</code>: Test your answer with customized test cases.</li>
+<li><code>Solution</code>: Show the top voted solution for the current problem.</li>
+<li><code>Description</code>: Show the problem description page.</li>
+</ul>
+<blockquote>
+<p>Note: You can customize the shortcuts using the setting: <code>leetcode.editor.shortcuts</code>. By default, only <code>Submit</code> and <code>Test</code> shortcuts are enabled.</p>
+</blockquote></li>
+</ul>
+<hr />
+<h3 id="search-problems-by-keywords">Search problems by Keywords</h3>
+<p align="center">
+<img src="https://raw.githubusercontent.com/LeetCode-OpenSource/vscode-leetcode/master/docs/imgs/search.png" alt="Search problems by Keywords" />
+</p>
+<ul>
+<li>By clicking the button <img src="https://raw.githubusercontent.com/LeetCode-OpenSource/vscode-leetcode/master/docs/imgs/btn_search.png" alt="btn_search" /> at the <strong>explorer's navigation bar</strong>, you can search the problems by keywords.</li>
+</ul>
+<hr />
+<h3 id="manage-session">Manage Session</h3>
+<p align="center">
+<img src="https://raw.githubusercontent.com/LeetCode-OpenSource/vscode-leetcode/master/docs/imgs/session.png" alt="Manage Session" />
+</p>
+<ul>
+<li>To manage your LeetCode sessions, just clicking the <code>LeetCode: ***</code> at the bottom of the status bar. You can <strong>switch</strong> between sessions or <strong>create</strong>, <strong>delete</strong> a session.</li>
+</ul>
+<h2 id="settings">Settings</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 79%" />
+<col style="width: 3%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Setting Name</th>
+<th>Description</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>leetcode.hideSolved</code></td>
+<td>Specify to hide the solved problems or not</td>
+<td><code>false</code></td>
+</tr>
+<tr class="even">
+<td><code>leetcode.showLocked</code></td>
+<td>Specify to show the locked problems or not. Only Premium users could open the locked problems</td>
+<td><code>false</code></td>
+</tr>
+<tr class="odd">
+<td><code>leetcode.defaultLanguage</code></td>
+<td>Specify the default language used to solve the problem. Supported languages are: <code>bash</code>, <code>c</code>, <code>cpp</code>, <code>csharp</code>, <code>golang</code>, <code>java</code>, <code>javascript</code>, <code>kotlin</code>, <code>mysql</code>, <code>php</code>, <code>python</code>,<code>python3</code>,<code>ruby</code>,<code>rust</code>, <code>scala</code>, <code>swift</code>, <code>typescript</code></td>
+<td><code>N/A</code></td>
+</tr>
+<tr class="even">
+<td><code>leetcode.useWsl</code></td>
+<td>Specify whether to use WSL or not</td>
+<td><code>false</code></td>
+</tr>
+<tr class="odd">
+<td><code>leetcode.endpoint</code></td>
+<td>Specify the active endpoint. Supported endpoints are: <code>leetcode</code>, <code>leetcode-cn</code></td>
+<td><code>leetcode</code></td>
+</tr>
+<tr class="even">
+<td><code>leetcode.workspaceFolder</code></td>
+<td>Specify the path of the workspace folder to store the problem files.</td>
+<td><code>""</code></td>
+</tr>
+<tr class="odd">
+<td><code>leetcode.filePath</code></td>
+<td>Specify the relative path under the workspace and the file name to save the problem files. More details can be found <a href="https://github.com/LeetCode-OpenSource/vscode-leetcode/wiki/Customize-the-Relative-Folder-and-the-File-Name-of-the-Problem-File">here</a>.</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>leetcode.enableStatusBar</code></td>
+<td>Specify whether the LeetCode status bar will be shown or not.</td>
+<td><code>true</code></td>
+</tr>
+<tr class="odd">
+<td><code>leetcode.editor.shortcuts</code></td>
+<td>Specify the customized shorcuts in editors. Supported values are: <code>submit</code>, <code>test</code>, <code>solution</code> and <code>description</code>.</td>
+<td><code>["submit, test"]</code></td>
+</tr>
+<tr class="even">
+<td><code>leetcode.enableSideMode</code></td>
+<td>Specify whether <code>preview</code>, <code>solution</code> and <code>submission</code> tab should be grouped into the second editor column when solving a problem.</td>
+<td><code>true</code></td>
+</tr>
+<tr class="odd">
+<td><code>leetcode.nodePath</code></td>
+<td>Specify the <code>Node.js</code> executable path. for example, C:Files.exe</td>
+<td><code>node</code></td>
+</tr>
+<tr class="even">
+<td><code>leetcode.showCommentDescription</code></td>
+<td>Specify whether to include the problem description in the comments</td>
+<td><code>false</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="want-help">Want Help?</h2>
+<p>When you meet any problem, you can check out the <a href="https://github.com/LeetCode-OpenSource/vscode-leetcode/wiki/Troubleshooting">Troubleshooting</a> and <a href="https://github.com/LeetCode-OpenSource/vscode-leetcode/wiki/FAQ">FAQ</a> first.</p>
+<p>If your problem still cannot be addressed, feel free to reach us in the <a href="https://gitter.im/vscode-leetcode/Lobby">Gitter Channel</a> or <a href="https://github.com/LeetCode-OpenSource/vscode-leetcode/issues/new/choose">file an issue</a>.</p>
+<h2 id="release-notes">Release Notes</h2>
+<p>Refer to <a href="https://github.com/LeetCode-OpenSource/vscode-leetcode/blob/master/CHANGELOG.md">CHANGELOG</a></p>
+<h2 id="acknowledgement">Acknowledgement</h2>
+<ul>
+<li>This extension is based on <span class="citation" data-cites="skygragon">[@skygragon]</span>(https://github.com/skygragon)'s <a href="https://github.com/skygragon/leetcode-cli">leetcode-cli</a> open source project.</li>
+<li>Special thanks to our <a href="https://github.com/LeetCode-OpenSource/vscode-leetcode/blob/master/ACKNOWLEDGEMENTS.md">contributors</a>.</li>
+</ul>

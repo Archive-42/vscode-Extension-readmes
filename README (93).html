@@ -1,0 +1,85 @@
+<p><a href="https://marketplace.visualstudio.com/items?itemName=leizongmin.node-module-intellisense"><img src="https://vsmarketplacebadge.apphb.com/version/leizongmin.node-module-intellisense.svg" alt="Marketplace Version" /></a> <a href="https://marketplace.visualstudio.com/items?itemName=leizongmin.node-module-intellisense"><img src="https://vsmarketplacebadge.apphb.com/installs/leizongmin.node-module-intellisense.svg" alt="Installs" /></a> <a href="https://marketplace.visualstudio.com/items?itemName=leizongmin.node-module-intellisense"><img src="https://vsmarketplacebadge.apphb.com/rating/leizongmin.node-module-intellisense.svg" alt="Rating" /></a> <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-orange.svg?style=flat-square" alt="The MIT License" /></a> <a href="https://travis-ci.org/leizongmin/vscode-node-module-intellisense"><img src="https://img.shields.io/travis/leizongmin/vscode-node-module-intellisense.svg" alt="Build Status" /></a> <a href="https://david-dm.org/leizongmin/vscode-node-module-intellisense"><img src="https://img.shields.io/david/leizongmin/vscode-node-module-intellisense.svg?style=flat-square" alt="David" /></a></p>
+<h1 id="node.js-modules-intellisense">Node.js Modules Intellisense</h1>
+<p>Visual Studio Code plugin that autocompletes JavaScript / TypeScript modules in import statements.</p>
+<p>This plugin was inspired by <a href="https://github.com/ChristianKohler/NpmIntellisense">Npm Intellisense</a> and <a href="https://github.com/s6323859/vscode-autofilename">AutoFileName</a>.</p>
+<figure>
+<img src="https://github.com/leizongmin/vscode-node-module-intellisense/raw/master/images/auto_complete.gif" alt="auto complete" /><figcaption>auto complete</figcaption>
+</figure>
+<h2 id="installation">Installation</h2>
+<p>Launch VS Code Quick Open (⌘+P), paste the following command, and press enter.</p>
+<pre><code>ext install node-module-intellisense</code></pre>
+<p>View detail on <a href="https://marketplace.visualstudio.com/items?itemName=leizongmin.node-module-intellisense">Visual Studio Code Marketplace</a></p>
+<h2 id="issues-contribution">Issues &amp; Contribution</h2>
+<p>If there is any bug, create a pull request or an issue please. <a href="https://github.com/leizongmin/vscode-node-module-intellisense">Github</a></p>
+<h2 id="configuration">Configuration</h2>
+<p>Node.js Module Intellisense scans builtin modules, dependencies, devDependencies and file modules by default. Set scanBuiltinModules, scanDevDependencies and scanFileModules to false to disable it.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">    <span class="co">// Scans builtin modules as well</span></a>
+<a class="sourceLine" id="cb2-3" title="3">  <span class="st">&quot;node-module-intellisense.scanBuiltinModules&quot;</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-4" title="4"></a>
+<a class="sourceLine" id="cb2-5" title="5">  <span class="co">// Scans devDependencies as well</span></a>
+<a class="sourceLine" id="cb2-6" title="6">  <span class="st">&quot;node-module-intellisense.scanDevDependencies&quot;</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-7" title="7"></a>
+<a class="sourceLine" id="cb2-8" title="8">  <span class="co">// Scans file modules as well</span></a>
+<a class="sourceLine" id="cb2-9" title="9">  <span class="st">&quot;node-module-intellisense.scanFileModules&quot;</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-10" title="10"></a>
+<a class="sourceLine" id="cb2-11" title="11">  <span class="co">/**</span></a>
+<a class="sourceLine" id="cb2-12" title="12"><span class="co">   * Scans alternative module paths (eg. Search on ${workspcaceRoot}/lib).</span></a>
+<a class="sourceLine" id="cb2-13" title="13"><span class="co">   * Useful when using packages like (https://www.npmjs.com/package/app-module-path) to manage require paths folder.</span></a>
+<a class="sourceLine" id="cb2-14" title="14"><span class="co">   **/</span></a>
+<a class="sourceLine" id="cb2-15" title="15">  <span class="st">&quot;node-module-intellisense.modulePaths&quot;</span><span class="op">:</span> []<span class="op">,</span></a>
+<a class="sourceLine" id="cb2-16" title="16"></a>
+<a class="sourceLine" id="cb2-17" title="17">  <span class="co">// File module extensions</span></a>
+<a class="sourceLine" id="cb2-18" title="18">  <span class="st">&quot;node-module-intellisense.fileModuleExtensions&quot;</span><span class="op">:</span> [</a>
+<a class="sourceLine" id="cb2-19" title="19">    <span class="st">&quot;.js&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-20" title="20">    <span class="st">&quot;.jsx&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-21" title="21">    <span class="st">&quot;.ts&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-22" title="22">    <span class="st">&quot;.d.ts&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-23" title="23">    <span class="st">&quot;.tsx&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-24" title="24">    <span class="st">&quot;.vue&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-25" title="25">    <span class="st">&quot;.json&quot;</span></a>
+<a class="sourceLine" id="cb2-26" title="26">  ]<span class="op">,</span></a>
+<a class="sourceLine" id="cb2-27" title="27"><span class="op">}</span></a></code></pre></div>
+<h2 id="changelog">Changelog</h2>
+<ul>
+<li>v1.5.0 - Updates:
+<ul>
+<li>Fix issue <a href="https://github.com/leizongmin/vscode-node-module-intellisense/issues/10">#10</a> Add ability to resolve <code>@scoped/packages</code> subdirectories</li>
+<li>Support all file extensions</li>
+</ul></li>
+<li>v1.4.0 - Support for scans alternative module paths (useful when using packages like (https://www.npmjs.com/package/app-module-path) to manage require paths folder)</li>
+<li>v1.3.0 - Fix problem when open a single file (not in workspace)</li>
+<li>v1.2.0 - Add support for package sub path such as <code>ts-node/register</code> (issue #4)</li>
+<li>v1.1.0 - Fix some problem:
+<ul>
+<li>Support <code>export ... from ...</code> statement (issue #1)</li>
+<li>Add support for TypeScript <code>/// &lt;reference...</code> comment (issue #2)</li>
+<li>Fix TypeScript <code>.d.ts</code> file problem (issue #3)</li>
+</ul></li>
+<li>v1.0.4 - Support language <code>HTML</code></li>
+<li>v1.0.2 - Support custom file module extension name, add <code>.vue</code> and <code>.json</code> to default</li>
+<li>v1.0.1 - Fix <code>.vscodeignore</code></li>
+<li>v1.0.0 - Initial release</li>
+</ul>
+<h2 id="license">License</h2>
+<pre><code>MIT License
+
+Copyright (c) 2016 Zongmin Lei &lt;leizongmin@gmail.com&gt;
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</code></pre>

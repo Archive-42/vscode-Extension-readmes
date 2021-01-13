@@ -1,0 +1,71 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="hyperterm-theme">HyperTerm Theme</h1>
+<p>Dark Theme inspired by the simple beautiful design of Hyper Term and Dark++ Italic font ligatures.</p>
+<h2 id="recommended-for-best-experience">Recommended for best experience</h2>
+<p>Use <a href="https://github.com/be5invis/vscode-custom-css">Custom CSS and JS Loader</a> and a font with programming ligature support. <a href="https://github.com/ryanoasis/nerd-fonts">Nerd Fonts</a> has a collection of fonts that have been patched with ligatures they also provide a script which can patch any font.</p>
+<p>Dank Mono patched with Nerd Fonts + Operator Mono set with Custom CSS and JS Loader is used in the example below.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><img src="https://github.com/rubyjasmin/vscode-hyperterm-theme/raw/master/example.png" alt="Example Code" /></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<figure>
+<img src="https://github.com/rubyjasmin/vscode-hyperterm-theme/raw/master/screenshot.png" alt="Theme Screenshot" /><figcaption>Theme Screenshot</figcaption>
+</figure>
+<h2 id="theme-installation">Theme installation</h2>
+<p>In VScode press <code>ctrl(⌘) + p</code> to launch the command palette then run command:</p>
+<pre class="vscode"><code>ext install rubyjasmin.hyperterm-theme</code></pre>
+<p>Then press <code>ctrl(⌘) + k, then press ctrl(⌘) + t</code>, you will see a theme selection interface. Choose ‘Hyper Term Theme'.</p>
+<h2 id="adding-patched-fonts-like-dankmono-nerd-font-operator-mono">Adding patched fonts like <strong>DankMono Nerd Font + Operator Mono</strong></h2>
+<h3 id="important-every-major-update-to-vscode-you-will-need-to-re-enable-custom-css-and-js"><strong>IMPORTANT: Every major update to VSCode you will need to re-enable Custom CSS and JS</strong></h3>
+<ol type="1">
+<li>Install <a href="https://github.com/be5invis/vscode-custom-css">Custom CSS and JS Loader</a></li>
+<li>Choose a patched font from <a href="https://github.com/ryanoasis/nerd-fonts">Nerd Fonts</a> or use the Font Patcher to patch any font of your choosing.</li>
+<li><p>In VScode press <code>ctrl(⌘) + ,</code> to open <code>User Settings</code> then add the following options and save changes.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  ...</a>
+<a class="sourceLine" id="cb2-3" title="3">  <span class="st">&quot;editor.fontFamily&quot;</span><span class="op">:</span> <span class="st">&quot;DankMono Nerd Font, FuraCode Nerd Font Mono&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-4" title="4">  <span class="st">&quot;editor.fontLigatures&quot;</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-5" title="5">  ...</a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="op">}</span></a></code></pre></div></li>
+<li><p><em>(optional step)</em> Add the following to the css file you created for Custom CSS and JS Loader:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb3-1" title="1">  <span class="fu">.mtki</span> {</a>
+<a class="sourceLine" id="cb3-2" title="2">    <span class="kw">font-family</span>: Operator Mono<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-3" title="3">    <span class="kw">font-size</span>: <span class="dv">1</span><span class="dt">em</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb3-4" title="4">    <span class="kw">font-stretch</span>: <span class="dv">ultra-condensed</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb3-5" title="5">  }</a>
+<a class="sourceLine" id="cb3-6" title="6"></a>
+<a class="sourceLine" id="cb3-7" title="7">  <span class="fu">.sidebar</span> {</a>
+<a class="sourceLine" id="cb3-8" title="8">    <span class="kw">border-top</span>: <span class="dv">1</span><span class="dt">px</span> <span class="dv">solid</span> <span class="fu">rgb(</span><span class="dv">37</span><span class="op">,</span> <span class="dv">37</span><span class="op">,</span> <span class="dv">38</span><span class="fu">)</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb3-9" title="9">  }</a></code></pre></div></li>
+<li><p>Reload Custom CSS and JS Loader.</p></li>
+</ol>
+<h2 id="change-log">Change log</h2>
+<p>See <a href="https://github.com/rubyjasmin/vscode-hyperterm-theme/blob/master/CHANGELOG.md">changelog.md</a></p>
+<h2 id="thanks-to">Thanks to</h2>
+<ul>
+<li><span class="citation" data-cites="idbartosz">@idbartosz</span> for <a href="https://github.com/idbartosz/vscode-darkpp-italic">Dark++ Italic</a> "Enhanced VScode Dark+ theme"</li>
+<li><span class="citation" data-cites="ryanoasis">@ryanoasis</span> for <a href="https://github.com/ryanoasis/nerd-fonts">Nerd Fonts</a> "Iconic font aggregator, collection, &amp; patcher. 3,600+ icons, 50+ patched fonts"</li>
+<li>And of course <a href="https://hyper.is">Hyper Term!</a></li>
+</ul>

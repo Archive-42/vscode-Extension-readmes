@@ -1,0 +1,309 @@
+<p><a href="https://github.com/Wscats/compile-hero"><img src="https://img.shields.io/badge/Github Page-Wscats-yellow" alt="Github Page" /></a> <a href="https://github.com/Wscats"><img src="https://img.shields.io/badge/Author-Eno Yao-blueviolet" alt="Eno Yao" /></a> <img src="https://vsmarketplacebadge.apphb.com/version-short/wscats.eno.svg?color=blue&amp;style=flat-square" alt="badge version" /> <img src="https://vsmarketplacebadge.apphb.com/installs-short/wscats.eno.svg?color=brightgreen&amp;style=flat-square" alt="badge install" /></p>
+<p><a href="https://github.com/Wscats/compile-hero/blob/master/README.md">English</a> | <a href="https://gitee.com/wscats/compile-hero/blob/master/README.CN.md">中文</a></p>
+<h1 id="features">Features</h1>
+<!-- Easily work with `less, sass, scss, stylus, typescript, jade, pug and jsx` files in Visual Studio Code. -->
+<blockquote>
+<p>1.Open the <code>less, sass, scss, styl, ts, tsx, jade, pug or js</code> file.</p>
+</blockquote>
+<blockquote>
+<p>2.<code>Compile Hero: On/Off</code> will appear in the status bar at the bottom right corner, please turn on the <code>Compile Hero: On</code> switch when using ↓</p>
+</blockquote>
+<!-- ![9](https://user-images.githubusercontent.com/17243165/100497845-f3341980-3198-11eb-83bc-c551e17b0b84.png) -->
+<figure>
+<img src="https://user-images.githubusercontent.com/17243165/103136646-1cdf5280-46fd-11eb-94a3-f78534835427.png" alt="11" /><figcaption>11</figcaption>
+</figure>
+<blockquote>
+<p>3.Compile on save <code>(ctrl+s)</code> ↓</p>
+</blockquote>
+<p>Or select <code>Compile Files</code> on right-click menu item, it will automatically compile the files to the <code>dist</code> directory.</p>
+<!-- for `less, sass, scss, stylus, typescript, jade, pug and jsx` files without using a build task. -->
+<p><img src="https://user-images.githubusercontent.com/17243165/100497832-e1eb0d00-3198-11eb-967e-78d6736e5b6e.gif" alt="1" /> <img src="https://user-images.githubusercontent.com/17243165/100497822-d7307800-3198-11eb-9a06-7b96c0862767.gif" alt="3" /></p>
+<p>You can also select part of the code and use the <code>Compile Selected</code> menu item or shortcut key <code>(ctrl+shift+s)</code> to perform partial compilation of the code block.</p>
+<figure>
+<img src="https://user-images.githubusercontent.com/17243165/100497811-c253e480-3198-11eb-894d-e0b28d84905a.gif" alt="10" /><figcaption>10</figcaption>
+</figure>
+<blockquote>
+<p>4.Beautify on save <code>(alt+shift+f)</code> or select <code>Format Document</code> on right-click menu item for <code>javascript, json, css, sass and html</code>.</p>
+</blockquote>
+<figure>
+<img src="https://user-images.githubusercontent.com/17243165/100497793-ae0fe780-3198-11eb-8b69-9c621a0cc9c6.gif" alt="8" /><figcaption>8</figcaption>
+</figure>
+<ul>
+<li>Compile <code>less, sass, scss, stylus, typescript, typescriptreact, jade, pug and javascript</code> on save.</li>
+<li>Support autoprefixer for <code>less, scss, scss</code>.</li>
+<li>Support to open <code>html</code> files to preview in browser.</li>
+<li>minify <code>javascript</code> and <code>css</code> files.</li>
+<li>Beautify <code>javascript</code>, <code>json</code>, <code>css</code>, <code>sass</code>, and <code>html</code>.</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>Before Compile</th>
+<th>After Compile</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>.pug</td>
+<td>.html</td>
+</tr>
+<tr class="even">
+<td>.jade</td>
+<td>.html</td>
+</tr>
+<tr class="odd">
+<td>.scss(sass)</td>
+<td>.css</td>
+</tr>
+<tr class="even">
+<td>.less</td>
+<td>.css</td>
+</tr>
+<tr class="odd">
+<td>.styl</td>
+<td>.css</td>
+</tr>
+<tr class="even">
+<td>.ts/.tsx</td>
+<td>.js(JSX)</td>
+</tr>
+<tr class="odd">
+<td>.js(ES6)</td>
+<td>.js(ES5)</td>
+</tr>
+</tbody>
+</table>
+<p>Easy to use. When you writing a file, press save <code>ctrl+s</code> to generate the compiled file in the same directory. I hope you can get rid of the constraint of <code>gulp</code> or <code>webpack</code>😁</p>
+<h1 id="extension-settings">Extension Settings</h1>
+<p>Click to open the extension management interface <code>Configure Extension Settings</code>.</p>
+<figure>
+<img src="https://user-images.githubusercontent.com/17243165/100497777-92a4dc80-3198-11eb-86cf-e2dda4b4967f.gif" alt="5" /><figcaption>5</figcaption>
+</figure>
+<ul>
+<li>You can change the output path of the project compilation directory.</li>
+<li>Toggle the compile switch of different language.</li>
+<li>Or disable automatic compilation on save <code>(ctrl+s)</code>.</li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 85%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Whether the configuration is automatically compiled after saving<code>(ctrl+s)</code></th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>disable-compile-files-on-did-save-code</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<figure>
+<img src="https://user-images.githubusercontent.com/17243165/100497765-81f46680-3198-11eb-9597-bbcdc1e7726e.gif" alt="7" /><figcaption>7</figcaption>
+</figure>
+<table>
+<thead>
+<tr class="header">
+<th>Switch to control the notification</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>notification-toggle</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 82%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Switch to control compilation and formatting of specific files</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ignore</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th>Output Path Configuration</th>
+<th>Default Value</th>
+<th>Compile Switch Status</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>javascript-output-directory</td>
+<td>./dist</td>
+<td>javascript-output-toggle</td>
+<td>true</td>
+</tr>
+<tr class="even">
+<td>sass-output-directory</td>
+<td>./dist</td>
+<td>sass-output-toggle</td>
+<td>true</td>
+</tr>
+<tr class="odd">
+<td>scss-output-directory</td>
+<td>./dist</td>
+<td>scss-output-toggle</td>
+<td>true</td>
+</tr>
+<tr class="even">
+<td>less-output-directory</td>
+<td>./dist</td>
+<td>less-output-toggle</td>
+<td>true</td>
+</tr>
+<tr class="odd">
+<td>jade-output-directory</td>
+<td>./dist</td>
+<td>jade-output-toggle</td>
+<td>true</td>
+</tr>
+<tr class="even">
+<td>typescript-output-directory</td>
+<td>./dist</td>
+<td>typescript-output-toggle</td>
+<td>true</td>
+</tr>
+<tr class="odd">
+<td>typescriptx-output-directory</td>
+<td>./dist</td>
+<td>typescriptx-output-toggle</td>
+<td>true</td>
+</tr>
+<tr class="even">
+<td>pug-output-directory</td>
+<td>./dist</td>
+<td>pug-output-toggle</td>
+<td>true</td>
+</tr>
+<tr class="odd">
+<td>stylus-output-directory</td>
+<td>./dist</td>
+<td>stylus-output-toggle</td>
+<td>true</td>
+</tr>
+<tr class="even">
+<td>generate-minified-html</td>
+<td>false</td>
+<td>generate-minified-html-only</td>
+<td>false</td>
+</tr>
+<tr class="odd">
+<td>generate-minified-css</td>
+<td>false</td>
+<td>generate-minified-css-only</td>
+<td>false</td>
+</tr>
+<tr class="even">
+<td>generate-minified-javascript</td>
+<td>false</td>
+<td>generate-minified-javascript-only</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<h2 id="using-settings.json">Using <code>settings.json</code></h2>
+<p>Advanced Extension Settings:</p>
+<ul>
+<li>Project-wide settings are configured using the standard <code>settings.json</code> file (i.e. Workspace Settings).</li>
+<li><code>settings.json</code> must exist in the .vscode directory at the root level of your project.</li>
+<li>Alternatively, settings can go in User Settings for global defaults.</li>
+<li>Use the <code>compile-hero</code> key.</li>
+<li>Prohibit partial compilation and formatting of specific files <code>compile-hero.ignore</code>.</li>
+<li>Use <code>compile-hero.watch</code> to monitor partial files - You can turn this on -&gt; <code>Compile Hero: On</code> when using.</li>
+</ul>
+<p>Here Example <code>settings.json</code> file:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="dt">&quot;compile-hero&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="dt">&quot;disable-compile-files-on-did-save-code&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-4" title="4">    <span class="dt">&quot;notification-toggle&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-5" title="5">    <span class="dt">&quot;javascript-output-directory&quot;</span><span class="fu">:</span> <span class="st">&quot;./out&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-6" title="6">    <span class="dt">&quot;javascript-output-toggle&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-7" title="7">    <span class="dt">&quot;sass-output-directory&quot;</span><span class="fu">:</span> <span class="st">&quot;./out&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-8" title="8">    <span class="dt">&quot;sass-output-toggle&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-9" title="9">    <span class="dt">&quot;ignore&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;src/test.js&quot;</span><span class="ot">,</span> <span class="st">&quot;*/test.scss&quot;</span><span class="ot">,</span> <span class="st">&quot;**/spec/*&quot;</span><span class="ot">,</span> <span class="st">&quot;**/src/**/*&quot;</span><span class="ot">]</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-10" title="10">    <span class="dt">&quot;watch&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;sass/test.sass&quot;</span><span class="ot">,</span> <span class="st">&quot;**/less/**/*&quot;</span><span class="ot">]</span></a>
+<a class="sourceLine" id="cb1-11" title="11">  <span class="fu">}</span></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="fu">}</span></a></code></pre></div>
+<h2 id="using-tsconfig.json">Using <code>tsconfig.json</code></h2>
+<p>If you want to add or overwrite certain settings in the <code>tsconfig.json</code> file, you can create a new <code>tsconfig.json</code> in the same directory of your <code>.ts</code> file.</p>
+<p>Here Example <code>tsconfig.json</code> file:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb2-1" title="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="dt">&quot;compilerOptions&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb2-3" title="3">    <span class="dt">&quot;alwaysStrict&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-4" title="4">    <span class="dt">&quot;importHelpers&quot;</span><span class="fu">:</span> <span class="kw">false</span></a>
+<a class="sourceLine" id="cb2-5" title="5">  <span class="fu">}</span></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="fu">}</span></a></code></pre></div>
+<h1 id="open-in-browser">Open In Browser</h1>
+<p>Right click the <code>html</code> file in the directory menu, and the <code>open in browser</code> option will appear. You can preview the page in the browser.</p>
+<figure>
+<img src="https://user-images.githubusercontent.com/17243165/100497736-596c6c80-3198-11eb-8bac-3006d381b7a2.gif" alt="2" /><figcaption>2</figcaption>
+</figure>
+<h1 id="compile-file-menu-item">Compile File Menu Item</h1>
+<p>Sometimes you may not need to automatically compile the file every time you save the file, at this time you can disable the automatic compilation. And use the <code>Compile File(s)</code> menu item to replace.</p>
+<figure>
+<img src="https://user-images.githubusercontent.com/17243165/100497686-1611fe00-3198-11eb-9b9c-9142901ac2dc.gif" alt="6" /><figcaption>6</figcaption>
+</figure>
+<h1 id="close-port-commandmac">Close Port Command(MAC)</h1>
+<p>At some point, you may be using ports for some services. You can use the <code>Close Port</code> command to close, but now only supported on mac.</p>
+<figure>
+<img src="https://user-images.githubusercontent.com/17243165/100497713-422d7f00-3198-11eb-8e63-53573a71e62b.gif" alt="4" /><figcaption>4</figcaption>
+</figure>
+<h1 id="thanks">Thanks</h1>
+<!-- <details><summary><b>Tencent Alloyteam Team && Qian Feng Team</b></summary> -->
+<p>👪 Tencent Alloyteam Team And Qian Feng Team：</p>
+<table>
+<thead>
+<tr class="header">
+<th><a href="https://github.com/Wscats"><img src="https://avatars1.githubusercontent.com/u/17243165?s=460&v=4" width="60px;"/><br /><sub>Eno Yao</sub></a></th>
+<th><a href="https://github.com/aaron-xie"><img src="https://avatars2.githubusercontent.com/u/5805270?s=460&v=4" width="60px;"/><br /><sub>Aaron Xie</sub></a></th>
+<th><a href="https://github.com/dk-lan"><img src="https://avatars3.githubusercontent.com/u/12515367?s=460&v=4" width="60px;"/><br /><sub>DK Lan</sub></a></th>
+<th><a href="https://github.com/flowerField"><img src="https://avatars1.githubusercontent.com/u/30917929?s=460&v=4" width="60px;"/><br /><sub>Yong</sub></a></th>
+<th><a href="https://github.com/Liting1"><img src="https://avatars3.githubusercontent.com/u/33544236?s=460&v=4" width="60px;"/><br /><sub>Li Ting</sub></a></th>
+<th><img src="https://avatars2.githubusercontent.com/u/50255537?s=400&u=cfd51a5f46862d14e92e032a5b7ec073b67a904b&v=4" width="60px;"/><br /><sub>Xin</sub></th>
+<th><a href="https://github.com/lemonyyye"><img src="https://avatars0.githubusercontent.com/u/39754159?s=400&v=4" width="60px;"/><br /><sub>Lemon</sub></a></th>
+<th><a href="https://github.com/vickySC"><img src="https://avatars3.githubusercontent.com/u/31915459?s=400&u=11ea9bc9baa62784208a29dddcd0a77789e9620f&v=4" width="60px;"/><br /><sub>Jing</sub></a></th>
+<th><a href="https://github.com/shirley3790"><img src="https://avatars2.githubusercontent.com/u/24653988?s=400&u=76227871dea8d4b57162093fde63b7d52910145d&v=4" width="60px;"/><br /><sub>Lin</sub></a></th>
+<th><a href="https://github.com/tiantengfly"><img src="https://avatars2.githubusercontent.com/u/23230108?s=460&v=4" width="60px;"/><br /><sub>Tian Fly</sub></a></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<!-- If you enjoy front end, you should have it! Xie, Yao, Yong, Ting, Jing, Lin, Tian, Xin, Xia, DK and Lemon, thanks to my team for their efforts ~ Waiting for you in our heart！ -->
+<!-- </details> -->
+<p>If you think it's useful, hope you can leave us a <a href="https://marketplace.visualstudio.com/items?itemName=Wscats.eno&amp;ssr=false#review-details">message and like it</a>💝, your support is our driving force😀</p>
+<!-- # Inspired By -->
+<!-- I will translate some previous articles one after another in the future, you can read it if you are interested: -->
+<!-- <details><summary><b>I will translate some previous articles one after another in the future, you can read it if you are interested.</b></summary>
+
+- [How do I use the simplest front end technology to reveal the principles behind those gray industries](https://github.com/Wscats/articles/issues/91)
+- [How do I use front-end technology to get the VIP of XXOO website](https://github.com/Wscats/articles/issues/62)
+- [How do I realize the WeChat mini game jump one jump plugin](https://github.com/Wscats/wechat-jump-game)
+- ...
+</details> -->
+<h1 id="license">License</h1>
+<p>Compile Hero is released under the <a href="http://opensource.org/licenses/MIT">MIT</a>.</p>
+<!-- ![badge rate](https://vsmarketplacebadge.apphb.com/rating-short/wscats.eno.svg?color=red&style=flat-square) -->
+<!-- ![badge download](https://vsmarketplacebadge.apphb.com/downloads-short/wscats.eno.svg?color=orange&style=flat-square) -->
+<!-- <a href="https://marketplace.visualstudio.com/items?itemName=Wscats.eno"><img src="https://img.shields.io/badge/Macketplace-v2.00-brightgreen" alt="Macketplace" /></a> -->
+<!-- <a href="https://marketplace.visualstudio.com/items?itemName=Wscats.eno"><img src="https://img.shields.io/badge/Download-3M+-orange" alt="Download" /></a> -->

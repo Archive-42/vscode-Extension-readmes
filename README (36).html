@@ -1,0 +1,110 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="visual-studio-code-remote---containers">Visual Studio Code Remote - Containers</h1>
+<p>The <strong>Remote - Containers</strong> extension lets you use a <a href="https://docker.com">Docker container</a> as a full-featured development environment. Whether you deploy to containers or not, containers make a great development environment because you can:</p>
+<ul>
+<li>Develop with a consistent, easily reproducible toolchain on the same operating system you deploy to.</li>
+<li>Quickly swap between different, isolated development environments and safely make updates without worrying about impacting your local machine.</li>
+<li>Make it easy for new team members / contributors to get up and running in a consistent development environment.</li>
+<li>Try out new technologies or clone a copy of a code base without impacting your local setup.</li>
+</ul>
+<p>The extension starts (or attaches to) a development container running a well defined tool and runtime stack. Workspace files can be mounted into the container from the local file system, or copied or cloned into it once the container is running. Extensions are installed and run inside the container where they have full access to the tools, platform, and file system.</p>
+<p>You then work with VS Code as if everything were running locally on your machine, except now they are isolated inside a container.</p>
+<figure>
+<img src="https://microsoft.github.io/vscode-remote-release/images/remote-containers-readme.gif" alt="Remote Dev Container" /><figcaption>Remote Dev Container</figcaption>
+</figure>
+<h2 id="system-requirements">System Requirements</h2>
+<p><strong>Local:</strong></p>
+<ul>
+<li><strong>Windows:</strong> <a href="https://www.docker.com/products/docker-desktop">Docker Desktop</a> 2.0+ on Windows 10 Pro/Enterprise. Windows 10 Home (2004+) requires Docker Desktop 2.2+ and the <a href="https://aka.ms/vscode-remote/containers/docker-wsl2">WSL2 back-end</a>. (Docker Toolbox is not supported.)</li>
+<li><strong>macOS</strong>: <a href="https://www.docker.com/products/docker-desktop">Docker Desktop</a> 2.0+.</li>
+<li><strong>Linux</strong>: <a href="https://docs.docker.com/install/#supported-platforms">Docker CE/EE</a> 18.06+ and <a href="https://docs.docker.com/compose/install">Docker Compose</a> 1.21+. (The Ubuntu snap package is not supported.)</li>
+</ul>
+<p><strong>Containers</strong>:</p>
+<ul>
+<li>x86_64 / ARMv7l (AArch32) / ARMv8l (AArch64) Debian 9+, Ubuntu 16.04+, CentOS / RHEL 7+</li>
+<li>x86_64 Alpine Linux 3.9+</li>
+</ul>
+<p>Other <code>glibc</code> based Linux containers may work if they have <a href="https://aka.ms/vscode-remote/linux">needed prerequisites</a>.</p>
+<p>While ARMv7l (AArch32), ARMv8l (AArch64), and <code>musl</code> based Alpine Linux support is available, some extensions installed on these devices may not work due to the use of <code>glibc</code> or <code>x86</code> compiled native code in the extension. See the <a href="https://aka.ms/vscode-remote/linux">Remote Development with Linux</a> article for details.</p>
+<p>Note that while the Docker CLI is required, the Docker daemon/service does not need to be running locally if you are <a href="https://aka.ms/vscode-remote/containers/remote-host">using a remote Docker host</a>.</p>
+<h2 id="installation">Installation</h2>
+<p>To get started, follow these steps:</p>
+<ol type="1">
+<li><p>Install <a href="https://code.visualstudio.com/">VS Code</a> or <a href="https://code.visualstudio.com/insiders/">VS Code Insiders</a> and this extension.</p></li>
+<li><p>Install and configure <a href="https://www.docker.com/get-started">Docker</a> for your operating system.</p>
+<strong>Windows / macOS:</strong>
+<ol type="1">
+<li>Install <a href="https://www.docker.com/products/docker-desktop">Docker Desktop for Mac/Windows</a>.</li>
+<li>If not using WSL2 on Windows, right-click on the Docker task bar item, select <strong>Settings / Preferences</strong> and update <strong>Resources &gt; File Sharing</strong> with any locations your source code is kept. See <a href="https://aka.ms/vscode-remote/containers/troubleshooting">tips and tricks</a> for troubleshooting.</li>
+<li>To enable the <a href="https://aka.ms/vscode-remote/containers/docker-wsl2">Windows WSL2 back-end</a>: Right-click on the Docker taskbar item and select <strong>Settings</strong>. Check <strong>Use the WSL2 based engine</strong> and verify your distribution is enabled under <strong>Resources &gt; WSL Integration</strong>.</li>
+</ol>
+<strong>Linux:</strong>
+<ol type="1">
+<li>Follow the <a href="https://docs.docker.com/install/#supported-platforms">official install instructions for Docker CE/EE</a>. If you use Docker Compose, follow the <a href="https://docs.docker.com/compose/install/">Docker Compose install directions</a>.</li>
+<li>Add your user to the <code>docker</code> group by using a terminal to run: <code>sudo usermod -aG docker $USER</code> Sign out and back in again so this setting takes effect.</li>
+</ol></li>
+</ol>
+<p><strong>Working with Git?</strong> Here are two tips to consider:</p>
+<ul>
+<li>If you are working with the same repository folder in a container and Windows, be sure to set up consistent line endings. See <a href="https://aka.ms/vscode-remote/containers/troubleshooting/crlf">tips and tricks</a> to learn how.</li>
+<li>If you clone using a Git credential manager, your container should already have access to your credentials! If you use SSH keys, you can also opt-in to sharing them. See <a href="https://aka.ms/vscode-remote/containers/git">Sharing Git credentials with your container</a> for details.</li>
+</ul>
+<h2 id="getting-started">Getting started</h2>
+<p><strong><a href="https://aka.ms/vscode-remote/containers/tutorial-sandbox">Follow the step-by-step tutorial</a></strong> or if you are comfortable with Docker, follow these four steps:</p>
+<ol type="1">
+<li>Follow the installation steps above.</li>
+<li>Clone <code>https://github.com/Microsoft/vscode-remote-try-node</code> locally.</li>
+<li>Start VS Code</li>
+<li>Run the <strong>Remote-Containers: Open Folder in Container…</strong> command and select the local folder.</li>
+</ol>
+<p>Check out the <a href="https://github.com/Microsoft/vscode-remote-try-node">repository README</a> for things to try. Next, learn how you can:</p>
+<ul>
+<li><a href="https://aka.ms/vscode-remote/containers/getting-started/open">Use a container as your full-time environment</a> - Open an existing folder in a container for use as your full-time development environment in few easy steps. Works with both container and non-container deployed projects.</li>
+<li><a href="https://aka.ms/vscode-remote/containers/getting-started/attach">Attach to a running container</a> - Attach to a running container for quick edits, debugging, and triaging.</li>
+<li><a href="https://aka.ms/vscode-remote/containers/remote-host">Advanced: Use a remote Docker host</a> - Once you know the basics, learn how to use a remote Docker host if needed.</li>
+</ul>
+<h2 id="available-commands">Available commands</h2>
+<p>Another way to learn what you can do with the extension is to browse the commands it provides. Press <code>F1</code> to bring up the Command Palette and type in <code>Remote-Containers</code> for a full list of commands.</p>
+<figure>
+<img src="https://microsoft.github.io/vscode-remote-release/images/remote-command-palette.png" alt="Command palette" /><figcaption>Command palette</figcaption>
+</figure>
+<p>You can also click on the Remote "Quick Access" status bar item to get a list of the most common commands.</p>
+<figure>
+<img src="https://microsoft.github.io/vscode-remote-release/images/remote-dev-status-bar.png" alt="Quick actions status bar item" /><figcaption>Quick actions status bar item</figcaption>
+</figure>
+<p>For more information, please see the <a href="https://aka.ms/vscode-remote/containers">extension documentation</a>.</p>
+<h2 id="release-notes">Release Notes</h2>
+<p>While an optional install, this extension releases with VS Code. <a href="https://code.visualstudio.com/updates/">VS Code release notes</a> include a summary of changes to all three Remote Development extensions with a link to <a href="https://github.com/microsoft/vscode-docs/tree/master/remote-release-notes">detailed release notes</a>.</p>
+<p>As with VS Code itself, the extensions update during a development iteration with changes that are only available in <a href="https://code.visualstudio.com/insiders/">VS Code Insiders Edition</a>.</p>
+<h2 id="questions-feedback-contributing">Questions, Feedback, Contributing</h2>
+<p>Have a question or feedback?</p>
+<ul>
+<li>See the <a href="https://aka.ms/vscode-remote">documentation</a> or the <a href="https://aka.ms/vscode-remote/troubleshooting">troubleshooting guide</a>.</li>
+<li><a href="https://aka.ms/vscode-remote/feature-requests">Up-vote a feature or request a new one</a>, search <a href="https://aka.ms/vscode-remote/issues">existing issues</a>, or <a href="https://aka.ms/vscode-remote/issues/new">report a problem</a>.</li>
+<li>Contribute a <a href="https://aka.ms/vscode-dev-containers">development container definition</a> for others to use</li>
+<li>Contribute to <a href="https://github.com/Microsoft/vscode-docs">our documentation</a></li>
+<li>…and more. See our <a href="https://aka.ms/vscode-remote/contributing">CONTRIBUTING</a> guide for details.</li>
+</ul>
+<p>Or connect with the community…</p>
+<p><a href="https://aka.ms/vscode-remote/twitter"><img src="https://microsoft.github.io/vscode-remote-release/images/Twitter_Social_Icon_24x24.png" alt="Twitter" /></a> <a href="https://stackoverflow.com/questions/tagged/vscode"><img src="https://microsoft.github.io/vscode-remote-release/images/so-image-24x24.png" alt="Stack Overflow" /></a> <a href="https://aka.ms/vscode-dev-community"><img src="https://microsoft.github.io/vscode-remote-release/images/Slack_Mark-24x24.png" alt="VS Code Dev Community Slack" /></a> <a href="https://gitter.im/Microsoft/vscode"><img src="https://microsoft.github.io/vscode-remote-release/images/gitter-icon-24x24.png" alt="VS CodeGitter" /></a></p>
+<h2 id="telemetry">Telemetry</h2>
+<p>Visual Studio Code Remote - Containers and related extensions collect telemetry data to help us build a better experience working remotely from VS Code. We only collect data on which commands are executed. We do not collect any information about image names, paths, etc. The extension respects the <code>telemetry.enableTelemetry</code> setting which you can learn more about in the <a href="https://aka.ms/vscode-remote/telemetry">Visual Studio Code FAQ</a>.</p>
+<h2 id="license">License</h2>
+<p>By downloading and using the Visual Studio Remote - Containers extension and its related components, you agree to the product <a href="https://go.microsoft.com/fwlink/?linkid=2077057">license terms</a> and <a href="https://www.microsoft.com/en-us/privacystatement/EnterpriseDev/default.aspx">privacy statement</a>.</p>

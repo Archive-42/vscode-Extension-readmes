@@ -1,0 +1,108 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="java-debugger-deprecated">Java Debugger (Deprecated)</h1>
+<p>This extension is no longer maintained. It has been deprecated in favor of <a href="https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug">Java Debug Extension for Visual Studio Code</a></p>
+<p>Big thanks to <a href="https://github.com/faustinoaq">Faustino Aguilar</a> for his continued effort in maintaining this extension.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/DonJayamanne/javaVSCode/master/images/icon.png" alt="java-debugger" /><figcaption>java-debugger</figcaption>
+</figure>
+<p>Java debugger extension for VSCode with support for debugging Local variables, arguments, stack trace, step through, partial support for JavaFX, expanding values (Objects, Arrays) etc.</p>
+<h2 id="requirements">Requirements</h2>
+<blockquote>
+<p>NOTE: Path to JDK is configured in launch.json</p>
+</blockquote>
+<ul>
+<li>JDK is installed (version 1.7.0 and later)</li>
+</ul>
+<p>Once installed, do remember to configure the JDK Path (in launch.json, else jdk path is assumed to be in the current path)</p>
+<p><strong>Ensure to compile the source code with debug symbols.</strong></p>
+<p>Debug info is needed to compile your code with debugging support, allowing to see variables value</p>
+<figure>
+<img src="https://raw.githubusercontent.com/DonJayamanne/javaVSCode/master/images/variables.png" alt="variables" /><figcaption>variables</figcaption>
+</figure>
+<p>You can configure the <code>tasks.json</code> file as follows and use run the build task. see <code>-g</code> flag in command.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="dt">&quot;version&quot;</span><span class="fu">:</span> <span class="st">&quot;2.0.0&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="dt">&quot;tasks&quot;</span><span class="fu">:</span> <span class="ot">[</span></a>
+<a class="sourceLine" id="cb1-4" title="4">        <span class="fu">{</span></a>
+<a class="sourceLine" id="cb1-5" title="5">            <span class="dt">&quot;taskName&quot;</span><span class="fu">:</span> <span class="st">&quot;Compile Java&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-6" title="6">            <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;shell&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-7" title="7">            <span class="dt">&quot;command&quot;</span><span class="fu">:</span> <span class="st">&quot;javac -g ${file}&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-8" title="8">            <span class="dt">&quot;group&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb1-9" title="9">                <span class="dt">&quot;kind&quot;</span><span class="fu">:</span> <span class="st">&quot;build&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-10" title="10">                <span class="dt">&quot;isDefault&quot;</span><span class="fu">:</span> <span class="kw">true</span></a>
+<a class="sourceLine" id="cb1-11" title="11">            <span class="fu">}</span></a>
+<a class="sourceLine" id="cb1-12" title="12">        <span class="fu">}</span></a>
+<a class="sourceLine" id="cb1-13" title="13">    <span class="ot">]</span></a>
+<a class="sourceLine" id="cb1-14" title="14"><span class="fu">}</span></a></code></pre></div>
+<p>Then you need to add a launch configuration (<code>launch.json</code>):</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">    <span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;Java&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-3" title="3">    <span class="st">&quot;type&quot;</span><span class="op">:</span> <span class="st">&quot;java&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-4" title="4">    <span class="st">&quot;request&quot;</span><span class="op">:</span> <span class="st">&quot;launch&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-5" title="5">    <span class="st">&quot;stopOnEntry&quot;</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-6" title="6">    <span class="st">&quot;preLaunchTask&quot;</span><span class="op">:</span> <span class="st">&quot;build&quot;</span><span class="op">,</span>                     <span class="co">// Runs the task created above before running this configuration</span></a>
+<a class="sourceLine" id="cb2-7" title="7">    <span class="st">&quot;jdkPath&quot;</span><span class="op">:</span> <span class="st">&quot;${env:JAVA_HOME}/bin&quot;</span><span class="op">,</span>            <span class="co">// You need to set JAVA_HOME enviroment variable</span></a>
+<a class="sourceLine" id="cb2-8" title="8">    <span class="st">&quot;cwd&quot;</span><span class="op">:</span> <span class="st">&quot;${workspaceRoot}&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-9" title="9">    <span class="st">&quot;startupClass&quot;</span><span class="op">:</span> <span class="st">&quot;my.package.MyMainClass&quot;</span><span class="op">,</span>     <span class="co">// The class you want to run</span></a>
+<a class="sourceLine" id="cb2-10" title="10">    <span class="st">&quot;startupClassPathPattern&quot;</span><span class="op">:</span> <span class="st">&quot;src/main/java/&quot;</span><span class="op">,</span>  <span class="co">// A pattern that matches the begining of your src path any paths after</span></a>
+<a class="sourceLine" id="cb2-11" title="11">                                                  <span class="co">// the pattern will be used to construct the classpath for your startupClass</span></a>
+<a class="sourceLine" id="cb2-12" title="12">    <span class="st">&quot;sourcePath&quot;</span><span class="op">:</span> [<span class="st">&quot;${workspaceRoot}/src&quot;</span>]<span class="op">,</span>       <span class="co">// Indicates where your source (.java) files are</span></a>
+<a class="sourceLine" id="cb2-13" title="13">    <span class="st">&quot;classpath&quot;</span><span class="op">:</span> [<span class="st">&quot;${workspaceRoot}/bin&quot;</span>]<span class="op">,</span>        <span class="co">// Indicates the location of your .class files</span></a>
+<a class="sourceLine" id="cb2-14" title="14">    <span class="st">&quot;options&quot;</span><span class="op">:</span> []                                 <span class="co">// Additional options to pass to the java executable</span></a>
+<a class="sourceLine" id="cb2-15" title="15">    <span class="st">&quot;args&quot;</span><span class="op">:</span> []                                    <span class="co">// Command line arguments to pass to the startup class</span></a>
+<a class="sourceLine" id="cb2-16" title="16"><span class="op">}</span></a></code></pre></div>
+<figure>
+<img src="https://raw.githubusercontent.com/DonJayamanne/javaVSCode/master/images/debug.gif" alt="Image of Debugging" /><figcaption>Image of Debugging</figcaption>
+</figure>
+<h2 id="features">Features</h2>
+<p>Debug GUI applications.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/DonJayamanne/javaVSCode/master/images/javafx.gif" alt="Image of JavaFx" /><figcaption>Image of JavaFx</figcaption>
+</figure>
+<p>Inspect variables, set breakpoints and see output in console.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/DonJayamanne/javaVSCode/master/images/Loop.gif" alt="Image of Loop" /><figcaption>Image of Loop</figcaption>
+</figure>
+<h2 id="roadmap">Roadmap</h2>
+<ul>
+<li>Enhancements to java debugger (pause and continue, etc)</li>
+<li>Debugging of Multi Threaded apps is possible but very flaky. The debugger could at times hang.</li>
+<li>Exceptions support <a href="https://github.com/DonJayamanne/javaVSCode/issues/46">#46</a></li>
+</ul>
+<h2 id="known-issues">Known issues</h2>
+<ul>
+<li>Sometimes debugger shows nothing, try to restart it. <a href="https://github.com/DonJayamanne/javaVSCode/issues/27">#27</a></li>
+<li>Debugging Android. To debug Android use <a href="https://marketplace.visualstudio.com/items?itemName=adelphes.android-dev-ext">this extension</a> instead.</li>
+</ul>
+<h2 id="release-notes">Release Notes</h2>
+<p>See <a href="https://github.com/DonJayamanne/javaVSCode/blob/master/CHANGELOG.md">ChangeLog</a></p>
+<h2 id="contributing">Contributing</h2>
+<ol type="1">
+<li>Fork it https://github.com/DonJayamanne/javaVSCode/fork</li>
+<li>Create your feature branch <code>git checkout -b my-new-feature</code></li>
+<li>Commit your changes <code>git commit -am 'Add some feature'</code></li>
+<li>Push to the branch <code>git push origin my-new-feature</code></li>
+<li>Create a new Pull Request</li>
+</ol>
+<h2 id="big-thanks-to-faustino-aguilar">Big thanks to <a href="https://github.com/faustinoaq">Faustino Aguilar</a></h2>
+<h2 id="source">Source</h2>
+<p><a href="https://github.com/DonJayamanne/javaVSCode">Github</a></p>
+<h2 id="license">License</h2>
+<p><a href="https://raw.githubusercontent.com/DonJayamanne/javaVSCode/master/LICENSE">MIT</a></p>

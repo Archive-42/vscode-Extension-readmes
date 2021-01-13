@@ -1,0 +1,61 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="monkey-patch-readme">Monkey Patch README</h1>
+<h2 id="what-does-it-do">What does it do</h2>
+<p>Monkey Patch is an extension allowing execution of arbitrary javascript in VSCode browser and main process</p>
+<p>It can be either used directly using configuration options, or by other extensions using API.</p>
+<p>Monkey Patch aims to make the entire process reliable (as far as monkey-patching goes…) and user friendly, by automatically checking the patching state after update, and prompting the user to repatch. It can also request elevated privileges if necessary.</p>
+<h2 id="enabling-and-disabling">Enabling and Disabling</h2>
+<p>Monkey Patch contributes two VSCode commands: * Enable Monkey Patch * Disable Monkey Patch</p>
+<h2 id="using-monkey-patch-through-configuration-options">Using Monkey Patch through configuration options</h2>
+<p>While not the primary purpose, it is possible to use the Monkey Patch extension through options. For example:</p>
+<pre class="jsonc"><code>&quot;monkeyPatch.folderMap&quot;: {
+    &quot;my-custom-modules&quot; : &quot;~/custom-modules&quot;,
+},
+&quot;monkeyPatch.browserModules&quot;: [
+    // Will load &quot;~/custom-modules/browser1.js&quot; in browser process
+    &quot;my-custom-modules/browser1&quot;
+],
+&quot;monkeyPatch.mainProcessModules&quot; : [
+    // Will load &quot;~/custom-modules/mainProcess.js&quot; in main process
+    &quot;my-custom-modules/mainProcess1&quot;
+]</code></pre>
+<h2 id="using-monkey-patch-through-the-api">Using Monkey Patch through the API</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> monkeyPatch <span class="op">=</span> <span class="va">vscode</span>.<span class="va">extensions</span>.<span class="at">getExtension</span>(<span class="st">&quot;iocave.monkey-patch&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="cf">if</span> (monkeyPatch <span class="op">!==</span> <span class="kw">undefined</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-4" title="4">    <span class="va">monkeyPatch</span>.<span class="va">exports</span>.<span class="at">contribute</span>(<span class="st">&quot;&lt;publisher&gt;.&lt;extension_name&gt;&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-5" title="5">        <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-6" title="6">            <span class="dt">folderMap</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-7" title="7">                <span class="st">&quot;my-custom-modules&quot;</span><span class="op">:</span> <span class="va">path</span>.<span class="at">join</span>(<span class="kw">this</span>.<span class="va">context</span>.<span class="at">extensionPath</span><span class="op">,</span> <span class="st">&quot;custom-modules&quot;</span>)<span class="op">,</span></a>
+<a class="sourceLine" id="cb2-8" title="8">            <span class="op">},</span></a>
+<a class="sourceLine" id="cb2-9" title="9">            <span class="dt">browserModules</span><span class="op">:</span> [</a>
+<a class="sourceLine" id="cb2-10" title="10">                <span class="st">&quot;my-custom-modules/browser1&quot;</span></a>
+<a class="sourceLine" id="cb2-11" title="11">            ]<span class="op">,</span></a>
+<a class="sourceLine" id="cb2-12" title="12">            <span class="dt">mainProcessModules</span><span class="op">:</span> [</a>
+<a class="sourceLine" id="cb2-13" title="13">                <span class="st">&quot;my-custom-modules/mainProcess1&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-14" title="14">            ]</a>
+<a class="sourceLine" id="cb2-15" title="15">        <span class="op">}</span></a>
+<a class="sourceLine" id="cb2-16" title="16">    )<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-17" title="17"><span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-18" title="18">    <span class="va">vscode</span>.<span class="va">window</span>.<span class="at">showWarningMessage</span>(<span class="st">&quot;Monkey Patch extension is not installed. This extension will not work.&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-19" title="19"><span class="op">}</span></a></code></pre></div>
+<p>For a full project that uses this, see https://github.com/iocave/customize-ui.</p>
+<h2 id="if-something-goes-wrong">If something goes wrong</h2>
+<p>Monkey Patching can get fragile at times. If VSCode is running, you can unpach VSCode by invoking the "Disable Monkey Patch" command. If VSCode does launch, you can always redownload VSCode and replace the patched instance.</p>

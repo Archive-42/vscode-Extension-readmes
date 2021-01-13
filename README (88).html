@@ -1,0 +1,126 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="php-server-ci"><a href="https://github.com/brapifra/vscode-phpserver">PHP Server</a> <img src="https://github.com/brapifra/vscode-phpserver/workflows/CI/badge.svg" alt="CI" /></h1>
+<p>Host / serve current workspace (or subfolder) with PHP.</p>
+<figure>
+<img src="https://github.com/brapifra/vscode-phpserver/raw/master/./assets/demo.gif" alt="demo" /><figcaption>demo</figcaption>
+</figure>
+<h2 id="getting-started">Getting started</h2>
+<p>There are multiple ways of running <code>PHP server</code>:</p>
+<ul>
+<li><code>CTRL + SHIFT + P</code> and searching for <code>PHP Server: Serve project</code> command</li>
+<li>Clicking on vscode's editor button (icon on the top-right corner)</li>
+<li>Right-clicking on vscode's editor when a <code>.php</code> or an <code>.html</code> is open.</li>
+</ul>
+<p>To stop the server, the <code>PHP Server: Stop project</code> command can be executed likewise.</p>
+<h2 id="commands">Commands</h2>
+<p>All commands can be executed by pressing <code>CTRL + SHIFT + P</code> and typing the name of the command.</p>
+<table>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 76%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>PHP Server: Serve project</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>PHP Server: Stop project</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>PHP Server: Reload server</code></td>
+<td>Stops the running server and starts it again.</td>
+</tr>
+<tr class="even">
+<td><code>PHP Server: Open file in browser</code></td>
+<td>Quickly opens the URL of the active file in the browser. If the server is not running, this command will fail.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="settings">Settings</h2>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 3%" />
+<col style="width: 88%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Setting</th>
+<th>Default</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>phpserver.autoOpenOnReload</code></td>
+<td><code>true</code></td>
+<td>Enable/disable automatic opening of server's URL in the browser after server has been reloaded.</td>
+</tr>
+<tr class="even">
+<td><code>phpserver.browser</code></td>
+<td><code>null</code></td>
+<td>App used to open the server URL. If empty, it will use the default browser.<br/> You can put <strong>any</strong> browser name here as long as it's installed in your machine (e.g. <code>google-chrome</code>, <code>firefox</code>, <code>chromium-browser</code>…)</td>
+</tr>
+<tr class="odd">
+<td><code>phpserver.ip</code></td>
+<td><code>localhost</code></td>
+<td>Server's ip/hostname (e.g. <code>localhost</code>, <code>0.0.0.0</code>…)</td>
+</tr>
+<tr class="even">
+<td><code>phpserver.phpConfigPath</code></td>
+<td><code>null</code></td>
+<td>Path to <code>php.ini</code> file. If empty, the extension uses the default path.</td>
+</tr>
+<tr class="odd">
+<td><code>phpserver.phpPath</code></td>
+<td><code>null</code></td>
+<td>Path to PHP executable. If empty, the extension will try to get the path from the <code>$PATH</code> environment variable.</td>
+</tr>
+<tr class="even">
+<td><code>phpserver.port</code></td>
+<td><code>3000</code></td>
+<td>Server's port number.</td>
+</tr>
+<tr class="odd">
+<td><code>phpserver.relativePath</code></td>
+<td><code>"."</code></td>
+<td>Path relative to project. This is useful when you want to serve a different folder than the one from current workspace.</td>
+</tr>
+<tr class="even">
+<td><code>phpserver.router</code></td>
+<td><code>null</code></td>
+<td>Path to custom router script that will be used by PHP server. <a href="https://www.php.net/manual/en/features.commandline.webserver.php#example-421">Example</a>.<br/>If a custom router script is used on a Windows machine, there will be no console output unless a logger like <a href="https://github.com/brapifra/vscode-phpserver/blob/master/src/logger.php">this</a> is included in the script.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>PHP needs to be installed in order to be able to use this extension.</li>
+</ul>
+<h2 id="author">Author</h2>
+<p><a href="http://github.com/brapifra">Brais Piñeiro</a></p>

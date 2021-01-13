@@ -1,0 +1,402 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="markdown-support-for-visual-studio-code">Markdown Support for Visual Studio Code <!-- omit in toc --></h1>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one"><img src="https://img.shields.io/vscode-marketplace/v/yzhang.markdown-all-in-one.svg?style=flat-square&amp;label=vscode%20marketplace" alt="version" /></a> <a href="https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one"><img src="https://img.shields.io/vscode-marketplace/d/yzhang.markdown-all-in-one.svg?style=flat-square" alt="installs" /></a> <a href="https://github.com/yzhang-gh/vscode-markdown/actions"><img src="https://img.shields.io/github/workflow/status/yzhang-gh/vscode-markdown/CI?style=flat-square" alt="GitHub Workflow Status" /></a> <a href="https://github.com/yzhang-gh/vscode-markdown"><img src="https://img.shields.io/github/stars/yzhang-gh/vscode-markdown.svg?style=flat-square&amp;label=github%20stars" alt="GitHub stars" /></a> <a href="https://github.com/yzhang-gh/vscode-markdown/graphs/contributors"><img src="https://img.shields.io/github/contributors/yzhang-gh/vscode-markdown.svg?style=flat-square" alt="GitHub Contributors" /></a></p>
+<p>All you need for Markdown (keyboard shortcuts, table of contents, auto preview and more).</p>
+<p><strong>Table of Contents</strong></p>
+<ul>
+<li><a href="#features">Features</a>
+<ul>
+<li><a href="#keyboard-shortcuts">Keyboard shortcuts</a></li>
+<li><a href="#table-of-contents">Table of contents</a></li>
+<li><a href="#list-editing">List editing</a></li>
+<li><a href="#print-markdown-to-html">Print Markdown to HTML</a></li>
+<li><a href="#github-flavored-markdown">GitHub Flavored Markdown</a></li>
+<li><a href="#math">Math</a></li>
+<li><a href="#auto-completions">Auto completions</a></li>
+<li><a href="#others">Others</a></li>
+</ul></li>
+<li><a href="#available-commands">Available Commands</a></li>
+<li><a href="#keyboard-shortcuts-1">Keyboard Shortcuts</a></li>
+<li><a href="#supported-settings">Supported Settings</a></li>
+<li><a href="#faq">FAQ</a>
+<ul>
+<li><a href="#q-error-command-markdownextensiononxxxkey-not-found">Q: Error "command ‘markdown.extension.onXXXKey' not found"</a></li>
+<li><a href="#q-which-markdown-syntax-is-supported">Q: Which Markdown syntax is supported?</a></li>
+<li><a href="#q-this-extension-has-overridden-some-of-my-key-bindings-eg-ctrl--b-alt--c">Q: This extension has overridden some of my key bindings (e.g. <kbd>Ctrl</kbd> + <kbd>B</kbd>, <kbd>Alt</kbd> + <kbd>C</kbd>)</a></li>
+<li><a href="#q-the-extension-is-unresponsive-causing-lag-etc-performance-issues">Q: The extension is unresponsive, causing lag etc. (performance issues)</a></li>
+</ul></li>
+<li><a href="#changelog">Changelog</a></li>
+<li><a href="#latest-development-build">Latest Development Build</a></li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#related">Related</a></li>
+</ul>
+<h2 id="features">Features</h2>
+<h3 id="keyboard-shortcuts">Keyboard shortcuts</h3>
+<p>
+<img src="https://github.com/yzhang-gh/vscode-markdown/raw/master/images/gifs/toggle-bold.gif" alt="toggle bold gif" width="282px"> <br>(Typo: multiple words)
+</p>
+<p>
+<img src="https://github.com/yzhang-gh/vscode-markdown/raw/master/images/gifs/check-task-list.gif" alt="check task list" width="240px">
+</p>
+<p>See full key binding list in the <a href="#keyboard-shortcuts-1">keyboard shortcuts</a> section</p>
+<h3 id="table-of-contents">Table of contents</h3>
+<p>
+<img src="https://github.com/yzhang-gh/vscode-markdown/raw/master/images/toc.png" alt="toc" width="305px">
+</p>
+<ul>
+<li><p>Run command "<strong>Create Table of Contents</strong>" to insert a new table of contents.</p></li>
+<li><p>The TOC is <strong>automatically updated</strong> on file save by default. To disable, please change the <code>toc.updateOnSave</code> option.</p></li>
+<li><p>The <strong>indentation type (tab or spaces)</strong> of TOC can be configured per file. Find the setting in the right bottom corner of VS Code's status bar.</p>
+<p><strong><em>Note</em></strong>: Be sure to also check the <code>list.indentationSize</code> option.</p></li>
+<li><p>To make TOC <strong>compatible with GitHub or GitLab</strong>, set option <code>slugifyMode</code> accordingly</p></li>
+<li><p>Three ways to <strong>control which headings are present</strong> in the TOC:</p>
+<details>
+<p><summary>Click to expand</summary></p>
+<ol type="1">
+<li><p>Add <code>&lt;!-- omit in toc --&gt;</code> at the end of a heading to ignore it in TOC<br />
+(It can also be placed above a heading)</p></li>
+<li><p>Use <code>toc.levels</code> setting.</p></li>
+<li><p>You can also use the <code>toc.omittedFromToc</code> setting to omit some headings (and their subheadings) from TOC:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="co">// In your settings.json</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="st">&quot;markdown.extension.toc.omittedFromToc&quot;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="co">// Use a path relative to your workspace.</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="st">&quot;README.md&quot;</span><span class="op">:</span> [</a>
+<a class="sourceLine" id="cb1-5" title="5">      <span class="st">&quot;# Introduction&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-6" title="6">      <span class="st">&quot;## Also omitted&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-7" title="7">  ]<span class="op">,</span></a>
+<a class="sourceLine" id="cb1-8" title="8">  <span class="co">// Or an absolute path for standalone files.</span></a>
+<a class="sourceLine" id="cb1-9" title="9">  <span class="st">&quot;/home/foo/Documents/todo-list.md&quot;</span><span class="op">:</span> [</a>
+<a class="sourceLine" id="cb1-10" title="10">    <span class="st">&quot;## Shame list (I&#39;ll never do these)&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-11" title="11">  ]</a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="op">}</span></a></code></pre></div>
+<p><strong><em>Note</em></strong>:</p>
+<ul>
+<li>Setext headings (underlined with <code>===</code> or <code>---</code>) can also be omitted, just put their <code>#</code> and <code>##</code> versions in the setting, respectively.</li>
+<li>When omitting heading, <strong>make sure headings within a document are unique</strong>. Duplicate headings may lead to unpredictable behavior.</li>
+</ul></li>
+</ol>
+</details></li>
+<li><p>Easily add/update/remove <strong>section numbering</strong></p>
+<p><img src="https://github.com/yzhang-gh/vscode-markdown/raw/master/images/gifs/section-numbers.gif" alt="section numbers" width="768px"></p></li>
+<li><p><em>In case you are seeing <strong>unexpected TOC recognition</strong>, you can add a <code>&lt;!-- no toc --&gt;</code> comment above the list</em>.</p></li>
+</ul>
+<h3 id="list-editing">List editing</h3>
+<p>
+<img src="https://github.com/yzhang-gh/vscode-markdown/raw/master/images/gifs/on-enter-key.gif" alt="on enter key" width="214px">
+</p>
+<p>
+<img src="https://github.com/yzhang-gh/vscode-markdown/raw/master/images/gifs/tab-backspace.gif" alt="on tab/backspace key" width="214px">
+</p>
+<p>
+<img src="https://github.com/yzhang-gh/vscode-markdown/raw/master/images/gifs/fix-marker.gif" alt="fix ordered list markers" width="214px">
+</p>
+<p><strong><em>Note</em></strong>: By default, this extension tries to determine indentation size for different lists according to <a href="https://spec.commonmark.org/0.29/#list-items">CommonMark Spec</a>. If you prefer to use a fixed tab size, please change the <code>list.indentationSize</code> setting.</p>
+<h3 id="print-markdown-to-html">Print Markdown to HTML</h3>
+<ul>
+<li><p>Commands <code>Markdown: Print current document to HTML</code> and <code>Markdown: Print documents to HTML</code> (batch mode)</p></li>
+<li><p><strong>Compatible</strong> with other installed Markdown plugins (e.g. <a href="https://marketplace.visualstudio.com/items?itemName=bierner.markdown-footnotes">Markdown Footnotes</a>) The exported HTML should look the same as inside VSCode.</p></li>
+<li><p>Use comment <code>&lt;!-- title: Your Title --&gt;</code> to specify a title of the exported HTML.</p></li>
+<li><p>Plain links to <code>.md</code> files will be converted to <code>.html</code>.</p></li>
+<li><p>It's recommended to print the exported HTML to PDF with browser (e.g. Chrome) if you want to share your documents with others.</p></li>
+</ul>
+<h3 id="github-flavored-markdown">GitHub Flavored Markdown</h3>
+<ul>
+<li><p>Table formatter</p>
+<p>
+<img src="https://github.com/yzhang-gh/vscode-markdown/raw/master/images/gifs/table-formatter.gif" alt="table formatter" width="246px">
+</p>
+<p><strong><em>Note</em></strong>: The key binding is <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd> on Linux. See <a href="https://code.visualstudio.com/docs/getstarted/keybindings#_keyboard-shortcuts-reference">Visual Studio Code Key Bindings</a>.</p></li>
+<li><p>Task lists</p></li>
+</ul>
+<h3 id="math">Math</h3>
+<p>
+<img src="https://github.com/yzhang-gh/vscode-markdown/raw/master/images/math.png" alt="math" width="544px">
+</p>
+<p>Please use <a href="https://marketplace.visualstudio.com/items?itemName=goessner.mdmath">Markdown+Math</a> for dedicated math support. Be sure to disable <code>math.enabled</code> option of this extension.</p>
+<h3 id="auto-completions">Auto completions</h3>
+<p>Tip: also support the option <code>completion.root</code></p>
+<ul>
+<li><p>Images/Files (respects option <code>search.exclude</code>)</p>
+<p>
+<img src="https://github.com/yzhang-gh/vscode-markdown/raw/master/images/image-completions.png" alt="image completions" width="351px">
+</p></li>
+<li><p>Math functions (including option <code>katex.macros</code>)</p>
+<p>
+<img src="https://github.com/yzhang-gh/vscode-markdown/raw/master/images/math-completions.png" alt="math completions" width="154px">
+</p></li>
+<li><p>Reference links</p>
+<p>
+<img src="https://github.com/yzhang-gh/vscode-markdown/raw/master/images/reference-link.png" alt="reference links" width="301px">
+</p></li>
+</ul>
+<h3 id="others">Others</h3>
+<ul>
+<li><p>Paste link on selected text</p>
+<p>
+<img src="https://github.com/yzhang-gh/vscode-markdown/raw/master/images/gifs/paste-link.gif" alt="paste link" width="342px">
+</p></li>
+<li><p>Override "Open Preview" keybinding with "Toggle Preview", which means you can close preview using the same keybinding (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>V</kbd> or <kbd>Ctrl</kbd> + <kbd>K</kbd> <kbd>V</kbd>).</p></li>
+</ul>
+<h2 id="available-commands">Available Commands</h2>
+<ul>
+<li>Markdown All in One: Create Table of Contents</li>
+<li>Markdown All in One: Update Table of Contents</li>
+<li>Markdown All in One: Add/Update section numbers</li>
+<li>Markdown All in One: Remove section numbers</li>
+<li>Markdown All in One: Toggle code span</li>
+<li>Markdown All in One: Toggle code block</li>
+<li>Markdown All in One: Print current document to HTML</li>
+<li>Markdown All in One: Print documents to HTML</li>
+<li>Markdown All in One: Toggle math environment</li>
+<li>Markdown All in One: Toggle list
+<ul>
+<li>It will cycle through list markers (<code>-</code>, <code>*</code>, <code>+</code>, <code>1.</code> and <code>1)</code>)</li>
+</ul></li>
+</ul>
+<h2 id="keyboard-shortcuts-1">Keyboard Shortcuts</h2>
+<details>
+<p><summary>Table</summary></p>
+<table>
+<thead>
+<tr class="header">
+<th>Key</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>B</kbd></td>
+<td>Toggle bold</td>
+</tr>
+<tr class="even">
+<td><kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>I</kbd></td>
+<td>Toggle italic</td>
+</tr>
+<tr class="odd">
+<td><kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>]</kbd></td>
+<td>Toggle heading (uplevel)</td>
+</tr>
+<tr class="even">
+<td><kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>[</kbd></td>
+<td>Toggle heading (downlevel)</td>
+</tr>
+<tr class="odd">
+<td><kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>M</kbd></td>
+<td>Toggle math environment</td>
+</tr>
+<tr class="even">
+<td><kbd>Alt</kbd> + <kbd>C</kbd></td>
+<td>Check/Uncheck task list item</td>
+</tr>
+<tr class="odd">
+<td><kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>V</kbd></td>
+<td>Toggle preview</td>
+</tr>
+<tr class="even">
+<td><kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd> <kbd>V</kbd></td>
+<td>Toggle preview to side</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h2 id="supported-settings">Supported Settings</h2>
+<details>
+<p><summary>Table</summary></p>
+<table>
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 6%" />
+<col style="width: 58%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>markdown.extension.completion.respectVscodeSearchExclude</code></td>
+<td><code>true</code></td>
+<td>Whether to consider <code>search.exclude</code> option when providing file path completions</td>
+</tr>
+<tr class="even">
+<td><code>markdown.extension.completion.root</code></td>
+<td></td>
+<td>Root folder when providing file path completions (It takes effect when the path starts with <code>/</code>)</td>
+</tr>
+<tr class="odd">
+<td><code>markdown.extension.italic.indicator</code></td>
+<td><code>*</code></td>
+<td>Use <code>*</code> or <code>_</code> to wrap italic text</td>
+</tr>
+<tr class="even">
+<td><code>markdown.extension.katex.macros</code></td>
+<td><code>{}</code></td>
+<td>KaTeX macros e.g. <code>{ "\\name": "expansion", ... }</code></td>
+</tr>
+<tr class="odd">
+<td><code>markdown.extension.list.indentationSize</code></td>
+<td><code>adaptive</code></td>
+<td>Use different indentation size for ordered and unordered list</td>
+</tr>
+<tr class="even">
+<td><code>markdown.extension.orderedList.autoRenumber</code></td>
+<td><code>true</code></td>
+<td>Auto fix list markers as you edits</td>
+</tr>
+<tr class="odd">
+<td><code>markdown.extension.orderedList.marker</code></td>
+<td><code>ordered</code></td>
+<td>Or <code>one</code>: always use <code>1.</code> as ordered list marker</td>
+</tr>
+<tr class="even">
+<td><code>markdown.extension.preview.autoShowPreviewToSide</code></td>
+<td><code>false</code></td>
+<td>Automatically show preview when opening a Markdown file.</td>
+</tr>
+<tr class="odd">
+<td><code>markdown.extension.print.absoluteImgPath</code></td>
+<td><code>true</code></td>
+<td>Convert image path to absolute path</td>
+</tr>
+<tr class="even">
+<td><code>markdown.extension.print.imgToBase64</code></td>
+<td><code>false</code></td>
+<td>Convert images to base64 when printing to HTML</td>
+</tr>
+<tr class="odd">
+<td><code>markdown.extension.print.includeVscodeStylesheets</code></td>
+<td><code>true</code></td>
+<td>Whether to include VSCode's default styles</td>
+</tr>
+<tr class="even">
+<td><code>markdown.extension.print.onFileSave</code></td>
+<td><code>false</code></td>
+<td>Print to HTML on file save</td>
+</tr>
+<tr class="odd">
+<td><code>markdown.extension.print.theme</code></td>
+<td><code>light</code></td>
+<td>Theme of the exported HTML</td>
+</tr>
+<tr class="even">
+<td><code>markdown.extension.print.validateUrls</code></td>
+<td><code>true</code></td>
+<td>Enable/disable URL validation when printing</td>
+</tr>
+<tr class="odd">
+<td><code>markdown.extension.syntax.decorations</code></td>
+<td><code>true</code></td>
+<td>Add decorations to <del>strikethrough</del> and <code>code span</code></td>
+</tr>
+<tr class="even">
+<td><code>markdown.extension.syntax.decorationFileSizeLimit</code></td>
+<td>50000</td>
+<td>Don't render syntax decorations if a file is larger than this size (in byte/B)</td>
+</tr>
+<tr class="odd">
+<td><code>markdown.extension.syntax.plainTheme</code></td>
+<td><code>false</code></td>
+<td>A distraction-free theme</td>
+</tr>
+<tr class="even">
+<td><code>markdown.extension.tableFormatter.enabled</code></td>
+<td><code>true</code></td>
+<td>Enable GFM table formatter</td>
+</tr>
+<tr class="odd">
+<td><code>markdown.extension.toc.downcaseLink</code></td>
+<td><code>true</code></td>
+<td>Force the TOC links to be lowercase</td>
+</tr>
+<tr class="even">
+<td><code>markdown.extension.toc.slugifyMode</code></td>
+<td><code>github</code></td>
+<td>Slugify mode for TOC link generation (<code>vscode</code>, <code>github</code>, <code>gitlab</code> or <code>gitea</code>)</td>
+</tr>
+<tr class="odd">
+<td><code>markdown.extension.toc.omittedFromToc</code></td>
+<td><code>{}</code></td>
+<td>Lists of headings to omit by project file (e.g. <code>{ "README.md": ["# Introduction"] }</code>)</td>
+</tr>
+<tr class="even">
+<td><code>markdown.extension.toc.levels</code></td>
+<td><code>1..6</code></td>
+<td>Control the heading levels to show in the table of contents.</td>
+</tr>
+<tr class="odd">
+<td><code>markdown.extension.toc.orderedList</code></td>
+<td><code>false</code></td>
+<td>Use ordered list in the table of contents.</td>
+</tr>
+<tr class="even">
+<td><code>markdown.extension.toc.plaintext</code></td>
+<td><code>false</code></td>
+<td>Just plain text.</td>
+</tr>
+<tr class="odd">
+<td><code>markdown.extension.toc.unorderedList.marker</code></td>
+<td><code>-</code></td>
+<td>Use <code>-</code>, <code>*</code> or <code>+</code> in the table of contents (for unordered list)</td>
+</tr>
+<tr class="even">
+<td><code>markdown.extension.toc.updateOnSave</code></td>
+<td><code>true</code></td>
+<td>Automatically update the table of contents on save.</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h2 id="faq">FAQ</h2>
+<h4 id="q-error-command-markdown.extension.onxxxkey-not-found">Q: Error "command ‘markdown.extension.onXXXKey' not found"</h4>
+<p>In most cases, it is because VSCode needs a few seconds to load this extension when you open a Markdown file <em>for the first time</em>. (You will see a message "Activating Extensions…" on the status bar.)</p>
+<p>If you still see this "command not found" error after waiting for a long time, please try to restart VSCode (or reinstall this extension<sup>1</sup> if needed). Otherwise feel free to open a new issue on GitHub.</p>
+<p><sup>1. uninstall this extension, <b>restart VSCode (important!)</b> and then reinstall</sup></p>
+<h4 id="q-which-markdown-syntax-is-supported">Q: Which Markdown syntax is supported?</h4>
+<ul>
+<li><a href="https://spec.commonmark.org/">CommonMark</a></li>
+<li><a href="https://help.github.com/articles/organizing-information-with-tables/">Tables</a>, <a href="https://help.github.com/articles/basic-writing-and-formatting-syntax/#styling-text">strikethrough</a> and <a href="https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax#task-lists">task lists</a> (from GitHub Flavored Markdown)</li>
+<li><a href="https://github.com/waylonflinn/markdown-it-katex#syntax">Math support</a> (from KaTeX)</li>
+<li><a href="https://github.com/ParkSB/markdown-it-front-matter#valid-front-matter">Front matter</a></li>
+</ul>
+<p>For other Markdown syntax, you need to install the corresponding extensions from VSCode marketplace (e.g. <a href="https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid">Mermaid diagram</a>, <a href="https://marketplace.visualstudio.com/items?itemName=bierner.markdown-emoji">emoji</a>, <a href="https://marketplace.visualstudio.com/items?itemName=bierner.markdown-footnotes">footnotes</a> and <a href="https://marketplace.visualstudio.com/items?itemName=DevHawk.markdown-sup">superscript</a>). Once installed, they will take effect in VSCode and also the exported HTML file.</p>
+<h4 id="q-this-extension-has-overridden-some-of-my-key-bindings-e.g.-ctrl-b-alt-c">Q: This extension has overridden some of my key bindings (e.g. <kbd>Ctrl</kbd> + <kbd>B</kbd>, <kbd>Alt</kbd> + <kbd>C</kbd>)</h4>
+<p>You can easily manage key bindings with <a href="https://code.visualstudio.com/docs/getstarted/keybindings">VSCode's "Keyboard Shortcuts" page</a>. (Commands provided by this extension have prefix <code>markdown.extension</code>.)</p>
+<h4 id="q-the-extension-is-unresponsive-causing-lag-etc.-performance-issues">Q: The extension is unresponsive, causing lag etc. (performance issues)</h4>
+<p>From experience, there is a good chance that the performance issues are caused by other extensions (e.g., some spell checker extensions).</p>
+<p>To find out the root cause, you can install our <a href="#latest-development-build">development build</a> (<code>debug.vsix</code>) and create a CPU profile following this official <a href="https://github.com/microsoft/vscode/wiki/Performance-Issues#profile-the-running-extensions">instruction</a> from the VS Code. And then please open a GitHub issue with that profile (<code>.cpuprofile.txt</code>) attached.</p>
+<h2 id="changelog">Changelog</h2>
+<p>See <a href="https://github.com/yzhang-gh/vscode-markdown/blob/master/CHANGELOG.md">CHANGELOG</a> for more information.</p>
+<h2 id="latest-development-build">Latest Development Build</h2>
+<p>Download it <a href="https://github.com/yzhang-gh/vscode-markdown/actions/">here</a>, please click the latest passing event to download artifacts. There are two versions: <code>markdown-all-in-one-*.vsix</code> is the regular build, while <code>debug.vsix</code> is used to create a verbose CPU profile.</p>
+<p>To install, execute <code>Extensions: Install from VSIX...</code> in the VS Code Command Palette (<code>ctrl + shift + p</code>)</p>
+<h2 id="contributing">Contributing</h2>
+<ul>
+<li>File bugs, feature requests in <a href="https://github.com/yzhang-gh/vscode-markdown/issues">GitHub Issues</a>.</li>
+<li>Leave a review on <a href="https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one#review-details">Visual Studio Marketplace</a>.</li>
+<li>Buy me a coffee ☕ (via <a href="https://www.paypal.me/2yzhang">PayPal</a>, <a href="https://github.com/yzhang-gh/vscode-markdown/blob/master/donate.md">Alipay or WeChat</a>).</li>
+</ul>
+<p>Special thanks to the collaborator <span class="citation" data-cites="Lemmingh">[@Lemmingh]</span>(https://github.com/Lemmingh) and all other <a href="https://github.com/yzhang-gh/vscode-markdown/graphs/contributors">contributors</a>.</p>
+<p><a href="https://sourcerer.io/fame/yzhang-gh/yzhang-gh/vscode-markdown/links/0"><img src="https://sourcerer.io/fame/yzhang-gh/yzhang-gh/vscode-markdown/images/0" /></a><a href="https://sourcerer.io/fame/yzhang-gh/yzhang-gh/vscode-markdown/links/1"><img src="https://sourcerer.io/fame/yzhang-gh/yzhang-gh/vscode-markdown/images/1" /></a><a href="https://sourcerer.io/fame/yzhang-gh/yzhang-gh/vscode-markdown/links/2"><img src="https://sourcerer.io/fame/yzhang-gh/yzhang-gh/vscode-markdown/images/2" /></a><a href="https://sourcerer.io/fame/yzhang-gh/yzhang-gh/vscode-markdown/links/3"><img src="https://sourcerer.io/fame/yzhang-gh/yzhang-gh/vscode-markdown/images/3" /></a><a href="https://sourcerer.io/fame/yzhang-gh/yzhang-gh/vscode-markdown/links/4"><img src="https://sourcerer.io/fame/yzhang-gh/yzhang-gh/vscode-markdown/images/4" /></a><a href="https://sourcerer.io/fame/yzhang-gh/yzhang-gh/vscode-markdown/links/5"><img src="https://sourcerer.io/fame/yzhang-gh/yzhang-gh/vscode-markdown/images/5" /></a><a href="https://sourcerer.io/fame/yzhang-gh/yzhang-gh/vscode-markdown/links/6"><img src="https://sourcerer.io/fame/yzhang-gh/yzhang-gh/vscode-markdown/images/6" /></a><a href="https://sourcerer.io/fame/yzhang-gh/yzhang-gh/vscode-markdown/links/7"><img src="https://sourcerer.io/fame/yzhang-gh/yzhang-gh/vscode-markdown/images/7" /></a></p>
+<hr />
+<h2 id="related">Related</h2>
+<p><a href="https://marketplace.visualstudio.com/publishers/yzhang">More extensions of mine</a></p>

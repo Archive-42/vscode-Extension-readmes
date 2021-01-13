@@ -1,0 +1,164 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="js-beautify-for-vs-code">js-beautify for VS Code</h1>
+<p><a href="https://travis-ci.org/HookyQR/VSCodeBeautify"><img src="https://api.travis-ci.org/HookyQR/VSCodeBeautify.svg?branch=master" alt="Build Status" /></a> <a href="https://ci.appveyor.com/project/HookyQR/vscodebeautify"><img src="https://ci.appveyor.com/api/projects/status/mu73cgat3r1t0weu/branch/master?svg=true" alt="Build status" /></a> <a href="https://github.com/HookyQR/VSCodeBeautify"><img src="https://img.shields.io/github/license/HookyQR/VSCodeBeautify.svg" alt="Licence" /></a> <a href="https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify"><img src="https://vsmarketplacebadge.apphb.com/version-short/HookyQR.beautify.svg" alt="VS Code Marketplace" /> <img src="https://vsmarketplacebadge.apphb.com/rating-short/HookyQR.beautify.svg" alt="Rating" /> <img src="https://vsmarketplacebadge.apphb.com/downloads-short/HookyQR.beautify.svg" alt="Downloads" /> <img src="https://vsmarketplacebadge.apphb.com/installs-short/HookyQR.beautify.svg" alt="Installs" /></a> <a href="https://paypal.me/HookyQR"><img src="https://img.shields.io/badge/donate-paypal-brightgreen.svg" alt="Donate" /></a></p>
+<p>Beautify <code>javascript</code>, <code>JSON</code>, <code>CSS</code>, <code>Sass</code>, and <code>HTML</code> in Visual Studio Code.</p>
+<p>VS Code uses js-beautify internally, but it lacks the ability to modify the style you wish to use. This extension enables running <a href="http://jsbeautifier.org/">js-beautify</a> in VS Code, <em>AND</em> honouring any <code>.jsbeautifyrc</code> file in the open file's path tree to load <em>your</em> code styling. Run with <strong>F1</strong> <code>Beautify</code> (to beautify a selection) or <strong>F1</strong> <code>Beautify file</code>.</p>
+<p>For help on the settings in the <code>.jsbeautifyrc</code> see <a href="https://github.com/HookyQR/VSCodeBeautify/blob/master/Settings.md">Settings.md</a></p>
+<h2 id="how-we-determine-what-settings-to-use">How we determine what settings to use</h2>
+<ol type="1">
+<li>When not using a multi-root workspace:
+<ol type="1">
+<li>If there is a valid <code>.jsbeautifyrc</code> in the file's path tree, up to project root, these will be the only settings used.</li>
+<li>If an option is a file path or object of configuration specified in the user or workspace settings like this: <code>"beautify.config" : "string|Object.&lt;string,string|number|boolean&gt;"</code>, these will be the only settings used. The file path is interpreted relative to the workspace's root folder.</li>
+<li>If there is a valid <code>.jsbeautifyrc</code> in the file's path tree, above project root, these will be the only settings used.</li>
+<li>If there is a valid <code>.jsbeautifyrc</code> in your home directory, these will be the only settings used.</li>
+</ol></li>
+<li>When using a multi-root workspace: Same as above, but the search ends at the nearest parent workspace root to the open file.</li>
+</ol>
+<p>otherwise…</p>
+<ol start="3" type="1">
+<li>Settings are translated from your VS Code workspace/user settings.</li>
+<li>Any open editor settings (indent spaces/tabs) for the specific file are merged in.</li>
+<li>Editorconfig settings are searched for (See <a href="http://editorconfig.org/">http://editorconfig.org/</a>) and are merged in.</li>
+</ol>
+<h3 id="vs-code-.jsbeautifyrc-settings-map">VS Code | .jsbeautifyrc settings map</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>.jsbeautifyrc setting</th>
+<th>VS Code setting</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>eol</td>
+<td>files.eol</td>
+</tr>
+<tr class="even">
+<td>tab_size</td>
+<td>editor.tabSize</td>
+</tr>
+<tr class="odd">
+<td>indent_with_tabs <em>(inverted)</em></td>
+<td>editor.insertSpaces</td>
+</tr>
+<tr class="even">
+<td>wrap_line_length</td>
+<td>html.format.wrapLineLength</td>
+</tr>
+<tr class="odd">
+<td>wrap_attributes</td>
+<td>html.format.wrapAttributes</td>
+</tr>
+<tr class="even">
+<td>unformatted</td>
+<td>html.format.unformatted</td>
+</tr>
+<tr class="odd">
+<td>indent_inner_html</td>
+<td>html.format.indentInnerHtml</td>
+</tr>
+<tr class="even">
+<td>preserve_newlines</td>
+<td>html.format.preserveNewLines</td>
+</tr>
+<tr class="odd">
+<td>max_preserve_newlines</td>
+<td>html.format.maxPreserveNewLines</td>
+</tr>
+<tr class="even">
+<td>indent_handlebars</td>
+<td>html.format.indentHandlebars</td>
+</tr>
+<tr class="odd">
+<td>end_with_newline</td>
+<td>html.format.endWithNewline (html)</td>
+</tr>
+<tr class="even">
+<td>end_with_newline</td>
+<td>file.insertFinalNewLine (css, js)</td>
+</tr>
+<tr class="odd">
+<td>extra_liners</td>
+<td>html.format.extraLiners</td>
+</tr>
+<tr class="even">
+<td>space_after_anon_function</td>
+<td>javascript.format<br> .insertSpaceAfterFunctionKeywordForAnonymousFunctions</td>
+</tr>
+<tr class="odd">
+<td>space_in_paren</td>
+<td>javascript.format<br> .insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis</td>
+</tr>
+</tbody>
+</table>
+<p>Note that the <code>html.format</code> settings will ONLY be used when the document is html. <code>javascript.format</code> settings are included always.</p>
+<p>Also runs html and css beautify from the same package, as determined by the file extension. The schema indicates which beautifier each of the settings pertains to.</p>
+<p>The <code>.jsbeautifyrc</code> config parser accepts sub elements of <code>html</code>, <code>js</code> and <code>css</code> so that different settings can be used for each of the beautifiers (like sublime allows). Note that this will cause the config file to be incorrectly structured for running <code>js-beautify</code> from the command line.</p>
+<p>Settings are inherited from the base of the file. Thus:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="st">&quot;indent_size&quot;</span><span class="op">:</span> <span class="dv">4</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="st">&quot;indent_char&quot;</span><span class="op">:</span> <span class="st">&quot; &quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="st">&quot;css&quot;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-5" title="5">    <span class="st">&quot;indent_size&quot;</span><span class="op">:</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb1-6" title="6">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="op">}</span></a></code></pre></div>
+<p>Will result in the <code>indent_size</code> being set to 4 for JavaScript and HTML, but set to 2 for CSS. All will get the same <code>indent_char</code> setting.</p>
+<p>If the file is unsaved, or the type is undetermined, you'll be prompted for which beautifier to use.</p>
+<p>You can control which file types, extensions, or specific file names should be beautified with the <code>beautify.language</code> setting.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="st">&quot;beautify.language&quot;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-3" title="3">    <span class="st">&quot;js&quot;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-4" title="4">      <span class="st">&quot;type&quot;</span><span class="op">:</span> [<span class="st">&quot;javascript&quot;</span><span class="op">,</span> <span class="st">&quot;json&quot;</span>]<span class="op">,</span></a>
+<a class="sourceLine" id="cb2-5" title="5">      <span class="st">&quot;filename&quot;</span><span class="op">:</span> [<span class="st">&quot;.jshintrc&quot;</span><span class="op">,</span> <span class="st">&quot;.jsbeautifyrc&quot;</span>]</a>
+<a class="sourceLine" id="cb2-6" title="6">      <span class="co">// &quot;ext&quot;: [&quot;js&quot;, &quot;json&quot;]</span></a>
+<a class="sourceLine" id="cb2-7" title="7">      <span class="co">// ^^ to set extensions to be beautified using the javascript beautifier</span></a>
+<a class="sourceLine" id="cb2-8" title="8">    <span class="op">},</span></a>
+<a class="sourceLine" id="cb2-9" title="9">    <span class="st">&quot;css&quot;</span><span class="op">:</span> [<span class="st">&quot;css&quot;</span><span class="op">,</span> <span class="st">&quot;scss&quot;</span>]<span class="op">,</span></a>
+<a class="sourceLine" id="cb2-10" title="10">    <span class="st">&quot;html&quot;</span><span class="op">:</span> [<span class="st">&quot;htm&quot;</span><span class="op">,</span> <span class="st">&quot;html&quot;</span>]</a>
+<a class="sourceLine" id="cb2-11" title="11">    <span class="co">// ^^ providing just an array sets the VS Code file type</span></a>
+<a class="sourceLine" id="cb2-12" title="12">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb2-13" title="13"><span class="op">}</span></a></code></pre></div>
+<p>Beautify on save will be enabled when <code>"editor.formatOnSave"</code> is true.</p>
+<p>Beautification on particular files using the built in <strong>Format Document</strong> (which includes formatting on save) can be skipped with the <code>beautify.ignore</code> option. Using the <code>Beautify file</code> and <code>Beautify selection</code> will still work. For files opened from within the workspace directory, the glob patterns will match from the workspace folder root. For files opened from elsewhere, or when no workspace is open, the patterns will match from the system root.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="co">/* ignore all files named &#39;test.js&#39; not in the root folder,</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="co">   all files directly in any &#39;spec&#39; directory, and</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="co">   all files in any &#39;test&#39; directory at any depth</span></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="co">*/</span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="st">&quot;beautify.ignore&quot;</span><span class="op">:</span> [<span class="st">&quot;*/test.js&quot;</span><span class="op">,</span> <span class="st">&quot;**/spec/*&quot;</span><span class="op">,</span> <span class="st">&quot;**/test/**/*&quot;</span>]</a>
+<a class="sourceLine" id="cb3-6" title="6"></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="co">/* ignore all files ending in &#39;_test.js&#39; anywhere */</span></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="st">&quot;beautify.ignore&quot;</span><span class="op">:</span> <span class="st">&quot;**/*_test.js&quot;</span></a></code></pre></div>
+<p>Note that the glob patterns are not used to test against the containing folder. You must match the filename as well.</p>
+<p>Embedded version of js-beautify is v1.8.4</p>
+<h3 id="keyboard-shortcut">Keyboard Shortcut</h3>
+<p>Use the following to embed a beautify shortcut in keybindings.json. Replace with your preferred key bindings.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="st">&quot;key&quot;</span><span class="op">:</span> <span class="st">&quot;cmd+b&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="st">&quot;command&quot;</span><span class="op">:</span> <span class="st">&quot;HookyQR.beautify&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb4-4" title="4">  <span class="st">&quot;when&quot;</span><span class="op">:</span> <span class="st">&quot;editorFocus&quot;</span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="op">}</span></a></code></pre></div>
+<h2 id="contributing">Contributing</h2>
+<p>For information on contributing see <a href="https://github.com/HookyQR/VSCodeBeautify/blob/master/.github/CONTRIBUTING.md">Contributing.md</a></p>

@@ -1,0 +1,25 @@
+<p>Extensions allow extending the debugger without modifying the debugger code. This is implemented with explicit namespace packages.</p>
+<p>To implement your own extension:</p>
+<ol type="1">
+<li>Ensure that the root folder of your extension is in sys.path (add it to PYTHONPATH)</li>
+<li>Ensure that your module follows the directory structure below</li>
+<li>The <code>__init__.py</code> files inside the pydevd_plugin and extension folder must contain the preamble below, and nothing else. Preamble:</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1"><span class="cf">try</span>:</a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="bu">__import__</span>(<span class="st">&#39;pkg_resources&#39;</span>).declare_namespace(<span class="va">__name__</span>)</a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="cf">except</span> <span class="pp">ImportError</span>:</a>
+<a class="sourceLine" id="cb1-4" title="4">    <span class="im">import</span> pkgutil</a>
+<a class="sourceLine" id="cb1-5" title="5">    __path__ <span class="op">=</span> pkgutil.extend_path(__path__, <span class="va">__name__</span>)</a></code></pre></div>
+<ol start="4" type="1">
+<li>Your plugin name inside the extensions folder must start with <code>"pydevd_plugin"</code></li>
+<li>Implement one or more of the abstract base classes defined in <code>_pydevd_bundle.pydevd_extension_api</code>. This can be done by either inheriting from them or registering with the abstract base class.</li>
+</ol>
+<ul>
+<li>Directory structure:</li>
+</ul>
+<pre><code>|--  root_directory-&gt; must be on python path
+|    |-- pydevd_plugins
+|    |   |-- __init__.py -&gt; must contain preamble
+|    |   |-- extensions
+|    |   |   |-- __init__.py -&gt; must contain preamble
+|    |   |   |-- pydevd_plugin_plugin_name.py</code></pre>

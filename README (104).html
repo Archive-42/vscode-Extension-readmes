@@ -1,0 +1,75 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="matlab-for-visual-studio-code">MATLAB for Visual Studio Code</h1>
+<p>This extension adds language support for MATLAB to Visual Studio Code.</p>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=Gimly81.matlab"><img src="https://vsmarketplacebadge.apphb.com/version-short/Gimly81.matlab.svg" alt="Marketplace" /></a> <a href="https://marketplace.visualstudio.com/items?itemName=Gimly81.matlab"><img src="https://vsmarketplacebadge.apphb.com/installs/Gimly81.matlab.svg" alt="Installs" /></a> <a href="https://github.com/Gimly/vscode-matlab/issues"><img src="https://img.shields.io/github/issues/Gimly/vscode-matlab.svg" alt="GitHub issues" /></a> <a href="https://github.com/Gimly/vscode-matlab/pulls"><img src="https://img.shields.io/github/issues-pr/Gimly/vscode-matlab.svg" alt="GitHub pull requests" /></a> <a href="https://github.com/Gimly/vscode-matlab/blob/master/LICENSE"><img src="https://img.shields.io/github/license/Gimly/vscode-matlab.svg" alt="License" /></a></p>
+<h1 id="main-features">Main features</h1>
+<h2 id="colorization">Colorization</h2>
+<figure>
+<img src="https://github.com/Gimly/matlab-vscode/raw/master/images/syntax.png" alt="syntax" /><figcaption>syntax</figcaption>
+</figure>
+<p>(imported from <a href="https://github.com/mathworks/MATLAB-Language-grammar">MathWorks TextMate grammar</a>)</p>
+<h2 id="snippets">Snippets</h2>
+<figure>
+<img src="https://github.com/Gimly/matlab-vscode/raw/master/images/snippets.png" alt="snippets" /><figcaption>snippets</figcaption>
+</figure>
+<p>(Translated from TextMate's snippets)</p>
+<h2 id="code-checking">Code Checking</h2>
+<p>Uses <em>mlint</em> for checking the MATLAB code for problems on save. <img src="https://github.com/Gimly/matlab-vscode/raw/master/images/linter.png" alt="snippets" /></p>
+<h2 id="usage">Usage</h2>
+<h3 id="install-the-extension-in-vs-code">Install the extension in VS Code</h3>
+<ul>
+<li>Open the command palette using <code>Ctrl+Shift+P</code></li>
+<li>Type <code>ext install Matlab</code> in the command palette</li>
+</ul>
+<h3 id="select-matlab-as-a-language">Select MATLAB as a language</h3>
+<ul>
+<li>On the bottom-right corner, click on the <em>select language mode</em> button, if you have created a new file it should display <em>Plain Text</em></li>
+<li>Select <em>MATLAB</em> in the list of languages.</li>
+</ul>
+<p>Alternatively, saving the file with a <code>.m</code> extension, will allow VS Code to understand that it is a MATLAB file, and automatically select the language correctly.</p>
+<h3 id="using-snippets">Using snippets</h3>
+<ul>
+<li>Bring-up the <em>autocomplete</em> menu by hitting the <code>Ctrl+Shift</code> key combination</li>
+<li>Select the snippet that you want to use in the list</li>
+<li>Use <code>tab</code> to navigate through the snippet's variables</li>
+</ul>
+<h3 id="setting-up-linter">Setting-up linter</h3>
+<ul>
+<li>Open the <em>User Settings</em> by going to <em>File</em>&gt;<em>Preferences</em>&gt;<em>User Settings</em></li>
+<li><p>On the right pane, where you have the <em>settings.json</em> file open, add to the json file.</p>
+<p><code>"matlab.mlintpath" : "path to your mlint.exe file"</code></p>
+<p>For example, on a PC :</p>
+<p><code>"matlab.mlintpath": "C:\\Program Files (x86)\\MATLAB\\R2012a\\bin\\win32\\mlint.exe"</code></p>
+<p>And on a Mac :</p>
+<code>"matlab.mlintpath": "/Applications/MATLAB_R2016a.app/bin/maci64/mlint"</code></li>
+<li>Save your <em>settings.json</em> file</li>
+<li><p>Now, when you open a Matlab document (<em>.m</em>), VS Code displays warnings and errors.</p>
+<p><strong>Remark:</strong> If you don't want the <em>lint on save</em> option and you want to remove the error message being displayed when the extension activates, change the <code>matlab.lintOnSave</code> option in the settings file to <code>False</code>.</p></li>
+</ul>
+<h4 id="setting-the-linter-configuration">Setting the linter configuration</h4>
+<p>By adding <code>"matlab.linterConfig" : "path-to-linter-config-file"</code> to your VSCode configuration file, you can pass a configuration file to the mlint call. Check <a href="https://uk.mathworks.com/help/matlab/ref/mlint.html">Matlab's documentation</a> to create this configuration file.</p>
+<h4 id="setting-the-linter-encoding">Setting the linter encoding</h4>
+<p>For some languages, like Chinese, the return of the linter is not using the default utf-8 encoding, but a different encoding (gb2312 for Chinese). If the linting doesn't show correctly, change the <code>matlab.linterEncoding</code> to the encoding used by your Windows console. For example, if your Windows is installed in Chinese, add <code>"matlab.linterEncoding" : "gb2312"</code> to your settings.json.</p>
+<h3 id="changing-the-default-file-association">Changing the default file association</h3>
+<p>Visual Studio Code's default file association for <code>.m</code> files is <em>Objective-C</em>, if you want to set up the default file association to be Matlab go to the Users preference (<em>File</em>&gt;<em>Preferences</em>&gt;<em>User Settings</em>) and add the following line:</p>
+<pre><code>&quot;files.associations&quot;: {&quot;*.m&quot;: &quot;matlab&quot;}</code></pre>
+<h3 id="changing-the-default-file-encoding">Changing the default file encoding</h3>
+<p>MATLAB default file encoding is not utf-8, but Visual Studio Code is using utf-8 as default. The following setting specifies the default encoding for MATLAB files in Visual Studio Code:</p>
+<pre><code>&quot;[matlab]&quot;: { &quot;files.encoding&quot;: &quot;windows1252&quot; }</code></pre>

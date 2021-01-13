@@ -1,0 +1,51 @@
+<p>Adds suggestions and autocomplete for emoji to VS Code.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/mattbierner/vscode-emojisense/master/media/example.gif" alt="Example" /><figcaption>Example</figcaption>
+</figure>
+<p>Inspired by the <a href="https://atom.io/packages/autocomplete-emojis">Atom autocomplete+ emojis suggestions plugin</a>.</p>
+<h2 id="features">Features</h2>
+<ul>
+<li>Quickly insert emoji using the <code>:smile:</code> syntax supported by Github and many other sites</li>
+<li>Insert emoji markup by typing <code>::</code></li>
+<li>Enable and control emoji completion settings per language</li>
+<li>See emoji previews of <code>:smile:</code> style markup inline</li>
+<li>Can be enabled in VS Code's SCM (git) input box.</li>
+<li>Provide an emoji picker to select and insert an emoji in the editor or terminal. To access the picker, run the <code>Emojisense: Pick an emoji</code> command, or use the default keybindings:
+<ul>
+<li>Mac: <kbd>cmd</kbd> + <kbd>i</kbd></li>
+<li>Linux: <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>i</kbd></li>
+<li>Windows: <kbd>ctrl</kbd> + <kbd>i</kbd></li>
+</ul></li>
+</ul>
+<p><a href="https://www.webpagefx.com/tools/emoji-cheat-sheet/">List of supported emoji</a></p>
+<h2 id="general-configuration">General Configuration</h2>
+<ul>
+<li><p><code>emojisense.unicodeCompletionsEnabled</code>: Enable completions that insert emoji as unicode, i.e. <code>:smile_cat:</code> -&gt; 😸</p></li>
+<li><p><code>emojisense.markupCompletionsEnabled</code>: Enable completions that insert emoji markup, i.e. <code>::smile_cat</code> -&gt; <code>:smile_cat:</code></p></li>
+<li><p><code>emojisense.showOnColon</code>: Should emoji completions automatically be shown when you type a colon? Enabled by default. If you disable <code>showOnColon</code>, it is recommended that you have <code>quickSuggestions</code> enabled.</p></li>
+<li><p><code>emojisense.emojiDecoratorsEnabled</code>: Show emoji decorators inline for <code>:smile_cat:</code> markup in a file? Enabled by default in markdown.</p></li>
+</ul>
+<h2 id="per-language-configuration">Per Language Configuration</h2>
+<p><em>Emojisense</em> is enabled by default in markdown, git commits, and plaintext files. You can enable it in other languages using <code>"emojisense.languages"</code></p>
+<pre class="jsonc"><code>&quot;emojisense.languages&quot;: {
+    &quot;markdown&quot;: true,
+    &quot;plaintext&quot;: false,
+    &quot;json&quot;: true,
+    &quot;scminput&quot;: true // language used in the source control commit message box
+}</code></pre>
+<p>The language keys here come from <a href="https://code.visualstudio.com/docs/languages/identifiers">VS Code's list of language identifiers</a></p>
+<p>You can also change the settings for each language. Here's the default emojisense configuration for example:</p>
+<pre class="jsonc"><code>&quot;emojisense.languages&quot;: {
+    &quot;markdown&quot;: true,
+    &quot;plaintext&quot;: {
+        &quot;markupCompletionsEnabled&quot;: false,
+        &quot;emojiDecoratorsEnabled&quot;: false
+    },
+    &quot;scminput&quot;: true // language used in the source control commit message box
+}</code></pre>
+<p>Whenever a value is left unspecified, the top level setting is used instead. In this case, markdown files will fallback to use the top level <code>emojisense.unicodeCompletionsEnabled</code> and <code>emojisense.markupCompletionsEnabled</code> settings, while plaintext files will have <code>markupCompletionsEnabled</code> disabled and fallback to the <code>emojisense.unicodeCompletionsEnabled</code> setting</p>
+<h2 id="credits">Credits</h2>
+<ul>
+<li>Icon from emojione: https://www.emojione.com</li>
+<li><a href="https://atom.io/packages/autocomplete-emojis">Atom autocomplete+ emojis suggestions plugin</a></li>
+</ul>

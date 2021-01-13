@@ -1,0 +1,180 @@
+<p><strong>Important note:</strong> By default, this extension now delegates to <a href="http://github.com/microsoft/vscode-js-debug">the new js-debug extension</a> which is built-in to VS Code. Please file issues on that repo. To revert to the old behavior, you can set <code>"debug.javascript.usePreview": false</code> in your settings.</p>
+<hr />
+<h1 align="center">
+<br> <img src="https://github.com/Microsoft/vscode-chrome-debug/blob/master/images/icon.png?raw=true" alt="logo" width="200"> <br> VS Code - Debugger for Chrome <br> <br>
+</h1>
+<h4 align="center">
+Debug your JavaScript code running in Google Chrome from VS Code.
+</h4>
+<p align="center">
+<p><a href="https://vscode.visualstudio.com/1e32b5a6-a974-467b-9d5f-f47e49589c5e/_build/definition?definitionId=9"><img src="https://vscode.visualstudio.com/_apis/public/build/definitions/1e32b5a6-a974-467b-9d5f-f47e49589c5e/9/badge" alt="vsts"></a> <a href="https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome"><img src="https://vsmarketplacebadge.apphb.com/version/msjsdiag.debugger-for-chrome.svg?label=Debugger%20for%20Chrome" alt="Marketplace bagde"></a> <a href="https://gitter.im/Microsoft/vscode-chrome-debug?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"><img src="https://badges.gitter.im/Microsoft/vscode-chrome-debug.svg" alt="Release"></a></p>
+</p>
+<p>A VS Code extension to debug your JavaScript code in the Google Chrome browser, or other targets that support the <a href="https://chromedevtools.github.io/debugger-protocol-viewer/">Chrome DevTools Protocol</a>.</p>
+<figure>
+<img src="https://github.com/Microsoft/vscode-chrome-debug/blob/master/images/demo.gif?raw=true" alt="Demo" /><figcaption>Demo</figcaption>
+</figure>
+<p><strong>Supported features</strong> * Setting breakpoints, including in source files when source maps are enabled * Stepping, including with the buttons on the Chrome page * The Locals pane * Debugging eval scripts, script tags, and scripts that are added dynamically * Watches * Console</p>
+<p><strong>Unsupported scenarios</strong> * Debugging web workers * Debugging Chrome extensions * Any features that aren't script debugging</p>
+<h2 id="getting-started">Getting Started</h2>
+<ol type="1">
+<li><a href="https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome">Install the extension</a></li>
+<li>Open the folder containing the project you want to work on.</li>
+</ol>
+<h2 id="using-the-debugger">Using the debugger</h2>
+<p>When your launch config is set up, you can debug your project. Pick a launch config from the dropdown on the Debug pane in Code. Press the play button or F5 to start.</p>
+<h3 id="configuration">Configuration</h3>
+<p>The extension operates in two modes - it can launch an instance of Chrome navigated to your app, or it can attach to a running instance of Chrome. Both modes requires you to be serving your web application from local web server, which is started from either a VS Code task or from your command-line. Using the <code>url</code> parameter you simply tell VS Code which URL to either open or launch in Chrome.</p>
+<p>Just like when using the Node debugger, you configure these modes with a <code>.vscode/launch.json</code> file in the root directory of your project. You can create this file manually, or Code will create one for you if you try to run your project, and it doesn't exist yet.</p>
+<blockquote>
+<p><strong>Tip</strong>: See recipes for debugging different frameworks here: https://github.com/Microsoft/vscode-recipes</p>
+</blockquote>
+<h3 id="launch">Launch</h3>
+<p>Two example <code>launch.json</code> configs with <code>"request": "launch"</code>. You must specify either <code>file</code> or <code>url</code> to launch Chrome against a local file or a url. If you use a url, set <code>webRoot</code> to the directory that files are served from. This can be either an absolute path or a path using <code>${workspaceFolder}</code> (the folder open in Code). <code>webRoot</code> is used to resolve urls (like "http://localhost/app.js") to a file on disk (like <code>/Users/me/project/app.js</code>), so be careful that it's set correctly.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="dt">&quot;version&quot;</span><span class="fu">:</span> <span class="st">&quot;0.1.0&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="dt">&quot;configurations&quot;</span><span class="fu">:</span> <span class="ot">[</span></a>
+<a class="sourceLine" id="cb1-4" title="4">        <span class="fu">{</span></a>
+<a class="sourceLine" id="cb1-5" title="5">            <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Launch localhost&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-6" title="6">            <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;chrome&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-7" title="7">            <span class="dt">&quot;request&quot;</span><span class="fu">:</span> <span class="st">&quot;launch&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-8" title="8">            <span class="dt">&quot;url&quot;</span><span class="fu">:</span> <span class="st">&quot;http://localhost/mypage.html&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-9" title="9">            <span class="dt">&quot;webRoot&quot;</span><span class="fu">:</span> <span class="st">&quot;${workspaceFolder}/wwwroot&quot;</span></a>
+<a class="sourceLine" id="cb1-10" title="10">        <span class="fu">}</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb1-11" title="11">        <span class="fu">{</span></a>
+<a class="sourceLine" id="cb1-12" title="12">            <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Launch index.html&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-13" title="13">            <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;chrome&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-14" title="14">            <span class="dt">&quot;request&quot;</span><span class="fu">:</span> <span class="st">&quot;launch&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-15" title="15">            <span class="dt">&quot;file&quot;</span><span class="fu">:</span> <span class="st">&quot;${workspaceFolder}/index.html&quot;</span></a>
+<a class="sourceLine" id="cb1-16" title="16">        <span class="fu">}</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb1-17" title="17">    <span class="ot">]</span></a>
+<a class="sourceLine" id="cb1-18" title="18"><span class="fu">}</span></a></code></pre></div>
+<p>If you want to use a different installation of Chrome, you can also set the <code>runtimeExecutable</code> field with a path to the Chrome app.</p>
+<h3 id="attach">Attach</h3>
+<p>With <code>"request": "attach"</code>, you must launch Chrome with remote debugging enabled in order for the extension to attach to it. Here's how to do that:</p>
+<p><strong>Windows</strong> * Right click the Chrome shortcut, and select properties * In the "target" field, append <code>--remote-debugging-port=9222</code> * Or in a command prompt, execute <code>&lt;path to chrome&gt;/chrome.exe --remote-debugging-port=9222</code></p>
+<p><strong>macOS</strong> * In a terminal, execute <code>/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222</code></p>
+<p><strong>Linux</strong> * In a terminal, launch <code>google-chrome --remote-debugging-port=9222</code></p>
+<p>If you have another instance of Chrome running and don't want to restart it, you can run the new instance under a separate user profile with the <code>--user-data-dir</code> option. Example: <code>--user-data-dir=/tmp/chrome-debug</code>. This is the same as using the <code>userDataDir</code> option in a launch-type config.</p>
+<p>Launch Chrome and navigate to your page.</p>
+<p>An example <code>launch.json</code> file for an "attach" config.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb2-1" title="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">    <span class="dt">&quot;version&quot;</span><span class="fu">:</span> <span class="st">&quot;0.1.0&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-3" title="3">    <span class="dt">&quot;configurations&quot;</span><span class="fu">:</span> <span class="ot">[</span></a>
+<a class="sourceLine" id="cb2-4" title="4">        <span class="fu">{</span></a>
+<a class="sourceLine" id="cb2-5" title="5">            <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Attach to url with files served from ./out&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-6" title="6">            <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;chrome&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-7" title="7">            <span class="dt">&quot;request&quot;</span><span class="fu">:</span> <span class="st">&quot;attach&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-8" title="8">            <span class="dt">&quot;port&quot;</span><span class="fu">:</span> <span class="dv">9222</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-9" title="9">            <span class="dt">&quot;url&quot;</span><span class="fu">:</span> <span class="st">&quot;&lt;url of the open browser tab to connect to&gt;&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-10" title="10">            <span class="dt">&quot;webRoot&quot;</span><span class="fu">:</span> <span class="st">&quot;${workspaceFolder}/out&quot;</span></a>
+<a class="sourceLine" id="cb2-11" title="11">        <span class="fu">}</span></a>
+<a class="sourceLine" id="cb2-12" title="12">    <span class="ot">]</span></a>
+<a class="sourceLine" id="cb2-13" title="13"><span class="fu">}</span></a></code></pre></div>
+<h3 id="chrome-user-profile-note-cannot-connect-to-the-target-connect-econnrefused">Chrome user profile note (<code>Cannot connect to the target: connect ECONNREFUSED</code>)</h3>
+<p>Normally, if Chrome is already running when you start debugging with a launch config, then the new instance won't start in remote debugging mode. So by default, the extension launches Chrome with a separate user profile in a temp folder. Use the <code>userDataDir</code> launch config field to override or disable this. If you are using the <code>runtimeExecutable</code> field, this isn't enabled by default, but you can forcibly enable it with <code>"userDataDir": true</code>.</p>
+<p>If you are using an attach config, make sure you close other running instances of Chrome before launching a new one with <code>--remote-debugging-port</code>. Or, use a new profile with the <code>--user-data-dir</code> flag yourself.</p>
+<p>For other troubleshooting tips for this error, <a href="#cannot-connect-to-the-target:-connect-ECONNREFUSED-127.0.0.1:9222">see below</a>.</p>
+<h3 id="errors-from-chrome-errorchromewebdata">Errors from chrome-error://chromewebdata</h3>
+<p>If you see errors with a location like <code>chrome-error://chromewebdata/</code> in the error stack, these errors are not from the extension or from your app - they are usually a sign that Chrome was not able to load your app.</p>
+<p>When you see these errors, first check whether Chrome was able to load your app. Does Chrome say "This site can't be reached" or something similar? You must start your own server to run your app. Double-check that your server is running, and that the url and port are configured correctly.</p>
+<h3 id="other-targets">Other targets</h3>
+<p>You can also theoretically attach to other targets that support the same Chrome Debugging protocol, such as Electron or Cordova. These aren't officially supported, but should work with basically the same steps. You can use a launch config by setting <code>"runtimeExecutable"</code> to a program or script to launch, or an attach config to attach to a process that's already running. If Code can't find the target, you can always verify that it is actually available by navigating to <code>http://localhost:&lt;port&gt;/json</code> in a browser. If you get a response with a bunch of JSON, and can find your target page in that JSON, then the target should be available to this extension.</p>
+<h3 id="examples">Examples</h3>
+<p>See our wiki page for some configured example apps: <a href="https://github.com/Microsoft/vscode-chrome-debug/wiki/Examples">Examples</a></p>
+<h3 id="other-optional-launch-config-fields">Other optional launch config fields</h3>
+<ul>
+<li><code>trace</code>: When true, the adapter logs its own diagnostic info to a file. The file path will be printed in the Debug Console. This is often useful info to include when filing an issue on GitHub. If you set it to "verbose", it will also log to the console.</li>
+<li><code>runtimeExecutable</code>: Workspace relative or absolute path to the runtime executable to be used. If not specified, Chrome will be used from the default install location.</li>
+<li><code>runtimeArgs</code>: Optional arguments passed to the runtime executable.</li>
+<li><code>env</code>: Optional dictionary of environment key/value pairs.</li>
+<li><code>cwd</code>: Optional working directory for the runtime executable.</li>
+<li><code>userDataDir</code>: Normally, if Chrome is already running when you start debugging with a launch config, then the new instance won't start in remote debugging mode. So by default, the extension launches Chrome with a separate user profile in a temp folder. Use this option to set a different path to use, or set to false to launch with your default user profile.</li>
+<li><code>url</code>: On a ‘launch' config, it will launch Chrome at this URL.</li>
+<li><code>urlFilter</code>: On an ‘attach' config, or a ‘launch' config with no ‘url' set, search for a page with this url and attach to it. It can also contain wildcards, for example, <code>"localhost:*/app"</code> will match either <code>"http://localhost:123/app"</code> or <code>"http://localhost:456/app"</code>, but not <code>"https://stackoverflow.com"</code>.</li>
+<li><code>targetTypes</code>: On an ‘attach' config, or a ‘launch' config with no ‘url' set, set a list of acceptable target types from the default <code>["page"]</code>. For example, if you are attaching to an Electron app, you might want to set this to <code>["page", "webview"]</code>. A value of <code>null</code> disables filtering by target type.</li>
+<li><code>sourceMaps</code>: By default, the adapter will use sourcemaps and your original sources whenever possible. You can disable this by setting <code>sourceMaps</code> to false.</li>
+<li><code>pathMapping</code>: This property takes a mapping of URL paths to local paths, to give you more flexibility in how URLs are resolved to local files. <code>"webRoot": "${workspaceFolder}"</code> is just shorthand for a pathMapping like <code>{ "/": "${workspaceFolder}" }</code>.</li>
+<li><code>smartStep</code>: Automatically steps over code that doesn't map to source files. Especially useful for debugging with async/await.</li>
+<li><code>disableNetworkCache</code>: If false, the network cache will be NOT disabled. It is disabled by default.</li>
+<li><code>showAsyncStacks</code>: If true, callstacks across async calls (like <code>setTimeout</code>, <code>fetch</code>, resolved Promises, etc) will be shown.</li>
+<li><code>breakOnLoad</code>: Experimental. If true, the debug adapter will attempt to set breakpoints in scripts before they are loaded, so it can hit breakpoints at the beginnings of those scripts. Has a perf impact.</li>
+<li><code>breakOnLoadStrategy</code>: The strategy used for <code>breakOnLoad</code>. Options are "Instrument" or "Regex". Instrument "[tells] Chrome to pause as each script is loaded, resolving sourcemaps and setting breakpoints" Regex "[s]ets breakpoints optimistically in files with the same name as the file in which the breakpoint is set."</li>
+</ul>
+<h2 id="skip-files-blackboxing-ignore-files">Skip files / Blackboxing / Ignore files</h2>
+<p>You can use the <code>skipFiles</code> property to ignore/blackbox specific files while debugging. For example, if you set <code>"skipFiles": ["jquery.js"]</code>, then you will skip any file named ‘jquery.js' when stepping through your code. You also won't break on exceptions thrown from ‘jquery.js'. This works the same as "blackboxing scripts" in Chrome DevTools.</p>
+<p>The supported formats are: * The name of a file (like <code>jquery.js</code>) * The name of a folder, under which to skip all scripts (like <code>node_modules</code>) * A path glob, to skip all scripts that match (like <code>node_modules/react/*.min.js</code>)</p>
+<h2 id="page-refreshing">Page refreshing</h2>
+<p>This debugger also enables you to refresh your target by simply hitting the restart button in the debugger UI. Additionally you can map the refresh action to your favorite keyboard shortcut by adding the following key mapping to <a href="https://code.visualstudio.com/docs/getstarted/keybindings">Key Bindings</a>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb3-1" title="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">    <span class="dt">&quot;key&quot;</span><span class="fu">:</span> <span class="st">&quot;ctrl+r&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb3-3" title="3">    <span class="dt">&quot;command&quot;</span><span class="fu">:</span> <span class="st">&quot;workbench.action.debug.restart&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb3-4" title="4">    <span class="dt">&quot;when&quot;</span><span class="fu">:</span> <span class="st">&quot;inDebugMode&quot;</span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="fu">}</span></a></code></pre></div>
+<p>Read more here https://github.com/Microsoft/vscode-chrome-debug-core/issues/91#issuecomment-265027348</p>
+<h2 id="sourcemaps">Sourcemaps</h2>
+<p>The debugger uses sourcemaps to let you debug with your original sources, but sometimes the sourcemaps aren't generated properly and overrides are needed. In the config we support <code>sourceMapPathOverrides</code>, a mapping of source paths from the sourcemap, to the locations of these sources on disk. Useful when the sourcemap isn't accurate or can't be fixed in the build process.</p>
+<p>The left hand side of the mapping is a pattern that can contain a wildcard, and will be tested against the <code>sourceRoot</code> + <code>sources</code> entry in the source map. If it matches, the source file will be resolved to the path on the right hand side, which should be an absolute path to the source file on disk.</p>
+<p>A few mappings are applied by default, corresponding to some common default configs for Webpack and Meteor:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="co">// Note: These are the mappings that are included by default out of the box, with examples of how they could be resolved in different scenarios. These are not mappings that would make sense together in one project.</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="co">// webRoot = /Users/me/project</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="st">&quot;sourceMapPathOverrides&quot;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-4" title="4">    <span class="st">&quot;webpack:///./~/*&quot;</span><span class="op">:</span> <span class="st">&quot;${webRoot}/node_modules/*&quot;</span><span class="op">,</span>       <span class="co">// Example: &quot;webpack:///./~/querystring/index.js&quot; -&gt; &quot;/Users/me/project/node_modules/querystring/index.js&quot;</span></a>
+<a class="sourceLine" id="cb4-5" title="5">    <span class="st">&quot;webpack:///./*&quot;</span><span class="op">:</span>   <span class="st">&quot;${webRoot}/*&quot;</span><span class="op">,</span>                    <span class="co">// Example: &quot;webpack:///./src/app.js&quot; -&gt; &quot;/Users/me/project/src/app.js&quot;,</span></a>
+<a class="sourceLine" id="cb4-6" title="6">    <span class="st">&quot;webpack:///*&quot;</span><span class="op">:</span>     <span class="st">&quot;*&quot;</span><span class="op">,</span>                               <span class="co">// Example: &quot;webpack:///project/app.ts&quot; -&gt; &quot;/project/app.ts&quot;</span></a>
+<a class="sourceLine" id="cb4-7" title="7">    <span class="st">&quot;webpack:///src/*&quot;</span><span class="op">:</span> <span class="st">&quot;${webRoot}/*&quot;</span><span class="op">,</span>                    <span class="co">// Example: &quot;webpack:///src/app.js&quot; -&gt; &quot;/Users/me/project/app.js&quot;</span></a>
+<a class="sourceLine" id="cb4-8" title="8">    <span class="st">&quot;meteor://💻app/*&quot;</span><span class="op">:</span> <span class="st">&quot;${webRoot}/*&quot;</span>                    <span class="co">// Example: &quot;meteor://💻app/main.ts&quot; -&gt; &quot;/Users/me/project/main.ts&quot;</span></a>
+<a class="sourceLine" id="cb4-9" title="9"><span class="op">}</span></a></code></pre></div>
+<p>If you set <code>sourceMapPathOverrides</code> in your launch config, that will override these defaults. <code>${workspaceFolder}</code> and <code>${webRoot}</code> can be used here. If you aren't sure what the left side should be, you can use the <code>.scripts</code> command (details below). You can also use the <code>trace</code> option to see the contents of the sourcemap, or look at the paths of the sources in Chrome DevTools, or open your <code>.js.map</code> file and check the values manually.</p>
+<h3 id="ionicgulp-sourcemaps-note">Ionic/gulp-sourcemaps note</h3>
+<p>Ionic and gulp-sourcemaps output a sourceRoot of <code>"/source/"</code> by default. If you can't fix this via your build config, I suggest this setting:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb5-1" title="1"><span class="er">&quot;sourceMapPathOverrides&quot;:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2">    <span class="dt">&quot;/source/*&quot;</span><span class="fu">:</span> <span class="st">&quot;${workspaceFolder}/*&quot;</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="fu">}</span></a></code></pre></div>
+<h2 id="usage-with-remote-vs-code-extensions">Usage with remote VS Code extensions</h2>
+<p>This extension can be used with the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack">VS Code Remote Extensions</a> to debug an app in a local Chrome window. Here's an example workflow using the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote - SSH</a> extension:</p>
+<ul>
+<li>Connect to the SSH remote where your project is located</li>
+<li>Launch the development server on the remote</li>
+<li>Run the "Forward Port From Active Host" command to forward the port the server is listening on. For example, if your development server is listening on port 3000, forward port 3000 to the local machine.</li>
+<li>Start your "chrome" launch config</li>
+<li>Chrome should start on the local machine, accessing your app via the forwarded port</li>
+<li>Debugging works as normally</li>
+</ul>
+<p>There are a couple caveats to this workflow: - Since the extension can't currently access the remote disk, sourcemaps can't be read from disk. If sourcemaps are inlined, they will still be used. If possible, they will be downloaded through your webserver. - In a local window, when resolving your script locations with webRoot/pathMapping, the extension does some searching for the correct script. Again, since the extension can't check the remote disk, the extension can't do this searching, so your webRoot/pathMapping must be exactly accurate to resolve the script location.</p>
+<p>If you have any other issues, please open an issue.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="my-breakpoints-arent-hit.-whats-wrong">My breakpoints aren't hit. What's wrong?</h3>
+<p>If your breakpoints aren't hit, it's most likely a sourcemapping issue or because you are having breakpoints in immediately executed code. If you for example have a breakpoint in a <code>render function</code> that runs on page load, sometimes our debugger might not be attached to Chrome before the code has been executed. This means that you will have to refresh the page in Chrome after we have attached from VS Code to hit your breakpoint.</p>
+<p>Alternatively, we have an experimental "break-on-load" configuration option which will make this timing issue more transparent. It landed in https://github.com/microsoft/vscode-chrome-debug-core/pull/241.</p>
+<p>If you have a sourcemapping issue, please see https://github.com/Microsoft/vscode-chrome-debug#sourcemaps</p>
+<h3 id="cannot-connect-to-the-target-connect-econnrefused-127.0.0.19222">Cannot connect to the target: connect ECONNREFUSED 127.0.0.1:9222</h3>
+<p>This message means that the extension can't attach to Chrome, because Chrome wasn't launched in debug mode. Here are some things to try: * If using an <code>attach</code> type config, ensure that you launched Chrome using <code>--remote-debugging-port=9222</code>. And if there was already a running instance, close it first or see note about <code>--user-data-dir</code> above. * Ensure that the <code>port</code> property matches the port on which Chrome is listening for remote debugging connections. This is <code>9222</code> by default. Ensure nothing else is using this port, including your web server. If something else on your computer responds at <code>http://localhost:9222</code>, then set a different port. * If using a <code>launch</code> type config with the <code>userDataDir</code> option explicitly disabled, close other running instances of Chrome - if Chrome is already running, the extension may not be able to attach, when using launch mode. Chrome can even stay running in the background when all its windows are closed, which will interfere - check the taskbar or kill the process if necessary. * If all else fails, try to navigate to <code>http://localhost:&lt;port&gt;/json</code> in a browser when you see this message - if there is no response, then something is wrong upstream of the extension. If there is a page of JSON returned, then ensure that the <code>port</code> in the launch config matches the port in that url.</p>
+<h3 id="general-things-to-try-if-youre-having-issues">General things to try if you're having issues:</h3>
+<ul>
+<li>Ensure <code>webRoot</code> is set correctly if needed</li>
+<li>Look at your sourcemap config carefully. A sourcemap has a path to the source files, and this extension uses that path to find the original source files on disk. Check the <code>sourceRoot</code> and <code>sources</code> properties in your sourcemap and make sure that they can be combined with the <code>webRoot</code> property in your launch config to build the correct path to the original source files.</li>
+<li>This extension ignores sources that are inlined in the sourcemap - you may have a setup that works in Chrome Dev Tools, but not this extension, because the paths are incorrect, but Chrome Dev Tools are reading the inlined source content.</li>
+<li>Check the console for warnings that this extension prints in some cases when it can't attach.</li>
+<li>Ensure the code in Chrome matches the code in Code. Chrome may cache an old version.</li>
+<li>If your breakpoints bind, but aren't hit, try refreshing the page. If you set a breakpoint in code that runs immediately when the page loads, you won't hit that breakpoint until you refresh the page.</li>
+<li>File a bug in this extension's <a href="https://github.com/Microsoft/vscode-chrome-debug">GitHub repo</a>, including the debug adapter log file. Create the log file by setting the "trace" field in your launch config and reproducing the issue. It will print the path to the log file at the top of the Debug Console. You can drag this file into an issue comment to upload it to GitHub.</li>
+<li>If you're using Webpack, we recommend using the <code>"devtool": "source-map"</code> option (in your <code>webpack.config.js</code> file) as the others produce lower-fidelity sourcemaps and you may have issues setting breakpoints. See the <a href="https://webpack.js.org/configuration/devtool/">full list of devtool options for webpack</a> for more information.</li>
+</ul>
+<h3 id="the-.scripts-command">The <code>.scripts</code> command</h3>
+<p>This feature is extremely useful for understanding how the extension maps files in your workspace to files running in Chrome. You can enter <code>.scripts</code> in the Debug Console to see a listing of all scripts loaded in the runtime, their sourcemap information, and how they are mapped to files on disk. The format is like this:</p>
+<pre><code>› &lt;The exact URL for a script, reported by Chrome&gt; (&lt;The local path that has been inferred for this script, using webRoot, if applicable&gt;)
+    - &lt;The exact source path from the sourcemap&gt; (&lt;The local path inferred for the source, using sourceMapPathOverrides, or webRoot, etc, if applicable&gt;)</code></pre>
+<p>Example:</p>
+<pre><code>.scripts
+› eval://43
+› http://localhost:8080/index.html (/Users/me/project/wwwroot/index.html)
+› http://localhost:8080/out/test1.js (/Users/me/project/wwwroot/out/test1.js)
+    - /src/test1a.ts (/Users/me/project/wwwroot/src/test1a.ts)
+    - /src/test1b.ts (/Users/me/project/wwwroot/src/test1b.ts)
+    - /src/test1c.ts (/Users/me/project/wwwroot/src/test1c.ts)
+› http://localhost:8080/out/test2.js (/Users/me/project/wwwroot/out/test2.js)
+    - /src/test2.ts (/Users/me/project/wwwroot/src/test2.ts)</code></pre>
+<p>If the paths of your source files show as not being resolved correctly here, you may have to change <code>sourceMapPathOverrides</code> or <code>webRoot</code> to help the debugger resolve them to real paths on disk.</p>
+<p>If you are wondering what a script is, for example, that ‘eval' script, you can also use <code>.scripts</code> to get its contents: <code>.scripts eval://43</code>.</p>
+<hr />
+<p>This project has adopted the <a href="https://opensource.microsoft.com/codeofconduct/">Microsoft Open Source Code of Conduct</a>. For more information see the <a href="https://opensource.microsoft.com/codeofconduct/faq/">Code of Conduct FAQ</a> or contact <a href="https://github.com/Microsoft/vscode-chrome-debug/blob/master/mailto:opencode@microsoft.com">opencode@microsoft.com</a> with any additional questions or comments.</p>

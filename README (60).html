@@ -1,0 +1,114 @@
+<hr>
+
+
+<center>
+
+
+<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
+
+
+<p>NEXT</p>
+
+
+</center>
+
+
+<hr>
+
+
+<h1 id="draw.io-vs-code-integration">Draw.io VS Code Integration</h1>
+<p><a href="https://github.com/sponsors/hediet"><img src="https://img.shields.io/static/v1?style=social&amp;label=Sponsor&amp;message=%E2%9D%A4&amp;logo=GitHub&amp;color&amp;link=%3Curl%3E" /></a> <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=ZP5F38L4C88UY&amp;source=url"><img src="https://img.shields.io/static/v1?style=social&amp;label=Donate&amp;message=%E2%9D%A4&amp;logo=Paypal&amp;color&amp;link=%3Curl%3E" /></a> <a href="https://twitter.com/intent/follow?screen_name=hediet_dev"><img src="https://img.shields.io/twitter/follow/hediet_dev.svg?style=social" /></a></p>
+<p>This unofficial extension integrates <a href="https://app.diagrams.net/">Draw.io</a> (also known as <a href="https://github.com/hediet/vscode-drawio/blob/master/diagrams.net">diagrams.net</a>) into VS Code.</p>
+<h2 id="features">Features</h2>
+<ul>
+<li>Edit <code>.drawio</code>, <code>.dio</code>, <code>.drawio.svg</code> or <code>.drawio.png</code> files in the Draw.io editor.
+<ul>
+<li>To create a new diagram, simply create an empty <code>*.drawio</code>, <code>*.drawio.svg</code> or <code>*.drawio.png</code> file and open it.</li>
+<li><code>.drawio.svg</code> are valid <code>.svg</code> files that can be embedded in Github readme files! No export needed.</li>
+<li><code>.drawio.png</code> are valid <code>.png</code> files! No export needed. You should use <code>.svg</code> though whenever possible - they look much better!</li>
+<li>To convert between different formats, use the <code>Draw.io: Convert To...</code> command.</li>
+</ul></li>
+<li>Uses an offline version of Draw.io by default.</li>
+<li>Multiple Draw.io themes are available.</li>
+<li>Use liveshare to collaboratively edit a diagram with others.</li>
+<li>Nodes/edges can be linked with code spans.</li>
+</ul>
+<h2 id="demo">Demo</h2>
+<p><img src="https://github.com/hediet/vscode-drawio/raw/master/./docs/demo.gif" /></p>
+<p><br /> <br /></p>
+<h1 id="like-it-so-far-you-might-also-like-my-open-source-chrome-extension-that-enhances-the-github-markdown-editor">Like it so far? You might also like my <a href="https://github.com/hediet/chrome-ext-github-monaco">open source</a> <a href="https://chrome.google.com/webstore/detail/monaco-markdown-editor-fo/mmpbdjdnmhgkpligeniippcgfmkgkpnf">Chrome extension that enhances the Github markdown editor</a>!</h1>
+<p><br /> <br /></p>
+<h2 id="editing-.drawio.svg.drawio.png-files">Editing .drawio.svg/.drawio.png Files</h2>
+<p>You can directly edit and save <code>.drawio.svg</code> and <code>.drawio.png</code> files. These files are perfectly valid svg/png-images that contain an embedded Draw.io diagram. Whenever you edit such a file, the svg/png part of that file is kept up to date.</p>
+<p>The logo of this extension is such a <code>.drawio.png</code> file that has been created with the extension itself!</p>
+<p><img src="https://github.com/hediet/vscode-drawio/raw/master/./docs/drawio-png.gif" /></p>
+<p>If diffs are important for you, you should prefer <code>.drawio</code> and avoid <code>.drawio.png</code> diagrams.</p>
+<h2 id="collaboratively-edit-or-present-diagrams">Collaboratively Edit Or Present Diagrams</h2>
+<p>With version 1.0 of this extension, extensive support for <a href="https://visualstudio.microsoft.com/de/services/live-share/">VS Code Liveshare</a> has been added. You can now edit or present your Draw.io diagrams remotely, while seeing each participant's cursor and selection! This can be used for discussing, reviewing or brainstorming diagrams. With Draw.io's freehand drawing tool and integrated LaTeX support, this extension becomes an advanced whiteboard solution that can be used for remote code interviews!</p>
+<p><img src="https://github.com/hediet/vscode-drawio/raw/master/./docs/liveshare-demo.gif" /></p>
+<p><em>Internally, this extension synchronizes Draw.io diagrams with text documents. These text documents are shared by Liveshare. As Liveshare has no understanding of the text, modification conflicts might occur on simultaneous modifications.</em></p>
+<h2 id="code-link-feature">Code Link Feature</h2>
+<p>In the status bar, you can enable or disable the code link feature. If it is enabled and you double click on a node whose label starts with <code>#</code>, you will perform a workspace search for a symbol matching the rest of the label.</p>
+<p>If you have a node labeled <code>#MyClass</code> and a class of name <code>MyClass</code>, you will jump to its source if you double click the node!</p>
+<p><strong>Please note that you have to open at least one file of the project that contains the symbol.</strong> Otherwise, VS Code will not consider this project when searching for symbols. This file itself does not have to contain the symbol though.</p>
+<p>Thanks to my latest github sponsors, this feature is open source and freely available now.</p>
+<p><em>TIP</em>: If you open the draw.io editor to the right side (i.e. the second editor column) and navigate to a symbol, the diagram will stay visible.</p>
+<p><img src="https://github.com/hediet/vscode-drawio/raw/master/./docs/demo-code-link.gif" /></p>
+<h2 id="themes">Themes</h2>
+<details>
+<summary><b>Available Draw.io Themes</b></summary> <!-- Please use HTML syntax here so that it works for Github and mkdocs -->
+<ul>
+<li>
+<p>
+Theme "atlas"
+</p>
+<img src="https://github.com/hediet/vscode-drawio/raw/master/docs/theme-atlas.png" alt="atlas" width="800">
+</li>
+<li>
+<p>
+Theme "Kennedy"
+</p>
+<img src="https://github.com/hediet/vscode-drawio/raw/master/docs/theme-Kennedy.png" alt="Kennedy" width="800">
+</li>
+<li>
+<p>
+Theme "min"
+</p>
+&lt;img src="https://github.com/hediet/vscode-drawio/raw/master/docs/theme-min.png" alt="min" width="800"
+</li>
+<li>
+<p>
+Theme "dark"
+</p>
+<img src="https://github.com/hediet/vscode-drawio/raw/master/docs/theme-dark.png" alt="dark" width="800">
+</li>
+</ul>
+</details>
+<h2 id="associate-.svg-files-with-the-draw.io-editor">Associate <code>.svg</code> Files With The Draw.io Editor</h2>
+<p>By default, this extension only handles <code>*.drawio.svg</code> files. Add this to your VS Code <code>settings.json</code> file if you want to associate it with <code>.svg</code> files:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb1-1" title="1"><span class="er">&quot;workbench.editorAssociations&quot;:</span> <span class="ot">[</span></a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="fu">{</span></a>
+<a class="sourceLine" id="cb1-3" title="3">        <span class="dt">&quot;viewType&quot;</span><span class="fu">:</span> <span class="st">&quot;hediet.vscode-drawio-text&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-4" title="4">        <span class="dt">&quot;filenamePattern&quot;</span><span class="fu">:</span> <span class="st">&quot;*.svg&quot;</span></a>
+<a class="sourceLine" id="cb1-5" title="5">    <span class="fu">}</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="ot">]</span></a></code></pre></div>
+<p>You won't be able to edit arbitrary SVG files though - only those that have been created with Draw.io or this extension!</p>
+<h2 id="editing-the-diagram-and-its-xml-side-by-side">Editing the Diagram and its XML Side by Side</h2>
+<p>You can open the same <code>*.drawio</code> file with the Draw.io editor and as xml file. They are synchronized, so you can switch between them as you like it. This is super pratical if you want to use find/replace to rename text or other features of VS Code to speed up your diagram creation/edit process. Use the <code>File: Reopen With...</code> command to toggle between the text or the Draw.io editor. You can open multiple editors for the same file.</p>
+<p><img src="https://github.com/hediet/vscode-drawio/raw/master/./docs/drawio-xml.gif" /></p>
+<h2 id="contributors">Contributors</h2>
+<ul>
+<li>Henning Dieterichs, <a href="https://github.com/hediet">hediet</a> on Github (Main Contributor / Author)</li>
+<li>Vincent Rouillé, <a href="https://github.com/Speedy37">Speedy37</a> on Github</li>
+</ul>
+<h2 id="see-also-similar-extensions">See Also / Similar Extensions</h2>
+<ul>
+<li><a href="https://app.diagrams.net/">Draw.io</a> - This extension relies on the giant work of Draw.io. Their embedding feature enables this extension! This extension bundles a recent version of Draw.io.</li>
+<li><a href="https://github.com/eightHundreds/vscode-drawio">vscode-drawio</a> by eightHundreds.</li>
+</ul>
+<h2 id="other-cool-extensions">Other Cool Extensions</h2>
+<p>If you like this extension, you might like <a href="https://marketplace.visualstudio.com/search?term=henning%20dieterichs&amp;target=VSCode">my other extensions</a> too:</p>
+<ul>
+<li><strong><a href="https://marketplace.visualstudio.com/items?itemName=hediet.debug-visualizer">Debug Visualizer</a></strong>: An extension for visualizing data structures while debugging.</li>
+<li><strong><a href="https://marketplace.visualstudio.com/items?itemName=hediet.realtime-debugging">Real-Time Debugging</a></strong>: This extension visualizes how your code is being executed.</li>
+</ul>
