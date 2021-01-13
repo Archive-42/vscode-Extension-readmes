@@ -2,78 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
-<!-- <script async defer src="./prism.js"></script> -->
-  <script async defer src="copy-2-clip.js"></script>
-   <script async defer src="toc.js"></script>
-   <link rel="stylesheet" href="toc.css">
-  <script async defer src="./npm.js"></script>
-  <script async defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"
-    integrity="sha512-9GIHU4rPKUMvNOHFOer5Zm2zHnZOjayOO3lZpokhhCtgt8FNlNiW/bb7kl0R5ZXfCDVPcQ8S4oBdNs92p5Nm2w=="
-    crossorigin="anonymous"></script>
-  <script async defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/bash.min.js"
-    integrity="sha512-Hg0ufGEvn0AuzKMU0psJ1iH238iUN6THh7EI0CfA0n1sd3yu6PYet4SaDMpgzN9L1yQHxfB3yc5ezw3PwolIfA=="
-    crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/default.min.css">
-  <script async defer src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/default.min.css">
-  <script async defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-  <!-- and iteasy to individually load additional languages -->
-  <script async src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/go.min.js"></script>
-  <script async defer src="./commons.js"></script>
-  <script async defer src="./minc.js"></script>
-  <script async defer src="./package.js"></script>
-  <link rel="stylesheet" href="./style.css">
-  <meta data-react-helmet="true" http-equiv="cleartype" content="on">
-  <meta data-react-helmet="true" name="apple-mobile-web-app-capable" content="yes">
-  <meta data-react-helmet="true" name="viewport"
-    content="width=device-width,minimum-scale=1.0,initial-scale=1,user-scalable=yes">
-  <meta data-react-helmet="true" property="og:image"
-    content="https://static.npmjs.com/338e4905a2684ca96e08c7780fc68412.png">
-  <meta data-react-helmet="true" name="msapplication-TileColor" content="#cb3837">
-  <meta data-react-helmet="true" name="msapplication-TileImage"
-    content="https://static.npmjs.com/7a7ffabbd910fc60161bc04f2cee4160.png">
-  <meta data-react-helmet="true" name="msapplication-config"
-    content="https://static.npmjs.com/668aac888e52ae13cac9cfd71fabd31f.xml">
-  <meta data-react-helmet="true" name="theme-color" content="#cb3837">
-  <meta data-react-helmet="true" name="description"
-    content="Crawler is a web spider written with Nodejs. It gives you the full power of jQuery on the server to parse a big number of pages as they are downloaded, asynchronously">
-  <meta data-react-helmet="true" property="og:description"
-    content="Crawler is a web spider written with Nodejs. It gives you the full power of jQuery on the server to parse a big number of pages as they are downloaded, asynchronously">
-  <meta data-react-helmet="true" property="og:title" content="crawler">
-  <meta data-react-helmet="true" property="og:url" content="https://www.npmjs.com/package/crawler">
-  <meta data-react-helmet="true" property="og:site_name" content="npm">
-  <meta data-react-helmet="true" name="keywords"
-    content="dom,javascript,crawling,spider,scraper,scraping,jquery,crawler,nodejs">
-  <meta data-react-helmet="true" name="twitter:card" content="summary">
-  <meta data-react-helmet="true" name="twitter:url" content="https://www.npmjs.com/package/crawler">
-  <meta data-react-helmet="true" name="twitter:title" content="npm: crawler">
-  <meta data-react-helmet="true" name="twitter:description"
-    content="Crawler is a web spider written with Nodejs. It gives you the full power of jQuery on the server to parse a big number of pages as they are downloaded, asynchronously">
-  <link data-react-helmet="true" href="https://static.npmjs.com/osd.xml" rel="search" title="npm package search"
-    type="application/opensearchdescription+xml">
-  <link data-react-helmet="true" rel="apple-touch-icon" sizes="120x120"
-    href="https://static.npmjs.com/58a19602036db1daee0d7863c94673a4.png">
-  <link data-react-helmet="true" rel="apple-touch-icon" sizes="144x144"
-    href="https://static.npmjs.com/7a7ffabbd910fc60161bc04f2cee4160.png">
-  <link data-react-helmet="true" rel="apple-touch-icon" sizes="152x152"
-    href="https://static.npmjs.com/34110fd7686e2c90a487ca98e7336e99.png">
-  <link data-react-helmet="true" rel="apple-touch-icon" sizes="180x180"
-    href="https://static.npmjs.com/3dc95981de4241b35cd55fe126ab6b2c.png">
-  <link data-react-helmet="true" rel="icon" type="image/png"
-    href="https://static.npmjs.com/b0f1a8318363185cc2ea6a40ac23eeb2.png" sizes="32x32">
-  <link data-react-helmet="true" rel="icon" type="image/png"
-    href="https://static.npmjs.com/1996fcfdf7ca81ea795f67f093d7f449.png" sizes="230x230">
-  <link data-react-helmet="true" rel="icon" type="image/png"
-    href="https://static.npmjs.com/f1786e9b7cba9753ca7b9c40e8b98f67.png" sizes="96x96">
-  <link data-react-helmet="true" rel="icon" type="image/png"
-    href="https://static.npmjs.com/5f6e93af5bf0f5dcdd1eecdac99f51ee.png" sizes="192x192">
-  <link data-react-helmet="true" rel="icon" type="image/png"
-    href="https://static.npmjs.com/c426a1116301d1fd178c51522484127a.png" sizes="228x228">
-  <link data-react-helmet="true" rel="icon" type="image/png"
-    href="https://static.npmjs.com/da3ab40fb0861d15c83854c29f5f2962.png" sizes="16x16">
-  <link data-react-helmet="true" rel="stylesheet" href="./crawler - npm_files/7d5db3a855564e4308a78d7d8910cb85.css">
+
 
 </head>
 
