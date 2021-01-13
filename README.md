@@ -40,7 +40,7 @@
 <img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/23b9b236-746e-409c-8e86-30b4385e3b72/hr1-raypham.gif" alt="hr-line" width="781" height="22">
 
 
-<p>NEXT</p>
+<p>Website</p>
 
 
 </center>
